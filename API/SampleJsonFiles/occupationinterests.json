@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "value": "Enterprising"
+  },
+  {
+    "id": 2,
+    "value": "Conventional"
+  },
+  {
+    "id": 3,
+    "value": "Realistic"
+  },
+  {
+    "id": 4,
+    "value": "Social"
+  },
+  {
+    "id": 5,
+    "value": "Investigative"
+  },
+  {
+    "id": 6,
+    "value": "Artistic"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": 2,
+    "noc": "0012",
+    "nocAndTitle": "0012 - Senior government managers and officials",
+    "jobOpenings": 1234
+  },
+  {
+    "id": 3,
+    "noc": "0013",
+    "nocAndTitle": "0013 - Senior managers - financial, communications and other business services",
+    "jobOpenings": 5678
+  }
+]

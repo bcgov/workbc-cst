@@ -1,0 +1,12 @@
+.vs/
+yarn.lock
+API/bin/
+DataImporter/obj/
+UnitTests/bin/
+UnitTests/obj/
+
+API/obj/
+
+DataImporter/bin/
+
+*.user

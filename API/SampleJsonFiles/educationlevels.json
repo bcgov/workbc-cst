@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "value": "Degree"
+  },
+  {
+    "id": 2,
+    "value": "Diploma/Certificate"
+  },
+  {
+    "id": 3,
+    "value": "High School"
+  },
+  {
+    "id": 4,
+    "value": "Less than High School"
+  }
+]

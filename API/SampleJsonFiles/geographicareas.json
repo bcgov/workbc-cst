@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "value": "British Columbia"
+  },
+  {
+    "id": 2,
+    "value": "Mainland South West"
+  },
+  {
+    "id": 3,
+    "value": "Vancouver Island Coast"
+  },
+  {
+    "id": 4,
+    "value": "North Coast & Nechako"
+  },
+  {
+    "id": 5,
+    "value": "Cariboo"
+  },
+  {
+    "id": 6,
+    "value": "Kootenay"
+  },
+  {
+    "id": 7,
+    "value": "North East"
+  },
+  {
+    "id": 8,
+    "value": "Thompson Okanagan"
+  }
+]

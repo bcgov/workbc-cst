@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "value": "All industries"
+  },
+  {
+    "id": 2,
+    "value": "Broadcasting, data processing, and information"
+  },
+  {
+    "id": 3,
+    "value": "Elementary and secondary schools"
+  },
+  {
+    "id": 4,
+    "value": "Private and trades education"
+  },
+  {
+    "id": 5,
+    "value": "Hospitals"
+  },
+  {
+    "id": 6,
+    "value": "Social assistance"
+  },
+  {
+    "id": 7,
+    "value": "Repair, personal and non-profit services"
+  },
+  {
+    "id": 8,
+    "value": "Federal government public administration"
+  },
+  {
+    "id": 9,
+    "value": "Provincial and territorial public administration"
+  },
+  {
+    "id": 10,
+    "value": "Local and Indigenous public administration"
+  },
+  {
+    "id": 11,
+    "value": "Farms"
+  },
+  {
+    "id": 12,
+    "value": "Machinery manufacturing"
+  },
+  {
+    "id": 13,
+    "value": "Telecommunications"
+  },
+  {
+    "id": 14,
+    "value": "Insurance carriers and related activities"
+  },
+  {
+    "id": 15,
+    "value": "Real estate rental and leasing"
+  },
+  {
+    "id": 16,
+    "value": "Computer systems design and related services"
+  },
+  {
+    "id": 17,
+    "value": "Legal, accounting, design, research, and advertising services"
+  },
+  {
+    "id": 18,
+    "value": "Finance"
+  },
+  {
+    "id": 19,
+    "value": "Architectural, engineering and related services"
+  },
+  {
+    "id": 20,
+    "value": "Management, scientific and technical consulting services"
+  },
+  {
+    "id": 21,
+    "value": "Business, building and other support services"
+  },
+  {
+    "id": 22,
+    "value": "Community colleges"
+  },
+  {
+    "id": 23,
+    "value": "Universities"
+  },
+  {
+    "id": 24,
+    "value": "Ambulatory health care services"
+  },
+  {
+    "id": 25,
+    "value": "Nursing and residential care facilities"
+  },
+  {
+    "id": 26,
+    "value": "Wholesale trade"
+  },
+  {
+    "id": 27,
+    "value": "Motor vehicle and parts dealers"
+  },
+  {
+    "id": 28,
+    "value": "Health and personal care stores"
+  },
+  {
+    "id": 29,
+    "value": "Other retail trade (excluding cars and personal care)"
+  },
+  {
+    "id": 30,
+    "value": "Motion picture and sound recording industries"
+  },
+  {
+    "id": 31,
+    "value": "Performing arts, spectator sports and related industries"
+  },
+  {
+    "id": 32,
+    "value": "Amusement, gambling and recreation industries"
+  },
+  {
+    "id": 33,
+    "value": "Heritage institutions"
+  },
+  {
+    "id": 34,
+    "value": "Accommodation services"
+  },
+  {
+    "id": 35,
+    "value": "Food services and drinking places"
+  },
+  {
+    "id": 36,
+    "value": "Forestry and logging"
+  },
+  {
+    "id": 37,
+    "value": "Fishing, hunting and trapping"
+  },
+  {
+    "id": 38,
+    "value": "Support activities for agriculture and forestry"
+  },
+  {
+    "id": 39,
+    "value": "Oil and gas extraction"
+  },
+  {
+    "id": 40,
+    "value": "Mining"
+  },
+  {
+    "id": 41,
+    "value": "Support activities for mining and oil and gas extraction"
+  },
+  {
+    "id": 42,
+    "value": "Utilities"
+  },
+  {
+    "id": 43,
+    "value": "Construction"
+  },
+  {
+    "id": 44,
+    "value": "Food, beverage and tobacco manufacturing"
+  },
+  {
+    "id": 45,
+    "value": "Wood product manufacturing"
+  },
+  {
+    "id": 46,
+    "value": "Paper manufacturing"
+  },
+  {
+    "id": 47,
+    "value": "Primary metal manufacturing"
+  },
+  {
+    "id": 48,
+    "value": "Fabricated metal product manufacturing"
+  },
+  {
+    "id": 49,
+    "value": "Ship and boat building"
+  },
+  {
+    "id": 50,
+    "value": "Transportation equipment manufacturing (excluding shipbuilding)"
+  },
+  {
+    "id": 51,
+    "value": "Other manufacturing"
+  },
+  {
+    "id": 52,
+    "value": "Air transportation"
+  },
+  {
+    "id": 53,
+    "value": "Water transportation"
+  },
+  {
+    "id": 54,
+    "value": "Truck transportation"
+  },
+  {
+    "id": 55,
+    "value": "Support activities for transportation"
+  },
+  {
+    "id": 56,
+    "value": "Postal service, couriers and messengers"
+  },
+  {
+    "id": 57,
+    "value": "Transit, sightseeing, and pipeline transportation"
+  },
+  {
+    "id": 58,
+    "value": "Warehousing and storage"
+  },
+  {
+    "id": 59,
+    "value": "Publishing industries"
+  },
+  {
+    "id": 60,
+    "value": "Rail transportation"
+  }
+]

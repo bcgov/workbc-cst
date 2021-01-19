@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "noc": "0011",
+    "title": "Legislators",
+    "education": {
+      "id": 4,
+      "value": "Degree"
+    },
+    "workExperience": {
+      "id": 4,
+      "value": "> 4 years to 10 years"
+    },
+    "income": "59,545",
+    "jobOpenings": 1234
+  },
+  {
+    "id": 2,
+    "noc": "0012",
+    "title": "Senior government managers and officials",
+    "education": {
+      "id": 4,
+      "value": "Degree"
+    },
+    "workExperience": {
+      "id": 4,
+      "value": "> 4 years to 10 years"
+    },
+    "income": "108,727",
+    "jobOpenings": 4567
+  },
+  {
+    "id": 3,
+    "noc": "0013",
+    "title": "Senior managers - financial, communications and other business services",
+    "education": {
+      "id": 4,
+      "value": "Degree"
+    },
+    "workExperience": {
+      "id": 4,
+      "value": "> 4 years to 10 years"
+    },
+    "income": "119,882",
+    "jobOpenings": 2345
+  }
+]
