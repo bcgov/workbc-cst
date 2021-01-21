@@ -7,7 +7,6 @@ using SearchAllOccupationsToolAPI.DbContexts;
 using SearchAllOccupationsToolAPI.DbContexts.Interfaces;
 using SearchAllOccupationsToolAPI.Models;
 using SearchAllOccupationsToolAPI.Repositories;
-using SearchAllOccupationsToolAPI.Repositories.Interfaces;
 
 namespace SearchAllOccupationsToolAPI.Controllers
 {
@@ -28,7 +27,7 @@ namespace SearchAllOccupationsToolAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Occupation>>> GetOccupations([FromQuery] string nocs)
         {
-            return _repository.GetNocList();
+            return _repository.GetNocList(nocs);
         }
 
         //[HttpGet]

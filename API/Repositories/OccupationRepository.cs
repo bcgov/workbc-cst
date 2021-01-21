@@ -22,10 +22,15 @@ namespace SearchAllOccupationsToolAPI.Repositories
             throw new NotImplementedException();
         }
 
-        public List<Occupation> GetNocList()
+        public List<Occupation> GetNocList(string nocs)
         {
+            var nocIds = GetNocItems(nocs);
+            if (!nocIds.Any())
+                return new List<Occupation>();
+
             return _context.NOCs
-                .Take(3)
+                .Where(n => nocIds.Take(3).Contains(n.NocCode))
+                .Take(3) // Limit to three nocs
                 .Select(o => new Occupation
                 {
                     JobOpenings = o.JobOpenings.Sum(jo => jo.JobOpenings),
@@ -33,10 +38,36 @@ namespace SearchAllOccupationsToolAPI.Repositories
                     Title = o.Description,
                     Education = o.EducationLevel,
                     Description = o.JobOverviewSummary,
-                    Income = o.MedianSalary.HasValue ? o.MedianSalary.Value.ToString() : string.Empty
+                    Income = o.MedianSalary.HasValue ? o.MedianSalary.Value.ToString("C0") : string.Empty
                 })
                 .ToList();
         }
+
+        private List<string> GetNocItems(string nocs)
+        {
+            var nocItems = new List<string>();
+            if (string.IsNullOrWhiteSpace(nocs))
+                return nocItems;
+
+            var parts = nocs.Split(",");
+            if (!parts.Any())
+                return nocItems;
+
+            // Check each NOC is a number, but put the 0 padded number back in the list
+            foreach (var item in parts)
+            {
+                if (!int.TryParse(item, out var b)) 
+                    continue;
+                
+                if (b > 0)
+                    nocItems.Add(b.ToString("D4"));
+            }
+
+            return nocItems
+                .Distinct()
+                .ToList();
+        }
+    }
 
         //    private IOccupationContext _context;
 
@@ -256,5 +287,5 @@ namespace SearchAllOccupationsToolAPI.Repositories
         //        return occupations;
 
         //    }
-    }
 }
+
