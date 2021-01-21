@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SearchAllOccupationsToolAPI.DbContexts;
+using SearchAllOccupationsToolAPI.DbContexts.Interfaces;
 using SearchAllOccupationsToolAPI.Models;
 using SearchAllOccupationsToolAPI.Repositories;
+using SearchAllOccupationsToolAPI.Repositories.Interfaces;
 
 namespace SearchAllOccupationsToolAPI.Controllers
 {
@@ -11,15 +13,20 @@ namespace SearchAllOccupationsToolAPI.Controllers
     [ApiController]
     public class GeographicAreasController : ApiControllerBase
     {
-        public GeographicAreasController()
+        private readonly IGeographicAreasContext _context;
+        private readonly IGeographicAreasRepository _repository;
+
+        public GeographicAreasController(GeographicAreasContext context)
         {
+            _context = context;
+            _repository = new GeographicAreasRepository(context);
         }
 
         // GET: api/GeographicAreas
         [HttpGet]
         public async Task<ActionResult<IEnumerable<GeographicArea>>> GetGeographicAreas()
         {
-            return GetPlaceHolderData<GeographicArea>("SampleJsonFiles/geographicareas.json");
+            return _repository.GetGeographicAreas();
         }
     }
 }

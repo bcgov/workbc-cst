@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SearchAllOccupationsToolAPI.DbContexts.Interfaces;
 using SearchAllOccupationsToolAPI.Models;
 
 namespace SearchAllOccupationsToolAPI.DbContexts

@@ -3,8 +3,11 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SearchAllOccupationsToolAPI.DbContexts;
+using SearchAllOccupationsToolAPI.DbContexts.Interfaces;
 using SearchAllOccupationsToolAPI.Models;
 using SearchAllOccupationsToolAPI.Repositories;
+using SearchAllOccupationsToolAPI.Repositories.Interfaces;
 
 namespace SearchAllOccupationsToolAPI.Controllers
 {
@@ -12,23 +15,34 @@ namespace SearchAllOccupationsToolAPI.Controllers
     [ApiController]
     public class OccupationsController : ApiControllerBase
     {
-        public OccupationsController()
+        private readonly IOccupationContext _context;
+        private readonly IOccupationRepository _repository;
+
+        public OccupationsController(OccupationContext context)
         {
+            _context = context;
+            _repository = new OccupationRepository(context);
         }
 
-        // GET: api/Industries
+        // GET: api/Occupation
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Occupation>>> GetOccupations([FromQuery] string nocs)
         {
-            var placeHolderData = GetPlaceHolderData<Occupation>("SampleJsonFiles/occupations.json");
-
-            if (string.IsNullOrWhiteSpace(nocs))
-                return placeHolderData;
-
-            var nocList = nocs.Split(",");
-
-            return placeHolderData.Where(o => nocList.Contains(o.NOC)).ToList();
-
+            return _repository.GetNocList();
         }
+
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<Occupation>>> GetOccupations([FromQuery] string nocs)
+        //{
+        //    var placeHolderData = GetPlaceHolderData<Occupation>("SampleJsonFiles/occupations.json");
+
+        //    if (string.IsNullOrWhiteSpace(nocs))
+        //        return placeHolderData;
+
+        //    var nocList = nocs.Split(",");
+
+        //    return placeHolderData.Where(o => nocList.Contains(o.NOC)).ToList();
+
+        //}
     }
 }

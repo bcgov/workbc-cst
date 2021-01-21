@@ -21,23 +21,33 @@ namespace SearchAllOccupationsToolAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+//            var connectionString = Configuration.GetConnectionString("Database");
+            //services.AddDbContext<EducationLevelContext>(op => op.UseSqlServer(connectionString));
             if (Convert.ToBoolean(Configuration["UseSQL"]))
             {
-                services.AddDbContext<EducationLevelContext>(op => op.UseSqlServer(Configuration.GetConnectionString("Database"))); //Add 
-                services.AddDbContext<WorkExperienceContext>(op => op.UseSqlServer(Configuration.GetConnectionString("Database"))); //Add 
-                services.AddDbContext<OccupationListItemContext>(op => op.UseSqlServer(Configuration.GetConnectionString("Database"))); //Add 
-                services.AddDbContext<OccupationContext>(op => op.UseSqlServer(Configuration.GetConnectionString("Database"))); //Add 
+                var connectionString = Configuration.GetConnectionString("Database");
+                services.AddDbContext<GeographicAreasContext>(op => op.UseSqlServer(connectionString));
+                services.AddDbContext<EducationLevelContext>(op => op.UseSqlServer(connectionString));
+                services.AddDbContext<OccupationalGroupContext>(op => op.UseSqlServer(connectionString));
+                services.AddDbContext<OccupationalInterestContext>(op => op.UseSqlServer(connectionString));
+                services.AddDbContext<IndustryContext>(op => op.UseSqlServer(connectionString));
+                services.AddDbContext<FullOrPartTimeContext>(op => op.UseSqlServer(connectionString));
+                services.AddDbContext<OccupationContext>(op => op.UseSqlServer(connectionString));
+
+                services.AddDbContext<OccupationListItemContext>(op => op.UseSqlServer(connectionString));
             }
-            else 
+            else
             {
-                services.AddDbContext<EducationLevelContext>(opt =>
-                    opt.UseInMemoryDatabase("TodoList"));
-                services.AddDbContext<WorkExperienceContext>(opt =>
-                    opt.UseInMemoryDatabase("TodoList"));
-                services.AddDbContext<OccupationListItemContext>(opt =>
-                    opt.UseInMemoryDatabase("TodoList"));
-                services.AddDbContext<OccupationContext>(opt =>
-                    opt.UseInMemoryDatabase("TodoList"));
+                var inMemoryDbName = "SaoInMemoryDb";
+                services.AddDbContext<GeographicAreasContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
+                services.AddDbContext<EducationLevelContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
+                services.AddDbContext<OccupationalGroupContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
+                services.AddDbContext<OccupationalInterestContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
+                services.AddDbContext<IndustryContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
+                services.AddDbContext<FullOrPartTimeContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
+                services.AddDbContext<OccupationContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
+
+                services.AddDbContext<OccupationListItemContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
             }
 
             services.AddCors(options =>

@@ -1,7 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SearchAllOccupationsToolAPI.DbContexts;
+using SearchAllOccupationsToolAPI.DbContexts.Interfaces;
 using SearchAllOccupationsToolAPI.Models;
+using SearchAllOccupationsToolAPI.Repositories;
+using SearchAllOccupationsToolAPI.Repositories.Interfaces;
 
 namespace SearchAllOccupationsToolAPI.Controllers
 {
@@ -9,16 +13,20 @@ namespace SearchAllOccupationsToolAPI.Controllers
     [ApiController]
     public class IndustriesController : ApiControllerBase
     {
-        public IndustriesController()
+        private readonly IIndustryContext _context;
+        private readonly IIndustryRepository _repository;
+        
+        public IndustriesController(IndustryContext context)
         {
+            _context = context;
+            _repository = new IndustryRepository(context);
         }
 
         // GET: api/Industries
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Industry>>> GetIndustries()
         {
-            var placeHolderData = GetPlaceHolderData<Industry>("SampleJsonFiles/industries.json");
-            return placeHolderData;
+            return _repository.GetIndustries();
         }
     }
 }

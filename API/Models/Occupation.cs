@@ -2,6 +2,7 @@
 
 namespace SearchAllOccupationsToolAPI.Models
 {
+    // The Occupation model does not map to a class in the database
     public class Occupation
     {
         [JsonPropertyName("id")]
@@ -9,7 +10,10 @@ namespace SearchAllOccupationsToolAPI.Models
         
         [JsonPropertyName("noc")]
         public string NOC { get; set; }
-        
+
+        [JsonPropertyName("description")]
+        public string Description { get; set; }
+
         [JsonPropertyName("title")]
         public string Title { get; set; }
         

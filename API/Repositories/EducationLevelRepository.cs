@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using SearchAllOccupationsToolAPI.DbContexts;
+using SearchAllOccupationsToolAPI.DbContexts.Interfaces;
 using SearchAllOccupationsToolAPI.Models;
+using SearchAllOccupationsToolAPI.Repositories.Interfaces;
 
 namespace SearchAllOccupationsToolAPI.Repositories
 {
     public class EducationLevelRepository : IEducationLevelRepository
     {
-        private IEducationLevelContext _context;
+        private readonly IEducationLevelContext _context;
 
         public EducationLevelRepository(IEducationLevelContext dbContext)
         {
@@ -18,34 +18,10 @@ namespace SearchAllOccupationsToolAPI.Repositories
 
         public List<EducationLevel> GetEducationLevels()
         {
-            //if (_context.Database.IsSqlServer())
             if (_context.IsSQLServer)
-            {
                 return _context.EducationLevels.ToList();
-            }
-            else
-            {
-                List<EducationLevel> educationLevels = new List<EducationLevel>(){
-                new EducationLevel() {
-                    Id = 1,
-                    Value = "Less than High School"
-                },
-                new EducationLevel() {
-                    Id = 2,
-                    Value = "High School"
-                },
-                new EducationLevel() {
-                    Id = 3,
-                    Value = "Diploma/Certificate"
-                },
-                new EducationLevel() {
-                    Id = 4,
-                    Value = "Degree"
-                }
-            };
-                return educationLevels;
-            }
-            //return await _context.EducationLevels.ToListAsync();
+            
+            return ContextHelper.GetPlaceHolderData<EducationLevel>("SampleJsonFiles/educationlevels.json");
         }
     }
 }

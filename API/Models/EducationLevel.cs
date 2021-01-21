@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace SearchAllOccupationsToolAPI.Models
 {
     [Serializable]
+    [Table("EducationLevel")]
     public class EducationLevel
     {
         [JsonPropertyName("id")]

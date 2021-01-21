@@ -19,7 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Repositories\OccupationRepository.cs" />
+    <Compile Remove="DbContexts\IWorkExperienceContext.cs" />
+    <Compile Remove="DbContexts\WorkExperienceContext.cs" />
+    <Compile Remove="Repositories\IWorkExperienceRepository.cs" />
+    <Compile Remove="Repositories\WorkExperienceRepository.cs" />
   </ItemGroup>
 
   <ItemGroup>

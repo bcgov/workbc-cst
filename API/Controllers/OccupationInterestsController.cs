@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SearchAllOccupationsToolAPI.DbContexts;
+using SearchAllOccupationsToolAPI.DbContexts.Interfaces;
 using SearchAllOccupationsToolAPI.Models;
 using SearchAllOccupationsToolAPI.Repositories;
 
@@ -11,15 +12,20 @@ namespace SearchAllOccupationsToolAPI.Controllers
     [ApiController]
     public class OccupationInterestsController : ApiControllerBase
     {
-        public OccupationInterestsController()
+        private readonly IOccupationalInterestContext _context;
+        private readonly OccupationalInterestsRepository _repository;
+
+        public OccupationInterestsController(OccupationalInterestContext context)
         {
+            _context = context;
+            _repository = new OccupationalInterestsRepository(context);
         }
 
         // GET: api/OccupationInterests
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<OccupationInterest>>> GetOccupationInterests()
+        public async Task<ActionResult<IEnumerable<OccupationalInterest>>> GetOccupationInterests()
         {
-            return GetPlaceHolderData<OccupationInterest>("SampleJsonFiles/occupationinterests.json");
+            return _repository.GetOccupationalInterests();
         }
     }
 }
