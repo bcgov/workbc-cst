@@ -1,9 +1,7 @@
-﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using SearchAllOccupationsToolAPI.DbContexts;
 using SearchAllOccupationsToolAPI.DbContexts.Interfaces;
 using SearchAllOccupationsToolAPI.Models;
 
@@ -20,6 +18,9 @@ namespace SearchAllOccupationsToolAPI.Repositories
 
         public List<OccupationListItem> GetOccupations(OccupationSearchFilter filter)
         {
+            if (!_context.IsSQLServer)
+                return ContextHelper.GetPlaceHolderData<OccupationListItem>("SampleJsonFiles/occupationlistitems.json");
+
             var occupations = _context.NOCs
                 .Include(no => no.JobOpenings)
                     .ThenInclude(jo => jo.GeographicArea)
@@ -96,6 +97,9 @@ namespace SearchAllOccupationsToolAPI.Repositories
 
         public List<Occupation> GetNocList(string nocs)
         {
+            if (!_context.IsSQLServer)
+                return ContextHelper.GetPlaceHolderData<Occupation>("SampleJsonFiles/occupations.json");
+
             var nocIds = GetNocItems(nocs);
             if (!nocIds.Any())
                 return new List<Occupation>();
