@@ -1,47 +1,41 @@
 [
   {
-    "id": 1,
+    "id": 5001,
     "noc": "0011",
+    "description": "<p><strong>Legislators:</strong></p>\r\n\r\n<ul>\r\n\t<li>participate in the activities of a federal, provincial, territorial or local government legislative bodies or executive councils</li>\r\n\t<li>work for band councils or school boards as elected or appointed members</li>\r\n</ul>\r\n",
     "title": "Legislators",
     "education": {
-      "id": 4,
+      "id": 41,
       "value": "Degree"
     },
-    "workExperience": {
-      "id": 4,
-      "value": "> 4 years to 10 years"
-    },
-    "income": "59,545",
-    "jobOpenings": 1234
+    "workExperience": null,
+    "income": "$65,769",
+    "jobOpenings": 1691
   },
   {
-    "id": 2,
+    "id": 5002,
     "noc": "0012",
+    "description": "<p><strong>Senior government managers and officials:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize, direct, control and evaluate, through middle managers, the major activities of municipal or regional governments or of provincial, territorial or federal departments, boards, agencies or commissions</li>\r\n\t<li>direct these organizations following legislation and policies made by elected representatives or legislative bodies</li>\r\n</ul>\r\n",
     "title": "Senior government managers and officials",
     "education": {
-      "id": 4,
+      "id": 41,
       "value": "Degree"
     },
-    "workExperience": {
-      "id": 4,
-      "value": "> 4 years to 10 years"
-    },
-    "income": "108,727",
-    "jobOpenings": 4567
+    "workExperience": null,
+    "income": "$108,727",
+    "jobOpenings": 4262
   },
   {
-    "id": 3,
+    "id": 5003,
     "noc": "0013",
+    "description": "",
     "title": "Senior managers - financial, communications and other business services",
     "education": {
-      "id": 4,
+      "id": 41,
       "value": "Degree"
     },
-    "workExperience": {
-      "id": 4,
-      "value": "> 4 years to 10 years"
-    },
-    "income": "119,882",
-    "jobOpenings": 2345
+    "workExperience": null,
+    "income": "$119,849",
+    "jobOpenings": 17386
   }
 ]
