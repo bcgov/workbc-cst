@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,9 +14,11 @@ namespace SearchAllOccupationsToolAPI.Models
         public decimal? MedianSalary { get; set; }
         public virtual EducationLevel EducationLevel { get; set; }
         public virtual FullOrPartTime FullOrPartTime { get; set; }
-        public virtual Collection<JobOpening> JobOpenings { get; set; }
         public string JobOverviewSummary { get; set; }
         public string CareerTrekVideoId { get; set; }
+
+        public virtual ICollection<JobOpening> JobOpenings { get; set; }
+        public virtual ICollection<CommonJobTitle> CommonJobTitles { get; set; }
     }
 
     [Table("JobOpening")]
@@ -26,5 +29,13 @@ namespace SearchAllOccupationsToolAPI.Models
         public virtual GeographicArea GeographicArea { get; set; }
         public virtual Industry Industry { get; set; }
         public int JobOpenings { get; set; }
+    }
+
+    [Table("CommonJobTitle")]
+    public class CommonJobTitle
+    {
+        public int Id { get; set; }
+        public virtual NOC Noc { get; set; }
+        public string JobTitle { get; set; }
     }
 }

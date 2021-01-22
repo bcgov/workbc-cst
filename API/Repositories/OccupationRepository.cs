@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using SearchAllOccupationsToolAPI.DbContexts.Interfaces;
 using SearchAllOccupationsToolAPI.Models;
 
@@ -17,9 +18,80 @@ namespace SearchAllOccupationsToolAPI.Repositories
             _context = context;
         }
 
-        public List<Occupation> GetOccupations(string NOC, int? similarityId, int? educationLevelId, int? salaryId, int? workExperienceId)
+        public List<OccupationListItem> GetOccupations(OccupationSearchFilter filter)
         {
-            throw new NotImplementedException();
+            var occupations = _context.NOCs
+                .Include(no => no.JobOpenings)
+                    .ThenInclude(jo => jo.GeographicArea)
+                .Include(no => no.JobOpenings)
+                    .ThenInclude(jo => jo.Industry)
+                .Include(no => no.CommonJobTitles)
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(filter.Keywords))
+            {
+                occupations = occupations.Where(
+                    o => o.NocCode.Contains(filter.Keywords) || o.Description.Contains(filter.Keywords) || o.CommonJobTitles.Any(cjt => cjt.JobTitle.Contains(filter.Keywords)));
+            }
+
+
+            if (filter.EducationLevelId > 0)
+                occupations = occupations.Where(o => o.EducationLevel.Id == filter.EducationLevelId);
+
+            if (filter.FullTimeOrPartTimeId > 0)
+                occupations = occupations.Where(o => o.FullOrPartTime.Id == filter.FullTimeOrPartTimeId);
+
+            if (filter.annualSalaryId > 0)
+            {
+                //occupations = occupations.Where(o => o.EducationLevel.Id == filter.EducationLevelId);
+            }
+
+
+            // Is this the correct group to filter on?
+            if (filter.GeographicAreaId > 0)
+            {
+                occupations = occupations.Include(no => no.JobOpenings).ThenInclude(jo => jo.GeographicArea);
+
+                occupations = occupations.Where(o => o.JobOpenings.Any(jo => jo.GeographicArea.Id == filter.GeographicAreaId));
+            }
+
+            if (filter.OccupationalInterestId > 0)
+            {
+//                occupations = occupations.Where(o => o.JobOpenings.Any(jo => jo.GeographicArea.Id == filter.GeographicAreaId));
+            }
+
+            if (filter.occupationalGroupId > 0)
+            {
+//                occupations = occupations.Where(o => o.JobOpenings.Any(jo => jo.GeographicArea.Id == filter.GeographicAreaId));
+            }
+
+            if (filter.IndustryId > 0)
+            {
+                occupations = occupations.Where(o => o.JobOpenings.Any(jo => jo.Industry.Id == filter.IndustryId));
+            }
+
+            return occupations.Select(o => new OccupationListItem
+                {
+                    Id = o.Id,
+                    JobOpenings = JobOpenings(o, filter),  // This might not be filtered down correctly or reflecting filters that restrict it
+                    NOC = o.NocCode,
+                    NOCAndTitle = $"{o.Description} ({o.NocCode})"
+                })
+                .ToList();
+        }
+
+        private static int JobOpenings(NOC o, OccupationSearchFilter filter)
+        {
+            var occ = o.JobOpenings.AsQueryable();
+
+            if (filter.GeographicAreaId > 0)
+                occ = occ.Where(o => o.GeographicArea.Id == filter.GeographicAreaId.Value);
+
+            if (filter.IndustryId > 0)
+                occ = occ.Where(o => o.Industry.Id == filter.IndustryId.Value);
+
+            return occ.Sum(o => o.JobOpenings);
+                
         }
 
         public List<Occupation> GetNocList(string nocs)
@@ -33,12 +105,13 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 .Take(3) // Limit to three nocs
                 .Select(o => new Occupation
                 {
-                    JobOpenings = o.JobOpenings.Sum(jo => jo.JobOpenings),
+                    Id = o.Id,
                     NOC = o.NocCode,
                     Title = o.Description,
                     Education = o.EducationLevel,
                     Description = o.JobOverviewSummary,
-                    Income = o.MedianSalary.HasValue ? o.MedianSalary.Value.ToString("C0") : string.Empty
+                    Income = o.MedianSalary.HasValue ? o.MedianSalary.Value.ToString("C0") : string.Empty,
+                    JobOpenings = o.JobOpenings.Sum(jo => jo.JobOpenings),
                 })
                 .ToList();
         }

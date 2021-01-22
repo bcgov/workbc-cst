@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
@@ -13,5 +14,7 @@ namespace SearchAllOccupationsToolAPI.Models
 
         [JsonPropertyName("value")]
         public string Value { get; set; }
+
+        public Collection<JobOpening> JobOpenings { get; set; }
     }
 }

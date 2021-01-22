@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SearchAllOccupationsToolAPI.DbContexts;
+using SearchAllOccupationsToolAPI.DbContexts.Interfaces;
 using SearchAllOccupationsToolAPI.Models;
+using SearchAllOccupationsToolAPI.Repositories;
 
 namespace SearchAllOccupationsToolAPI.Controllers
 {
@@ -9,16 +12,20 @@ namespace SearchAllOccupationsToolAPI.Controllers
     [ApiController]
     public class OccupationListItemsController : ApiControllerBase
     {
-        public OccupationListItemsController()
+        private readonly IOccupationContext _context;
+        private readonly IOccupationRepository _repository;
+
+        public OccupationListItemsController(OccupationContext context)
         {
+            _context = context;
+            _repository = new OccupationRepository(context);
         }
 
         // GET: api/OccupationListItems
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<OccupationListItem>>> GetOccupationListItems([FromQuery] string partialNocOrTitle)
+        public async Task<ActionResult<IEnumerable<OccupationListItem>>> GetOccupationListItems([FromQuery] OccupationSearchFilter filter)
         {
-            var placeHolderData = GetPlaceHolderData<OccupationListItem>("SampleJsonFiles/occupationlistitems.json");
-            return placeHolderData;
+            return _repository.GetOccupations(filter);
         }
     }
 }
