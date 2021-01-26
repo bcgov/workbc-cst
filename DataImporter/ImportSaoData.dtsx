@@ -7,15 +7,14 @@
   DTS:CreatorName="IDIR\wieinze"
   DTS:Description="SSIS Package to Import Data into WorkBC SAO"
   DTS:DTSID="{CD65F675-A625-454E-A0F5-61E126D2BB98}"
-  DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LastModifiedProductVersion="15.0.2000.128"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="68"
-  DTS:VersionGUID="{49B7345D-F5FF-41C3-A3E8-A53771957FA4}">
+  DTS:VersionBuild="71"
+  DTS:VersionGUID="{3D41DECF-9310-43B0-A25D-6C87A93E9998}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -370,7 +369,7 @@
   </DTS:ConnectionManagers>
   <DTS:Configurations>
     <DTS:Configuration
-      DTS:ConfigurationString="C:\Projects\WorkBC Search All Occupations Tool\DataImporter\PackageExecution\DataImporter.dtsConfig"
+      DTS:ConfigurationString="C:\Projects\WorkBC SAO\DataImporter\PackageExecution\DataImporter.dtsConfig"
       DTS:ConfigurationType="1"
       DTS:CreationName=""
       DTS:DTSID="{73368B4D-C4C9-4923-AC9F-FE6FC29DC7BA}"
@@ -7901,6 +7900,10 @@ where [refTable].[Value] = ?</property>
           Size="177,42"
           Id="Package\Insert Unique NOCs"
           TopLeft="120,216" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Trim NOC Code Hash"
+          TopLeft="149,619" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="147,60.5">
@@ -8069,10 +8072,6 @@ where [refTable].[Value] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="186,42"
-          Id="Package\Trim NOC Code Hash"
-          TopLeft="149,619" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
           TopLeft="390,584.666666666667">
@@ -10038,6 +10037,19 @@ where [refTable].[Value] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Insert Unique NOCs\NOC Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Insert Unique NOCs\Education Lookup">
     <Properties>
       <Property>
@@ -10057,19 +10069,6 @@ where [refTable].[Value] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insert Unique NOCs\NOC Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
