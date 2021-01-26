@@ -5,6 +5,7 @@ using SearchAllOccupationsToolAPI.DbContexts;
 using SearchAllOccupationsToolAPI.DbContexts.Interfaces;
 using SearchAllOccupationsToolAPI.Models;
 using SearchAllOccupationsToolAPI.Repositories;
+using SearchAllOccupationsToolAPI.Repositories.Interfaces;
 
 namespace SearchAllOccupationsToolAPI.Controllers
 {
