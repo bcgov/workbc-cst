@@ -19,6 +19,27 @@ namespace SearchAllOccupationsToolAPI.Models
 
         public virtual ICollection<JobOpening> JobOpenings { get; set; }
         public virtual ICollection<CommonJobTitle> CommonJobTitles { get; set; }
+        public virtual ICollection<NOCOccupationalGroup> OccupationalGroups { get; set; }
+        public virtual ICollection<NOCOccupationInterest> OccupationInterests { get; set; }
+    }
+
+    [Table("NOCOccupationGroup")]
+    public class NOCOccupationalGroup
+    {
+        public int Id { get; set; }
+        public virtual NOC NOC { get; set; }
+        public virtual OccupationalGroup OccupationalGroup { get; set; }
+        public virtual GeographicArea GeographicArea { get; set; }
+    }
+
+    [Table("NOCOccupationInterest")]
+    public class NOCOccupationInterest
+    {
+        public int Id { get; set; }
+        public virtual NOC NOC { get; set; }
+        [ForeignKey("OccupationInterestId")]
+        public virtual OccupationalInterest OccupationalInterest { get; set; }
+        // OccupationInterestOption (also has an OccupationInterestOption [Primary/Secondary/Tertiary], but I don't think we care about it)
     }
 
     [Table("JobOpening")]

@@ -17,5 +17,7 @@ namespace SearchAllOccupationsToolAPI.Models
 
         [JsonPropertyName("jobOpenings")]
         public int JobOpenings { get; set; }
+
+        //public string DebugInfo { get; set; }
     }
 }

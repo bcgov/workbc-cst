@@ -7,8 +7,8 @@
         public int? EducationLevelId { get; set; }
         public int? OccupationalInterestId { get; set; }
         public int? IndustryId { get; set; }
-        public int? occupationalGroupId { get; set; }
+        public int? OccupationalGroupId { get; set; }
         public int? FullTimeOrPartTimeId { get; set; }
-        public int? annualSalaryId { get; set; }
+        public int? AnnualSalaryId { get; set; }
     }
 }

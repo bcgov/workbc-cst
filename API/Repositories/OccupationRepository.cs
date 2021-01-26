@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using SearchAllOccupationsToolAPI.DbContexts;
@@ -10,10 +11,12 @@ namespace SearchAllOccupationsToolAPI.Repositories
     public class OccupationRepository : IOccupationRepository
     {
         private readonly IOccupationContext _context;
+        private readonly AnnualSalaryRepository _salaryRepository;
 
         public OccupationRepository(IOccupationContext context)
         {
             _context = context;
+            _salaryRepository = new AnnualSalaryRepository();
         }
 
         public List<OccupationListItem> GetOccupations(OccupationSearchFilter filter)
@@ -21,20 +24,22 @@ namespace SearchAllOccupationsToolAPI.Repositories
             if (!_context.IsSQLServer)
                 return ContextHelper.GetPlaceHolderData<OccupationListItem>("SampleJsonFiles/occupationlistitems.json");
 
+
+            // Might have performance issues with these includes for unfiltered datasets.
             var occupations = _context.NOCs
                 .Include(no => no.JobOpenings)
                     .ThenInclude(jo => jo.GeographicArea)
                 .Include(no => no.JobOpenings)
                     .ThenInclude(jo => jo.Industry)
-                .Include(no => no.CommonJobTitles)
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(filter.Keywords))
             {
+                // Bring in the common job titles for keyword query - slow for no keyword query
+                occupations = occupations.Include(no => no.CommonJobTitles);
                 occupations = occupations.Where(
                     o => o.NocCode.Contains(filter.Keywords) || o.Description.Contains(filter.Keywords) || o.CommonJobTitles.Any(cjt => cjt.JobTitle.Contains(filter.Keywords)));
             }
-
 
             if (filter.EducationLevelId > 0)
                 occupations = occupations.Where(o => o.EducationLevel.Id == filter.EducationLevelId);
@@ -42,33 +47,63 @@ namespace SearchAllOccupationsToolAPI.Repositories
             if (filter.FullTimeOrPartTimeId > 0)
                 occupations = occupations.Where(o => o.FullOrPartTime.Id == filter.FullTimeOrPartTimeId);
 
-            if (filter.annualSalaryId > 0)
+            if (filter.AnnualSalaryId > 0)
             {
-                //occupations = occupations.Where(o => o.EducationLevel.Id == filter.EducationLevelId);
-            }
+                var salaryChoice = (AnnualSalaryValues)filter.AnnualSalaryId;
 
+                switch (salaryChoice)
+                {
+                    case AnnualSalaryValues.LessThan20:
+                        occupations = occupations.Where(o => o.MedianSalary < 20000);
+                        break;
+                    case AnnualSalaryValues.Between20And40:
+                        occupations = occupations.Where(o => o.MedianSalary >= 20000 && o.MedianSalary < 40000);
+                        break;
+                    case AnnualSalaryValues.Between40And60:
+                        occupations = occupations.Where(o => o.MedianSalary >= 40000 && o.MedianSalary < 60000);
+                        break;
+                    case AnnualSalaryValues.Between60And80:
+                        occupations = occupations.Where(o => o.MedianSalary >= 60000 && o.MedianSalary < 80000);
+                        break;
+                    case AnnualSalaryValues.Between80And100:
+                        occupations = occupations.Where(o => o.MedianSalary >= 80000 && o.MedianSalary < 100000);
+                        break;
+                    case AnnualSalaryValues.Between100And120:
+                        occupations = occupations.Where(o => o.MedianSalary >= 100000 && o.MedianSalary < 120000);
+                        break;
+                    case AnnualSalaryValues.Between120And140:
+                        occupations = occupations.Where(o => o.MedianSalary >= 120000 && o.MedianSalary < 140000);
+                        break;
+                    case AnnualSalaryValues.Over140:
+                        occupations = occupations.Where(o => o.MedianSalary >= 140000);
+                        break;
+                }
+            }
 
             // Is this the correct group to filter on?
             if (filter.GeographicAreaId > 0)
             {
-                occupations = occupations.Include(no => no.JobOpenings).ThenInclude(jo => jo.GeographicArea);
-
+                occupations = occupations
+                    .Include(no => no.JobOpenings)
+                    .ThenInclude(jo => jo.GeographicArea);
                 occupations = occupations.Where(o => o.JobOpenings.Any(jo => jo.GeographicArea.Id == filter.GeographicAreaId));
+                // NOCOccupationGroup also has a Geographic Area. Do we filter?
             }
 
             if (filter.OccupationalInterestId > 0)
             {
-//                occupations = occupations.Where(o => o.JobOpenings.Any(jo => jo.GeographicArea.Id == filter.GeographicAreaId));
+                occupations = occupations.Where(o => o.OccupationInterests.Any(og => og.OccupationalInterest.Id == filter.OccupationalInterestId));
             }
 
-            if (filter.occupationalGroupId > 0)
+            if (filter.OccupationalGroupId > 0)
             {
-//                occupations = occupations.Where(o => o.JobOpenings.Any(jo => jo.GeographicArea.Id == filter.GeographicAreaId));
+                occupations = occupations.Where(o => o.OccupationalGroups.Any(og => og.OccupationalGroup.Id == filter.OccupationalGroupId));
             }
 
             if (filter.IndustryId > 0)
             {
                 occupations = occupations.Where(o => o.JobOpenings.Any(jo => jo.Industry.Id == filter.IndustryId));
+                // Might need to filter industry on another sub query here.
             }
 
             return occupations.Select(o => new OccupationListItem
@@ -76,7 +111,8 @@ namespace SearchAllOccupationsToolAPI.Repositories
                     Id = o.Id,
                     JobOpenings = JobOpenings(o, filter),  // This might not be filtered down correctly or reflecting filters that restrict it
                     NOC = o.NocCode,
-                    NOCAndTitle = $"{o.Description} ({o.NocCode})"
+                    NOCAndTitle = $"{o.Description} ({o.NocCode})",
+                    //DebugInfo = $"Salary: {(o.MedianSalary.HasValue ? o.MedianSalary.Value.ToString("C0") : string.Empty)}"
                 })
                 .ToList();
         }
