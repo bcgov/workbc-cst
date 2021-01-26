@@ -33,8 +33,6 @@ namespace SearchAllOccupationsToolAPI
                 services.AddDbContext<IndustryContext>(op => op.UseSqlServer(connectionString));
                 services.AddDbContext<FullOrPartTimeContext>(op => op.UseSqlServer(connectionString));
                 services.AddDbContext<OccupationContext>(op => op.UseSqlServer(connectionString));
-
-                services.AddDbContext<OccupationListItemContext>(op => op.UseSqlServer(connectionString));
             }
             else
             {
@@ -46,8 +44,6 @@ namespace SearchAllOccupationsToolAPI
                 services.AddDbContext<IndustryContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
                 services.AddDbContext<FullOrPartTimeContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
                 services.AddDbContext<OccupationContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
-
-                services.AddDbContext<OccupationListItemContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
             }
 
             services.AddCors(options =>

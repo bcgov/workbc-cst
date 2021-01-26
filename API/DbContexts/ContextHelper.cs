@@ -10,6 +10,5 @@ namespace SearchAllOccupationsToolAPI.DbContexts
             var sample = System.IO.File.ReadAllText(sampleFile);
             return JsonSerializer.Deserialize<List<T>>(sample, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
         }
-
     }
 }
