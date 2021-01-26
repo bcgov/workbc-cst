@@ -8,13 +8,13 @@
   DTS:Description="SSIS Package to Import Data into WorkBC SAO"
   DTS:DTSID="{CD65F675-A625-454E-A0F5-61E126D2BB98}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.128"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="71"
-  DTS:VersionGUID="{3D41DECF-9310-43B0-A25D-6C87A93E9998}">
+  DTS:VersionBuild="74"
+  DTS:VersionGUID="{3B1368FA-2073-4165-8429-1487EFBD870A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -353,7 +353,7 @@
       DTS:ObjectName="SearchAllOccupationsTool Database">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=theoden;User ID=;Initial Catalog=SearchAllOccupationsTool;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=theoden;Initial Catalog=SearchAllOccupationsTool;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -363,7 +363,7 @@
       DTS:ObjectName="WorkBC Enterprise Database">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=theoden;Initial Catalog=LMO20192029_WorkBCEnterprise;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{065c9226-12a0-49b9-9400-d0b92ae2c2ce}WorkBC Enterprise Database;" />
+          DTS:ConnectionString="Data Source=theoden;Initial Catalog=LMO20192029_WorkBCEnterprise;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -8167,7 +8167,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8201,7 +8203,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8307,7 +8311,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -8337,7 +8343,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -9814,6 +9822,10 @@ where [refTable].[Value] = ?</property>
           Id="Package\Insert Unique NOCs\Get Unique NOC (sort)"
           TopLeft="37,92" />
         <NodeLayout
+          Size="183,42"
+          Id="Package\Insert Unique NOCs\Trim Tabs from Titles"
+          TopLeft="283,47" />
+        <NodeLayout
           Size="156,42"
           Id="Package\Insert Unique NOCs\Flat File Source"
           TopLeft="67.5,10.5" />
@@ -9821,6 +9833,30 @@ where [refTable].[Value] = ?</property>
           Size="162,42"
           Id="Package\Insert Unique NOCs\NOC Destination"
           TopLeft="42,517" />
+        <EdgeLayout
+          Id="Package\Insert Unique NOCs.Paths[Sort Output]"
+          TopLeft="131,134">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,129"
+              Start="0,0"
+              End="0,121.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,121.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Insert Unique NOCs.Paths[Lookup Match Output1]"
           TopLeft="138.5,405">
@@ -9858,25 +9894,75 @@ where [refTable].[Value] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Insert Unique NOCs.Paths[Sort Output]"
-          TopLeft="131,134">
+          Id="Package\Insert Unique NOCs.Paths[Flat File Source Output]"
+          TopLeft="223.5,31.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,129"
+              EndConnector="59.5,30.8333333333333"
               Start="0,0"
-              End="0,121.5">
+              End="52,30.8333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,121.5" />
+                    End="30.3899082568807,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.3899082568807,0"
+                    Point2="34.3899082568807,0"
+                    Point3="34.3899082568807,4" />
+                  <mssgle:LineSegment
+                    End="34.3899082568807,26.8333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.3899082568807,26.8333333333333"
+                    Point2="34.3899082568807,30.8333333333333"
+                    Point3="38.3899082568807,30.8333333333333" />
+                  <mssgle:LineSegment
+                    End="52,30.8333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert Unique NOCs.Paths[Derived Column Output]"
+          TopLeft="283,73.6666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-55,39.3333333333333"
+              Start="0,0"
+              End="-47.5,39.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-19.2110091743119,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.2110091743119,0"
+                    Point2="-23.2110091743119,0"
+                    Point3="-23.2110091743119,4" />
+                  <mssgle:LineSegment
+                    End="-23.2110091743119,35.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-23.2110091743119,35.3333333333333"
+                    Point2="-23.2110091743119,39.3333333333333"
+                    Point3="-27.2110091743119,39.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-47.5,39.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -9938,78 +10024,6 @@ where [refTable].[Value] = ?</property>
             <s:String>Package\Insert Unique NOCs.Paths[Lookup Match Output]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
-        <NodeLayout
-          Size="183,42"
-          Id="Package\Insert Unique NOCs\Trim Tabs from Titles"
-          TopLeft="283,47" />
-        <EdgeLayout
-          Id="Package\Insert Unique NOCs.Paths[Flat File Source Output]"
-          TopLeft="223.5,31.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="59.5,30.8333333333333"
-              Start="0,0"
-              End="52,30.8333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="30.3899082568807,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="30.3899082568807,0"
-                    Point2="34.3899082568807,0"
-                    Point3="34.3899082568807,4" />
-                  <mssgle:LineSegment
-                    End="34.3899082568807,26.8333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="34.3899082568807,26.8333333333333"
-                    Point2="34.3899082568807,30.8333333333333"
-                    Point3="38.3899082568807,30.8333333333333" />
-                  <mssgle:LineSegment
-                    End="52,30.8333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insert Unique NOCs.Paths[Derived Column Output]"
-          TopLeft="283,73.6666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-55,39.3333333333333"
-              Start="0,0"
-              End="-47.5,39.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-19.2110091743119,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-19.2110091743119,0"
-                    Point2="-23.2110091743119,0"
-                    Point3="-23.2110091743119,4" />
-                  <mssgle:LineSegment
-                    End="-23.2110091743119,35.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-23.2110091743119,35.3333333333333"
-                    Point2="-23.2110091743119,39.3333333333333"
-                    Point3="-27.2110091743119,39.3333333333333" />
-                  <mssgle:LineSegment
-                    End="-47.5,39.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
