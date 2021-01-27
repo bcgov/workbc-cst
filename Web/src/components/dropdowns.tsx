@@ -116,6 +116,7 @@ const Dropdowns: FunctionComponent = () => {
                         <SelectFilterType  
                             filterType={FilterType.region}
                             colSpan={5}
+                            value = {filterOption?.region?.value}
                             onChange = {handleChangeRegion}
                             showPlaceHolderAsOption={false}
                             placeholder={"British Columbia"}  />
@@ -127,6 +128,7 @@ const Dropdowns: FunctionComponent = () => {
                         <SelectFilterType  
                             filterType={FilterType.education}
                             colSpan={5}
+                            value = {filterOption?.education?.value}
                             onChange = {handleChangeEducation}
                             showPlaceHolderAsOption={false}
                             placeholder={"All"} />
@@ -138,6 +140,7 @@ const Dropdowns: FunctionComponent = () => {
                         <SelectFilterType  
                             filterType={FilterType.occupational_interest}
                             colSpan={5}
+                            value = {filterOption?.occupational_interest?.value}
                             onChange = {handleChangeOccupationalInterest}
                             showPlaceHolderAsOption={false}
                             placeholder={"All"} />
@@ -149,6 +152,7 @@ const Dropdowns: FunctionComponent = () => {
                         <SelectFilterType  
                             filterType={FilterType.industry}
                             colSpan={5}
+                            value = {filterOption?.industry?.value}
                             onChange = {handleChangeIndustry}
                             showPlaceHolderAsOption={false}
                             placeholder={"All"}  />
@@ -162,6 +166,7 @@ const Dropdowns: FunctionComponent = () => {
                         <SelectFilterType  
                             filterType={FilterType.occupational_group}
                             colSpan={5}
+                            value = {filterOption?.occupational_group?.value}
                             onChange = {handleChangeOccupationalGroup}
                             showPlaceHolderAsOption={false}
                             placeholder={"All"} />
@@ -173,6 +178,7 @@ const Dropdowns: FunctionComponent = () => {
                         <SelectFilterType  
                             filterType={FilterType.part_time_option}
                             colSpan={5}
+                            value = {filterOption?.part_time_option?.value}
                             onChange = {handleChangePartTimeOption}
                             showPlaceHolderAsOption={false}
                             placeholder={"All"} />
@@ -184,6 +190,7 @@ const Dropdowns: FunctionComponent = () => {
                         <SelectFilterType  
                             filterType={FilterType.annual_salary}
                             colSpan={5}
+                            value = {filterOption?.annual_salary?.value}
                             onChange = {handleChangeAnnualSalary}
                             showPlaceHolderAsOption={false}
                             placeholder={"All"} />

@@ -1,4 +1,3 @@
-import { Divider } from 'antd';
 import React, { FunctionComponent } from 'react'
 
 const results: FunctionComponent = () => {
