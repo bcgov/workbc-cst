@@ -1,1 +1,1 @@
-dotnet publish "WorkBC Career Transition Tool API\WorkBC Career Transition Tool API.csproj" -o ./Publish -c Release --no-self-contained
+dotnet publish "API\API.csproj" -o ./Publish -c Release --no-self-contained
