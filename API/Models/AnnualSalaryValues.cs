@@ -4,9 +4,6 @@ namespace SearchAllOccupationsToolAPI.Models
 {
     public enum AnnualSalaryValues
     {
-        [Description("All")]
-        All = 0,
-
         [Description("Less than $20,000")]
         LessThan20 = 1,
 
