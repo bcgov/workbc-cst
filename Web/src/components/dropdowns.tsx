@@ -9,10 +9,9 @@ import { defaultFilterOption } from '../Services/filterReducer';
 
 const Dropdowns: FunctionComponent = () => {
 
-    const {filterOption, setFilterOption} = useFilterContext()
+    const {filterOption, setFilterOption, resetOptions} = useFilterContext()
 
     function handleChangeRegion(value: Key, options: any) {
-        console.log(`parmeters : ${value}, ${JSON.stringify(options)}`)
         try {
             if (!!value && !!options && options.value) {
                 setFilterOption({id: value as number, value: options.value}, FilterType.region)
@@ -22,31 +21,90 @@ const Dropdowns: FunctionComponent = () => {
         } catch (error) {
             console.log(error)
         }
-        console.log('Current Filter Option: ' + JSON.stringify(filterOption))
     }
 
     function handleChangeEducation(value: Key, options: any) {
-
+        try {
+            if (!!value && !!options && options.value) {
+                setFilterOption({id: value as number, value: options.value}, FilterType.education)
+            } else {
+                setFilterOption(defaultFilterOption.region, FilterType.education)
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     function handleChangeOccupationalInterest(value: Key, options: any) {
-
+        try {
+            if (!!value && !!options && options.value) {
+                setFilterOption({id: value as number, value: options.value}, FilterType.occupational_interest)
+            } else {
+                setFilterOption(defaultFilterOption.region, FilterType.occupational_interest)
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     function handleChangeIndustry(value: Key, options: any) {
-
+        try {
+            if (!!value && !!options && options.value) {
+                setFilterOption({id: value as number, value: options.value}, FilterType.industry)
+            } else {
+                setFilterOption(defaultFilterOption.region, FilterType.industry)
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     function handleChangeOccupationalGroup(value: Key, options: any) {
-
+        try {
+            if (!!value && !!options && options.value) {
+                setFilterOption({id: value as number, value: options.value}, FilterType.occupational_group)
+            } else {
+                setFilterOption(defaultFilterOption.region, FilterType.occupational_group)
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     function handleChangePartTimeOption(value: Key, options: any) {
-
+        try {
+            if (!!value && !!options && options.value) {
+                setFilterOption({id: value as number, value: options.value}, FilterType.part_time_option)
+            } else {
+                setFilterOption(defaultFilterOption.region, FilterType.part_time_option)
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     function handleChangeAnnualSalary(value: Key, options: any) {
+        try {
+            if (!!value && !!options && options.value) {
+                setFilterOption({id: value as number, value: options.value}, FilterType.annual_salary)
+            } else {
+                setFilterOption(defaultFilterOption.region, FilterType.annual_salary)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
+    function handleReset() {
+        try {
+            resetOptions()
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    function applyFilters() {
+        console.log(`The applied filters are : ${JSON.stringify(filterOption)}`)
     }
 
     return (
@@ -140,8 +198,8 @@ const Dropdowns: FunctionComponent = () => {
             
             <Row style={{padding: "10px"}}>
                 <Col span={6} offset={18}> 
-                    <Button type="primary" style={{width: "250px"}}> Apply Filters </Button>
-                    <Button style={{border: "none"}}> 
+                    <Button type="primary" style={{width: "250px"}} onClick = {applyFilters}> Apply Filters </Button>
+                    <Button style={{border: "none"}} onClick = {handleReset}> 
                         <div>
                             <SyncOutlined /> 
                             Reset

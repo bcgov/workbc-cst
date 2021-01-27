@@ -8,12 +8,14 @@ export interface FilterState {
 }
 
 export interface FilterContextProps extends FilterState {
-    setFilterOption: (option: FilterTypeModel, type: FilterType) => void
+    setFilterOption: (option: FilterTypeModel, type: FilterType) => void,
+    resetOptions: () => void
 }
 
 const FilterContext = createContext<FilterContextProps>({
     filterOption: undefined,
-    setFilterOption: () => {}
+    setFilterOption: () => {},
+    resetOptions: () => {}
 })
 
 FilterContext.displayName = 'FilterContext'
@@ -28,6 +30,10 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
         } catch (error) {
             console.log(error)
         }
+    }
+
+    async function resetOptions() {
+        dispatch({type: 'reset'})
     }
 
     async function updateFilterOption(option: FilterTypeModel, type: FilterType) {
@@ -58,8 +64,8 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
 
     return (
         <FilterContext.Provider 
-            value = {{ filterOption, setFilterOption }}> 
-            {{children}}
+            value = {{ filterOption, setFilterOption, resetOptions }}> 
+            {children}
         </FilterContext.Provider>
     )
 }

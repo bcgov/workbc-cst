@@ -25,7 +25,8 @@ export type FilterAction =
 {type: 'set-industry-option', payload: FilterTypeModel} |
 {type: 'set-occupational-group-option', payload: FilterTypeModel} |
 {type: 'set-part-time-option', payload: FilterTypeModel}|
-{type: 'set-annual-salary-option', payload: FilterTypeModel}
+{type: 'set-annual-salary-option', payload: FilterTypeModel} |
+{type: 'reset'}
 
 export function reducer(state: FilterState = defaultFilterState , action: FilterAction): FilterState {
     switch(action.type) {
@@ -49,5 +50,8 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
 
         case 'set-annual-salary-option': 
             return {...state, filterOption: {...state.filterOption, annual_salary: action.payload}}
+        
+        case 'reset': 
+            return defaultFilterState
     }
 }
