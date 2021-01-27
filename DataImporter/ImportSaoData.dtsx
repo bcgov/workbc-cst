@@ -13,8 +13,8 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="74"
-  DTS:VersionGUID="{3B1368FA-2073-4165-8429-1487EFBD870A}">
+  DTS:VersionBuild="79"
+  DTS:VersionGUID="{42FB2FD1-69E6-4DB0-8979-CC54218ACC25}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1845,6 +1845,98 @@ where [refTable].[NOCCode] = ?</property>
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\Insert Dependencies\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Insert Dependencies\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert Dependencies\Conditional Split.Inputs[Conditional Split Input].Columns[Occ Interest]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Occ Interest"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Insert Dependencies\Sort Interests.Outputs[Sort Output].Columns[Occ Interest]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert Dependencies\Conditional Split.Outputs[Occ Interest]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Occ Interest"
+                  synchronousInputId="Package\Insert Dependencies\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Insert Dependencies\Sort Interests.Outputs[Sort Output].Columns[Occ Interest]} != ""</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">[Occ Interest] != ""</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert Dependencies\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Insert Dependencies\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert Dependencies\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Insert Dependencies\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert Dependencies\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert Dependencies\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert Dependencies\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert Dependencies\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\Insert Dependencies\Education Levels Destination"
               componentClassID="Microsoft.OLEDBDestination"
@@ -3834,6 +3926,11 @@ where [refTable].[NOCCode] = ?</property>
               name="Flat File Source Output"
               startId="Package\Insert Dependencies\Occupational Interest Source.Outputs[Flat File Source Output]" />
             <path
+              refId="Package\Insert Dependencies.Paths[Occ Interest]"
+              endId="Package\Insert Dependencies\Occ Interest Destination.Inputs[OLE DB Destination Input]"
+              name="Occ Interest"
+              startId="Package\Insert Dependencies\Conditional Split.Outputs[Occ Interest]" />
+            <path
               refId="Package\Insert Dependencies.Paths[Sort Output]"
               endId="Package\Insert Dependencies\OG Destination.Inputs[OLE DB Destination Input]"
               name="Sort Output"
@@ -3845,7 +3942,7 @@ where [refTable].[NOCCode] = ?</property>
               startId="Package\Insert Dependencies\Sort Options.Outputs[Sort Output]" />
             <path
               refId="Package\Insert Dependencies.Paths[Sort Output2]"
-              endId="Package\Insert Dependencies\Occ Interest Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Insert Dependencies\Conditional Split.Inputs[Conditional Split Input]"
               name="Sort Output"
               startId="Package\Insert Dependencies\Sort Interests.Outputs[Sort Output]" />
           </paths>
@@ -5739,6 +5836,97 @@ where [refTable].[Value] = ?</property>
           version="1">
           <components>
             <component
+              refId="Package\Insert NOC Occupation Interests\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Insert NOC Occupation Interests\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert NOC Occupation Interests\Conditional Split.Inputs[Conditional Split Input].Columns[OccupationInterest]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="OccupationInterest"
+                      lineageId="Package\Insert NOC Occupation Interests\Flat File Source.Outputs[Flat File Source Output].Columns[OccupationInterest]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert NOC Occupation Interests\Conditional Split.Outputs[OccupationInterest]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="OccupationInterest"
+                  synchronousInputId="Package\Insert NOC Occupation Interests\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Insert NOC Occupation Interests\Flat File Source.Outputs[Flat File Source Output].Columns[OccupationInterest]} != ""</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">OccupationInterest != ""</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert NOC Occupation Interests\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Insert NOC Occupation Interests\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert NOC Occupation Interests\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Insert NOC Occupation Interests\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert NOC Occupation Interests\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert NOC Occupation Interests\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert NOC Occupation Interests\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert NOC Occupation Interests\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Insert NOC Occupation Interests\Flat File Source"
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -6160,7 +6348,7 @@ where [refTable].[NOCCode] = ?</property>
                       cachedDataType="i4"
                       cachedName="OccupationInterestId"
                       externalMetadataColumnId="Package\Insert NOC Occupation Interests\NOC OI Destination.Inputs[OLE DB Destination Input].ExternalColumns[OccupationInterestId]"
-                      lineageId="Package\Insert NOC Occupation Interests\OG Lookup.Outputs[Lookup Match Output].Columns[OccupationInterestId]" />
+                      lineageId="Package\Insert NOC Occupation Interests\OI Lookup.Outputs[Lookup Match Output].Columns[OccupationInterestId]" />
                     <inputColumn
                       refId="Package\Insert NOC Occupation Interests\NOC OI Destination.Inputs[OLE DB Destination Input].Columns[OccupationInterestValueIId]"
                       cachedDataType="i4"
@@ -6215,11 +6403,11 @@ where [refTable].[NOCCode] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Insert NOC Occupation Interests\OG Lookup"
+              refId="Package\Insert NOC Occupation Interests\OI Lookup"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="OG Lookup"
+              name="OI Lookup"
               usesDispositions="true"
               version="6">
               <properties>
@@ -6283,7 +6471,7 @@ where [refTable].[Value] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Insert NOC Occupation Interests\OG Lookup.Connections[OleDbConnection]"
+                  refId="Package\Insert NOC Occupation Interests\OI Lookup.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
                   connectionManagerRefId="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
                   description="Connection manager used to access lookup data."
@@ -6291,11 +6479,11 @@ where [refTable].[Value] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Insert NOC Occupation Interests\OG Lookup.Inputs[Lookup Input]"
+                  refId="Package\Insert NOC Occupation Interests\OI Lookup.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Insert NOC Occupation Interests\OG Lookup.Inputs[Lookup Input].Columns[OccupationInterest]"
+                      refId="Package\Insert NOC Occupation Interests\OI Lookup.Inputs[Lookup Input].Columns[OccupationInterest]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6318,18 +6506,18 @@ where [refTable].[Value] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Insert NOC Occupation Interests\OG Lookup.Outputs[Lookup Match Output]"
+                  refId="Package\Insert NOC Occupation Interests\OI Lookup.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Insert NOC Occupation Interests\OG Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Insert NOC Occupation Interests\OI Lookup.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Insert NOC Occupation Interests\OG Lookup.Outputs[Lookup Match Output].Columns[OccupationInterestId]"
+                      refId="Package\Insert NOC Occupation Interests\OI Lookup.Outputs[Lookup Match Output].Columns[OccupationInterestId]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Insert NOC Occupation Interests\OG Lookup.Outputs[Lookup Match Output].Columns[OccupationInterestId]"
+                      lineageId="Package\Insert NOC Occupation Interests\OI Lookup.Outputs[Lookup Match Output].Columns[OccupationInterestId]"
                       name="OccupationInterestId"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -6343,30 +6531,30 @@ where [refTable].[Value] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Insert NOC Occupation Interests\OG Lookup.Outputs[Lookup No Match Output]"
+                  refId="Package\Insert NOC Occupation Interests\OI Lookup.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Insert NOC Occupation Interests\OG Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Insert NOC Occupation Interests\OI Lookup.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Insert NOC Occupation Interests\OG Lookup.Outputs[Lookup Error Output]"
+                  refId="Package\Insert NOC Occupation Interests\OI Lookup.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Insert NOC Occupation Interests\OG Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Insert NOC Occupation Interests\OI Lookup.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Insert NOC Occupation Interests\OG Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\Insert NOC Occupation Interests\OI Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Insert NOC Occupation Interests\OG Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Insert NOC Occupation Interests\OI Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Insert NOC Occupation Interests\OG Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\Insert NOC Occupation Interests\OI Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Insert NOC Occupation Interests\OG Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Insert NOC Occupation Interests\OI Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -6538,24 +6726,29 @@ where [refTable].[Value] = ?</property>
           <paths>
             <path
               refId="Package\Insert NOC Occupation Interests.Paths[Flat File Source Output]"
-              endId="Package\Insert NOC Occupation Interests\Lookup NOC.Inputs[Lookup Input]"
+              endId="Package\Insert NOC Occupation Interests\Conditional Split.Inputs[Conditional Split Input]"
               name="Flat File Source Output"
               startId="Package\Insert NOC Occupation Interests\Flat File Source.Outputs[Flat File Source Output]" />
             <path
               refId="Package\Insert NOC Occupation Interests.Paths[Lookup Match Output]"
-              endId="Package\Insert NOC Occupation Interests\OG Lookup.Inputs[Lookup Input]"
+              endId="Package\Insert NOC Occupation Interests\OI Lookup.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Insert NOC Occupation Interests\Optionvalue Lookup.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Insert NOC Occupation Interests.Paths[Lookup Match Output1]"
               endId="Package\Insert NOC Occupation Interests\NOC OI Destination.Inputs[OLE DB Destination Input]"
               name="Lookup Match Output"
-              startId="Package\Insert NOC Occupation Interests\OG Lookup.Outputs[Lookup Match Output]" />
+              startId="Package\Insert NOC Occupation Interests\OI Lookup.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Insert NOC Occupation Interests.Paths[Lookup Match Output2]"
               endId="Package\Insert NOC Occupation Interests\Optionvalue Lookup.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Insert NOC Occupation Interests\Lookup NOC.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Insert NOC Occupation Interests.Paths[OccupationInterest]"
+              endId="Package\Insert NOC Occupation Interests\Lookup NOC.Inputs[Lookup Input]"
+              name="OccupationInterest"
+              startId="Package\Insert NOC Occupation Interests\Conditional Split.Outputs[OccupationInterest]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -8503,7 +8696,7 @@ where [refTable].[Value] = ?</property>
     design-time-name="Package\Insert Dependencies">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="202,42"
           Id="Package\Insert Dependencies\GeographicAreas Source"
@@ -8531,9 +8724,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -8578,9 +8769,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -8625,9 +8814,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -8672,9 +8859,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -8719,9 +8904,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -8747,9 +8930,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -8780,53 +8961,49 @@ where [refTable].[Value] = ?</property>
         <NodeLayout
           Size="140,42"
           Id="Package\Insert Dependencies\Sort Options"
-          TopLeft="43.5,107.5" />
+          TopLeft="47.5,115.5" />
         <EdgeLayout
           Id="Package\Insert Dependencies.Paths[Flat File Source Output5]"
-          TopLeft="113.5,47.5">
+          TopLeft="115.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,68"
               Start="0,0"
-              End="0,52.5">
+              End="0,60.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,60.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Insert Dependencies.Paths[Sort Output1]"
-          TopLeft="113.5,149.5">
+          TopLeft="115.5,157.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,52"
               Start="0,0"
-              End="0,52.5">
+              End="0,44.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,44.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -8853,56 +9030,80 @@ where [refTable].[Value] = ?</property>
         <NodeLayout
           Size="196,42"
           Id="Package\Insert Dependencies\Occ Interest Destination"
-          TopLeft="18,209.5" />
+          TopLeft="17,255.5" />
         <NodeLayout
           Size="144,42"
           Id="Package\Insert Dependencies\Sort Interests"
-          TopLeft="44,107.5" />
+          TopLeft="40,89.5" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Insert Dependencies\Conditional Split"
+          TopLeft="37,168" />
         <EdgeLayout
           Id="Package\Insert Dependencies.Paths[Flat File Source Output6]"
-          TopLeft="116,47.5">
+          TopLeft="114,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,42"
               Start="0,0"
-              End="0,52.5">
+              End="0,34.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,34.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Insert Dependencies.Paths[Sort Output2]"
-          TopLeft="116,149.5">
+          TopLeft="114.25,131.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,36.5"
               Start="0,0"
-              End="0,52.5">
+              End="0,29">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,29" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert Dependencies.Paths[Occ Interest]"
+          TopLeft="115.75,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.5"
+              Start="0,0"
+              End="0,38">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-27.83390625,14.21337890625,55.6678125,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8911,16 +9112,18 @@ where [refTable].[Value] = ?</property>
           ParentId="Package\Insert Dependencies"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="232,307"
-          Size="232,350"
+          PanelSize="232,352"
+          Size="232,396"
           Id="bcb8ffb3-593d-497d-8c06-b8ba863f5b16"
           TopLeft="521.25,102">
           <GroupLayout.ChildrenIds>
             <s:String>Package\Insert Dependencies\Occupational Interest Source</s:String>
             <s:String>Package\Insert Dependencies\Occ Interest Destination</s:String>
             <s:String>Package\Insert Dependencies\Sort Interests</s:String>
+            <s:String>Package\Insert Dependencies\Conditional Split</s:String>
             <s:String>Package\Insert Dependencies.Paths[Flat File Source Output6]</s:String>
             <s:String>Package\Insert Dependencies.Paths[Sort Output2]</s:String>
+            <s:String>Package\Insert Dependencies.Paths[Occ Interest]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
       </GraphLayout>
@@ -9563,7 +9766,7 @@ where [refTable].[Value] = ?</property>
         <NodeLayout
           Size="142,42"
           Id="Package\Insert NOC Occupation Interests\Lookup NOC"
-          TopLeft="38,89" />
+          TopLeft="40,145" />
         <NodeLayout
           Size="156,42"
           Id="Package\Insert NOC Occupation Interests\Flat File Source"
@@ -9574,37 +9777,37 @@ where [refTable].[Value] = ?</property>
           TopLeft="42,517" />
         <EdgeLayout
           Id="Package\Insert NOC Occupation Interests.Paths[Lookup Match Output2]"
-          TopLeft="109,131">
+          TopLeft="111,187">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="25.5,132"
+              EndConnector="23.5,76"
               Start="0,0"
-              End="25.5,124.5">
+              End="23.5,68.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,62" />
+                    End="0,34" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,62"
-                    Point2="0,66"
-                    Point3="4,66" />
+                    Point1="0,34"
+                    Point2="0,38"
+                    Point3="4,38" />
                   <mssgle:LineSegment
-                    End="21.5,66" />
+                    End="19.5,38" />
                   <mssgle:CubicBezierSegment
-                    Point1="21.5,66"
-                    Point2="25.5,66"
-                    Point3="25.5,70" />
+                    Point1="19.5,38"
+                    Point2="23.5,38"
+                    Point3="23.5,42" />
                   <mssgle:LineSegment
-                    End="25.5,124.5" />
+                    End="23.5,68.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-35.44138671875,71,96.3827734375,11.609375"
+              BoundingBox="-36.44138671875,43,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9644,33 +9847,9 @@ where [refTable].[Value] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insert NOC Occupation Interests.Paths[Flat File Source Output]"
-          TopLeft="105.25,52.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.5"
-              Start="0,0"
-              End="0,29">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="135,42"
-          Id="Package\Insert NOC Occupation Interests\OG Lookup"
+          Size="130,42"
+          Id="Package\Insert NOC Occupation Interests\OI Lookup"
           TopLeft="5.5,106.5" />
         <NodeLayout
           Size="177,42"
@@ -9682,9 +9861,9 @@ where [refTable].[Value] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-31,59"
+              EndConnector="-33.5,59"
               Start="0,0"
-              End="-31,51.5">
+              End="-33.5,51.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -9695,20 +9874,20 @@ where [refTable].[Value] = ?</property>
                     Point2="0,29.5"
                     Point3="-4,29.5" />
                   <mssgle:LineSegment
-                    End="-27,29.5" />
+                    End="-29.5,29.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-27,29.5"
-                    Point2="-31,29.5"
-                    Point3="-31,33.5" />
+                    Point1="-29.5,29.5"
+                    Point2="-33.5,29.5"
+                    Point3="-33.5,33.5" />
                   <mssgle:LineSegment
-                    End="-31,51.5" />
+                    End="-33.5,51.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-63.69138671875,34.5,96.3827734375,11.609375"
+              BoundingBox="-64.94138671875,34.5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9722,16 +9901,90 @@ where [refTable].[Value] = ?</property>
           Id="978873f6-cd9e-40bd-b4cf-982ec5359ff8"
           TopLeft="29.5,214.5">
           <GroupLayout.ChildrenIds>
-            <s:String>Package\Insert NOC Occupation Interests\OG Lookup</s:String>
+            <s:String>Package\Insert NOC Occupation Interests\OI Lookup</s:String>
             <s:String>Package\Insert NOC Occupation Interests\Optionvalue Lookup</s:String>
             <s:String>Package\Insert NOC Occupation Interests.Paths[Lookup Match Output]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Insert NOC Occupation Interests\Conditional Split"
+          TopLeft="260,93" />
+        <EdgeLayout
+          Id="Package\Insert NOC Occupation Interests.Paths[Flat File Source Output]"
+          TopLeft="101.5,52.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="238,40.5"
+              Start="0,0"
+              End="238,33">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.25"
+                    Point2="0,20.25"
+                    Point3="4,20.25" />
+                  <mssgle:LineSegment
+                    End="234,20.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="234,20.25"
+                    Point2="238,20.25"
+                    Point3="238,24.25" />
+                  <mssgle:LineSegment
+                    End="238,33" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert NOC Occupation Interests.Paths[OccupationInterest]"
+          TopLeft="260,114">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-78,52"
+              Start="0,0"
+              End="-70.5,52">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-35,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-35,0"
+                    Point2="-39,0"
+                    Point3="-39,4" />
+                  <mssgle:LineSegment
+                    End="-39,48" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-39,48"
+                    Point2="-39,52"
+                    Point3="-43,52" />
+                  <mssgle:LineSegment
+                    End="-70.5,52" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-81.76890625,-17.43359375,85.5378125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Insert NOC Occupation Interests\OG Lookup">
+    design-time-name="Package\Insert NOC Occupation Interests\OI Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
