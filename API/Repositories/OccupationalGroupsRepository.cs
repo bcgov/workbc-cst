@@ -20,7 +20,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
         {
             if (_context.IsSQLServer)
                 return _context.OccupationalGroups
-                    .Where(o => !string.IsNullOrWhiteSpace(o.Value))
+                    .Where(o => o.Value != "All Occupations")
                     .ToList();
 
             return ContextHelper.GetPlaceHolderData<OccupationalGroup>("SampleJsonFiles/occupationalgroups.json");

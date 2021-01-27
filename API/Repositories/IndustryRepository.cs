@@ -19,7 +19,9 @@ namespace SearchAllOccupationsToolAPI.Repositories
         public List<Industry> GetIndustries()
         {
             if (_context.IsSQLServer)
-                return _context.Industries.ToList();
+                return _context.Industries
+                    .Where(i => i.Value != "All industries")
+                    .ToList();
             
             return ContextHelper.GetPlaceHolderData<Industry>("SampleJsonFiles/industries.json");
         }
