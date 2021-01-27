@@ -3,9 +3,9 @@ import { Input, Row, Col, Button } from 'antd'
 import { SyncOutlined } from '@ant-design/icons'
 import SelectFilterType from './wbSelectFilterType';
 
-import { FilterType } from '../API/dataTypes';
-import { useFilterContext } from '../Services/filterContext';
-import { defaultFilterOption } from '../Services/filterReducer';
+import { FilterType } from '../client/dataTypes';
+import { useFilterContext } from '../state/filterContext';
+import { defaultFilterOption } from '../state/filterReducer';
 
 const Dropdowns: FunctionComponent = () => {
 

@@ -1,5 +1,5 @@
 import React, {FunctionComponent, createContext, useReducer, useContext} from 'react'
-import {FilterOptionModel, FilterType, FilterTypeModel} from '../API/dataTypes'
+import {FilterOptionModel, FilterType, FilterTypeModel} from '../client/dataTypes'
 import { defaultFilterState, reducer } from './filterReducer'
 
 

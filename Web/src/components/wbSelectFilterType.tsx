@@ -1,6 +1,6 @@
 import React, { FunctionComponent, Key } from 'react'
-import { useGetFilterData } from '../API/apiService'
-import { FilterType, FilterTypeModel } from '../API/dataTypes'
+import { useGetFilterData } from '../client/apiService'
+import { FilterType, FilterTypeModel } from '../client/dataTypes'
 import WbSelect, { WbSelectProps } from './wbSelect'
 import { Select } from 'antd'
 

@@ -1,4 +1,4 @@
-import { FilterOptionModel, FilterTypeModel } from "../API/dataTypes";
+import { FilterOptionModel, FilterTypeModel } from "../client/dataTypes";
 
 export const defaultFilterOption = {
     region: {id: -1, value: 'British Columbia'}, 
