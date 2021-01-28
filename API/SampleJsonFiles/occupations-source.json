@@ -1,0 +1,652 @@
+[
+  {
+    "id": 7501,
+    "noc": "0011",
+    "description": "<p><strong>Legislators:</strong></p>\r\n\r\n<ul>\r\n\t<li>participate in the activities of a federal, provincial, territorial or local government legislative bodies or executive councils</li>\r\n\t<li>work for band councils or school boards as elected or appointed members</li>\r\n</ul>\r\n",
+    "title": "Legislators",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$65,769",
+    "jobOpenings": 1691
+  },
+  {
+    "id": 7502,
+    "noc": "0012",
+    "description": "<p><strong>Senior government managers and officials:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize, direct, control and evaluate, through middle managers, the major activities of municipal or regional governments or of provincial, territorial or federal departments, boards, agencies or commissions</li>\r\n\t<li>direct these organizations following legislation and policies made by elected representatives or legislative bodies</li>\r\n</ul>\r\n",
+    "title": "Senior government managers and officials",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$108,727",
+    "jobOpenings": 4262
+  },
+  {
+    "id": 7503,
+    "noc": "0013",
+    "description": "",
+    "title": "Senior managers - financial, communications and other business services",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$119,849",
+    "jobOpenings": 17386
+  },
+  {
+    "id": 7504,
+    "noc": "0014",
+    "description": "<p><strong>Senior managers in this unit group:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize, direct, control and evaluate, through middle managers, membership and other organizations or institutions that deliver health, education, social or community services</li>\r\n\t<li>create policies, either alone or in partnership with a board of directors, that establish the direction to be taken by these organizations</li>\r\n\t<li>are employed in health care organizations, educational services, social and community services and membership organizations</li>\r\n</ul>\r\n",
+    "title": "Senior managers - health, education, social and community services and membership organizations",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$95,597",
+    "jobOpenings": 9534
+  },
+  {
+    "id": 7505,
+    "noc": "0015",
+    "description": "<p>Senior managers in this group work in organizations that do broadcasting and related media services, wholesale trade, retail trade, accommodation and food service, and other services.</p>\r\n",
+    "title": "Senior managers - trade, broadcasting and other services, n.e.c.",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$75,192",
+    "jobOpenings": 13429
+  },
+  {
+    "id": 7506,
+    "noc": "0016",
+    "description": "<p><strong>Senior managers in this group</strong></p>\r\n\r\n<ul>\r\n\t<li>organize, direct, control and judge the overall operations of goods production, utility, transportation and construction companies through middle managers</li>\r\n\t<li>create policies to manage the direction of these companies, either alone or working with a board of directors</li>\r\n</ul>\r\n",
+    "title": "Senior managers - construction, transportation, production and utilities",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$102,586",
+    "jobOpenings": 15088
+  },
+  {
+    "id": 7507,
+    "noc": "0111",
+    "description": "",
+    "title": "Financial managers",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$85,009",
+    "jobOpenings": 16819
+  },
+  {
+    "id": 7508,
+    "noc": "0112",
+    "description": "<p>Human resources managers work throughout the private and public sectors. They represent management and take part in various joint committees to maintain relations between management and employees.</p>\r\n",
+    "title": "Human resources managers",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$90,293",
+    "jobOpenings": 9454
+  },
+  {
+    "id": 7509,
+    "noc": "0113",
+    "description": "<p><b>Purchasing managers:</b></p>\r\n\r\n<ul>\r\n\t<li>plan, organize, direct, control and check the activities of a purchasing department</li>\r\n\t<li>create, design and carry out the purchasing policies of a business or institution</li>\r\n\t<li>are employed in the public and private sectors</li>\r\n</ul>\r\n",
+    "title": "Purchasing managers",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$86,049",
+    "jobOpenings": 5482
+  },
+  {
+    "id": 7510,
+    "noc": "0114",
+    "description": "<p><b>Managers in this group:</b></p>\r\n\r\n<ul>\r\n\t<li>plan, direct, evaluate, control and organize departments in charge of corporate regulations and compliance, record keeping, security, admissions and other management services not otherwise mentioned</li>\r\n\t<li>organize finance, human resources, purchasing, administration or computer systems departments</li>\r\n\t<li>work throughout the public and private sector</li>\r\n</ul>\r\n",
+    "title": "Other administrative services managers",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$85,010",
+    "jobOpenings": 10100
+  },
+  {
+    "id": 7511,
+    "noc": "0121",
+    "description": "<p><b>Insurance, Real Estate and Financial Brokerage managers</b></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and direct the activities of establishments or departments that provide insurance, mortgage, real estate and investment services</li>\r\n\t<li>are generally responsible for business development</li>\r\n\t<li>must ensure that their group reaches performance levels related to established goals</li>\r\n\t<li>work for insurance companies, real estate firms, stockbrokers, investment dealers, and financial institutions</li>\r\n</ul>\r\n",
+    "title": "Insurance, real estate and financial brokerage managers",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$79,996",
+    "jobOpenings": 9470
+  },
+  {
+    "id": 7512,
+    "noc": "0122",
+    "description": "<p><strong>People in this occupation:</strong></p>\r\n\r\n<ul>\r\n\t<li>oversee business development and manage overall performance in keeping with established strategic directions and policies</li>\r\n\t<li>are employed as bank managers by banks, trust companies and credit unions</li>\r\n\t<li>are employed as credit managers by credit departments in department stores, utility companies, car dealerships, insurance companies and other industrial or commercial organizations</li>\r\n\t<li>are employed as investment managers by credit card companies, consumer loan companies, mutual fund investment firms, mortgage investment companies and other financial establishments concerned with extending loans and financing and investments</li>\r\n</ul>\r\n",
+    "title": "Banking, credit and other investment managers",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$90,667",
+    "jobOpenings": 12438
+  },
+  {
+    "id": 7513,
+    "noc": "0124",
+    "description": "<p>People in this occupation are employed by commercial and industrial establishments, and advertising, marketing and public relations firms or consulting businesses.</p>\r\n",
+    "title": "Advertising, marketing and public relations managers",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$83,200",
+    "jobOpenings": 11505
+  },
+  {
+    "id": 7514,
+    "noc": "0125",
+    "description": "<p><strong>Business service managers:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize, direct, control and evaluate the operations of establishments that provide services to business, and ensure the quality of those services and client satisfaction.</li>\r\n\t<li>work in fields such as management consulting, market research, personnel and payroll services, contact centre services and security services.</li>\r\n</ul>\r\n",
+    "title": "Other business services managers",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$69,992",
+    "jobOpenings": 8507
+  },
+  {
+    "id": 7515,
+    "noc": "0131",
+    "description": "<p>Telecommunication carriers managers work for wired, wireless, satellite and other telecommunications carriers and perform a variety of tasks. People in this occupation:</p>\r\n\r\n<ul>\r\n\t<li>plan, organize, direct, control and evaluate the operations of a telecommunications company, department or facility</li>\r\n</ul>\r\n",
+    "title": "Telecommunication carriers managers",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$75,732",
+    "jobOpenings": 2120
+  },
+  {
+    "id": 7516,
+    "noc": "0132",
+    "description": "<p><strong>Postal and courier services managers:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and direct the activities and operations in postal facilities and in establishments that provide courier services</li>\r\n\t<li>are employed by Canada Post Corporation and by courier companies</li>\r\n</ul>\r\n",
+    "title": "Postal and courier services managers",
+    "education": {
+      "id": 62,
+      "value": "Diploma/Certificate"
+    },
+    "workExperience": null,
+    "income": "$57,643",
+    "jobOpenings": 390
+  },
+  {
+    "id": 7517,
+    "noc": "0211",
+    "description": "<p><strong>Engineering Managers:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and direct the activities of an engineering department, service or firm</li>\r\n\t<li>work for a wide range of private sector and government establishments and for consulting engineering and scientific research companies</li>\r\n</ul>\r\n",
+    "title": "Engineering managers",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$112,320",
+    "jobOpenings": 5327
+  },
+  {
+    "id": 7518,
+    "noc": "0212",
+    "description": "<p><strong>Architecture and science managers:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and direct the activities of an architecture, landscape architecture, scientific or statistical department, service or firm</li>\r\n\t<li>work for a wide range of private sector and government establishments as well as for architectural firms and scientific research companies</li>\r\n</ul>\r\n",
+    "title": "Architecture and science managers",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$90,293",
+    "jobOpenings": 2471
+  },
+  {
+    "id": 7519,
+    "noc": "0213",
+    "description": "",
+    "title": "Computer and information systems managers",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$93,600",
+    "jobOpenings": 18876
+  },
+  {
+    "id": 7520,
+    "noc": "0311",
+    "description": "<p><strong>Managers in health care:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and direct the delivery of health care services, such as diagnosis, treatment, nursing and therapy, within health care establishments</li>\r\n\t<li>work in hospitals, medical clinics, nursing homes and other health care establishments</li>\r\n</ul>\r\n",
+    "title": "Managers in health care",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$93,995",
+    "jobOpenings": 12244
+  },
+  {
+    "id": 7521,
+    "noc": "0411",
+    "description": "<p><strong>Government managers in this group:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize, direct, control and evaluate the development and administration of health care policies, social policies and related programs designed to protect and promote the health and social welfare of individuals and communities</li>\r\n\t<li>work for government departments and agencies</li>\r\n</ul>\r\n",
+    "title": "Government managers - health and social policy development and program administration",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$91,166",
+    "jobOpenings": 1000
+  },
+  {
+    "id": 7522,
+    "noc": "0412",
+    "description": "<p><strong>Government managers in this unit group:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and direct policy, research and programs in government such as taxation, international trade, labour markets, transportation or agriculture</li>\r\n\t<li>plan and direct policies and programs to promote industrial and commercial business development in urban and rural areas</li>\r\n\t<li>work in government departments and agencies</li>\r\n</ul>\r\n",
+    "title": "Government managers - economic analysis, policy development and program administration",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$93,870",
+    "jobOpenings": 1707
+  },
+  {
+    "id": 7523,
+    "noc": "0413",
+    "description": "<p><strong>Government managers in this unit group:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and direct the development and administration of elementary, secondary and post-secondary education policies and programs</li>\r\n\t<li>fwork for government departments and agencies</li>\r\n</ul>\r\n",
+    "title": "Government managers - education policy development and program administration",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$93,187",
+    "jobOpenings": 262
+  },
+  {
+    "id": 7524,
+    "noc": "0414",
+    "description": "<p><strong>Other managers in public administration:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and direct the creation of policies and programs that govern the daily operations of legislatures and other activities unique to government such as intergovernmental affairs and elections</li>\r\n\t<li>work for government departments, agencies and legislative bodies</li>\r\n</ul>\r\n",
+    "title": "Other managers in public administration",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$105,893",
+    "jobOpenings": 1769
+  },
+  {
+    "id": 7525,
+    "noc": "0421",
+    "description": "<p><strong>Administrators in this group:</strong></p>\r\n\r\n<ul>\r\n\t<li>manage the academic and related activities of college or university faculties</li>\r\n\t<li>manage registration activities and academic records systems of colleges or universities</li>\r\n\t<li>manage the operations of vocational schools specializing in trades, technology, business or other vocational subjects</li>\r\n</ul>\r\n",
+    "title": "Administrators - post-secondary education and vocational training",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$100,006",
+    "jobOpenings": 5429
+  },
+  {
+    "id": 7526,
+    "noc": "0422",
+    "description": "<p>School principals and administrators of elementary and secondary education work for school boards and for public and private schools.</p>\r\n",
+    "title": "School principals and administrators of elementary and secondary education",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$88,005",
+    "jobOpenings": 7398
+  },
+  {
+    "id": 7527,
+    "noc": "0423",
+    "description": "<p><strong>Managers in social, community and correctional services:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and direct the programs and activities of social service and community agencies, correctional institutions, counselling departments, labour organizations, professional associations, political parties and non-governmental organizations</li>\r\n</ul>\r\n",
+    "title": "Managers in social, community and correctional services",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$66,664",
+    "jobOpenings": 9441
+  },
+  {
+    "id": 7528,
+    "noc": "0431",
+    "description": "<p><strong>People in this occupation:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and direct police force administration and police activities such as maintaining law and order and detecting and preventing crime</li>\r\n\t<li>work for municipal, provincial and federal governments</li>\r\n\t<li>includes officers from the rank of staff sergeant to police commissioner</li>\r\n\t<li>commissioned officers in the railway police are also included in this group</li>\r\n</ul>\r\n",
+    "title": "Commissioned police officers",
+    "education": {
+      "id": 62,
+      "value": "Diploma/Certificate"
+    },
+    "workExperience": null,
+    "income": "$118,976",
+    "jobOpenings": 448
+  },
+  {
+    "id": 7529,
+    "noc": "0432",
+    "description": "<p><strong>Fire chiefs and senior firefighting officers:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and direct firefighting operations and fire prevention activities in fire departments</li>\r\n\t<li>work for municipal and federal governments and for industrial establishments with firefighting services</li>\r\n</ul>\r\n",
+    "title": "Fire chiefs and senior firefighting officers",
+    "education": {
+      "id": 62,
+      "value": "Diploma/Certificate"
+    },
+    "workExperience": null,
+    "income": "$120,369",
+    "jobOpenings": 1216
+  },
+  {
+    "id": 7530,
+    "noc": "0433",
+    "description": "<p><strong>Commissioned officers of the Canadian Forces:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and command the activities of personnel in the Canadian Forces</li>\r\n\t<li>include all ranks of commissioned officers in the Air Force, Army, and Navy</li>\r\n</ul>\r\n",
+    "title": "Commissioned officers of the Canadian Forces",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$88,067",
+    "jobOpenings": 1124
+  },
+  {
+    "id": 7531,
+    "noc": "0511",
+    "description": "<p><strong>Library, archive, museum and art gallery managers:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and direct the activities of libraries, archives, museums, art galleries or departments within such institutions</li>\r\n\t<li>work in libraries, archives, museums and non-retail art galleries</li>\r\n</ul>\r\n",
+    "title": "Library, archive, museum and art gallery managers",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$64,500",
+    "jobOpenings": 1039
+  },
+  {
+    "id": 7532,
+    "noc": "0512",
+    "description": "<p><strong>Managers in this unit group:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and direct operations within publishing firms, film, theatre and record production companies and broadcasting facilities</li>\r\n\t<li>work for radio and television stations, newspapers, periodical and book publishing firms, and by film, theatre, record and video production companies</li>\r\n</ul>\r\n",
+    "title": "Managers - publishing, motion pictures, broadcasting and performing arts",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$56,243",
+    "jobOpenings": 3467
+  },
+  {
+    "id": 7533,
+    "noc": "0513",
+    "description": "<p>Recreation, sport and fitness program and service directors work for municipalities, community and private recreational and fitness organizations, sports-governing agencies and professional athletic team organizations.</p>\r\n",
+    "title": "Recreation, sports and fitness program and service directors",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$65,998",
+    "jobOpenings": 4799
+  },
+  {
+    "id": 7534,
+    "noc": "0601",
+    "description": "<p>Corporate sales managers plan, organize, direct, control and evaluate the activities of establishments and departments involved in commercial, industrial, institutional, e-business and wholesale and retail sales.</p>\r\n\r\n<p>People in this occupation are employed by commercial, industrial,&nbsp; wholesale and retail trade establishments.</p>\r\n",
+    "title": "Corporate sales managers",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$92,310",
+    "jobOpenings": 17783
+  },
+  {
+    "id": 7535,
+    "noc": "0621",
+    "description": "<p>Retail and wholesale trade managers work for retail and wholesale sales businesses or they may own and operate their own store.</p>\r\n",
+    "title": "Retail and wholesale trade managers",
+    "education": {
+      "id": 62,
+      "value": "Diploma/Certificate"
+    },
+    "workExperience": null,
+    "income": "$62,400",
+    "jobOpenings": 78825
+  },
+  {
+    "id": 7536,
+    "noc": "0631",
+    "description": "",
+    "title": "Restaurant and food service managers",
+    "education": {
+      "id": 63,
+      "value": "High School"
+    },
+    "workExperience": null,
+    "income": "$45,760",
+    "jobOpenings": 38100
+  },
+  {
+    "id": 7537,
+    "noc": "0632",
+    "description": "<p>Accommodation service managers plan, organize, direct, control and evaluate the operations of an accommodation establishment or of a department within such an organization.</p>\r\n\r\n<p><strong>People in this occupation:</strong></p>\r\n\r\n<ul>\r\n\t<li>are employed by hotels, motels, resorts, student residences and other accommodation</li>\r\n\t<li>may be self-employed</li>\r\n</ul>\r\n",
+    "title": "Accommodation service managers",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$52,000",
+    "jobOpenings": 9462
+  },
+  {
+    "id": 7538,
+    "noc": "0651",
+    "description": "<p><strong>Managers in Customer and Personal Services, N.E.C.</strong><strong>:</strong></p>\r\n\r\n<ul>\r\n\t<li>manage establishments that provide services not classified elsewhere such as dry cleaning, hairdressing or residential cleaning</li>\r\n\t<li>includes managers of schools that provide non-work related instruction in driving, languages, music, dance, art, cooking or fashion</li>\r\n</ul>\r\n",
+    "title": "Managers in customer and personal services, n.e.c.",
+    "education": {
+      "id": 62,
+      "value": "Diploma/Certificate"
+    },
+    "workExperience": null,
+    "income": "$47,424",
+    "jobOpenings": 7005
+  },
+  {
+    "id": 7539,
+    "noc": "0711",
+    "description": "<p><strong>People in this occupation:</strong></p>\r\n\r\n<ul>\r\n\t<li>work for residential, commercial and industrial construction companies and for construction departments of companies outside the construction industry</li>\r\n</ul>\r\n",
+    "title": "Construction managers",
+    "education": {
+      "id": 62,
+      "value": "Diploma/Certificate"
+    },
+    "workExperience": null,
+    "income": "$78,998",
+    "jobOpenings": 29214
+  },
+  {
+    "id": 7540,
+    "noc": "0712",
+    "description": "<p><strong>People in this occupation:</strong></p>  <ul> \t<li>should have a good understanding of all aspects of the construction process, including building codes and government regulations</li> \t<li>should have excellent organizational and communication skills</li> \t<li>should have the ability to undertake business-related duties, such as record-keeping and financial management</li> </ul>",
+    "title": "Home building and renovation managers",
+    "education": {
+      "id": 62,
+      "value": "Diploma/Certificate"
+    },
+    "workExperience": null,
+    "income": "$43,181",
+    "jobOpenings": 14957
+  },
+  {
+    "id": 7541,
+    "noc": "0714",
+    "description": "<p><strong>Facility operation managers:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and direct the operations of commercial, transportation and recreational facilities and the included real estate</li>\r\n\t<li>work for a wide range of establishments, such as airports, harbours, canals, shopping centres, convention centres, warehouses and recreational facilities</li>\r\n</ul>\r\n\r\n<p><strong>Maintenance managers:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and direct the maintenance department within commercial, industrial, institutional, recreational and other facilities</li>\r\n\t<li>work for a wide range of establishments, such as office buildings, shopping centres, airports, harbours, warehouses, grain terminals, universities, schools and sports facilities, and by the maintenance and mechanical engineering departments of manufacturing and other industrial establishments</li>\r\n</ul>\r\n",
+    "title": "Facility operation and maintenance managers",
+    "education": {
+      "id": 62,
+      "value": "Diploma/Certificate"
+    },
+    "workExperience": null,
+    "income": "$65,000",
+    "jobOpenings": 18635
+  },
+  {
+    "id": 7542,
+    "noc": "0731",
+    "description": "<p><strong>Managers in transportation:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize and direct the operations of transportation companies such as railways, airlines, bus lines, municipal transit systems, shipping lines and trucking companies, under the direction of a general manager or other senior manager</li>\r\n\t<li>plan, organize and direct companies or departments responsible for the transportation and movement of goods, under the direction of a general manager or other senior manager</li>\r\n\t<li>work for transportation, freight forwarding and shipping companies and for transportation departments of companies in retail and manufacturing sectors and utilities</li>\r\n</ul>\r\n",
+    "title": "Managers in transportation",
+    "education": {
+      "id": 62,
+      "value": "Diploma/Certificate"
+    },
+    "workExperience": null,
+    "income": "$77,296",
+    "jobOpenings": 10740
+  },
+  {
+    "id": 7543,
+    "noc": "0811",
+    "description": "<p>People in this occupational group work in:</p>\r\n\r\n<ul>\r\n\t<li>forestry and logging</li>\r\n\t<li>mining and quarrying</li>\r\n\t<li>oil and gas drilling</li>\r\n\t<li>production and servicing operations</li>\r\n\t<li>commercial fishing</li>\r\n</ul>\r\n",
+    "title": "Managers in natural resources production and fishing",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$93,600",
+    "jobOpenings": 4392
+  },
+  {
+    "id": 7544,
+    "noc": "0821",
+    "description": "<p>Managers in agriculture are responsible for:</p>\r\n\r\n<ul>\r\n\t<li>growing crops</li>\r\n\t<li>raising and breeding livestock, poultry and other animals</li>\r\n\t<li>marketing farm products</li>\r\n</ul>\r\n",
+    "title": "Managers in agriculture",
+    "education": {
+      "id": 62,
+      "value": "Diploma/Certificate"
+    },
+    "workExperience": null,
+    "income": "$23,964",
+    "jobOpenings": 15480
+  },
+  {
+    "id": 7545,
+    "noc": "0822",
+    "description": "<p><strong>Managers in horticulture:</strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize, direct and control the activities of nursery and greenhouse staff who grow and market trees, shrubs, flowers and plants</li>\r\n</ul>\r\n",
+    "title": "Managers in horticulture",
+    "education": {
+      "id": 62,
+      "value": "Diploma/Certificate"
+    },
+    "workExperience": null,
+    "income": "$35,360",
+    "jobOpenings": 1100
+  },
+  {
+    "id": 7546,
+    "noc": "0823",
+    "description": "<p><strong>Managers in aquaculture:</strong></p>\r\n\r\n<ul>\r\n\t<li>manage operations of facilities that cultivate and harvest fish, shellfish or marine plants to replenish wildlife stocks or for commercial sale</li>\r\n\t<li>work for public or private fish hatcheries and commercial aquatic farms</li>\r\n\t<li>may be self-employed</li>\r\n</ul>\r\n",
+    "title": "Managers in aquaculture",
+    "education": {
+      "id": 63,
+      "value": "High School"
+    },
+    "workExperience": null,
+    "income": "$65,686",
+    "jobOpenings": 362
+  },
+  {
+    "id": 7547,
+    "noc": "0911",
+    "description": "<p><strong>Manufacturing managers: </strong></p>\r\n\r\n<ul>\r\n\t<li>plan, organize, direct, control and evaluate the operations of a manufacturing plant or of a production department within a manufacturing plant, under the direction of a general manager or other senior manager</li>\r\n\t<li>are employed by manufacturing companies</li>\r\n</ul>\r\n",
+    "title": "Manufacturing managers",
+    "education": {
+      "id": 62,
+      "value": "Diploma/Certificate"
+    },
+    "workExperience": null,
+    "income": "$78,000",
+    "jobOpenings": 15327
+  },
+  {
+    "id": 7548,
+    "noc": "0912",
+    "description": "This group includes managers who plan, organize, direct, control and evaluate the operations of utility companies, utility&nbsp;services or heating oil distribution companies (i.e. managers in water supply, electrical power distribution, natural gas supply, petroleum product distribution, water pollution control and waste systems).<br />\r\n<br />\r\n<strong>Utilities managers:</strong>\r\n<ul>\r\n\t<li>provide services such as water, electricity, natural gas or heating oil</li>\r\n\t<li>provide services to residential, commercial and industrial consumers</li>\r\n\t<li>work for public and private sector utilities and heating oil distribution companies</li>\r\n</ul>\r\n",
+    "title": "Utilities managers",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$102,003",
+    "jobOpenings": 3137
+  },
+  {
+    "id": 7549,
+    "noc": "1111",
+    "description": "<p>Chartered Professional Accountant (CPA) is the designation established in 2013 for professional accountants across Canada. In 2015, B.C. passed legislation to unify its three professional accounting bodies&mdash;Certified Management Accountants, Chartered Accountants and Certified General Accountants&mdash;under the one designation. The Chartered Professional Accountants of British Columbia (CPABC) is this province&rsquo;s regulator for CPAs, and is part of the national Chartered Professional Accountants of Canada (CPA Canada).</p>\r\n\r\n<p>The CPA designation opens up a wide range of careers in finance, audit, tax and financial reporting. While accountants may also be undesignated, they may face limits to their career advancement without the CPA. The CPA is mandatory for those interested in providing regulated accounting services, and it is often the credential demanded for many other senior financial positions.</p>\r\n",
+    "title": "Financial auditors and accountants",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$62,400",
+    "jobOpenings": 41907
+  },
+  {
+    "id": 7550,
+    "noc": "1112",
+    "description": "<p><strong>Financial and investment analysts:</strong></p>\r\n\r\n<ul>\r\n\t<li>collect and analyze financial information so as to provide financial and investment or financing advice for their company or their company&#39;s clients</li>\r\n\t<li>cover areas such as takeover bids, private placements, mergers or acquisitions</li>\r\n\t<li>work for a wide range of establishments throughout the private and public sector, such as banks, brokerage houses, insurance companies, investment companies, manufacturing firms, trust companies, utility companies and underwriting firms</li>\r\n</ul>\r\n",
+    "title": "Financial and investment analysts",
+    "education": {
+      "id": 61,
+      "value": "Degree"
+    },
+    "workExperience": null,
+    "income": "$79,997",
+    "jobOpenings": 5247
+  }
+]

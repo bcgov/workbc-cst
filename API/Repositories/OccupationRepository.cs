@@ -11,17 +11,48 @@ namespace SearchAllOccupationsToolAPI.Repositories
     public class OccupationRepository : IOccupationRepository
     {
         private readonly IOccupationContext _context;
+        private readonly IOccupationalGroupRepository _occupationalGroupRepository;
+        private readonly IIndustryContext _industryContext;
 
-        public OccupationRepository(IOccupationContext context)
+        public OccupationRepository(IOccupationContext context, IOccupationalGroupContext occupationalGroupContext, IIndustryContext industryContext)
         {
             _context = context;
+            _occupationalGroupRepository = new OccupationalGroupsRepository(occupationalGroupContext);
+            _industryContext = industryContext;
         }
 
         public List<OccupationListItem> GetOccupations(OccupationSearchFilter filter)
         {
+            //if (!_context.IsSQLServer)
+            //    return ContextHelper.GetPlaceHolderData<OccupationListItem>("SampleJsonFiles/occupationlistitems.json");
             if (!_context.IsSQLServer)
-                return ContextHelper.GetPlaceHolderData<OccupationListItem>("SampleJsonFiles/occupationlistitems.json");
+            {
+                var source = ContextHelper.GetPlaceHolderData<Occupation>("SampleJsonFiles/occupations-source.json").AsQueryable();
 
+                if (!string.IsNullOrWhiteSpace(filter.Keywords))
+                    source = source.Where(o => o.NOC.Contains(filter.Keywords) || o.Title.Contains(filter.Keywords));
+
+                if (filter.EducationLevelId > 0)
+                {
+                    if (filter.EducationLevelId == 1)
+                        source = source.Where(e => e.Education.Value == "Degree");
+                    if (filter.EducationLevelId == 2)
+                        source = source.Where(e => e.Education.Value == "Diploma/Certificate");
+                    if (filter.EducationLevelId == 3)
+                        source = source.Where(e => e.Education.Value == "High School");
+                    if (filter.EducationLevelId == 4)
+                        source = source.Where(e => e.Education.Value == "Less than High School");
+                }
+
+                var occupationsFiltered = source.Select(s => new OccupationListItem
+                {
+                    Id = s.Id,
+                    NOC = s.NOC,
+                    NOCAndTitle = $"{s.Title} ({s.NOC})",
+                    JobOpenings = s.JobOpenings
+                });
+                return occupationsFiltered.ToList(); 
+            }
 
             // Might have performance issues with these includes for unfiltered datasets.
             var occupations = _context.NOCs
@@ -92,7 +123,14 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 occupations = occupations.Where(o => o.OccupationInterests.Any(og => og.OccupationalInterest.Id == filter.OccupationalInterestId));
 
             if (filter.OccupationalGroupId > 0)
-                occupations = occupations.Where(o => o.OccupationalGroups.Any(og => og.OccupationalGroup.Id == filter.OccupationalGroupId));
+            {
+                var groupsFilter = new List<int> { filter.OccupationalGroupId.Value };
+                var allGroup = _occupationalGroupRepository.GetAllOccupationalGroup();
+                if (allGroup != null)
+                    groupsFilter.Add(allGroup.Id);
+
+                occupations = occupations.Where(o => o.OccupationalGroups.Any(og => groupsFilter.Contains(og.OccupationalGroup.Id)));
+            }
 
             if (filter.IndustryId > 0)
             {

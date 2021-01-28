@@ -25,5 +25,18 @@ namespace SearchAllOccupationsToolAPI.Repositories
 
             return ContextHelper.GetPlaceHolderData<OccupationalGroup>("SampleJsonFiles/occupationalgroups.json");
         }
+
+        /// <summary>
+        /// Return the group that represent the 'All Occupations' value
+        /// </summary>
+        /// <returns></returns>
+        public OccupationalGroup GetAllOccupationalGroup()
+        {
+            if (_context.IsSQLServer)
+                return _context.OccupationalGroups
+                    .FirstOrDefault(o => o.Value == "All Occupations");
+
+            return null;
+        }
     }
 }
