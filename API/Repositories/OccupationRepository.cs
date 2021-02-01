@@ -151,12 +151,15 @@ namespace SearchAllOccupationsToolAPI.Repositories
 
         public List<Occupation> GetNocList(string nocs)
         {
-            if (!_context.IsSQLServer)
-                return ContextHelper.GetPlaceHolderData<Occupation>("SampleJsonFiles/occupations.json");
-
             var nocIds = GetNocItems(nocs);
             if (!nocIds.Any())
                 return new List<Occupation>();
+
+            if (!_context.IsSQLServer)
+            {
+                var occupations = ContextHelper.GetPlaceHolderData<Occupation>("SampleJsonFiles/occupations.json");
+                return occupations.Where(n => nocIds.Contains(n.NOC)).ToList();
+            }
 
             return _context.NOCs
                 .Where(n => nocIds.Take(3).Contains(n.NocCode))
