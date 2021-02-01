@@ -10,6 +10,8 @@
 
         JobOpeningsBaseUrl = 4,
         
-        CareerTrekVideoBaseUrl = 5
+        CareerTrekVideoBaseUrl = 5,
+        
+        ImageCarouselNOCs = 6
     }
 }

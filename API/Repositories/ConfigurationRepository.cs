@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System.IO;
+using Microsoft.Extensions.Configuration;
 using SearchAllOccupationsToolAPI.Extensions;
 using SearchAllOccupationsToolAPI.Models;
 using SearchAllOccupationsToolAPI.Repositories.Interfaces;
@@ -33,6 +34,9 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 case ConfigurationSetting.CareerTrekVideoBaseUrl:
                     return GetConfigurationSetting(setting, "CareerTrekVideoBaseUrl");
 
+                case ConfigurationSetting.ImageCarouselNOCs:
+                    return GetImageCarouselNOCs(setting, "ImageCarouselNOCConfigLocalPath");
+
                 default:
                     return new Configuration
                     {
@@ -42,7 +46,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
                     };
             }
         }
-
+       
         private Configuration GetConfigurationSetting(ConfigurationSetting settingName, string configString)
         {
             return new Configuration
@@ -52,5 +56,20 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 Value = _configuration[configString]
             };
         }
+
+        private Configuration GetImageCarouselNOCs(ConfigurationSetting settingName, string configString)
+        {
+            var sr = new StreamReader(_configuration[configString]);
+            var nocs = sr.ReadToEnd();
+            sr.Close();
+
+            return new Configuration
+            {
+                Id = (int)settingName,
+                Name = settingName.GetDescription(),
+                Value = nocs.Trim() // "2122,2175,2234"
+            };
+        }
+
     }
 }
