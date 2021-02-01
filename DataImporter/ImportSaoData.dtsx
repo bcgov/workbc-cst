@@ -13,8 +13,8 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="79"
-  DTS:VersionGUID="{42FB2FD1-69E6-4DB0-8979-CC54218ACC25}">
+  DTS:VersionBuild="81"
+  DTS:VersionGUID="{1AD91414-AFBC-4A4A-8B9B-74BA4935F3F4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4496,7 +4496,7 @@ where [refTable].[Value] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -4566,7 +4566,6 @@ where [refTable].[Value] = ?</property>
                 <output
                   refId="Package\Insert NOC Job Openings\Industry Lookup.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Insert NOC Job Openings\Industry Lookup.Inputs[Lookup Input]">
@@ -9112,7 +9111,7 @@ where [refTable].[Value] = ?</property>
           ParentId="Package\Insert Dependencies"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="232,352"
+          PanelSize="232,353"
           Size="232,396"
           Id="bcb8ffb3-593d-497d-8c06-b8ba863f5b16"
           TopLeft="521.25,102">
@@ -9129,19 +9128,6 @@ where [refTable].[Value] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insert Dependencies\Occ Option Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Insert Dependencies\FullTimePartTime Destination">
     <Properties>
@@ -9169,7 +9155,20 @@ where [refTable].[Value] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Insert Dependencies\OG Destination">
+    design-time-name="Package\Insert Dependencies\Occ Option Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert Dependencies\Education Levels Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9208,7 +9207,7 @@ where [refTable].[Value] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Insert Dependencies\Education Levels Destination">
+    design-time-name="Package\Insert Dependencies\OG Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9340,9 +9339,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -9413,7 +9410,7 @@ where [refTable].[Value] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -9423,7 +9420,7 @@ where [refTable].[Value] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9609,9 +9606,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -9764,10 +9759,6 @@ where [refTable].[Value] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
         <NodeLayout
-          Size="142,42"
-          Id="Package\Insert NOC Occupation Interests\Lookup NOC"
-          TopLeft="40,145" />
-        <NodeLayout
           Size="156,42"
           Id="Package\Insert NOC Occupation Interests\Flat File Source"
           TopLeft="23.5,10.5" />
@@ -9775,6 +9766,50 @@ where [refTable].[Value] = ?</property>
           Size="176,42"
           Id="Package\Insert NOC Occupation Interests\NOC OI Destination"
           TopLeft="42,517" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Insert NOC Occupation Interests\Conditional Split"
+          TopLeft="260,93" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Insert NOC Occupation Interests\Lookup NOC"
+          TopLeft="40,145" />
+        <EdgeLayout
+          Id="Package\Insert NOC Occupation Interests.Paths[OccupationInterest]"
+          TopLeft="260,114">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-78,52"
+              Start="0,0"
+              End="-70.5,52">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-35,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-35,0"
+                    Point2="-39,0"
+                    Point3="-39,4" />
+                  <mssgle:LineSegment
+                    End="-39,48" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-39,48"
+                    Point2="-39,52"
+                    Point3="-43,52" />
+                  <mssgle:LineSegment
+                    End="-70.5,52" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-81.76890625,-17.43359375,85.5378125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Insert NOC Occupation Interests.Paths[Lookup Match Output2]"
           TopLeft="111,187">
@@ -9847,6 +9882,40 @@ where [refTable].[Value] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert NOC Occupation Interests.Paths[Flat File Source Output]"
+          TopLeft="101.5,52.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="238,40.5"
+              Start="0,0"
+              End="238,33">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.25"
+                    Point2="0,20.25"
+                    Point3="4,20.25" />
+                  <mssgle:LineSegment
+                    End="234,20.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="234,20.25"
+                    Point2="238,20.25"
+                    Point3="238,24.25" />
+                  <mssgle:LineSegment
+                    End="238,33" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <NodeLayout
           Size="130,42"
           Id="Package\Insert NOC Occupation Interests\OI Lookup"
@@ -9906,103 +9975,19 @@ where [refTable].[Value] = ?</property>
             <s:String>Package\Insert NOC Occupation Interests.Paths[Lookup Match Output]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Insert NOC Occupation Interests\Conditional Split"
-          TopLeft="260,93" />
-        <EdgeLayout
-          Id="Package\Insert NOC Occupation Interests.Paths[Flat File Source Output]"
-          TopLeft="101.5,52.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="238,40.5"
-              Start="0,0"
-              End="238,33">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.25"
-                    Point2="0,20.25"
-                    Point3="4,20.25" />
-                  <mssgle:LineSegment
-                    End="234,20.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="234,20.25"
-                    Point2="238,20.25"
-                    Point3="238,24.25" />
-                  <mssgle:LineSegment
-                    End="238,33" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insert NOC Occupation Interests.Paths[OccupationInterest]"
-          TopLeft="260,114">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-78,52"
-              Start="0,0"
-              End="-70.5,52">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-35,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-35,0"
-                    Point2="-39,0"
-                    Point3="-39,4" />
-                  <mssgle:LineSegment
-                    End="-39,48" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-39,48"
-                    Point2="-39,52"
-                    Point3="-43,52" />
-                  <mssgle:LineSegment
-                    End="-70.5,52" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-81.76890625,-17.43359375,85.5378125,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Insert NOC Occupation Interests\OI Lookup">
+    design-time-name="Package\Insert NOC Occupation Interests\NOC OI Destination">
     <Properties>
       <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[OccupationalInterest]</Value>
+        <Name>DataSourceViewID</Name>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -10030,15 +10015,25 @@ where [refTable].[Value] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Insert NOC Occupation Interests\NOC OI Destination">
+    design-time-name="Package\Insert NOC Occupation Interests\OI Lookup">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[OccupationalInterest]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

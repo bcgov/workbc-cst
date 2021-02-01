@@ -1,88 +1,55 @@
 ﻿using Microsoft.Extensions.Configuration;
-using System.Collections.Generic;
-using System.IO;
+using SearchAllOccupationsToolAPI.Extensions;
 using SearchAllOccupationsToolAPI.Models;
+using SearchAllOccupationsToolAPI.Repositories.Interfaces;
 
 namespace SearchAllOccupationsToolAPI.Repositories
 {
     public class ConfigurationRepository : IConfigurationRepository
     {
-        //private IConfigurationContext _context;
         private readonly IConfiguration _configuration;
 
-        public ConfigurationRepository(//IConfigurationContext dbContext, 
-            IConfiguration configuration)
+        public ConfigurationRepository(IConfiguration configuration)
         {
-            //_context = dbContext;
             _configuration = configuration;
         }
 
-        public List<Configuration> GetConfigurations()
+        public Configuration GetConfigurationFor(ConfigurationSetting setting)
         {
-            List<Configuration> configurations = new List<Configuration>();
-            configurations.Add(GetImageCarouselNOCs());
-            configurations.Add(GetProfileImagesPath());
-            configurations.Add(GetBackgroundImagesPath());
-            return configurations;
-        }
-
-        public List<Configuration> GetConfigurations(string settingName)
-        {
-            //string a = _configuration["UseSQL"];
-            //List<Configuration> configurations = GetConfigurations();
-            //return configurations.FindAll(x => x.Name == settingName);
-
-            if(settingName.ToLower() == "ImageCarouselNOCs".ToLower())
+            switch (setting)
             {
-                return new List<Configuration> { GetImageCarouselNOCs() };
+                case ConfigurationSetting.ProfileImagesPath:
+                    return GetConfigurationSetting(setting, "SharedImagesProfilesBaseURL");
+
+                case ConfigurationSetting.BackgroundImagesPath:
+                    return GetConfigurationSetting(setting, "SharedImagesBackgroundsBaseURL");
+
+                case ConfigurationSetting.CareerProfileBaseUrl:
+                    return GetConfigurationSetting(setting, "CareerProfileBaseUrl");
+
+                case ConfigurationSetting.JobOpeningsBaseUrl:
+                    return GetConfigurationSetting(setting, "CareerJobOpeningsBaseUrl");
+                
+                case ConfigurationSetting.CareerTrekVideoBaseUrl:
+                    return GetConfigurationSetting(setting, "CareerTrekVideoBaseUrl");
+
+                default:
+                    return new Configuration
+                    {
+                        Id = -1,
+                        Name = "NotFound",
+                        Value = "Setting not found"
+                    };
             }
-
-            if(settingName.ToLower() == "ProfileImagesPath".ToLower())
-            {
-                return new List<Configuration> { GetProfileImagesPath() };
-            }
-
-            if (settingName.ToLower() == "BackgroundImagesPath".ToLower())
-            {
-                return new List<Configuration> { GetBackgroundImagesPath() };
-            }
-
-            return new List<Configuration>();
         }
 
-        private Configuration GetImageCarouselNOCs()
+        private Configuration GetConfigurationSetting(ConfigurationSetting settingName, string configString)
         {
-            System.IO.StreamReader sr = new StreamReader(_configuration["ImageCarouselNOCConfigLocalPath"]);
-            string nocs = sr.ReadToEnd();
-            sr.Close();
-
-            return new Configuration()
+            return new Configuration
             {
-                Id = 1,
-                Name = "ImageCarouselNOCs",
-                Value = nocs.Trim() //"2122,2175,2234"
-            };
-        }
-
-        private Configuration GetProfileImagesPath()
-        {
-            return new Configuration()
-            {
-                Id = 2,
-                Name = "ProfileImagesPath",
-                //Value = "https://www.workbc.ca/careertransitiontool/HostedImages/Profiles/"
-                Value = _configuration["SharedImagesProfilesBaseURL"]
-            };
-        }
-
-        private Configuration GetBackgroundImagesPath()
-        {
-            return new Configuration()
-            {
-                Id = 3,
-                Name = "BackgroundImagesPath",
-                //Value = "https://www.workbc.ca/careertransitiontool/HostedImages/Backgrounds/"
-                Value = _configuration["SharedImagesBackgroundsBaseURL"]
+                Id = (int)settingName,
+                Name = settingName.GetDescription(),
+                Value = _configuration[configString]
             };
         }
     }

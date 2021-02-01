@@ -10,7 +10,8 @@
     },
     "workExperience": null,
     "income": "$65,769",
-    "jobOpenings": 1691
+    "jobOpenings": 1691,
+    "careerTrekVideoIds":[ "B4ztw5v9CzY" ]
   },
   {
     "id": 5002,
@@ -23,7 +24,8 @@
     },
     "workExperience": null,
     "income": "$108,727",
-    "jobOpenings": 4262
+    "jobOpenings": 4262,
+    "careerTrekVideoIds": []
   },
   {
     "id": 5003,
@@ -36,6 +38,7 @@
     },
     "workExperience": null,
     "income": "$119,849",
-    "jobOpenings": 17386
+    "jobOpenings": 17386,
+    "careerTrekVideoIds": []
   }
 ]

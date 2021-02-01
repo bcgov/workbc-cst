@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using SearchAllOccupationsToolAPI.Models;
 using SearchAllOccupationsToolAPI.Repositories;
+using SearchAllOccupationsToolAPI.Repositories.Interfaces;
 
 namespace SearchAllOccupationsToolAPI.Controllers
 {
@@ -17,13 +18,10 @@ namespace SearchAllOccupationsToolAPI.Controllers
     public class ConfigurationController : ControllerBase
     {
         private IConfigurationRepository _repo;
-
         private IConfiguration _configuration;
 
-        public ConfigurationController( //SalaryContext context, 
-            IConfiguration configuration)
+        public ConfigurationController(IConfiguration configuration)
         {
-            //_context = context;
             _configuration = configuration;
             _repo = new ConfigurationRepository(_configuration);
         }
@@ -32,10 +30,22 @@ namespace SearchAllOccupationsToolAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<Configuration>> GetConfigurations([FromQuery] string settingName)
         {
+            if (!Enum.TryParse<ConfigurationSetting>(settingName, true, out var attemptedSetting))
+                return new Configuration
+                {
+                    Id = -1,
+                    Name = "NotFound",
+                    Value = "Setting not found"
+                };
+
             Configuration configuration;
-            switch (settingName.ToLower())
+            return _repo.GetConfigurationFor(attemptedSetting);
+            
+            
+            
+            switch (attemptedSetting)
             {
-                case "profileimagespath":
+                case ConfigurationSetting.ProfileImagesPath:
                     configuration = new Configuration
                     {
                         Id = 1,
@@ -44,7 +54,7 @@ namespace SearchAllOccupationsToolAPI.Controllers
                     };
                     break;
 
-                case "careerprofilebaseurl":
+                case ConfigurationSetting.CareerProfileBaseUrl:
                     configuration = new Configuration
                     {
                         Id = 2,
@@ -53,7 +63,7 @@ namespace SearchAllOccupationsToolAPI.Controllers
                     };
                     break;
 
-                case "jobopeningsbaseurl":
+                case ConfigurationSetting.JobOpeningsBaseUrl:
                     configuration = new Configuration
                     {
                         Id = 3,
@@ -62,7 +72,7 @@ namespace SearchAllOccupationsToolAPI.Controllers
                     };
                     break;
 
-                case "careertrekvideobaseurl":
+                case ConfigurationSetting.CareerTrekVideoBaseUrl:
                     configuration = new Configuration
                     {
                         Id = 4,

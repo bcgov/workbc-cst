@@ -1,4 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace SearchAllOccupationsToolAPI.Models
 {
@@ -28,5 +30,9 @@ namespace SearchAllOccupationsToolAPI.Models
         
         [JsonPropertyName("jobOpenings")]
         public int JobOpenings { get; set; }
+
+        [NotMapped]
+        [JsonPropertyName("careertrekvideoids")]
+        public List<string> CareerTrekVideoIds { get; set; }
     }
 }

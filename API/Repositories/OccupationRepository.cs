@@ -12,13 +12,11 @@ namespace SearchAllOccupationsToolAPI.Repositories
     {
         private readonly IOccupationContext _context;
         private readonly IOccupationalGroupRepository _occupationalGroupRepository;
-        private readonly IIndustryContext _industryContext;
 
-        public OccupationRepository(IOccupationContext context, IOccupationalGroupContext occupationalGroupContext, IIndustryContext industryContext)
+        public OccupationRepository(IOccupationContext context, IOccupationalGroupContext occupationalGroupContext)
         {
             _context = context;
             _occupationalGroupRepository = new OccupationalGroupsRepository(occupationalGroupContext);
-            _industryContext = industryContext;
         }
 
         public List<OccupationListItem> GetOccupations(OccupationSearchFilter filter)
@@ -119,32 +117,21 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 // NOCOccupationGroup also has a Geographic Area. Do we filter?
             }
 
+            if (filter.IndustryId > 0)
+                occupations = occupations.Where(o => o.JobOpenings.Any(jo => jo.Industry.Id == filter.IndustryId));
+
             if (filter.OccupationalInterestId > 0)
                 occupations = occupations.Where(o => o.OccupationInterests.Any(og => og.OccupationalInterest.Id == filter.OccupationalInterestId));
 
             if (filter.OccupationalGroupId > 0)
-            {
-                var groupsFilter = new List<int> { filter.OccupationalGroupId.Value };
-                var allGroup = _occupationalGroupRepository.GetAllOccupationalGroup();
-                if (allGroup != null)
-                    groupsFilter.Add(allGroup.Id);
-
-                occupations = occupations.Where(o => o.OccupationalGroups.Any(og => groupsFilter.Contains(og.OccupationalGroup.Id)));
-            }
-
-            if (filter.IndustryId > 0)
-            {
-                occupations = occupations.Where(o => o.JobOpenings.Any(jo => jo.Industry.Id == filter.IndustryId));
-                // Might need to filter industry on another sub query here.
-            }
+                occupations = occupations.Where(o => o.OccupationalGroups.Any(og => og.OccupationalGroup.Id == filter.OccupationalGroupId));
 
             return occupations.Select(o => new OccupationListItem
                 {
                     Id = o.Id,
                     JobOpenings = JobOpenings(o, filter),  // This might not be filtered down correctly or reflecting filters that restrict it
                     NOC = o.NocCode,
-                    NOCAndTitle = $"{o.Description} ({o.NocCode})",
-                    //DebugInfo = $"Salary: {(o.MedianSalary.HasValue ? o.MedianSalary.Value.ToString("C0") : string.Empty)}"
+                    NOCAndTitle = $"{o.Description} ({o.NocCode})"
                 })
                 .ToList();
         }
@@ -160,7 +147,6 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 occ = occ.Where(oi => oi.Industry.Id == filter.IndustryId.Value);
 
             return occ.Sum(oi => oi.JobOpenings);
-                
         }
 
         public List<Occupation> GetNocList(string nocs)
@@ -181,9 +167,10 @@ namespace SearchAllOccupationsToolAPI.Repositories
                     NOC = o.NocCode,
                     Title = o.Description,
                     Education = o.EducationLevel,
-                    Description = o.JobOverviewSummary,
+                    Description = string.Empty, //o.JobOverviewSummary,  Removed for now.
                     Income = o.MedianSalary.HasValue ? o.MedianSalary.Value.ToString("C0") : string.Empty,
                     JobOpenings = o.JobOpenings.Sum(jo => jo.JobOpenings),
+                    CareerTrekVideoIds = o.CareerTrekVideoId != null ? new List<string> { o.CareerTrekVideoId } : new List<string>()  // Replace this with video select once we have multiples
                 })
                 .ToList();
         }
