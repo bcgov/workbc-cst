@@ -55,17 +55,21 @@ namespace SearchAllOccupationsToolAPI.Repositories
             // Might have performance issues with these includes for unfiltered datasets.
             var occupations = _context.NOCs
                 .Include(no => no.JobOpenings)
-                    .ThenInclude(jo => jo.GeographicArea)
-                .Include(no => no.JobOpenings)
-                    .ThenInclude(jo => jo.Industry)
+                //    .ThenInclude(jo => jo.GeographicArea)
+                //.Include(no => no.JobOpenings)
+                //    .ThenInclude(jo => jo.Industry)
+                .AsNoTracking()
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(filter.Keywords))
             {
-                // Bring in the common job titles for keyword query - slow for no keyword query
-                occupations = occupations.Include(no => no.CommonJobTitles);
-                occupations = occupations.Where(
-                    o => o.NocCode.Contains(filter.Keywords) || o.Description.Contains(filter.Keywords) || o.CommonJobTitles.Any(cjt => cjt.JobTitle.Contains(filter.Keywords)));
+                var jobTitles = _context.CommonJobTitles
+                    .AsNoTracking()
+                    .Where(c => c.JobTitle.Contains(filter.Keywords))
+                    .Select(c => c.Noc.Id)
+                    .Distinct();
+
+                occupations = occupations.Where(o => o.NocCode.Equals(filter.Keywords) || o.Description.Contains(filter.Keywords) || jobTitles.Contains(o.Id));
             }
 
             if (filter.EducationLevelId > 0)

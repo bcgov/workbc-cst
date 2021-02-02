@@ -7,5 +7,6 @@ namespace SearchAllOccupationsToolAPI.DbContexts.Interfaces
     {
         DbSet<NOC> NOCs { get; set; }
         DbSet<Occupation> Occupations { get; set; }
+        DbSet<CommonJobTitle> CommonJobTitles { get; set; }
     }
 }

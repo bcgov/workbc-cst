@@ -8,6 +8,7 @@ namespace SearchAllOccupationsToolAPI.DbContexts
     {
         public DbSet<Occupation> Occupations { get; set; }
         public DbSet<NOC> NOCs { get; set; }
+        public DbSet<CommonJobTitle> CommonJobTitles{ get; set; }
         
         public DbContext Instance => this;
 
