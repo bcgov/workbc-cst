@@ -12,20 +12,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\OldCode\**" />
-    <Content Remove="Controllers\OldCode\**" />
-    <EmbeddedResource Remove="Controllers\OldCode\**" />
-    <None Remove="Controllers\OldCode\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="DbContexts\IWorkExperienceContext.cs" />
-    <Compile Remove="DbContexts\WorkExperienceContext.cs" />
-    <Compile Remove="Repositories\IWorkExperienceRepository.cs" />
-    <Compile Remove="Repositories\WorkExperienceRepository.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />

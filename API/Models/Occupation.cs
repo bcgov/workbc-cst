@@ -22,9 +22,6 @@ namespace SearchAllOccupationsToolAPI.Models
         [JsonPropertyName("education")]
         public EducationLevel Education { get; set; }
         
-        [JsonPropertyName("workExperience")]
-        public WorkExperience WorkExperience { get; set; }
-
         [JsonPropertyName("income")]
         public string Income { get; set; }
         
