@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SearchAllOccupationsToolAPI.DbContexts;
@@ -18,10 +16,10 @@ namespace SearchAllOccupationsToolAPI.Controllers
         private readonly IOccupationContext _context;
         private readonly IOccupationRepository _repository;
 
-        public OccupationsController(OccupationContext context, OccupationalGroupContext groupContext)
+        public OccupationsController(OccupationContext context)
         {
             _context = context;
-            _repository = new OccupationRepository(context, groupContext);
+            _repository = new OccupationRepository(context);
         }
 
         // GET: api/Occupations
