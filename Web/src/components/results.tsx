@@ -6,6 +6,7 @@ import Checkbox from 'antd/lib/checkbox/Checkbox'
 import { useGetOccupationsList, useGetOccupationSummary } from '../client/apiService'
 import { FilterOptionModel, FilterOccupationParams, OccupationSummary } from '../client/dataTypes'
 import { defaultFilterParams } from '../state/filterReducer'
+import {navigate} from "gatsby"
 
 const columns = [
     {
@@ -88,6 +89,10 @@ const results: FunctionComponent = () => {
         }
     }
 
+    function handleCompareCareers() {
+        navigate('/compare')
+    }
+
     return (
         <div>
             <Row gutter={16}>
@@ -107,24 +112,33 @@ const results: FunctionComponent = () => {
                    </Row>
                 </Col>
             </Row>
-            <Row>
-                <Col span={16}>
+            <Row gutter={24}>
+                <Col span={16} style={{maxHeight: '500px', overflowY: 'scroll', border: '1px solid black'}}>
                     { !isValidating && isSettled &&  
-                        <Table 
+                        <Table
                             columns={columns}
                             dataSource={filteredOccupationsList}
                             rowKey="noc"
+                            pagination={false}
                             onRow={onRow}>
                         </Table>
                     }
                 </Col>
-                <Col span={8} style={{border: '3px solid green'}}>
+                <Col span={8} style={{border: '1px solid black'}}>
                     <b> {occupationDetail?.title} (NOC {occupationDetail?.noc}) </b>
-                    <p style={{height: '30%', margin: 'auto', border: '3px solid green'}}> Image or video </p>
+                    <p style={{height: '30%', margin: 'auto', border: '1px solid black'}}> Image or video </p>
                     <p> Annual Salary: {occupationDetail?.income} </p>
                     <p> EducationLevel: {occupationDetail?.education.value} </p>
                     <p> Job Openings (2019 - 2029): {occupationDetail?.jobOpenings} </p>
                     {occupationDetail?.description}
+                </Col>
+            </Row>
+            <Row style={{margin: '24px 0px'}}>
+                <Col span={12}>
+                    Compare upto 3 careers by selecting the checkboxes in the table and clicking on Compare careers
+                </Col>
+                <Col span={4}>
+                    <Button onClick={handleCompareCareers}> Compare Careers</Button>
                 </Col>
             </Row>
         </div>
