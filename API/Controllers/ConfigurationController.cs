@@ -28,70 +28,9 @@ namespace SearchAllOccupationsToolAPI.Controllers
 
         // GET: api/Configurations
         [HttpGet]
-        public async Task<ActionResult<Configuration>> GetConfigurations([FromQuery] string settingName)
+        public async Task<ActionResult<Configuration>> GetConfigurations([FromQuery] ConfigurationSetting settingName)
         {
-            if (!Enum.TryParse<ConfigurationSetting>(settingName, true, out var attemptedSetting))
-                return new Configuration
-                {
-                    Id = -1,
-                    Name = "NotFound",
-                    Value = "Setting not found"
-                };
-
-            Configuration configuration;
-            return _repo.GetConfigurationFor(attemptedSetting);
-            
-            
-            
-            switch (attemptedSetting)
-            {
-                case ConfigurationSetting.ProfileImagesPath:
-                    configuration = new Configuration
-                    {
-                        Id = 1,
-                        Name = "ProfileImagesPath",
-                        Value = "https://www.workbc.ca/careertransitiontool/HostedImages/Profiles/"
-                    };
-                    break;
-
-                case ConfigurationSetting.CareerProfileBaseUrl:
-                    configuration = new Configuration
-                    {
-                        Id = 2,
-                        Name = "CareerProfileBaseURL",
-                        Value = "https://www.workbc.ca/Jobs-Careers/Explore-Careers/Browse-Career-Profile/"
-                    };
-                    break;
-
-                case ConfigurationSetting.JobOpeningsBaseUrl:
-                    configuration = new Configuration
-                    {
-                        Id = 3,
-                        Name = "JobOpeningsBaseURL",
-                        Value = "https://www.workbc.ca/jobs-careers/find-jobs/jobs.aspx?searchNOC="
-                    };
-                    break;
-
-                case ConfigurationSetting.CareerTrekVideoBaseUrl:
-                    configuration = new Configuration
-                    {
-                        Id = 4,
-                        Name = "CareerTrekVideoBaseURL",
-                        Value = "https://www.youtube.com/watch?v="
-                    };
-                    break;
-
-                default:
-                    configuration = new Configuration
-                    {
-                        Id = -1,
-                        Name = "NotFound",
-                        Value = "Setting not found"
-                    };
-                    break;
-            }
-
-            return configuration;
+            return _repo.GetConfigurationFor(settingName);
         }
     }
 }
