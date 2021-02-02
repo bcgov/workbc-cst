@@ -70,7 +70,7 @@ namespace SearchAllOccupationsToolAPI
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Search All Occupations API V.1.0.0.0");
+                c.SwaggerEndpoint("./swagger/v1/swagger.json", "Search All Occupations API V.1.0.0.0");
                 c.RoutePrefix = string.Empty;
             });
 
