@@ -1,28 +1,35 @@
 import React, {FunctionComponent, createContext, useReducer, useContext} from 'react'
-import {FilterOptionModel, FilterType, FilterTypeModel} from '../client/dataTypes'
+import { useGetOccupationsList } from '../client/apiService'
+import {FilterOptionModel, FilterType, FilterTypeModel, OccupationModel} from '../client/dataTypes'
 import { defaultFilterState, reducer } from './filterReducer'
-
 
 export interface FilterState {
     filterOption? : FilterOptionModel
+    filteredOccupationsList? : OccupationModel[] 
+    selectedNoc : string
 }
 
 export interface FilterContextProps extends FilterState {
     setFilterOption: (option: FilterTypeModel, type: FilterType) => void,
     resetOptions: () => void
+    setFilteredOccupationsList: (occupationsList: OccupationModel[]) => void,
+    setSelectedNoc: (nocId: string) => void
 }
 
 const FilterContext = createContext<FilterContextProps>({
     filterOption: undefined,
+    filteredOccupationsList: [],
+    selectedNoc: undefined,
     setFilterOption: () => {},
-    resetOptions: () => {}
+    resetOptions: () => {},
+    setFilteredOccupationsList: () => {},
+    setSelectedNoc: () => {}
 })
 
 FilterContext.displayName = 'FilterContext'
 
-
 const FilterContextProvider: FunctionComponent = ({children}) => {
-    const [{filterOption}, dispatch] = useReducer(reducer, defaultFilterState)
+    const [{filterOption, filteredOccupationsList, selectedNoc}, dispatch] = useReducer(reducer, defaultFilterState)
 
     async function setFilterOption(option: FilterTypeModel, type: FilterType) {
         try {
@@ -32,11 +39,27 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
         }
     }
 
+    async function setFilteredOccupationsList(occupationList: OccupationModel[] | undefined) {
+        try {
+            dispatch({ type: 'set-filtered-occupation-list', payload: occupationList})
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+     async function setSelectedNoc(nocId: string) {
+         try {
+            dispatch({ type: 'set-selected-noc', payload: nocId})
+         } catch(error) {
+             console.log(error)
+         }
+     }
+
     async function resetOptions() {
         dispatch({type: 'reset'})
     }
 
-    async function updateFilterOption(option: FilterTypeModel, type: FilterType) {
+    async function updateFilterOption(option: FilterTypeModel, type: FilterType) {    
         switch(type) {
             case FilterType.region:
                 dispatch({ type: 'set-region-option', payload: option})
@@ -64,7 +87,14 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
 
     return (
         <FilterContext.Provider 
-            value = {{ filterOption, setFilterOption, resetOptions }}> 
+            value = {{ 
+                filterOption,
+                filteredOccupationsList, 
+                selectedNoc,
+                setSelectedNoc,
+                setFilterOption, 
+                resetOptions, 
+                setFilteredOccupationsList }}> 
             {children}
         </FilterContext.Provider>
     )

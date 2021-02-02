@@ -7,5 +7,7 @@ export const apiURLs = {
         occupational_group: 'https://localhost:5001/OccupationalGroups', 
         part_time_option: 'https://localhost:5001/FullOrPartTime', 
         annual_salary: 'https://localhost:5001/AnnualSalaries'
-    }
+    },
+    occupations_list: 'https://localhost:5001/OccupationListItems',
+    occupation_summary: 'https://localhost:5001/Occupations'
 }

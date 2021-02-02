@@ -1,4 +1,4 @@
-import { FilterOptionModel, FilterTypeModel } from "../client/dataTypes";
+import { FilterOptionModel, FilterTypeModel, OccupationModel } from "../client/dataTypes";
 
 export const defaultFilterOption = {
     region: {id: -1, value: 'British Columbia'}, 
@@ -10,12 +10,26 @@ export const defaultFilterOption = {
     annual_salary: {id: -1, value: 'All'}
 }
 
+export const defaultFilterParams = {
+    GeographicAreaId : -1,
+    EducationLevelId : -1,
+    OccupationalInterestId : -1,
+    IndustryId : -1,
+    OccupationalGroupId : -1, 
+    FullTimeOrPartTimeId : -1,
+    AnnualSalaryId : -1
+}
+
 export interface FilterState {
-    filterOption?: FilterOptionModel
+    filterOption?: FilterOptionModel,
+    filteredOccupationsList? : OccupationModel[],
+    selectedNoc: string
 }
 
 export const defaultFilterState: FilterState = Object.freeze({
-    filterOption: defaultFilterOption
+    filterOption: defaultFilterOption,
+    filteredOccupationsList: [],
+    selectedNoc: 'default'
 })
 
 export type FilterAction = 
@@ -26,6 +40,8 @@ export type FilterAction =
 {type: 'set-occupational-group-option', payload: FilterTypeModel} |
 {type: 'set-part-time-option', payload: FilterTypeModel}|
 {type: 'set-annual-salary-option', payload: FilterTypeModel} |
+{type: 'set-filtered-occupation-list', payload: OccupationModel[] | undefined } |
+{type: 'set-selected-noc', payload: string} |
 {type: 'reset'}
 
 export function reducer(state: FilterState = defaultFilterState , action: FilterAction): FilterState {
@@ -51,6 +67,12 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
         case 'set-annual-salary-option': 
             return {...state, filterOption: {...state.filterOption, annual_salary: action.payload}}
         
+        case 'set-filtered-occupation-list': 
+            return ({...state, filteredOccupationsList: action.payload})
+        
+        case 'set-selected-noc':
+            return ({...state, selectedNoc: action.payload})
+
         case 'reset': 
             return defaultFilterState
     }
