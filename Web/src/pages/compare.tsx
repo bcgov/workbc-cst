@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import CompareCareers from '../components/compareCareers'
+import {FilterContextProvider} from '../state/filterContext'
 
 const compare: FunctionComponent = () => {
         return (
-            <div>
+            <FilterContextProvider>
                 <CompareCareers/>
-            </div>
+            </FilterContextProvider>
         );
 }
 

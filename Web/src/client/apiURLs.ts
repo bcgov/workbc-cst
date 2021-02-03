@@ -9,5 +9,8 @@ export const apiURLs = {
         annual_salary: 'https://dev.workbc.ca/sao/api/AnnualSalaries'
     },
     occupations_list: 'https://dev.workbc.ca/sao/api/OccupationListItems',
-    occupation_summary: 'https://dev.workbc.ca/sao/api/Occupations'
+    occupation_summary: 'https://dev.workbc.ca/sao/api/Occupations',
+    system: {
+        configurations: 'https://dev.workbc.ca/sao/api/Configuration'
+    }
 }

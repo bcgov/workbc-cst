@@ -1,23 +1,29 @@
-import React, {FunctionComponent, Key } from 'react'
+import React, {FunctionComponent, Key, useEffect, useState } from 'react'
 import { Input, Row, Col, Button } from 'antd'
 import { SyncOutlined } from '@ant-design/icons'
 import SelectFilterType from './wbSelectFilterType';
 
-import { FilterType } from '../client/dataTypes';
+import { FilterType, FilterOptionModel } from '../client/dataTypes';
 import { useFilterContext } from '../state/filterContext';
-import { defaultFilterOption } from '../state/filterReducer';
+import { defaultFilterOption, defaultFilterParams } from '../state/filterReducer';
 import Results from './results'
 
 const Dropdowns: FunctionComponent = () => {
 
     const {filterOption, setFilterOption, resetOptions} = useFilterContext()
 
+    const [userSelection, setUserSelection] = useState<FilterOptionModel>(defaultFilterOption)
+
+    useEffect(()=> {
+        if(!!filterOption) {
+            setUserSelection(filterOption)
+        }
+    }, [filterOption])
+
     function handleChangeRegion(value: Key, options: any) {
         try {
             if (!!value && !!options && options.value) {
-                setFilterOption({id: value as number, value: options.value}, FilterType.region)
-            } else {
-                setFilterOption(defaultFilterOption.region, FilterType.region)
+                setUserSelection({...userSelection, region: {id: value as number, value: options.value}})
             }
         } catch (error) {
             console.log(error)
@@ -27,10 +33,8 @@ const Dropdowns: FunctionComponent = () => {
     function handleChangeEducation(value: Key, options: any) {
         try {
             if (!!value && !!options && options.value) {
-                setFilterOption({id: value as number, value: options.value}, FilterType.education)
-            } else {
-                setFilterOption(defaultFilterOption.region, FilterType.education)
-            }
+                setUserSelection({...userSelection, education: {id: value as number, value: options.value}})
+            } 
         } catch (error) {
             console.log(error)
         }
@@ -39,10 +43,8 @@ const Dropdowns: FunctionComponent = () => {
     function handleChangeOccupationalInterest(value: Key, options: any) {
         try {
             if (!!value && !!options && options.value) {
-                setFilterOption({id: value as number, value: options.value}, FilterType.occupational_interest)
-            } else {
-                setFilterOption(defaultFilterOption.region, FilterType.occupational_interest)
-            }
+                setUserSelection({...userSelection, occupational_interest: {id: value as number, value: options.value}})
+            } 
         } catch (error) {
             console.log(error)
         }
@@ -51,10 +53,8 @@ const Dropdowns: FunctionComponent = () => {
     function handleChangeIndustry(value: Key, options: any) {
         try {
             if (!!value && !!options && options.value) {
-                setFilterOption({id: value as number, value: options.value}, FilterType.industry)
-            } else {
-                setFilterOption(defaultFilterOption.region, FilterType.industry)
-            }
+                setUserSelection({...userSelection, industry: {id: value as number, value: options.value}})
+            } 
         } catch (error) {
             console.log(error)
         }
@@ -63,9 +63,7 @@ const Dropdowns: FunctionComponent = () => {
     function handleChangeOccupationalGroup(value: Key, options: any) {
         try {
             if (!!value && !!options && options.value) {
-                setFilterOption({id: value as number, value: options.value}, FilterType.occupational_group)
-            } else {
-                setFilterOption(defaultFilterOption.region, FilterType.occupational_group)
+                setUserSelection({...userSelection, occupational_group: {id: value as number, value: options.value}})
             }
         } catch (error) {
             console.log(error)
@@ -75,10 +73,8 @@ const Dropdowns: FunctionComponent = () => {
     function handleChangePartTimeOption(value: Key, options: any) {
         try {
             if (!!value && !!options && options.value) {
-                setFilterOption({id: value as number, value: options.value}, FilterType.part_time_option)
-            } else {
-                setFilterOption(defaultFilterOption.region, FilterType.part_time_option)
-            }
+                setUserSelection({...userSelection, part_time_option: {id: value as number, value: options.value}})
+            } 
         } catch (error) {
             console.log(error)
         }
@@ -87,13 +83,15 @@ const Dropdowns: FunctionComponent = () => {
     function handleChangeAnnualSalary(value: Key, options: any) {
         try {
             if (!!value && !!options && options.value) {
-                setFilterOption({id: value as number, value: options.value}, FilterType.annual_salary)
-            } else {
-                setFilterOption(defaultFilterOption.region, FilterType.annual_salary)
+                setUserSelection({...userSelection, annual_salary: {id: value as number, value: options.value}})
             }
         } catch (error) {
             console.log(error)
         }
+    }
+
+    const handleChangeKeyWord = (event: any) => {
+        setUserSelection({...userSelection, keyword: event.target.value})
     }
 
     function handleReset() {
@@ -105,7 +103,8 @@ const Dropdowns: FunctionComponent = () => {
     }
 
     function applyFilters() {
-        console.log(`The applied filters are : ${JSON.stringify(filterOption)}`)
+        console.log(`The applied filters are : ${JSON.stringify(userSelection)}`)
+        setFilterOption(userSelection)
     }
 
     return (
@@ -118,7 +117,7 @@ const Dropdowns: FunctionComponent = () => {
                             <SelectFilterType  
                                 filterType={FilterType.region}
                                 colSpan={5}
-                                value = {filterOption?.region?.value}
+                                value = {userSelection?.region?.value}
                                 onChange = {handleChangeRegion}
                                 showPlaceHolderAsOption={false}
                                 placeholder={"British Columbia"}  />
@@ -130,7 +129,7 @@ const Dropdowns: FunctionComponent = () => {
                             <SelectFilterType  
                                 filterType={FilterType.education}
                                 colSpan={5}
-                                value = {filterOption?.education?.value}
+                                value = {userSelection?.education?.value}
                                 onChange = {handleChangeEducation}
                                 showPlaceHolderAsOption={false}
                                 placeholder={"All"} />
@@ -142,7 +141,7 @@ const Dropdowns: FunctionComponent = () => {
                             <SelectFilterType  
                                 filterType={FilterType.occupational_interest}
                                 colSpan={5}
-                                value = {filterOption?.occupational_interest?.value}
+                                value = {userSelection?.occupational_interest?.value}
                                 onChange = {handleChangeOccupationalInterest}
                                 showPlaceHolderAsOption={false}
                                 placeholder={"All"} />
@@ -154,7 +153,7 @@ const Dropdowns: FunctionComponent = () => {
                             <SelectFilterType  
                                 filterType={FilterType.industry}
                                 colSpan={5}
-                                value = {filterOption?.industry?.value}
+                                value = {userSelection?.industry?.value}
                                 onChange = {handleChangeIndustry}
                                 showPlaceHolderAsOption={false}
                                 placeholder={"All"}  />
@@ -168,7 +167,7 @@ const Dropdowns: FunctionComponent = () => {
                             <SelectFilterType  
                                 filterType={FilterType.occupational_group}
                                 colSpan={5}
-                                value = {filterOption?.occupational_group?.value}
+                                value = {userSelection?.occupational_group?.value}
                                 onChange = {handleChangeOccupationalGroup}
                                 showPlaceHolderAsOption={false}
                                 placeholder={"All"} />
@@ -180,7 +179,7 @@ const Dropdowns: FunctionComponent = () => {
                             <SelectFilterType  
                                 filterType={FilterType.part_time_option}
                                 colSpan={5}
-                                value = {filterOption?.part_time_option?.value}
+                                value = {userSelection?.part_time_option?.value}
                                 onChange = {handleChangePartTimeOption}
                                 showPlaceHolderAsOption={false}
                                 placeholder={"All"} />
@@ -192,7 +191,7 @@ const Dropdowns: FunctionComponent = () => {
                             <SelectFilterType  
                                 filterType={FilterType.annual_salary}
                                 colSpan={5}
-                                value = {filterOption?.annual_salary?.value}
+                                value = {userSelection?.annual_salary?.value}
                                 onChange = {handleChangeAnnualSalary}
                                 showPlaceHolderAsOption={false}
                                 placeholder={"All"} />
@@ -200,7 +199,9 @@ const Dropdowns: FunctionComponent = () => {
                     </Col>
                     <Col span={6}>
                         <p> <b> Keyword ? </b> </p>
-                        <Input placeholder="Enter career title, Keyword(s) or NOC" />
+                        <Input placeholder="Enter career title, Keyword(s) or NOC"
+                               value= {userSelection?.keyword}
+                               onChange={handleChangeKeyWord} />
                     </Col>
                 </Row>
                 <Row style={{padding: "10px"}}>

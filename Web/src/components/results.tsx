@@ -3,37 +3,34 @@ import {Table, Row, Col, Button} from 'antd'
 import { MailOutlined , PrinterOutlined  } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import Checkbox from 'antd/lib/checkbox/Checkbox'
-import { useGetOccupationsList, useGetOccupationSummary } from '../client/apiService'
-import { FilterOptionModel, FilterOccupationParams, OccupationSummary } from '../client/dataTypes'
+import { useGetOccupationsList, useGetOccupationSummary, useGetSystemConfigurations } from '../client/apiService'
+import { FilterOptionModel, FilterOccupationParams, OccupationSummary, SystemConfigurationModel } from '../client/dataTypes'
 import { defaultFilterParams } from '../state/filterReducer'
 import {navigate} from "gatsby"
 
-const columns = [
-    {
-        title: 'Career Name',
-        dataIndex: 'nocAndTitle'
-    },
-    {
-        title: 'Job Openings (2019-2019)',
-        dataIndex: 'jobOpenings'
-    },
-    {
-        title: 'Compare (up to 3 Careers)',
-        dataIndex: 'compare',
-        render: () => {
-            return (<Checkbox defaultChecked={false}></Checkbox>)
-        }
-    }
-]
-
 const results: FunctionComponent = () => {
-    const {filterOption, filteredOccupationsList, selectedNoc, setSelectedNoc, setFilteredOccupationsList} = useFilterContext()
+    const {filterOption, filteredOccupationsList, selectedNoc, setFilterOption, setSelectedNoc, setFilteredOccupationsList} = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const [occupationDetail, setOccupationDetail] = useState<OccupationSummary>()
+    const [careerProfileUrl, setCareerProfileUrl] = useState<string>()
+    const [viewJobsUrl, setViewJobsUrl] = useState<string>()
+
+    const [profileImagesPath, setProfileImagesPath] = useState<string>()
+    const [backgroundImagesPath, setBackgroundImagesPath] = useState<string>()
+    const [careerTrekBaseUrl, setCareerTrekBaseUrl] = useState<string>()
+    const [imageCarouselNocs, setImageCarouselNocs] = useState<string>()
+    
     const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
     const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(selectedNoc)
+    const {data: CPUrlData, isValidating: isFetchingCPUrl, isSettled: isCPUrlFetched } = useGetSystemConfigurations({name: "CareerProfileBaseUrl"})
+    const {data: JOUrlData, isValidating: isFetchingJOUrl, isSettled: isJOUrlFetched } = useGetSystemConfigurations({name: "JobOpeningsBaseUrl"})
     
+    const {data: piPathData, isValidating: isFetchingPIPath, isSettled: isPiPathFetched } = useGetSystemConfigurations({name: "ProfileImagesPath"})
+    const {data: bgIPathData, isValidating: isFetchingBgIPath, isSettled: isBgIPathFetched } = useGetSystemConfigurations({name: "BackgroundImagesPath"})
+    const {data: ctvUrlData, isValidating: isFetchingCtvUrl, isSettled: isCtvUrlFetched } = useGetSystemConfigurations({name: "CareerTrekVideoBaseUrl"})
+    const {data: icNocsData, isValidating: isFetchingIcNocs, isSettled: isIcNocsFetched } = useGetSystemConfigurations({name: "ImageCarouselNOCs"})
+
     useEffect(() => {
            if (!!filterOption) {
                 const filterParams = getFilterParams(filterOption)
@@ -43,20 +40,84 @@ const results: FunctionComponent = () => {
     },[filterOption])
 
     useEffect(() => {
-        if (!isValidating && isSettled && !!occupationsList && occupationsList.length > 0) {
+        if (!isValidating && isSettled && !!occupationsList && occupationsList.length >= 0) {
+            console.log('current occupation list: ' + occupationsList.length)
             setFilteredOccupationsList(occupationsList)
         }
     }, [occupationsList, isSettled, isValidating])
 
     useEffect(() => {
         if(!isFetchingSummary && isSummaryFetched && occupationSummary) {
-            // console.log(`summary: ${JSON.stringify(occupationSummary[0])}`)
             setOccupationDetail(occupationSummary[0])
         }
     }, [selectedNoc, isFetchingSummary, isSummaryFetched])
 
+    useEffect(() => {
+        if(!isFetchingCPUrl && isCPUrlFetched && CPUrlData) {
+            setCareerProfileUrl(CPUrlData.value + selectedNoc)
+        }
+    }, [selectedNoc, isFetchingCPUrl, isCPUrlFetched])
+
+    useEffect(() => {
+        if(!isFetchingJOUrl && isJOUrlFetched && JOUrlData) {
+            setViewJobsUrl(JOUrlData.value + selectedNoc)
+        }
+    }, [selectedNoc, isFetchingJOUrl, isJOUrlFetched])
+
+    useEffect(() => {
+        if(!isFetchingPIPath && isPiPathFetched && piPathData) {
+            setProfileImagesPath(piPathData.value + selectedNoc)
+        }
+    }, [selectedNoc, isFetchingPIPath, isPiPathFetched])
+
+    useEffect(() => {
+        if(!isFetchingPIPath && isBgIPathFetched && bgIPathData) {
+            setBackgroundImagesPath(bgIPathData.value + selectedNoc)
+        }
+    }, [selectedNoc, isFetchingPIPath, isBgIPathFetched])
+
+    useEffect(() => {
+        if(!isFetchingCtvUrl && isCtvUrlFetched && ctvUrlData) {
+            setCareerTrekBaseUrl(ctvUrlData.value + selectedNoc)
+        }
+    }, [selectedNoc, isFetchingCtvUrl, isCtvUrlFetched])
+
+    useEffect(() => {
+        if(!isFetchingIcNocs && isIcNocsFetched && icNocsData) {
+            setImageCarouselNocs(icNocsData.value + selectedNoc)
+        }
+    }, [selectedNoc, isFetchingIcNocs, isIcNocsFetched])
+
+    const columns = [
+        {
+            title: 'Career Name',
+            dataIndex: 'nocAndTitle',
+            sorter: (a: any, b:any) => {
+                if (a.nocAndTitle > b.nocAndTitle) return -1
+                else if (b.nocAndTitle > a.nocAndTitle) return 1
+                else return 0
+            },
+            defaultSortOrder: 'descend',
+            sortDirections: ['ascend']
+        },
+        {
+            title: 'Job Openings (2019-2029)',
+            dataIndex: 'jobOpenings',
+            sorter: (a: any, b: any) => a.jobOpenings - b.jobOpenings,
+            sortDirections: ['ascend']
+        },
+        {
+            title: 'Compare (up to 3 Careers)',
+            dataIndex: 'compare',
+            render: () => {
+                if (filteredOccupationsList && filteredOccupationsList.length > 1) {
+                    return (<Checkbox defaultChecked={false}></Checkbox>)
+                }
+            }
+        }
+    ]
    
-    function getFilterParams(params: FilterOptionModel) : FilterOccupationParams {
+    function  getFilterParams(params: FilterOptionModel) : FilterOccupationParams {
         const filterParams = {
             GeographicAreaId: params.region?.id,
             EducationLevelId: params.education?.id,
@@ -64,7 +125,8 @@ const results: FunctionComponent = () => {
             IndustryId: params.industry?.id,
             OccupationalGroupId: params.occupational_group?.id,
             FullTimeOrPartTimeId: params.part_time_option?.id,
-            AnnualSalaryId: params.annual_salary?.id
+            AnnualSalaryId: params.annual_salary?.id,
+            Keyword: params.keyword
         }
         return filterParams
     }
@@ -113,25 +175,53 @@ const results: FunctionComponent = () => {
                 </Col>
             </Row>
             <Row gutter={24}>
-                <Col span={16} style={{maxHeight: '500px', overflowY: 'scroll', border: '1px solid black'}}>
+                <Col span={16}>
                     { !isValidating && isSettled &&  
                         <Table
                             columns={columns}
                             dataSource={filteredOccupationsList}
                             rowKey="noc"
                             pagination={false}
+                            bordered
+                            scroll={{ y: 500 }}
                             onRow={onRow}>
                         </Table>
                     }
                 </Col>
-                <Col span={8} style={{border: '1px solid black'}}>
+                {selectedNoc!=="default" && (<Col span={8} style={{border: '1px solid black'}}>
                     <b> {occupationDetail?.title} (NOC {occupationDetail?.noc}) </b>
                     <p style={{height: '30%', margin: 'auto', border: '1px solid black'}}> Image or video </p>
-                    <p> Annual Salary: {occupationDetail?.income} </p>
-                    <p> EducationLevel: {occupationDetail?.education.value} </p>
-                    <p> Job Openings (2019 - 2029): {occupationDetail?.jobOpenings} </p>
-                    {occupationDetail?.description}
-                </Col>
+                    <Row gutter={8}>
+                        <Col span={8}> Annual Salary </Col>
+                        <Col span={8}> <b> {occupationDetail?.income} </b> </Col>
+                    </Row>
+                    <Row gutter={8}>
+                        <Col span={8}> EducationLevel </Col>
+                        <Col span={8}> <b> {occupationDetail?.education.value} </b> </Col>
+                    </Row>
+                    <Row gutter={8}>
+                        <Col span={8}> Job Openings (2019 - 2029) </Col>
+                        <Col span={8}> <b> {occupationDetail?.jobOpenings} </b> </Col>
+                    </Row>
+                    <Row>
+                        <Col offset={6}> 
+                            <a href={careerProfileUrl} target="_blank"> 
+                                <Button style={{width: '300px', margin: '20px 0px'}}>
+                                    View Career Profile
+                                </Button>
+                            </a>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col offset={6}> 
+                            <a href={viewJobsUrl} target="_blank">
+                                <Button style={{width: '300px', margin: '20px 0px'}}>
+                                    Find Jobs
+                                </Button>
+                            </a>
+                        </Col>
+                    </Row>
+                </Col>)}
             </Row>
             <Row style={{margin: '24px 0px'}}>
                 <Col span={12}>

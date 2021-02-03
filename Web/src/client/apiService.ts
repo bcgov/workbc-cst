@@ -5,14 +5,17 @@ import {FilterType,
         OccupationalListResponse,
         FilterOccupationParams,
         OccupationSummaryResponse,
-        OccupationSummary} from './dataTypes'
+        OccupationSummary,
+        GetSystemConfigurationParams, 
+        GetSystemConfigurationResponse,
+        UseGetSystemConfigurationResponse} from './dataTypes'
 import {apiURLs} from './apiURLS'
 
 import useSWR from 'swr'
 import axios, {AxiosResponse} from 'axios'
 
 function getFilterUrl(filterType: FilterType): string {
-    let url = '';
+    let url = ''
     if (filterType === FilterType.region) {
       url = apiURLs.filterType.region
     } else if (filterType === FilterType.education) {
@@ -75,4 +78,27 @@ export async function getOccupationSummary(code: string): Promise<OccupationSumm
 export function useGetOccupationSummary(code: string): OccupationSummaryResponse {
   const {data, isValidating, error} = useSWR<OccupationSummary[]>(code, ()=> getOccupationSummary(code))
   return {data, isValidating, isSettled: !!data || !!error}
+}
+
+export async function getSystemConfigurations(params: GetSystemConfigurationParams): Promise<GetSystemConfigurationResponse> {
+  try {
+    const { name } = params
+    const response: AxiosResponse<GetSystemConfigurationResponse> = await axios.get(apiURLs.system.configurations, { params: { SettingName: name } })
+    return response.data
+  } catch (error) {
+    return error.response.data
+  }
+}
+
+export function useGetSystemConfigurations(params: GetSystemConfigurationParams): UseGetSystemConfigurationResponse {
+  const { name } = params
+  const { data, isValidating, error } = useSWR<GetSystemConfigurationResponse>(name, () => getSystemConfigurations(params!),
+    {
+      refreshInterval: 0,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      shouldRetryOnError: false,
+    }
+  )
+  return { data, isValidating, isSettled: !!data || !!error }
 }

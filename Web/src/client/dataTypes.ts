@@ -26,7 +26,8 @@ export interface FilterOptionModel {
     industry?: FilterTypeModel, 
     occupational_group?: FilterTypeModel, 
     part_time_option?: FilterTypeModel, 
-    annual_salary?: FilterTypeModel
+    annual_salary?: FilterTypeModel,
+    keyword?: string
 }
 
 export interface OccupationalListResponse {
@@ -69,6 +70,24 @@ export interface OccupationSummary {
 
 export interface OccupationSummaryResponse {
     data: OccupationSummary[] | undefined,
+    isValidating: boolean,
+    isSettled: boolean
+}
+
+export interface GetSystemConfigurationParams {
+    name: string
+}
+
+export interface SystemConfigurationModel {
+    id: number, 
+    name: string,
+    value: string
+}
+
+export type GetSystemConfigurationResponse = SystemConfigurationModel
+
+export interface UseGetSystemConfigurationResponse {
+    data?: SystemConfigurationModel,
     isValidating: boolean,
     isSettled: boolean
 }
