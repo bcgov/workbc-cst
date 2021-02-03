@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `career Search Tool`,
     description: `Auto-completed indexed searchable, viewable and comparable, the Work BC Career Search Tool is yours for the perusing. `,
+    siteUrl: ''
   },
   plugins: [
     {
