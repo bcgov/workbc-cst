@@ -126,7 +126,7 @@ const results: FunctionComponent = () => {
             OccupationalGroupId: params.occupational_group?.id,
             FullTimeOrPartTimeId: params.part_time_option?.id,
             AnnualSalaryId: params.annual_salary?.id,
-            Keyword: params.keyword
+            Keywords: params.keyword
         }
         return filterParams
     }

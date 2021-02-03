@@ -50,7 +50,8 @@ export interface FilterOccupationParams {
     IndustryId?: number,
     OccupationalGroupId?: number, 
     FullTimeOrPartTimeId? : number,
-    AnnualSalaryId?: number
+    AnnualSalaryId?: number,
+    Keywords?: string
 }
 export interface Education { // Education is similar to FilterTypeModel but for different purpose. 
     id: number, 
