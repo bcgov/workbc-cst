@@ -1,11 +1,21 @@
-import {FilterType, FilterTypeModel, FilterDataResponse} from './dataTypes'
+import {FilterType, 
+        FilterTypeModel,
+        FilterDataResponse,
+        OccupationModel,
+        OccupationalListResponse,
+        FilterOccupationParams,
+        OccupationSummaryResponse,
+        OccupationSummary,
+        GetSystemConfigurationParams, 
+        GetSystemConfigurationResponse,
+        UseGetSystemConfigurationResponse} from './dataTypes'
 import {apiURLs} from './apiURLS'
 
 import useSWR from 'swr'
 import axios, {AxiosResponse} from 'axios'
 
 function getFilterUrl(filterType: FilterType): string {
-    let url = '';
+    let url = ''
     if (filterType === FilterType.region) {
       url = apiURLs.filterType.region
     } else if (filterType === FilterType.education) {
@@ -38,4 +48,57 @@ export function useGetFilterData (filterType: FilterType): FilterDataResponse {
     const filterUrl = getFilterUrl(filterType); // Fetches the right url to be used in API call
     const {data, isValidating, error } = useSWR<FilterTypeModel[]>(filterUrl, () => getFilterData(filterUrl), {})
     return {data, isValidating, isSettled: !!data || !!error}
+}
+
+export async function getOccupationsList(params: FilterOccupationParams): Promise<OccupationModel[]> {
+  try {
+    const response: AxiosResponse<OccupationModel[]> = await axios.get(apiURLs.occupations_list, {params})
+    return Array.isArray(response.data)? response.data : []
+  } catch (error) {
+    return []
+  }
+}
+
+export function useGetOccupationsList(params: FilterOccupationParams): OccupationalListResponse {
+  const filterParams = JSON.stringify(params)
+  const {data, isValidating, error} = useSWR<OccupationModel[]>(filterParams, () => getOccupationsList(params))
+  return {data, isValidating, isSettled: !!data || !!error}
+}
+
+export async function getOccupationSummary(code: string): Promise<OccupationSummary[]> {
+  try {
+    if (!code || code === 'default') return Promise.resolve([])
+    const response: AxiosResponse<OccupationSummary[]> = await axios.get(apiURLs.occupation_summary, {params: {nocs: code}})
+    return Array.isArray(response.data)? response.data: []
+  } catch (error) {
+    return []
+  }
+}
+
+export function useGetOccupationSummary(code: string): OccupationSummaryResponse {
+  const {data, isValidating, error} = useSWR<OccupationSummary[]>(code, ()=> getOccupationSummary(code))
+  return {data, isValidating, isSettled: !!data || !!error}
+}
+
+export async function getSystemConfigurations(params: GetSystemConfigurationParams): Promise<GetSystemConfigurationResponse> {
+  try {
+    const { name } = params
+    const response: AxiosResponse<GetSystemConfigurationResponse> = await axios.get(apiURLs.system.configurations, { params: { SettingName: name } })
+    return response.data
+  } catch (error) {
+    return error.response.data
+  }
+}
+
+export function useGetSystemConfigurations(params: GetSystemConfigurationParams): UseGetSystemConfigurationResponse {
+  const { name } = params
+  const { data, isValidating, error } = useSWR<GetSystemConfigurationResponse>(name, () => getSystemConfigurations(params!),
+    {
+      refreshInterval: 0,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      shouldRetryOnError: false,
+    }
+  )
+  return { data, isValidating, isSettled: !!data || !!error }
 }
