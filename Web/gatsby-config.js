@@ -3,7 +3,7 @@ module.exports = {
     title: `career Search Tool`,
     description: `Auto-completed indexed searchable, viewable and comparable, the Work BC Career Search Tool is yours for the perusing. `,
     siteUrl: 'http://localhost:8000/'
-  }, 
+  },
   plugins: [
     {
       resolve: `gatsby-transformer-remark`,
@@ -35,7 +35,6 @@ module.exports = {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    `gatsby-plugin-feed`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
     `gatsby-plugin-antd`,
