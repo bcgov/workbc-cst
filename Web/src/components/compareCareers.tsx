@@ -22,7 +22,7 @@ const CompareCareers: FunctionComponent = () => {
 
     return(
         <div>
-            <b> From context, Selected Filter Options : {JSON.stringify(filterOption)} </b>
+            {/* <b> From context, Selected Filter Options : {JSON.stringify(filterOption)} </b> */}
             <h1>Compare Careers</h1>
             <Button onClick={handleReturn}> Home page </Button>
         </div>

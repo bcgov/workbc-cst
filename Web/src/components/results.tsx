@@ -6,7 +6,7 @@ import Checkbox from 'antd/lib/checkbox/Checkbox'
 import { useGetOccupationsList, useGetOccupationSummary, useGetSystemConfigurations } from '../client/apiService'
 import { FilterOptionModel, FilterOccupationParams, OccupationSummary, SystemConfigurationModel } from '../client/dataTypes'
 import { defaultFilterParams } from '../state/filterReducer'
-import {navigate} from "gatsby"
+import { navigate } from "gatsby"
 
 const results: FunctionComponent = () => {
     const {filterOption, filteredOccupationsList, selectedNoc, setFilterOption, setSelectedNoc, setFilteredOccupationsList} = useFilterContext()
@@ -34,14 +34,12 @@ const results: FunctionComponent = () => {
     useEffect(() => {
            if (!!filterOption) {
                 const filterParams = getFilterParams(filterOption)
-                console.log(`latest filter params: ${JSON.stringify(filterParams)}`)
                 setParams(filterParams)
            }
     },[filterOption])
 
     useEffect(() => {
         if (!isValidating && isSettled && !!occupationsList && occupationsList.length >= 0) {
-            console.log('current occupation list: ' + occupationsList.length)
             setFilteredOccupationsList(occupationsList)
         }
     }, [occupationsList, isSettled, isValidating])
@@ -66,13 +64,13 @@ const results: FunctionComponent = () => {
 
     useEffect(() => {
         if(!isFetchingPIPath && isPiPathFetched && piPathData) {
-            setProfileImagesPath(piPathData.value + selectedNoc)
+            setProfileImagesPath(piPathData.value + getProfileImageName(selectedNoc))
         }
     }, [selectedNoc, isFetchingPIPath, isPiPathFetched])
 
     useEffect(() => {
         if(!isFetchingPIPath && isBgIPathFetched && bgIPathData) {
-            setBackgroundImagesPath(bgIPathData.value + selectedNoc)
+            setBackgroundImagesPath(bgIPathData.value + getBackgroundImageName(selectedNoc))
         }
     }, [selectedNoc, isFetchingPIPath, isBgIPathFetched])
 
@@ -116,6 +114,14 @@ const results: FunctionComponent = () => {
             }
         }
     ]
+
+    function getBackgroundImageName(noc: string):string {
+        return noc + "-NOC-" + "background.png"
+    }
+    
+    function getProfileImageName(noc: string):string {
+        return noc + "-NOC-" + "profile.png"
+    }
    
     function  getFilterParams(params: FilterOptionModel) : FilterOccupationParams {
         const filterParams = {
@@ -188,9 +194,10 @@ const results: FunctionComponent = () => {
                         </Table>
                     }
                 </Col>
-                {selectedNoc!=="default" && (<Col span={8} style={{border: '1px solid black'}}>
+                {selectedNoc!=="default" && isSettled &&  !isValidating && occupationsList && occupationsList?.length >= 0 &&
+                (<Col span={8}>
                     <b> {occupationDetail?.title} (NOC {occupationDetail?.noc}) </b>
-                    <p style={{height: '30%', margin: 'auto', border: '1px solid black'}}> Image or video </p>
+                    <p style={{height: '30%', margin: 'auto', border: '1px solid black'}}> {profileImagesPath} </p>
                     <Row gutter={8}>
                         <Col span={8}> Annual Salary </Col>
                         <Col span={8}> <b> {occupationDetail?.income} </b> </Col>
