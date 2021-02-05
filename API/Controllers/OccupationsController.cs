@@ -16,10 +16,10 @@ namespace SearchAllOccupationsToolAPI.Controllers
         private readonly IOccupationContext _context;
         private readonly IOccupationRepository _repository;
 
-        public OccupationsController(OccupationContext context)
+        public OccupationsController(OccupationContext context, GeographicAreasContext geographicAreasContext)
         {
             _context = context;
-            _repository = new OccupationRepository(context);
+            _repository = new OccupationRepository(context, geographicAreasContext);
         }
 
         // GET: api/Occupations
