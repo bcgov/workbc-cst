@@ -1,11 +1,10 @@
-import React, {FunctionComponent, Key, useEffect, useState } from 'react'
+import React, { FunctionComponent, Key, useEffect, useState } from 'react'
 import { Input, Row, Col, Button } from 'antd'
 import { SyncOutlined } from '@ant-design/icons'
-import SelectFilterType from './wbSelectFilterType';
-
-import { FilterType, FilterOptionModel } from '../client/dataTypes';
-import { useFilterContext } from '../state/filterContext';
-import { defaultFilterOption, defaultFilterParams } from '../state/filterReducer';
+import SelectFilterType from './wbSelectFilterType'
+import { FilterType, FilterOptionModel } from '../client/dataTypes'
+import { useFilterContext } from '../state/filterContext'
+import { defaultFilterOption } from '../state/filterReducer'
 import Results from './results'
 
 const Dropdowns: FunctionComponent = () => {
@@ -131,7 +130,7 @@ const Dropdowns: FunctionComponent = () => {
                                 colSpan={5}
                                 value = {userSelection?.education?.value}
                                 onChange = {handleChangeEducation}
-                                showPlaceHolderAsOption={false}
+                                showPlaceHolderAsOption={true}
                                 placeholder={"All"} />
                         </div>
                     </Col>
@@ -143,7 +142,7 @@ const Dropdowns: FunctionComponent = () => {
                                 colSpan={5}
                                 value = {userSelection?.occupational_interest?.value}
                                 onChange = {handleChangeOccupationalInterest}
-                                showPlaceHolderAsOption={false}
+                                showPlaceHolderAsOption={true}
                                 placeholder={"All"} />
                         </div>
                     </Col>
@@ -155,7 +154,7 @@ const Dropdowns: FunctionComponent = () => {
                                 colSpan={5}
                                 value = {userSelection?.industry?.value}
                                 onChange = {handleChangeIndustry}
-                                showPlaceHolderAsOption={false}
+                                showPlaceHolderAsOption={true}
                                 placeholder={"All"}  />
                         </div>
                     </Col>
@@ -169,7 +168,7 @@ const Dropdowns: FunctionComponent = () => {
                                 colSpan={5}
                                 value = {userSelection?.occupational_group?.value}
                                 onChange = {handleChangeOccupationalGroup}
-                                showPlaceHolderAsOption={false}
+                                showPlaceHolderAsOption={true}
                                 placeholder={"All"} />
                         </div>
                     </Col>
@@ -181,7 +180,7 @@ const Dropdowns: FunctionComponent = () => {
                                 colSpan={5}
                                 value = {userSelection?.part_time_option?.value}
                                 onChange = {handleChangePartTimeOption}
-                                showPlaceHolderAsOption={false}
+                                showPlaceHolderAsOption={true}
                                 placeholder={"All"} />
                         </div>
                     </Col>
@@ -193,7 +192,7 @@ const Dropdowns: FunctionComponent = () => {
                                 colSpan={5}
                                 value = {userSelection?.annual_salary?.value}
                                 onChange = {handleChangeAnnualSalary}
-                                showPlaceHolderAsOption={false}
+                                showPlaceHolderAsOption={true}
                                 placeholder={"All"} />
                         </div>
                     </Col>

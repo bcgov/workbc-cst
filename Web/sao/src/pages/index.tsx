@@ -1,4 +1,5 @@
 import React, {FunctionComponent} from "react"
+//import '../styles/index.less'
 import {Route, BrowserRouter, Switch} from 'react-router-dom' 
 import 'antd/dist/antd.css'
 import Dropdowns from '../components/dropdowns'

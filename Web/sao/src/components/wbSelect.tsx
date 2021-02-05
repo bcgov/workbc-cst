@@ -36,7 +36,6 @@ const WbSelect: FunctionComponent<WbSelectProps> = ({
         <Col offset={colOffset} span={colSpan}>
           <div className="select__container">
             <Select className="select__select" {...rest}>
-              <option key={-1}>All</option>
                 {children}
             </Select>
             {textToShow && (
