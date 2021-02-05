@@ -4,12 +4,12 @@ import { MailOutlined , PrinterOutlined  } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import Checkbox from 'antd/lib/checkbox/Checkbox'
 import { useGetOccupationsList, useGetOccupationSummary, useGetSystemConfigurations } from '../client/apiService'
-import { FilterOptionModel, FilterOccupationParams, OccupationSummary, SystemConfigurationModel } from '../client/dataTypes'
+import { FilterOptionModel, FilterOccupationParams, OccupationSummary } from '../client/dataTypes'
 import { defaultFilterParams } from '../state/filterReducer'
-import { navigate } from "gatsby"
+import {useHistory} from 'react-router-dom'
 
 const results: FunctionComponent = () => {
-    const {filterOption, filteredOccupationsList, selectedNoc, setFilterOption, setSelectedNoc, setFilteredOccupationsList} = useFilterContext()
+    const {filterOption, filteredOccupationsList, selectedNoc, setSelectedNoc, setFilteredOccupationsList} = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const [occupationDetail, setOccupationDetail] = useState<OccupationSummary>()
@@ -30,6 +30,7 @@ const results: FunctionComponent = () => {
     const {data: bgIPathData, isValidating: isFetchingBgIPath, isSettled: isBgIPathFetched } = useGetSystemConfigurations({name: "BackgroundImagesPath"})
     const {data: ctvUrlData, isValidating: isFetchingCtvUrl, isSettled: isCtvUrlFetched } = useGetSystemConfigurations({name: "CareerTrekVideoBaseUrl"})
     const {data: icNocsData, isValidating: isFetchingIcNocs, isSettled: isIcNocsFetched } = useGetSystemConfigurations({name: "ImageCarouselNOCs"})
+    const history = useHistory()
 
     useEffect(() => {
            if (!!filterOption) {
@@ -158,7 +159,7 @@ const results: FunctionComponent = () => {
     }
 
     function handleCompareCareers() {
-        navigate('/compare')
+       history.push('/compareCareers')
     }
 
     return (
@@ -197,7 +198,7 @@ const results: FunctionComponent = () => {
                 {selectedNoc!=="default" && isSettled &&  !isValidating && occupationsList && occupationsList?.length >= 0 &&
                 (<Col span={8}>
                     <b> {occupationDetail?.title} (NOC {occupationDetail?.noc}) </b>
-                    <p style={{height: '30%', margin: 'auto', border: '1px solid black'}}> {profileImagesPath} </p>
+                    <img src={profileImagesPath} alt='career profile pic'/>
                     <Row gutter={8}>
                         <Col span={8}> Annual Salary </Col>
                         <Col span={8}> <b> {occupationDetail?.income} </b> </Col>
@@ -211,18 +212,18 @@ const results: FunctionComponent = () => {
                         <Col span={8}> <b> {occupationDetail?.jobOpenings} </b> </Col>
                     </Row>
                     <Row>
-                        <Col offset={6}> 
+                        <Col offset={4}> 
                             <a href={careerProfileUrl} target="_blank"> 
-                                <Button style={{width: '300px', margin: '20px 0px'}}>
+                                <Button style={{width: '200px', margin: '20px 0px'}}>
                                     View Career Profile
                                 </Button>
                             </a>
                         </Col>
                     </Row>
                     <Row>
-                        <Col offset={6}> 
+                        <Col offset={4}> 
                             <a href={viewJobsUrl} target="_blank">
-                                <Button style={{width: '300px', margin: '20px 0px'}}>
+                                <Button style={{width: '200px', margin: '20px 0px'}}>
                                     Find Jobs
                                 </Button>
                             </a>
