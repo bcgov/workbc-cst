@@ -23,5 +23,14 @@ namespace SearchAllOccupationsToolAPI.Repositories
 
             return ContextHelper.GetPlaceHolderData<GeographicArea>("SampleJsonFiles/geographicareas.json");
         }
+
+        public int GetBritishColumbiaId()
+        {
+            var areas = _context.IsSQLServer
+                ? _context.GeographicAreas.ToList()
+                : ContextHelper.GetPlaceHolderData<GeographicArea>("SampleJsonFiles/geographicareas.json");
+
+            return areas.FirstOrDefault(g => g.Value.ToLower() == "british columbia")?.Id ?? 0;
+        }
     }
 }
