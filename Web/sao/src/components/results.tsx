@@ -6,7 +6,7 @@ import Checkbox from 'antd/lib/checkbox/Checkbox'
 import { useGetOccupationsList, useGetOccupationSummary, useGetSystemConfigurations } from '../client/apiService'
 import { FilterOptionModel, FilterOccupationParams, OccupationSummary } from '../client/dataTypes'
 import { defaultFilterParams } from '../state/filterReducer'
-import {useHistory} from 'react-router-dom'
+// import {useHistory} from 'react-router-dom'
 
 const results: FunctionComponent = () => {
     const {filterOption, filteredOccupationsList, selectedNoc, setSelectedNoc, setFilteredOccupationsList} = useFilterContext()
@@ -30,7 +30,7 @@ const results: FunctionComponent = () => {
     const {data: bgIPathData, isValidating: isFetchingBgIPath, isSettled: isBgIPathFetched } = useGetSystemConfigurations({name: "BackgroundImagesPath"})
     const {data: ctvUrlData, isValidating: isFetchingCtvUrl, isSettled: isCtvUrlFetched } = useGetSystemConfigurations({name: "CareerTrekVideoBaseUrl"})
     const {data: icNocsData, isValidating: isFetchingIcNocs, isSettled: isIcNocsFetched } = useGetSystemConfigurations({name: "ImageCarouselNOCs"})
-    const history = useHistory()
+    // const history = useHistory()
 
     useEffect(() => {
            if (!!filterOption) {
@@ -159,7 +159,7 @@ const results: FunctionComponent = () => {
     }
 
     function handleCompareCareers() {
-       history.push('/compareCareers')
+    //    history.push('/compareCareers')
     }
 
     return (
