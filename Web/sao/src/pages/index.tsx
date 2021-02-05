@@ -1,5 +1,5 @@
 import React, {FunctionComponent} from "react"
-import 'antd/dist/antd.css'
+//import '../styles/index.less'
 import Dropdowns from '../components/dropdowns'
 import {FilterContextProvider} from '../state/filterContext'
 

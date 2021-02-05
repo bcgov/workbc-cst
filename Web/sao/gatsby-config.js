@@ -1,3 +1,5 @@
+const lessToJson = require('less-to-json'); 
+
 module.exports = {
   siteMetadata: {
     title: `career Search Tool`,
@@ -36,8 +38,22 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: 'gatsby-plugin-antd',
+      options: {
+        style: true
+      }
+    },
+    {
+      resolve: "gatsby-plugin-less",
+      options: {
+        lessOptions: {
+          javascriptEnabled: true,
+          modifyVars: lessToJson('src/theme/vars.less'),
+        }
+      }
+    },
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-antd`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
