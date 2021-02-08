@@ -96,22 +96,13 @@ const results: FunctionComponent = () => {
         {
             title: 'Career Name',
             dataIndex: 'nocAndTitle',
-            render: (text, record , id) => {
+            render: (text) => {
                 return (<a> {text} </a>)
             },
-            sorter: (a: any, b:any) => {
-                if (a.nocAndTitle > b.nocAndTitle) return -1
-                else if (b.nocAndTitle > a.nocAndTitle) return 1
-                else return 0
-            },
-            defaultSortOrder: 'descend',
-            sortDirections: ['ascend']
         },
         {
             title: 'Job Openings (2019-2029)',
-            dataIndex: 'jobOpenings',
-            sorter: (a: any, b: any) => a.jobOpenings - b.jobOpenings,
-            sortDirections: ['ascend']
+            dataIndex: 'jobOpenings'
         },
         {
             title: 'Compare (up to 3 Careers)',
@@ -172,21 +163,22 @@ const results: FunctionComponent = () => {
 
     return (
         <div>
-            <Row gutter={16}>
-                <Col span={8}>
+            <Row gutter={24}>
+                <Col span={16}>
                     <h3>
                         Displaying <b> {filteredOccupationsList?.length} results </b>
                     </h3>
                 </Col>
-                <Col span={8} offset={8}> 
-                   <Row gutter={8} style={{float: 'right'}}>
-                       <Col> 
-                            <Button icon={<PrinterOutlined />} style={{width: '150px'}} onClick={handlePrintEvent}> Print </Button>
-                       </Col>
-                       <Col> 
-                            <Button icon={<MailOutlined />} style={{width: '150px'}} onClick={handleEmailEvent}> E-mail </Button>
-                       </Col>
-                   </Row>
+                <Col span={8}>
+                    <Button icon={<PrinterOutlined />} style={{width: '490px'}} onClick={handlePrintEvent}> Print </Button>
+                </Col>
+            </Row>
+            <Row gutter={24}>
+                <Col span={16}>
+                    Compare upto 3 careers by selecting the checkboxes in the table and clicking on Compare careers
+                </Col>
+                <Col span={8}>
+                    <Button icon={<MailOutlined />} style={{width: '490px'}} onClick={handleEmailEvent}> Email </Button>
                 </Col>
             </Row>
             <Row gutter={24}>
@@ -208,13 +200,13 @@ const results: FunctionComponent = () => {
                        <h2>Please select a career to preview</h2>
                         <Carousel autoplay>
                             <div>
-                                <img src={carouselImagesPath[0]} alt={carouselImagesPath[0]} />
+                                <img src={carouselImagesPath[0]} alt={carouselImagesPath[0]} style={{height: '500px'}}/>
                             </div>
                             <div>
-                                <img src={carouselImagesPath[1]} alt={carouselImagesPath[1]} />
+                                <img src={carouselImagesPath[1]} alt={carouselImagesPath[1]} style={{height: '500px'}}/>
                             </div>
                             <div>
-                                <img src={carouselImagesPath[2]} alt={carouselImagesPath[2]} />
+                                <img src={carouselImagesPath[2]} alt={carouselImagesPath[2]} style={{height: '500px'}}/>
                             </div>
                         </Carousel>
                    </Col>)
@@ -256,10 +248,7 @@ const results: FunctionComponent = () => {
                 </Col>)}
             </Row>
             <Row style={{margin: '24px 0px'}}>
-                <Col span={12}>
-                    Compare upto 3 careers by selecting the checkboxes in the table and clicking on Compare careers
-                </Col>
-                <Col span={4}>
+                <Col span={4} offset={12}>
                     <Button onClick={() => setShowCompareView(true)}> Compare Careers</Button>
                 </Col>
             </Row>

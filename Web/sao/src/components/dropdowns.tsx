@@ -202,8 +202,8 @@ const Dropdowns: FunctionComponent = () => {
                                onChange={handleChangeKeyWord} />
                     </Col>
                 </Row>
-                <Row style={{padding: "10px"}}>
-                    <Col span={6} offset={18}> 
+                <Row  gutter={24} style={{padding: "24px 0px"}}>
+                    <Col span={8} offset={16}> 
                         <Button type="primary" style={{width: "250px"}} onClick = {applyFilters}> Apply Filters </Button>
                         <Button style={{border: "none"}} onClick = {handleReset}> 
                             <div>
