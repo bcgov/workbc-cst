@@ -102,7 +102,6 @@ const Dropdowns: FunctionComponent = () => {
     }
 
     function applyFilters() {
-        console.log(`The applied filters are : ${JSON.stringify(userSelection)}`)
         setFilterOption(userSelection)
     }
 

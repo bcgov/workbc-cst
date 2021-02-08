@@ -15,7 +15,6 @@ const SelectFilterType: FunctionComponent<Props> = ({filterType, onChange, showP
     const { data: codeTypes, isValidating, isSettled } = useGetFilterData(filterType)
 
     function handleChange(value: Key, options: any) {
-        //console.log("on change: value = " + value)
         if (!!value) {
             let selectedCode: FilterTypeModel | undefined = codeTypes?.find((item) => item.value === value)
             if (!!selectedCode) {

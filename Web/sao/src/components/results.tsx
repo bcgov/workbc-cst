@@ -1,15 +1,14 @@
 import React, { FunctionComponent, useEffect, useState } from 'react'
-import {Table, Row, Col, Button} from 'antd'
+import { Table, Row, Col, Button } from 'antd'
 import { MailOutlined , PrinterOutlined  } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import Checkbox from 'antd/lib/checkbox/Checkbox'
 import { useGetOccupationsList, useGetOccupationSummary, useGetSystemConfigurations } from '../client/apiService'
 import { FilterOptionModel, FilterOccupationParams, OccupationSummary } from '../client/dataTypes'
 import { defaultFilterParams } from '../state/filterReducer'
-// import {useHistory} from 'react-router-dom'
 
 const results: FunctionComponent = () => {
-    const {filterOption, filteredOccupationsList, selectedNoc, setSelectedNoc, setFilteredOccupationsList} = useFilterContext()
+    const {filterOption, filteredOccupationsList, selectedNoc, setSelectedNoc, setFilteredOccupationsList, setShowCompareView} = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const [occupationDetail, setOccupationDetail] = useState<OccupationSummary>()
@@ -91,6 +90,9 @@ const results: FunctionComponent = () => {
         {
             title: 'Career Name',
             dataIndex: 'nocAndTitle',
+            render: (text, record , id) => {
+                return (<a> {text} </a>)
+            },
             sorter: (a: any, b:any) => {
                 if (a.nocAndTitle > b.nocAndTitle) return -1
                 else if (b.nocAndTitle > a.nocAndTitle) return 1
@@ -158,8 +160,8 @@ const results: FunctionComponent = () => {
         }
     }
 
-    function handleCompareCareers() {
-    //    history.push('/compareCareers')
+    function getDatasource() {
+        return filteredOccupationsList.length > 0? filteredOccupationsList: [{ id: -1, noc: '', nocAndTitle: 'Your search returned no results', jobOpenings: undefined}]
     }
 
     return (
@@ -186,7 +188,7 @@ const results: FunctionComponent = () => {
                     { !isValidating && isSettled &&  
                         <Table
                             columns={columns}
-                            dataSource={filteredOccupationsList}
+                            dataSource={getDatasource()}
                             rowKey="noc"
                             pagination={false}
                             bordered
@@ -236,7 +238,7 @@ const results: FunctionComponent = () => {
                     Compare upto 3 careers by selecting the checkboxes in the table and clicking on Compare careers
                 </Col>
                 <Col span={4}>
-                    <Button onClick={handleCompareCareers}> Compare Careers</Button>
+                    <Button onClick={() => setShowCompareView(true)}> Compare Careers</Button>
                 </Col>
             </Row>
         </div>
