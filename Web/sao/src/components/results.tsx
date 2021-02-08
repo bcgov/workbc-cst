@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useEffect, useState } from 'react'
-import { Table, Row, Col, Button } from 'antd'
+import { Table, Row, Col, Button, Carousel } from 'antd'
 import { MailOutlined , PrinterOutlined  } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import Checkbox from 'antd/lib/checkbox/Checkbox'
@@ -18,7 +18,9 @@ const results: FunctionComponent = () => {
     const [profileImagesPath, setProfileImagesPath] = useState<string>()
     const [backgroundImagesPath, setBackgroundImagesPath] = useState<string>()
     const [careerTrekBaseUrl, setCareerTrekBaseUrl] = useState<string>()
-    const [imageCarouselNocs, setImageCarouselNocs] = useState<string>()
+    const [imageCarouselNocs, setImageCarouselNocs] = useState<string[]>([])
+
+    const [carouselImagesPath, setCarouselImagesPath] = useState<string[]>([])
     
     const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
     const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(selectedNoc)
@@ -82,9 +84,13 @@ const results: FunctionComponent = () => {
 
     useEffect(() => {
         if(!isFetchingIcNocs && isIcNocsFetched && icNocsData) {
-            setImageCarouselNocs(icNocsData.value + selectedNoc)
+            setImageCarouselNocs(icNocsData.value.split(','))  
         }
-    }, [selectedNoc, isFetchingIcNocs, isIcNocsFetched])
+    }, [isFetchingIcNocs, isIcNocsFetched])
+
+    useEffect(() => {
+        setCarouselImagesPath(imageCarouselNocs.map(noc => bgIPathData.value + getBackgroundImageName(noc)))
+    }, [imageCarouselNocs])
 
     const columns = [
         {
@@ -197,6 +203,22 @@ const results: FunctionComponent = () => {
                         </Table>
                     }
                 </Col>
+                {(!selectedNoc || selectedNoc === "default") && (
+                   <Col span={8}>
+                       <h2>Please select a career to preview</h2>
+                        <Carousel autoplay>
+                            <div>
+                                <img src={carouselImagesPath[0]} alt={carouselImagesPath[0]} />
+                            </div>
+                            <div>
+                                <img src={carouselImagesPath[1]} alt={carouselImagesPath[1]} />
+                            </div>
+                            <div>
+                                <img src={carouselImagesPath[2]} alt={carouselImagesPath[2]} />
+                            </div>
+                        </Carousel>
+                   </Col>)
+               }
                 {selectedNoc!=="default" && isSettled &&  !isValidating && occupationsList && occupationsList?.length >= 0 &&
                 (<Col span={8}>
                     <b> {occupationDetail?.title} (NOC {occupationDetail?.noc}) </b>
