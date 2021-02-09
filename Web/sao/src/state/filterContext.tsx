@@ -7,6 +7,7 @@ export interface FilterState {
     filteredOccupationsList? : OccupationModel[] 
     selectedNoc : string,
     showCompareView: boolean,
+    isReset: boolean
 }
 export interface FilterContextProps extends FilterState {
     setFilterOption: (filterOptions: FilterOptionModel) => void,
@@ -21,6 +22,7 @@ const FilterContext = createContext<FilterContextProps>({
     filteredOccupationsList: [],
     selectedNoc: "",
     showCompareView: false,
+    isReset: true,
     setFilterOption: () => {},
     resetOptions: () => {},
     setFilteredOccupationsList: () => {},
@@ -31,7 +33,7 @@ const FilterContext = createContext<FilterContextProps>({
 FilterContext.displayName = 'FilterContext'
 
 const FilterContextProvider: FunctionComponent = ({children}) => {
-    const [{filterOption, filteredOccupationsList, selectedNoc, showCompareView}, dispatch] = useReducer(reducer, defaultFilterState)
+    const [{filterOption, filteredOccupationsList, selectedNoc, showCompareView, isReset}, dispatch] = useReducer(reducer, defaultFilterState)
 
     async function setFilterOption(filterOptions: FilterOptionModel) {
         try {
@@ -76,6 +78,7 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
                 filteredOccupationsList, 
                 selectedNoc,
                 showCompareView,
+                isReset,
                 setSelectedNoc,
                 setFilterOption, 
                 resetOptions, 

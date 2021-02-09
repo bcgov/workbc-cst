@@ -8,7 +8,7 @@ import { FilterOptionModel, FilterOccupationParams, OccupationSummary } from '..
 import { defaultFilterParams } from '../state/filterReducer'
 
 const results: FunctionComponent = () => {
-    const {filterOption, filteredOccupationsList, selectedNoc, setSelectedNoc, setFilteredOccupationsList, setShowCompareView} = useFilterContext()
+    const {filterOption, filteredOccupationsList, selectedNoc, isReset, setSelectedNoc, setFilteredOccupationsList, setShowCompareView} = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const [occupationDetail, setOccupationDetail] = useState<OccupationSummary>()
@@ -31,14 +31,16 @@ const results: FunctionComponent = () => {
     const {data: bgIPathData, isValidating: isFetchingBgIPath, isSettled: isBgIPathFetched } = useGetSystemConfigurations({name: "BackgroundImagesPath"})
     const {data: ctvUrlData, isValidating: isFetchingCtvUrl, isSettled: isCtvUrlFetched } = useGetSystemConfigurations({name: "CareerTrekVideoBaseUrl"})
     const {data: icNocsData, isValidating: isFetchingIcNocs, isSettled: isIcNocsFetched } = useGetSystemConfigurations({name: "ImageCarouselNOCs"})
-    // const history = useHistory()
 
     useEffect(() => {
-           if (!!filterOption) {
+           if (!!filterOption && !isReset) {
                 const filterParams = getFilterParams(filterOption)
                 setParams(filterParams)
            }
-    },[filterOption])
+           if(isReset) {
+               setParams(defaultFilterParams)
+           }
+    },[filterOption, isReset])
 
     useEffect(() => {
         if (!isValidating && isSettled && !!occupationsList && occupationsList.length >= 0) {
