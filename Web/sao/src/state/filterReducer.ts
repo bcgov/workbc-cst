@@ -25,7 +25,8 @@ export interface FilterState {
     filterOption?: FilterOptionModel,
     filteredOccupationsList? : OccupationModel[],
     selectedNoc: string,
-    showCompareView: boolean
+    showCompareView: boolean,
+    isReset: boolean
 }
 
 export const defaultFilterState: FilterState = Object.freeze({
@@ -33,6 +34,7 @@ export const defaultFilterState: FilterState = Object.freeze({
     filteredOccupationsList: [],
     selectedNoc: 'default',
     showCompareView: false,
+    isReset: true
 })
 
 export type FilterAction = 
@@ -51,7 +53,7 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
             return ({...state, selectedNoc: action.payload})
 
         case 'set-filter-options': 
-           return ({...state, filterOption: {...state.filterOption, ...action.payload}})
+           return ({...state, filterOption: {...state.filterOption, ...action.payload}, isReset: false})
 
         case 'set-show-compare-view': 
             return ({...state, showCompareView: action.payload})
