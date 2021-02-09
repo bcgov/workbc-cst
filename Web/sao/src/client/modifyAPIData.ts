@@ -10,6 +10,5 @@ export function modifyIndustryData(industriesData: IndustryModel[]): IndustryDat
     const children = industry.subIndustries.map(item => modifyIndustry(item, industry.id))
         modifiedIndustryData.push({title: industry.value, value: industry.id, key: industry.id, children: children})
     })
-     console.log(modifiedIndustryData.length)
     return modifiedIndustryData
 }

@@ -169,13 +169,13 @@ const Dropdowns: FunctionComponent = () => {
                     </Col> */}
                     <Col span={6}>
                         <div>
-                            <p> <b> Industry ? </b> </p>
+                            <label className="sao-filters__label"> Industry ? </label>
                             {isSettled && !isValidating&& industryDataTree && (
                                 <TreeSelect allowClear
                                             placeholder="Please select"
                                             dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
                                             treeData={industryDataTree}
-                                            style={{width: '350px'}} 
+                                            style={{width: '380px'}} 
                                             multiple />
                             )}
                         </div>
