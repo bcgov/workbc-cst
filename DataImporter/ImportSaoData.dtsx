@@ -13,8 +13,8 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="109"
-  DTS:VersionGUID="{1018502E-CFB9-4D9A-9FE2-E138F37E74A8}">
+  DTS:VersionBuild="110"
+  DTS:VersionGUID="{766CAC54-6AD2-45EA-A27D-AC3FFC9D7897}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -9845,8 +9845,8 @@ where [refTable].[Value] = ?</property>
           ParentId="Package\Import External Data"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="315,364"
-          Size="315,407"
+          PanelSize="238,364"
+          Size="238,407"
           Id="87f7ea40-2472-4da9-9879-ab234da738cf"
           TopLeft="80.5,6.5">
           <GroupLayout.ChildrenIds>
