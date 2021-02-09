@@ -102,7 +102,6 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 occupations = occupations.Where(o => o.JobOpenings.Any(jo => filter.IndustryIds.Contains(jo.Industry.Id)));
             }
 
-            // TODO: Fix this
             if (filter.SubIndustryIds.Any())
             {
                 occupations = occupations
@@ -169,7 +168,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
                     Description = o.JobOverviewSummary,
                     Income = o.MedianSalary.HasValue ? o.MedianSalary.Value.ToString("C0") : string.Empty,
                     JobOpenings = o.JobOpenings.Where(jo => jo.GeographicArea.Id == bcGeographicAreaId).Sum(jo => jo.JobOpenings),  // Only want the Sum of the BC values for total
-                    CareerTrekVideoIds = o.CareerTrekVideoId != null ? new List<string> { o.CareerTrekVideoId } : new List<string>()  // Replace this with video select once we have multiples
+                    CareerTrekVideoIds = o.NOCVideos.OrderBy(nv => nv.CareerTrekVideoPosition).Select(nv => nv.CareerTrekVideoID).ToList()
                 })
                 .ToList();
 
