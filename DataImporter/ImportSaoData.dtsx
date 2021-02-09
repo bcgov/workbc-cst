@@ -13,8 +13,8 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="105"
-  DTS:VersionGUID="{E4AB1B7F-C5B6-4709-8017-1105499F1243}">
+  DTS:VersionBuild="109"
+  DTS:VersionGUID="{1018502E-CFB9-4D9A-9FE2-E138F37E74A8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -372,7 +372,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{8F59D8A3-5FD7-478A-A018-AE743E090100}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="DELETE FROM dbo.[JobOpening]&#xA;DELETE FROM dbo.[NOCOccupationGroup]&#xA;DELETE FROM dbo.[NOCOccupationInterest]&#xA;DELETE FROM dbo.[CommonJobTitle]&#xA;DELETE FROM dbo.[NOC]&#xA;DELETE FROM dbo.[EducationLevel]&#xA;DELETE FROM dbo.[FullOrPartTime]&#xA;DELETE FROM dbo.[GeographicArea]&#xA;DELETE FROM dbo.[SubIndustry]&#xA;DELETE FROM dbo.[Industry]&#xA;DELETE FROM dbo.[OccupationalInterest]&#xA;DELETE FROM dbo.[OccupationInterestOption]&#xA;DELETE FROM dbo.[OccupationGroup]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM dbo.[JobOpening]&#xA;DELETE FROM dbo.[NOCOccupationGroup]&#xA;DELETE FROM dbo.[NOCOccupationInterest]&#xA;DELETE FROM dbo.[CommonJobTitle]&#xA;DELETE FROM dbo.[NOCVideos]&#xA;DELETE FROM dbo.[NOC]&#xA;DELETE FROM dbo.[EducationLevel]&#xA;DELETE FROM dbo.[FullOrPartTime]&#xA;DELETE FROM dbo.[GeographicArea]&#xA;DELETE FROM dbo.[SubIndustry]&#xA;DELETE FROM dbo.[Industry]&#xA;DELETE FROM dbo.[OccupationalInterest]&#xA;DELETE FROM dbo.[OccupationInterestOption]&#xA;DELETE FROM dbo.[OccupationGroup]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -458,6 +458,52 @@
                       refId="Package\Import External Data\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Import External Data\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import External Data\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import External Data\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import External Data\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Import External Data\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import External Data\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Import External Data\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import External Data\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import External Data\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import External Data\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import External Data\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -863,23 +909,13 @@ ON N.NOC_ID = NJT.NOC_ID</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select CONCAT('#', NOC.NOCCode) AS NOCCode, NOC.NameEnglish, CAST(CPCTV.CareerTrekVideoID AS VARCHAR(255)) AS CareerTrekVideoID
-from EDM_CareerProfileCareerTrekVideos CPCTV
-inner join EDM_CareerProfile CP 
-	on CP.CareerProfileID = CPCTV.CareerProfileID
-inner join EDM_NOC NOC
-on NOC.NOC_ID = CP.NOC_ID</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[NOC]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select CONCAT('#', NOC.NOCCode) AS NOCCode, NOC.NameEnglish, CAST(CPCTV.CareerTrekVideoID AS VARCHAR(255)) AS CareerTrekVideoID
-from EDM_CareerProfileCareerTrekVideos CPCTV
-inner join EDM_CareerProfile CP 
-	on CP.CareerProfileID = CPCTV.CareerProfileID
-inner join EDM_NOC NOC
-on NOC.NOC_ID = CP.NOC_ID) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[NOC]) [refTable]
 where [refTable].[NOCCode] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -911,12 +947,12 @@ where [refTable].[NOCCode] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="NOCCode" dataType="DT_STR" length="5" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="NameEnglish" dataType="DT_WSTR" length="200" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CareerTrekVideoID" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NOCCode" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Description" dataType="DT_TEXT" length="0" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="MedianSalary" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EducationLevelId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FullOrPartTimeId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="JobOverviewSummary" dataType="DT_TEXT" length="0" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CareerTrekVideoID" dataType="DT_TEXT" length="0" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].Columns[NOCCode]};</property>
+                  name="ParameterMap">#{Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOCCode]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -929,8 +965,8 @@ where [refTable].[NOCCode] = ?</property>
               <connections>
                 <connection
                   refId="Package\Import External Data\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[WorkBC Enterprise Database]"
-                  connectionManagerRefId="Package.ConnectionManagers[WorkBC Enterprise Database]"
+                  connectionManagerID="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -943,18 +979,21 @@ where [refTable].[NOCCode] = ?</property>
                       refId="Package\Import External Data\Lookup.Inputs[Lookup Input].Columns[NOCCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="255"
+                      cachedLength="5"
                       cachedName="NOCCode"
-                      lineageId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].Columns[NOCCode]">
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOCCode]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
                           name="JoinToReferenceColumn">NOCCode</property>
                         <property
-                          dataType="System.Null"
+                          dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
+                          name="CopyFromReferenceColumn">NOCCode</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -970,35 +1009,17 @@ where [refTable].[NOCCode] = ?</property>
                   synchronousInputId="Package\Import External Data\Lookup.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Import External Data\Lookup.Outputs[Lookup Match Output].Columns[CareerTrekVideoID2]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\Import External Data\Lookup.Outputs[Lookup Match Output].Columns[NOCId]"
+                      dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Import External Data\Lookup.Outputs[Lookup Match Output].Columns[CareerTrekVideoID2]"
-                      name="CareerTrekVideoID2"
+                      lineageId="Package\Import External Data\Lookup.Outputs[Lookup Match Output].Columns[NOCId]"
+                      name="NOCId"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">CareerTrekVideoID</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Import External Data\Lookup.Outputs[Lookup Match Output].Columns[NOCCode]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Copy Column"
-                      length="5"
-                      lineageId="Package\Import External Data\Lookup.Outputs[Lookup Match Output].Columns[NOCCode]"
-                      name="NOCCode"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">NOCCode</property>
+                          name="CopyFromReferenceColumn">Id</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1355,11 +1376,11 @@ where [refTable].[NOCCode] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Import External Data\NOC Source DB A"
+              refId="Package\Import External Data\OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="NOC Source DB A"
+              name="OLE DB Source"
               usesDispositions="true"
               version="7">
               <properties>
@@ -1370,7 +1391,7 @@ where [refTable].[NOCCode] = ?</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[NOC]</property>
+                  name="OpenRowset"></property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1379,7 +1400,11 @@ where [refTable].[NOCCode] = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CONCAT('#', NOC.NOCCode) AS NOCCode, CPCTV.CareerTrekVideoID, CPCTV.CareerTrekVideoPosition
+FROM EDM_CareerProfileCareerTrekVideos CPCTV
+INNER JOIN EDM_CareerProfile CP ON CP.CareerProfileID = CPCTV.CareerProfileID
+INNER JOIN EDM_NOC NOC ON NOC.NOC_ID = CP.NOC_ID
+ORDER BY NOC.NOCCode, CPCTV.CareerTrekVideoPosition</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1396,7 +1421,7 @@ where [refTable].[NOCCode] = ?</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
@@ -1404,242 +1429,103 @@ where [refTable].[NOCCode] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Import External Data\NOC Source DB A.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
-                  connectionManagerRefId="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
+                  refId="Package\Import External Data\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WorkBC Enterprise Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[WorkBC Enterprise Database]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output]"
+                  refId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].Columns[Id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].ExternalColumns[Id]"
-                      lineageId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].Columns[Id]"
-                      name="Id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].Columns[NOCCode]"
+                      refId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOCCode]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].ExternalColumns[NOCCode]"
-                      length="255"
-                      lineageId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].Columns[NOCCode]"
+                      externalMetadataColumnId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOCCode]"
+                      length="5"
+                      lineageId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOCCode]"
                       name="NOCCode"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].Columns[CareerTrekVideoID]"
+                      refId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[VideoID]"
                       codePage="1252"
-                      dataType="text"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].ExternalColumns[CareerTrekVideoID]"
-                      lineageId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].Columns[CareerTrekVideoID]"
-                      name="CareerTrekVideoID"
+                      externalMetadataColumnId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CareerTrekVideoID]"
+                      length="50"
+                      lineageId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[VideoID]"
+                      name="VideoID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[VideoPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CareerTrekVideoPosition]"
+                      lineageId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[VideoPosition]"
+                      name="VideoPosition"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].ExternalColumns[Id]"
-                      dataType="i4"
-                      name="Id" />
-                    <externalMetadataColumn
-                      refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].ExternalColumns[NOCCode]"
+                      refId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOCCode]"
                       codePage="1252"
                       dataType="str"
-                      length="255"
+                      length="5"
                       name="NOCCode" />
                     <externalMetadataColumn
-                      refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      refId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CareerTrekVideoID]"
                       codePage="1252"
-                      dataType="text"
-                      name="Description" />
-                    <externalMetadataColumn
-                      refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].ExternalColumns[MedianSalary]"
-                      dataType="numeric"
-                      name="MedianSalary"
-                      precision="18" />
-                    <externalMetadataColumn
-                      refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].ExternalColumns[EducationLevelId]"
-                      dataType="i4"
-                      name="EducationLevelId" />
-                    <externalMetadataColumn
-                      refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].ExternalColumns[FullOrPartTimeId]"
-                      dataType="i4"
-                      name="FullOrPartTimeId" />
-                    <externalMetadataColumn
-                      refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].ExternalColumns[JobOverviewSummary]"
-                      codePage="1252"
-                      dataType="text"
-                      name="JobOverviewSummary" />
-                    <externalMetadataColumn
-                      refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].ExternalColumns[CareerTrekVideoID]"
-                      codePage="1252"
-                      dataType="text"
+                      dataType="str"
+                      length="50"
                       name="CareerTrekVideoID" />
+                    <externalMetadataColumn
+                      refId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CareerTrekVideoPosition]"
+                      dataType="i4"
+                      name="CareerTrekVideoPosition" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Error Output].Columns[Id]"
-                      dataType="i4"
-                      lineageId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Error Output].Columns[Id]"
-                      name="Id" />
-                    <outputColumn
-                      refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Error Output].Columns[NOCCode]"
+                      refId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOCCode]"
                       codePage="1252"
                       dataType="str"
-                      length="255"
-                      lineageId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Error Output].Columns[NOCCode]"
+                      length="5"
+                      lineageId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOCCode]"
                       name="NOCCode" />
                     <outputColumn
-                      refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Error Output].Columns[CareerTrekVideoID]"
-                      codePage="1252"
-                      dataType="text"
-                      lineageId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Error Output].Columns[CareerTrekVideoID]"
-                      name="CareerTrekVideoID" />
-                    <outputColumn
-                      refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Import External Data\Update Career Trek Links"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="Update Career Trek Links"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE NOC SET CareerTrekVideoID = ? WHERE NOCCode = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Import External Data\Update Career Trek Links.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
-                  connectionManagerRefId="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Import External Data\Update Career Trek Links.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Import External Data\Update Career Trek Links.Inputs[OLE DB Command Input].Columns[CareerTrekVideoID2]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="CareerTrekVideoID2"
-                      externalMetadataColumnId="Package\Import External Data\Update Career Trek Links.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Import External Data\Lookup.Outputs[Lookup Match Output].Columns[CareerTrekVideoID2]" />
-                    <inputColumn
-                      refId="Package\Import External Data\Update Career Trek Links.Inputs[OLE DB Command Input].Columns[NOCCode]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="NOCCode"
-                      externalMetadataColumnId="Package\Import External Data\Update Career Trek Links.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output].Columns[NOCCode]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Import External Data\Update Career Trek Links.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      codePage="1252"
-                      dataType="text"
-                      name="Param_0">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">193</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Import External Data\Update Career Trek Links.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      refId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CareerTrekVideoID]"
                       codePage="1252"
                       dataType="str"
-                      length="255"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Import External Data\Update Career Trek Links.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\Import External Data\Update Career Trek Links.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Import External Data\Update Career Trek Links.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\Import External Data\Update Career Trek Links.Inputs[OLE DB Command Input]">
-                  <outputColumns>
+                      length="50"
+                      lineageId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CareerTrekVideoID]"
+                      name="CareerTrekVideoID" />
                     <outputColumn
-                      refId="Package\Import External Data\Update Career Trek Links.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      refId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CareerTrekVideoPosition]"
                       dataType="i4"
-                      lineageId="Package\Import External Data\Update Career Trek Links.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CareerTrekVideoPosition]"
+                      name="CareerTrekVideoPosition" />
+                    <outputColumn
+                      refId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Import External Data\Update Career Trek Links.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      refId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Import External Data\Update Career Trek Links.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1761,6 +1647,147 @@ where [refTable].[NOCCode] = ?</property>
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Import External Data\Write NOC Videos"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Write NOC Videos"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[NOCVideos]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import External Data\Write NOC Videos.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import External Data\Write NOC Videos.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import External Data\Write NOC Videos.Inputs[OLE DB Destination Input].Columns[NOCId]"
+                      cachedDataType="i4"
+                      cachedName="NOCId"
+                      externalMetadataColumnId="Package\Import External Data\Write NOC Videos.Inputs[OLE DB Destination Input].ExternalColumns[NOCId]"
+                      lineageId="Package\Import External Data\Lookup.Outputs[Lookup Match Output].Columns[NOCId]" />
+                    <inputColumn
+                      refId="Package\Import External Data\Write NOC Videos.Inputs[OLE DB Destination Input].Columns[VideoPosition]"
+                      cachedDataType="i4"
+                      cachedName="VideoPosition"
+                      externalMetadataColumnId="Package\Import External Data\Write NOC Videos.Inputs[OLE DB Destination Input].ExternalColumns[CareerTrekVideoPosition]"
+                      lineageId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[VideoPosition]" />
+                    <inputColumn
+                      refId="Package\Import External Data\Write NOC Videos.Inputs[OLE DB Destination Input].Columns[VideoID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="VideoID"
+                      externalMetadataColumnId="Package\Import External Data\Write NOC Videos.Inputs[OLE DB Destination Input].ExternalColumns[CareerTrekVideoID]"
+                      lineageId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output].Columns[VideoID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import External Data\Write NOC Videos.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Import External Data\Write NOC Videos.Inputs[OLE DB Destination Input].ExternalColumns[NOCId]"
+                      dataType="i4"
+                      name="NOCId" />
+                    <externalMetadataColumn
+                      refId="Package\Import External Data\Write NOC Videos.Inputs[OLE DB Destination Input].ExternalColumns[CareerTrekVideoID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="CareerTrekVideoID" />
+                    <externalMetadataColumn
+                      refId="Package\Import External Data\Write NOC Videos.Inputs[OLE DB Destination Input].ExternalColumns[CareerTrekVideoPosition]"
+                      dataType="i4"
+                      name="CareerTrekVideoPosition" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import External Data\Write NOC Videos.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import External Data\Write NOC Videos.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import External Data\Write NOC Videos.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import External Data\Write NOC Videos.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import External Data\Write NOC Videos.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import External Data\Write NOC Videos.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -1769,35 +1796,40 @@ where [refTable].[NOCCode] = ?</property>
               name="Data Conversion Output"
               startId="Package\Import External Data\Data Conversion.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Import External Data.Paths[Lookup Match Output]"
-              endId="Package\Import External Data\Update Career Trek Links.Inputs[OLE DB Command Input]"
-              name="Lookup Match Output"
-              startId="Package\Import External Data\Lookup.Outputs[Lookup Match Output]" />
+              refId="Package\Import External Data.Paths[Data Conversion Output1]"
+              endId="Package\Import External Data\Lookup.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\Import External Data\Data Conversion 1.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Import External Data.Paths[Lookup Match Output1]"
+              refId="Package\Import External Data.Paths[Lookup Match Output]"
               endId="Package\Import External Data\Insert Common Job Titles.Inputs[OLE DB Command Input]"
               name="Lookup Match Output"
               startId="Package\Import External Data\Lookup Noc Title.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Import External Data.Paths[Lookup Match Output2]"
+              refId="Package\Import External Data.Paths[Lookup Match Output1]"
               endId="Package\Import External Data\Update Career Trek Links 1.Inputs[OLE DB Command Input]"
               name="Lookup Match Output"
               startId="Package\Import External Data\Lookup Noc Text.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Import External Data.Paths[OLE DB Source Output]"
-              endId="Package\Import External Data\Lookup.Inputs[Lookup Input]"
-              name="OLE DB Source Output"
-              startId="Package\Import External Data\NOC Source DB A.Outputs[OLE DB Source Output]" />
+              refId="Package\Import External Data.Paths[Lookup Match Output2]"
+              endId="Package\Import External Data\Write NOC Videos.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Import External Data\Lookup.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Import External Data.Paths[OLE DB Source Output1]"
+              refId="Package\Import External Data.Paths[OLE DB Source Output]"
               endId="Package\Import External Data\Lookup Noc Title.Inputs[Lookup Input]"
               name="OLE DB Source Output"
               startId="Package\Import External Data\Job Title Source DB.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Import External Data.Paths[OLE DB Source Output2]"
+              refId="Package\Import External Data.Paths[OLE DB Source Output1]"
               endId="Package\Import External Data\Data Conversion.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\Import External Data\Job Description Source DB.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Import External Data.Paths[OLE DB Source Output2]"
+              endId="Package\Import External Data\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -9261,6 +9293,10 @@ where [refTable].[Value] = ?</property>
           Id="Package\Insert NOC Occupation Interests"
           TopLeft="178.5,377" />
         <NodeLayout
+          Size="199,42"
+          Id="Package\Insert SubDependencies"
+          TopLeft="510,31" />
+        <NodeLayout
           Size="177,42"
           Id="Package\Insert Unique NOCs"
           TopLeft="56,138" />
@@ -9282,6 +9318,28 @@ where [refTable].[Value] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="33.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="457.5,48.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.5,0"
+              Start="0,0"
+              End="45,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="45,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9448,32 +9506,6 @@ where [refTable].[Value] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="199,42"
-          Id="Package\Insert SubDependencies"
-          TopLeft="510,31" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="457.5,48.25">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="52.5,0"
-              Start="0,0"
-              End="45,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="45,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
           TopLeft="609.5,73">
@@ -9545,7 +9577,7 @@ where [refTable].[Value] = ?</property>
           Id="Package\Import External Data\Lookup Noc Text"
           TopLeft="621.5,166.5" />
         <EdgeLayout
-          Id="Package\Import External Data.Paths[OLE DB Source Output2]"
+          Id="Package\Import External Data.Paths[OLE DB Source Output1]"
           TopLeft="811,51">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -9573,7 +9605,7 @@ where [refTable].[Value] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import External Data.Paths[OLE DB Source Output1]"
+          Id="Package\Import External Data.Paths[OLE DB Source Output]"
           TopLeft="466.5,93">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -9607,7 +9639,7 @@ where [refTable].[Value] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import External Data.Paths[Lookup Match Output2]"
+          Id="Package\Import External Data.Paths[Lookup Match Output1]"
           TopLeft="702.5,208.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -9643,7 +9675,7 @@ where [refTable].[Value] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import External Data.Paths[Lookup Match Output1]"
+          Id="Package\Import External Data.Paths[Lookup Match Output]"
           TopLeft="515.5,210">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -9713,27 +9745,31 @@ where [refTable].[Value] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="170,42"
-          Id="Package\Import External Data\NOC Source DB A"
-          TopLeft="28.5,5.5" />
-        <NodeLayout
           Size="115,42"
           Id="Package\Import External Data\Lookup"
-          TopLeft="50.5,107.5" />
+          TopLeft="49.5,159.5" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Import External Data\Write NOC Videos"
+          TopLeft="41,267" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Import External Data\Data Conversion 1"
+          TopLeft="27,86" />
         <EdgeLayout
-          Id="Package\Import External Data.Paths[OLE DB Source Output]"
-          TopLeft="110.75,47.5">
+          Id="Package\Import External Data.Paths[Data Conversion Output1]"
+          TopLeft="109.5,128">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,31.5"
               Start="0,0"
-              End="0,52.5">
+              End="0,24">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,24" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9742,32 +9778,66 @@ where [refTable].[Value] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="205,42"
-          Id="Package\Import External Data\Update Career Trek Links"
-          TopLeft="5.50000000000003,209.5" />
         <EdgeLayout
-          Id="Package\Import External Data.Paths[Lookup Match Output]"
-          TopLeft="108,149.5">
+          Id="Package\Import External Data.Paths[Lookup Match Output2]"
+          TopLeft="107,201.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="18.5,65.5"
               Start="0,0"
-              End="0,52.5">
+              End="18.5,58">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,28.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.75"
+                    Point2="0,32.75"
+                    Point3="4,32.75" />
+                  <mssgle:LineSegment
+                    End="14.5,32.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.5,32.75"
+                    Point2="18.5,32.75"
+                    Point3="18.5,36.75" />
+                  <mssgle:LineSegment
+                    End="18.5,58" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              BoundingBox="-38.94138671875,37.75,96.3827734375,11.609375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Import External Data\OLE DB Source"
+          TopLeft="28,12" />
+        <EdgeLayout
+          Id="Package\Import External Data.Paths[OLE DB Source Output2]"
+          TopLeft="109.25,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -9775,16 +9845,18 @@ where [refTable].[Value] = ?</property>
           ParentId="Package\Import External Data"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="216,307"
-          Size="216,350"
+          PanelSize="315,364"
+          Size="315,407"
           Id="87f7ea40-2472-4da9-9879-ab234da738cf"
           TopLeft="80.5,6.5">
           <GroupLayout.ChildrenIds>
-            <s:String>Package\Import External Data\NOC Source DB A</s:String>
             <s:String>Package\Import External Data\Lookup</s:String>
-            <s:String>Package\Import External Data.Paths[OLE DB Source Output]</s:String>
-            <s:String>Package\Import External Data\Update Career Trek Links</s:String>
-            <s:String>Package\Import External Data.Paths[Lookup Match Output]</s:String>
+            <s:String>Package\Import External Data\Write NOC Videos</s:String>
+            <s:String>Package\Import External Data\Data Conversion 1</s:String>
+            <s:String>Package\Import External Data.Paths[Data Conversion Output1]</s:String>
+            <s:String>Package\Import External Data.Paths[Lookup Match Output2]</s:String>
+            <s:String>Package\Import External Data\OLE DB Source</s:String>
+            <s:String>Package\Import External Data.Paths[OLE DB Source Output2]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
       </GraphLayout>
@@ -9808,19 +9880,6 @@ where [refTable].[Value] = ?</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import External Data\NOC Source DB A">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -9876,17 +9935,17 @@ where [refTable].[Value] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string"></Value>
+          type="q3:string">[dbo].[NOC]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9897,7 +9956,7 @@ where [refTable].[Value] = ?</property>
     design-time-name="Package\Insert Dependencies">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
         <NodeLayout
           Size="202,42"
           Id="Package\Insert Dependencies\GeographicAreas Source"
@@ -9925,7 +9984,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -9970,7 +10031,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -10015,7 +10078,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -10080,7 +10145,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10102,7 +10169,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10193,7 +10262,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -10235,7 +10306,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10312,7 +10385,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10334,7 +10409,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -10389,7 +10466,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10411,7 +10490,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10461,6 +10542,19 @@ where [refTable].[Value] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Insert Dependencies\OG Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Insert Dependencies\FullTimePartTime Destination">
     <Properties>
       <Property>
@@ -10474,7 +10568,7 @@ where [refTable].[Value] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Insert Dependencies\Geographic Destination">
+    design-time-name="Package\Insert Dependencies\Occ Interest Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10487,7 +10581,7 @@ where [refTable].[Value] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Insert Dependencies\Occ Option Destination">
+    design-time-name="Package\Insert Dependencies\Geographic Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10526,20 +10620,7 @@ where [refTable].[Value] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Insert Dependencies\Occ Interest Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insert Dependencies\OG Destination">
+    design-time-name="Package\Insert Dependencies\Occ Option Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10638,6 +10719,42 @@ where [refTable].[Value] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert NOC Job Openings.Paths[Lookup Match Output3]"
+          TopLeft="146.5,436">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.5,81"
+              Start="0,0"
+              End="-23.5,73.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.5"
+                    Point2="0,40.5"
+                    Point3="-4,40.5" />
+                  <mssgle:LineSegment
+                    End="-19.5,40.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.5,40.5"
+                    Point2="-23.5,40.5"
+                    Point3="-23.5,44.5" />
+                  <mssgle:LineSegment
+                    End="-23.5,73.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-59.94138671875,45.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <NodeLayout
           Size="157,42"
           Id="Package\Insert NOC Job Openings\Industry Lookup"
@@ -10727,62 +10844,26 @@ where [refTable].[Value] = ?</property>
             <s:String>Package\Insert NOC Job Openings.Paths[Lookup Match Output2]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
-        <EdgeLayout
-          Id="Package\Insert NOC Job Openings.Paths[Lookup Match Output3]"
-          TopLeft="146.5,436">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-23.5,81"
-              Start="0,0"
-              End="-23.5,73.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,36.5"
-                    Point2="0,40.5"
-                    Point3="-4,40.5" />
-                  <mssgle:LineSegment
-                    End="-19.5,40.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-19.5,40.5"
-                    Point2="-23.5,40.5"
-                    Point3="-23.5,44.5" />
-                  <mssgle:LineSegment
-                    End="-23.5,73.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-59.94138671875,45.5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Insert NOC Job Openings\Industry Lookup">
+    design-time-name="Package\Insert NOC Job Openings\Lookup NOC">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[Industry]</Value>
+          type="q3:string">[dbo].[NOC]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10803,7 +10884,7 @@ where [refTable].[Value] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Insert NOC Job Openings\Lookup NOC">
+    design-time-name="Package\Insert NOC Job Openings\Industry Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -10813,7 +10894,30 @@ where [refTable].[Value] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[NOC]</Value>
+          type="q3:string">[dbo].[Industry]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert NOC Job Openings\SubIndustry Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[SubIndustry]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -10968,7 +11072,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -11275,7 +11381,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -11411,6 +11519,192 @@ where [refTable].[Value] = ?</property>
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[dbo].[NOC]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Insert SubDependencies">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Insert SubDependencies\Remove All Ind"
+          TopLeft="258,340" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Insert SubDependencies\SubIndustry Source"
+          TopLeft="391,195" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Insert SubDependencies\Sort Ind and Sub"
+          TopLeft="401,275.5" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Insert SubDependencies\SubIndustry Destination"
+          TopLeft="277,503" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Insert SubDependencies\Ind Lookup"
+          TopLeft="522,415" />
+        <EdgeLayout
+          Id="Package\Insert SubDependencies.Paths[Sort Output]"
+          TopLeft="401,296.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-66.5,43.5"
+              Start="0,0"
+              End="-66.5,36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-62.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-62.5,0"
+                    Point2="-66.5,0"
+                    Point3="-66.5,4" />
+                  <mssgle:LineSegment
+                    End="-66.5,36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert SubDependencies.Paths[Lookup Match Output]"
+          TopLeft="588.5,457">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-213.5,46"
+              Start="0,0"
+              End="-213.5,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="-4,23" />
+                  <mssgle:LineSegment
+                    End="-209.5,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-209.5,23"
+                    Point2="-213.5,23"
+                    Point3="-213.5,27" />
+                  <mssgle:LineSegment
+                    End="-213.5,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-154.94138671875,28,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert SubDependencies.Paths[Industry Name]"
+          TopLeft="334.5,382">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="254,33"
+              Start="0,0"
+              End="254,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5"
+                    Point2="0,16.5"
+                    Point3="4,16.5" />
+                  <mssgle:LineSegment
+                    End="250,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="250,16.5"
+                    Point2="254,16.5"
+                    Point3="254,20.5" />
+                  <mssgle:LineSegment
+                    End="254,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="93.60205078125,21.5,66.7958984375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert SubDependencies.Paths[Flat File Source Output]"
+          TopLeft="480,237">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.5"
+              Start="0,0"
+              End="0,31">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert SubDependencies\SubIndustry Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert SubDependencies\Ind Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Industry]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -11690,158 +11984,8 @@ where [refTable].[Value] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Insert SubDependencies">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="196,42"
-          Id="Package\Insert SubDependencies\SubIndustry Destination"
-          TopLeft="277,503" />
-        <NodeLayout
-          Size="133,42"
-          Id="Package\Insert SubDependencies\Ind Lookup"
-          TopLeft="522,415" />
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Insert SubDependencies\SubIndustry Source"
-          TopLeft="391,195" />
-        <NodeLayout
-          Size="153,42"
-          Id="Package\Insert SubDependencies\Remove All Ind"
-          TopLeft="258,340" />
-        <NodeLayout
-          Size="161,42"
-          Id="Package\Insert SubDependencies\Sort Ind and Sub"
-          TopLeft="401,275.5" />
-        <EdgeLayout
-          Id="Package\Insert SubDependencies.Paths[Lookup Match Output]"
-          TopLeft="588.5,457">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-213.5,46"
-              Start="0,0"
-              End="-213.5,38.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19"
-                    Point2="0,23"
-                    Point3="-4,23" />
-                  <mssgle:LineSegment
-                    End="-209.5,23" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-209.5,23"
-                    Point2="-213.5,23"
-                    Point3="-213.5,27" />
-                  <mssgle:LineSegment
-                    End="-213.5,38.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-163.8100390625,28,114.120078125,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insert SubDependencies.Paths[Industry Name]"
-          TopLeft="334.5,382">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="254,33"
-              Start="0,0"
-              End="254,25.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.5"
-                    Point2="0,16.5"
-                    Point3="4,16.5" />
-                  <mssgle:LineSegment
-                    End="250,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="250,16.5"
-                    Point2="254,16.5"
-                    Point3="254,20.5" />
-                  <mssgle:LineSegment
-                    End="254,25.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="93.60205078125,21.5,66.7958984375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insert SubDependencies.Paths[Sort Output]"
-          TopLeft="401,296.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-66.5,43.5"
-              Start="0,0"
-              End="-66.5,36">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-62.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-62.5,0"
-                    Point2="-66.5,0"
-                    Point3="-66.5,4" />
-                  <mssgle:LineSegment
-                    End="-66.5,36" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insert SubDependencies.Paths[Flat File Source Output]"
-          TopLeft="480,237">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.5"
-              Start="0,0"
-              End="0,31">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Insert SubDependencies\SubIndustry Destination">
+    design-time-name="Package\Import External Data\Write NOC Videos">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -11854,46 +11998,8 @@ where [refTable].[Value] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Insert SubDependencies\Ind Lookup">
+    design-time-name="Package\Import External Data\OLE DB Source">
     <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Industry]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insert NOC Job Openings\SubIndustry Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[SubIndustry]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
