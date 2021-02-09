@@ -118,124 +118,136 @@ const Dropdowns: FunctionComponent = () => {
     return (
         <div>
             <div className="sao-filters">
-                <Row>
-                    <Col span={6}>
-                        <div>
-                            <label className="sao-filters__label">Region ?</label>
-                            <SelectFilterType  
-                                filterType={FilterType.region}
-                                colSpan={5}
-                                value = {userSelection?.region?.value}
-                                onChange = {handleChangeRegion}
-                                showPlaceHolderAsOption={false}
-                                placeholder={"British Columbia"}  />
-                        </div>
-                    </Col>
-                    <Col span={6}> 
-                        <div>
-                            <label className="sao-filters__label">Education ? </label>
-                            <SelectFilterType  
-                                filterType={FilterType.education}
-                                colSpan={5}
-                                value = {userSelection?.education?.value}
-                                onChange = {handleChangeEducation}
-                                showPlaceHolderAsOption={true}
-                                placeholder={"All"} />
-                        </div>
-                    </Col>
-                    <Col span={6}> 
-                        <div>
-                            <label className="sao-filters__label">Occupational Interest ?</label>
-                            <SelectFilterType  
-                                filterType={FilterType.occupational_interest}
-                                colSpan={5}
-                                value = {userSelection?.occupational_interest?.value}
-                                onChange = {handleChangeOccupationalInterest}
-                                showPlaceHolderAsOption={true}
-                                placeholder={"All"} />
-                        </div>
-                    </Col>
-                    {/* <Col span={6}> 
-                        <div>
-                            <label className="sao-filters__label">Industry ? </label>
-                            <SelectFilterType  
-                                filterType={FilterType.industry}
-                                colSpan={5}
-                                value = {userSelection?.industry?.value}
-                                onChange = {handleChangeIndustry}
-                                showPlaceHolderAsOption={true}
-                                placeholder={"All"}  />
-                        </div>
-                    </Col> */}
-                    <Col span={6}>
-                        <div>
-                            <label className="sao-filters__label"> Industry ? </label>
-                            {isSettled && !isValidating&& industryDataTree && (
-                                <TreeSelect allowClear
-                                            placeholder="Please select"
-                                            dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-                                            treeData={industryDataTree}
-                                            style={{width: '380px'}} 
-                                            multiple />
-                            )}
-                        </div>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col span={6}>
-                        <div>
-                            <label className="sao-filters__label"> Occupational Group ? </label>
-                            <SelectFilterType  
-                                filterType={FilterType.occupational_group}
-                                colSpan={5}
-                                value = {userSelection?.occupational_group?.value}
-                                onChange = {handleChangeOccupationalGroup}
-                                showPlaceHolderAsOption={true}
-                                placeholder={"All"} />
-                        </div>
-                    </Col>
-                    <Col span={6}> 
-                        <div>
-                            <label className="sao-filters__label">Part-time Option ? </label>
-                            <SelectFilterType  
-                                filterType={FilterType.part_time_option}
-                                colSpan={5}
-                                value = {userSelection?.part_time_option?.value}
-                                onChange = {handleChangePartTimeOption}
-                                showPlaceHolderAsOption={true}
-                                placeholder={"All"} />
-                        </div>
-                    </Col>
-                    <Col span={6}> 
-                        <div>
-                            <label className="sao-filters__label">Annual Salary ? </label>
-                            <SelectFilterType  
-                                filterType={FilterType.annual_salary}
-                                colSpan={5}
-                                value = {userSelection?.annual_salary?.value}
-                                onChange = {handleChangeAnnualSalary}
-                                showPlaceHolderAsOption={true}
-                                placeholder={"All"} />
-                        </div>
-                    </Col>
-                    <Col span={6}>
-                        <label className="sao-filters__label"> Keyword ? </label>
-                        <Input placeholder="Enter career title, Keyword(s) or NOC"
-                               value= {userSelection?.keyword}
-                               onChange={handleChangeKeyWord} />
-                    </Col>
-                </Row>
-                <Row  gutter={24} style={{padding: "24px 0px"}}>
-                    <Col span={8} offset={16}> 
-                        <Button type="primary" style={{width: "250px"}} onClick = {applyFilters}> Apply Filters </Button>
-                        <Button style={{border: "none"}} onClick = {handleReset}> 
-                            <div>
-                                <SyncOutlined /> 
-                                Reset
+                <div className="container">
+                    <Row>
+                        <Col xs={24} lg={6}>
+                            <div className="sao-filters__type">
+                                <label className="sao-filters__label">Region ?</label>
+                                <SelectFilterType  
+                                    filterType={FilterType.region}
+                                    showArrow={true}
+                                    style={{ width: '100%' }}
+                                    value = {userSelection?.region?.value}
+                                    onChange = {handleChangeRegion}
+                                    showPlaceHolderAsOption={false}
+                                    placeholder={"British Columbia"}  />
                             </div>
-                        </Button>
-                    </Col>
-                </Row>
+                        </Col>
+                        <Col xs={24} lg={4}> 
+                            <div className="sao-filters__type">
+                                <label className="sao-filters__label">Education ? </label>
+                                <SelectFilterType  
+                                    filterType={FilterType.education}
+                                    showArrow={true}
+                                    style={{ width: '100%' }}
+                                    value = {userSelection?.education?.value}
+                                    onChange = {handleChangeEducation}
+                                    showPlaceHolderAsOption={true}
+                                    placeholder={"All"} />
+                            </div>
+                        </Col>
+                        <Col xs={24} lg={6}> 
+                            <div className="sao-filters__type">
+                                <label className="sao-filters__label">Occupational Interest ?</label>
+                                <SelectFilterType  
+                                    filterType={FilterType.occupational_interest}
+                                    showArrow={true}
+                                    style={{ width: '100%' }}
+                                    value = {userSelection?.occupational_interest?.value}
+                                    onChange = {handleChangeOccupationalInterest}
+                                    showPlaceHolderAsOption={true}
+                                    placeholder={"All"} />
+                            </div>
+                        </Col>
+                        {/* <Col span={6}> 
+                            <div>
+                                <label className="sao-filters__label">Industry ? </label>
+                                <SelectFilterType  
+                                    filterType={FilterType.industry}
+                                    colSpan={5}
+                                    value = {userSelection?.industry?.value}
+                                    onChange = {handleChangeIndustry}
+                                    showPlaceHolderAsOption={true}
+                                    placeholder={"All"}  />
+                            </div>
+                        </Col> */}
+                        <Col xs={24} lg={8}>
+                            <div className="sao-filters__type">
+                                <label className="sao-filters__label"> Industry ? </label>
+                                {isSettled && !isValidating&& industryDataTree && (
+                                    <TreeSelect allowClear
+                                        placeholder="Please select"
+                                        showArrow={true}
+                                        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+                                        treeData={industryDataTree}
+                                        style={{width: '100%'}} 
+                                        multiple />
+                                )}
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={24} lg={6}>
+                            <div className="sao-filters__type">
+                                <label className="sao-filters__label"> Occupational Group ? </label>
+                                <SelectFilterType  
+                                    filterType={FilterType.occupational_group}
+                                    showArrow={true}
+                                    style={{ width: '100%' }}
+                                    value = {userSelection?.occupational_group?.value}
+                                    onChange = {handleChangeOccupationalGroup}
+                                    showPlaceHolderAsOption={true}
+                                    placeholder={"All"} />
+                            </div>
+                        </Col>
+                        <Col xs={24} lg={4}> 
+                            <div className="sao-filters__type">
+                                <label className="sao-filters__label">Part-time Option ? </label>
+                                <SelectFilterType  
+                                    filterType={FilterType.part_time_option}
+                                    style={{ width: '100%' }}
+                                    showArrow={true}
+                                    value = {userSelection?.part_time_option?.value}
+                                    onChange = {handleChangePartTimeOption}
+                                    showPlaceHolderAsOption={true}
+                                    placeholder={"All"} />
+                            </div>
+                        </Col>
+                        <Col xs={24} lg={6}> 
+                            <div className="sao-filters__type">
+                                <label className="sao-filters__label">Annual Salary ? </label>
+                                <SelectFilterType  
+                                    filterType={FilterType.annual_salary}
+                                    style={{ width: '100%' }}
+                                    showArrow={true}
+                                    value = {userSelection?.annual_salary?.value}
+                                    onChange = {handleChangeAnnualSalary}
+                                    showPlaceHolderAsOption={true}
+                                    placeholder={"All"} />
+                            </div>
+                        </Col>
+                        <Col xs={24} lg={8}>
+                            <div className="sao-filters__type">
+                                <label className="sao-filters__label"> Keyword ? </label>
+                                <Input placeholder="Enter career title, Keyword(s) or NOC"
+                                    value= {userSelection?.keyword}
+                                    style={{ width: '100%' }}
+                                    onChange={handleChangeKeyWord} />
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col span={8} offset={16}> 
+                            <Button type="primary" style={{width: "250px"}} onClick = {applyFilters}> Apply Filters </Button>
+                            <Button style={{border: "none"}} onClick = {handleReset}> 
+                                <div>
+                                    <SyncOutlined /> 
+                                    Reset
+                                </div>
+                            </Button>
+                        </Col>
+                    </Row>
+                </div>
             </div>
             <div>
                 <Results />

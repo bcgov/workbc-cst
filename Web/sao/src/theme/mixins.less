@@ -1,0 +1,30 @@
+.responsive(@minWidth; @rules) {
+    @media only screen and (min-width: @minWidth) {
+        @rules();
+    }
+}
+
+.extraSmallScreen(@rules) {
+    .responsive(480px, {
+    @rules(); })
+}
+
+.smallScreen(@rules) {
+    .responsive(768px, {
+    @rules(); })
+}
+
+.mediumScreen(@rules) {
+    .responsive(992px, {
+    @rules(); })
+}
+
+.largeScreen(@rules) {
+    .responsive(1200px, {
+    @rules(); })
+}
+
+.xlargeScreen(@rules) {
+    .responsive(1600px, {
+    @rules(); })
+}

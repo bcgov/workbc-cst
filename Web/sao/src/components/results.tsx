@@ -164,26 +164,26 @@ const results: FunctionComponent = () => {
     }
 
     return (
-        <div>
-            <Row gutter={24}>
+        <div className="container">
+            <Row>
                 <Col span={16}>
                     <h3>
                         Displaying <b> {filteredOccupationsList?.length} results </b>
                     </h3>
                 </Col>
                 <Col span={8}>
-                    <Button icon={<PrinterOutlined />} style={{width: '490px'}} onClick={handlePrintEvent}> Print </Button>
+                    <Button icon={<PrinterOutlined />} onClick={handlePrintEvent} block> Print </Button>
                 </Col>
             </Row>
-            <Row gutter={24}>
+            <Row>
                 <Col span={16}>
                     Compare upto 3 careers by selecting the checkboxes in the table and clicking on Compare careers
                 </Col>
                 <Col span={8}>
-                    <Button icon={<MailOutlined />} style={{width: '490px'}} onClick={handleEmailEvent}> Email </Button>
+                    <Button icon={<MailOutlined />} onClick={handleEmailEvent} block> Email </Button>
                 </Col>
             </Row>
-            <Row gutter={24}>
+            <Row>
                 <Col span={16}>
                     { !isValidating && isSettled &&  
                         <Table
