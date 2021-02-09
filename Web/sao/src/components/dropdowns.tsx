@@ -1,13 +1,17 @@
 import React, { FunctionComponent, Key, useEffect, useState } from 'react'
-import { Input, Row, Col, Button } from 'antd'
+import { Input, Row, Col, Button, TreeSelect} from 'antd'
 import { SyncOutlined } from '@ant-design/icons'
 import SelectFilterType from './wbSelectFilterType'
-import { FilterType, FilterOptionModel } from '../client/dataTypes'
+import { FilterType, FilterOptionModel, IndustryData } from '../client/dataTypes'
 import { useFilterContext } from '../state/filterContext'
+import { useGetIndustryData } from '../client/apiService'
+import {modifyIndustryData} from '../client/modifyAPIData'
 import { defaultFilterOption } from '../state/filterReducer'
 import Results from './results'
 
 const Dropdowns: FunctionComponent = () => {
+    const { data: industryData, isValidating, isSettled } = useGetIndustryData(FilterType.industry)
+    const [industryDataTree, setIndustryDataTree] = useState<IndustryData[]>()
 
     const {filterOption, setFilterOption, resetOptions} = useFilterContext()
 
@@ -18,6 +22,12 @@ const Dropdowns: FunctionComponent = () => {
             setUserSelection(filterOption)
         }
     }, [filterOption])
+
+    useEffect(() => {
+        if(!isValidating && isSettled && !!industryData && industryData.length > 0) {
+            setIndustryDataTree(modifyIndustryData(industryData))
+        }
+    }, [industryData, isValidating, isSettled])
 
     function handleChangeRegion(value: Key, options: any) {
         try {
@@ -145,7 +155,7 @@ const Dropdowns: FunctionComponent = () => {
                                 placeholder={"All"} />
                         </div>
                     </Col>
-                    <Col span={6}> 
+                    {/* <Col span={6}> 
                         <div>
                             <p> <b> Industry ? </b> </p>
                             <SelectFilterType  
@@ -155,6 +165,19 @@ const Dropdowns: FunctionComponent = () => {
                                 onChange = {handleChangeIndustry}
                                 showPlaceHolderAsOption={true}
                                 placeholder={"All"}  />
+                        </div>
+                    </Col> */}
+                    <Col span={6}>
+                        <div>
+                            <p> <b> Industry ? </b> </p>
+                            {isSettled && !isValidating&& industryDataTree && (
+                                <TreeSelect allowClear
+                                            placeholder="Please select"
+                                            dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+                                            treeData={industryDataTree}
+                                            style={{width: '350px'}} 
+                                            multiple />
+                            )}
                         </div>
                     </Col>
                 </Row>
