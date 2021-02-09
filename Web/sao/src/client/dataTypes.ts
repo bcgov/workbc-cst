@@ -92,3 +92,22 @@ export interface UseGetSystemConfigurationResponse {
     isValidating: boolean,
     isSettled: boolean
 }
+
+export interface IndustryModel {
+    id: number,
+    value: string, 
+    subIndustries: FilterTypeModel[]
+}
+
+export interface IndustryDataResponse {
+    data: IndustryModel[],
+    isValidating: boolean,
+    isSettled: boolean
+}
+
+export interface IndustryData {
+    title: string, 
+    value: string, 
+    key: string,
+    children: IndustryData[]
+}
