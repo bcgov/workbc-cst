@@ -4,7 +4,7 @@ import { MailOutlined , PrinterOutlined  } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import Checkbox from 'antd/lib/checkbox/Checkbox'
 import { useGetOccupationsList, useGetOccupationSummary, useGetSystemConfigurations } from '../client/apiService'
-import { FilterOptionModel, FilterOccupationParams, OccupationSummary } from '../client/dataTypes'
+import { FilterOptionModel, FilterOccupationParams, OccupationSummary, IndustryTypeModel } from '../client/dataTypes'
 import { defaultFilterParams } from '../state/filterReducer'
 
 const results: FunctionComponent = () => {
@@ -124,13 +124,23 @@ const results: FunctionComponent = () => {
     function getProfileImageName(noc: string):string {
         return noc + "-NOC-" + "profile.png"
     }
+
+    function getIndustryParams(params: IndustryTypeModel[]){
+        let industriesIds = []
+        let subIndustryIds = []
+        params.forEach(params =>{
+            (!!params.id.split(':')[1]) ? subIndustryIds.push(params.id.split(':')[1]) : industriesIds.push(params.id.split(':')[0])
+        })
+        return { industries: industriesIds.join(), subIndustries: subIndustryIds.join() }
+    }
    
     function  getFilterParams(params: FilterOptionModel) : FilterOccupationParams {
         const filterParams = {
             GeographicAreaId: params.region?.id,
             EducationLevelId: params.education?.id,
             OccupationalInterestId: params.education?.id,
-            IndustryId: params.industry?.id,
+            IndustryIds: getIndustryParams(params.industry).industries,
+            SubIndustryIds: getIndustryParams(params.industry).subIndustries,
             OccupationalGroupId: params.occupational_group?.id,
             FullTimeOrPartTimeId: params.part_time_option?.id,
             AnnualSalaryId: params.annual_salary?.id,

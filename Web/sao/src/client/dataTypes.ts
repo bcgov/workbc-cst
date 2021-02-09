@@ -19,11 +19,16 @@ export interface FilterDataResponse {
     isSettled: boolean
 }
 
+export interface IndustryTypeModel {
+    id: string, // key of selected tree node
+    value: string // title of selected tree node
+}
+
 export interface FilterOptionModel {
     region?: FilterTypeModel, 
     education?: FilterTypeModel, 
     occupational_interest?: FilterTypeModel, 
-    industry?: FilterTypeModel, 
+    industry?: IndustryTypeModel[], 
     occupational_group?: FilterTypeModel, 
     part_time_option?: FilterTypeModel, 
     annual_salary?: FilterTypeModel,
@@ -47,7 +52,8 @@ export interface FilterOccupationParams {
     GeographicAreaId?: number,
     EducationLevelId?: number,
     OccupationalInterestId?: number,
-    IndustryId?: number,
+    IndustryIds?: string,
+    SubIndustryIds?: string,
     OccupationalGroupId?: number, 
     FullTimeOrPartTimeId? : number,
     AnnualSalaryId?: number,

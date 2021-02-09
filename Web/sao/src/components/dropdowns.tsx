@@ -59,11 +59,13 @@ const Dropdowns: FunctionComponent = () => {
         }
     }
 
-    function handleChangeIndustry(value: Key, options: any) {
+    function handleChangeIndustry(keys, titles) {
+        let industries = []
         try {
-            if (!!value && !!options && options.value) {
-                setUserSelection({...userSelection, industry: {id: value as number, value: options.value}})
-            } 
+           for(let i=0;i<keys.length;i++) {
+               industries.push({id: keys[i], value: titles[i]})
+            }
+            setUserSelection({...userSelection, industry:industries})
         } catch (error) {
             console.log(error)
         }
@@ -176,10 +178,11 @@ const Dropdowns: FunctionComponent = () => {
                                 <label className="sao-filters__label"> Industry ? </label>
                                 {isSettled && !isValidating&& industryDataTree && (
                                     <TreeSelect allowClear
-                                        placeholder="Please select"
+                                        placeholder="All"
                                         showArrow={true}
                                         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
                                         treeData={industryDataTree}
+                                        onChange={handleChangeIndustry}
                                         style={{width: '100%'}} 
                                         multiple />
                                 )}

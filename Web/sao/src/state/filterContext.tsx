@@ -1,4 +1,4 @@
-import React, {FunctionComponent, createContext, useReducer, useContext, useState} from 'react'
+import React, {FunctionComponent, createContext, useReducer, useContext} from 'react'
 import {FilterOptionModel, OccupationModel} from '../client/dataTypes'
 import { defaultFilterState, reducer } from './filterReducer'
 
