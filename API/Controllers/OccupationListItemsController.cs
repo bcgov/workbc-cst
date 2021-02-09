@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SearchAllOccupationsToolAPI.DbContexts;
+using SearchAllOccupationsToolAPI.Filters;
 using SearchAllOccupationsToolAPI.Models;
 using SearchAllOccupationsToolAPI.Repositories;
 using SearchAllOccupationsToolAPI.Repositories.Interfaces;

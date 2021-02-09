@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SearchAllOccupationsToolAPI.DbContexts;
 using SearchAllOccupationsToolAPI.DbContexts.Interfaces;
+using SearchAllOccupationsToolAPI.Filters;
 using SearchAllOccupationsToolAPI.Models;
 using SearchAllOccupationsToolAPI.Repositories.Interfaces;
 
@@ -12,7 +13,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
     public class OccupationRepository : IOccupationRepository
     {
         private readonly IOccupationContext _context;
-        private GeographicAreasRepository _geographicAreasRepository;
+        private readonly GeographicAreasRepository _geographicAreasRepository;
 
         public OccupationRepository(IOccupationContext context, IGeographicAreasContext geographicAreasContext)
         {
@@ -93,12 +94,21 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 // NOCOccupationGroup also has a Geographic Area. Do we filter?
             }
 
-            if (filter.IndustryId > 0)
+            if (filter.IndustryIds.Any())
             {
                 occupations = occupations
                     .Include(no => no.JobOpenings)
                     .ThenInclude(jo => jo.Industry);
-                occupations = occupations.Where(o => o.JobOpenings.Any(jo => jo.Industry.Id == filter.IndustryId));
+                occupations = occupations.Where(o => o.JobOpenings.Any(jo => filter.IndustryIds.Contains(jo.Industry.Id)));
+            }
+
+            // TODO: Fix this
+            if (filter.SubIndustryIds.Any())
+            {
+                occupations = occupations
+                    .Include(no => no.JobOpenings)
+                    .ThenInclude(jo => jo.SubIndustry);
+                occupations = occupations.Where(o => o.JobOpenings.Any(jo => filter.SubIndustryIds.Contains(jo.SubIndustry.Id)));
             }
 
             if (filter.OccupationalInterestId > 0)
@@ -124,8 +134,11 @@ namespace SearchAllOccupationsToolAPI.Repositories
             if (filter.GeographicAreaId > 0)
                 occ = occ.Where(oi => oi.GeographicArea.Id == filter.GeographicAreaId.Value);
 
-            if (filter.IndustryId > 0)
-                occ = occ.Where(oi => oi.Industry.Id == filter.IndustryId.Value);
+            if (filter.IndustryIds.Any()) 
+                occ = occ.Where(oi => filter.IndustryIds.Contains(oi.Industry.Id));
+
+            if (filter.SubIndustryIds.Any()) 
+                occ = occ.Where(oi => filter.SubIndustryIds.Contains(oi.SubIndustry.Id));
 
             return occ.Sum(oi => oi.JobOpenings);
         }

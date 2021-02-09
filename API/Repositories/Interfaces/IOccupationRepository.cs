@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using SearchAllOccupationsToolAPI.Filters;
 using SearchAllOccupationsToolAPI.Models;
 
 namespace SearchAllOccupationsToolAPI.Repositories.Interfaces
