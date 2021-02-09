@@ -119,9 +119,20 @@ const Dropdowns: FunctionComponent = () => {
 
     return (
         <div>
+            <div className="sao-filters-header">
+                <div className="container">
+                    <Row><Col span={24}>
+                        <div className="sao-filters-header__content">Find a career that's right for you</div>
+                    </Col></Row>
+                </div>
+            </div>
             <div className="sao-filters">
                 <div className="container">
-                    <Row>
+                    <Row><Col span={24}>
+                        
+                        <h3>Use the filter(s) to explore your career options.</h3>    
+                    </Col></Row>
+                    <Row className="sao-filters__row">
                         <Col xs={24} lg={6}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Region ?</label>
@@ -189,7 +200,7 @@ const Dropdowns: FunctionComponent = () => {
                             </div>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row className="sao-filters__row">
                         <Col xs={24} lg={6}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label"> Occupational Group ? </label>
