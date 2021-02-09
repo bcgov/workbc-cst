@@ -117,11 +117,11 @@ const Dropdowns: FunctionComponent = () => {
 
     return (
         <div>
-            <div>
+            <div className="sao-filters">
                 <Row>
                     <Col span={6}>
                         <div>
-                            <p> <b> Region ? </b> </p>
+                            <label className="sao-filters__label">Region ?</label>
                             <SelectFilterType  
                                 filterType={FilterType.region}
                                 colSpan={5}
@@ -133,7 +133,7 @@ const Dropdowns: FunctionComponent = () => {
                     </Col>
                     <Col span={6}> 
                         <div>
-                            <p> <b> Education ? </b> </p>
+                            <label className="sao-filters__label">Education ? </label>
                             <SelectFilterType  
                                 filterType={FilterType.education}
                                 colSpan={5}
@@ -145,7 +145,7 @@ const Dropdowns: FunctionComponent = () => {
                     </Col>
                     <Col span={6}> 
                         <div>
-                            <p> <b> Occupational Interest ? </b> </p>
+                            <label className="sao-filters__label">Occupational Interest ?</label>
                             <SelectFilterType  
                                 filterType={FilterType.occupational_interest}
                                 colSpan={5}
@@ -157,7 +157,7 @@ const Dropdowns: FunctionComponent = () => {
                     </Col>
                     {/* <Col span={6}> 
                         <div>
-                            <p> <b> Industry ? </b> </p>
+                            <label className="sao-filters__label">Industry ? </label>
                             <SelectFilterType  
                                 filterType={FilterType.industry}
                                 colSpan={5}
@@ -184,7 +184,7 @@ const Dropdowns: FunctionComponent = () => {
                 <Row>
                     <Col span={6}>
                         <div>
-                            <p> <b> Occupational Group ? </b> </p>
+                            <label className="sao-filters__label"> Occupational Group ? </label>
                             <SelectFilterType  
                                 filterType={FilterType.occupational_group}
                                 colSpan={5}
@@ -196,7 +196,7 @@ const Dropdowns: FunctionComponent = () => {
                     </Col>
                     <Col span={6}> 
                         <div>
-                            <p> <b> Part-time Option ? </b> </p>
+                            <label className="sao-filters__label">Part-time Option ? </label>
                             <SelectFilterType  
                                 filterType={FilterType.part_time_option}
                                 colSpan={5}
@@ -208,7 +208,7 @@ const Dropdowns: FunctionComponent = () => {
                     </Col>
                     <Col span={6}> 
                         <div>
-                            <p> <b> Annual Salary ? </b> </p>
+                            <label className="sao-filters__label">Annual Salary ? </label>
                             <SelectFilterType  
                                 filterType={FilterType.annual_salary}
                                 colSpan={5}
@@ -219,7 +219,7 @@ const Dropdowns: FunctionComponent = () => {
                         </div>
                     </Col>
                     <Col span={6}>
-                        <p> <b> Keyword ? </b> </p>
+                        <label className="sao-filters__label"> Keyword ? </label>
                         <Input placeholder="Enter career title, Keyword(s) or NOC"
                                value= {userSelection?.keyword}
                                onChange={handleChangeKeyWord} />
