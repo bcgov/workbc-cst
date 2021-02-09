@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
+using Microsoft.EntityFrameworkCore;
 using SearchAllOccupationsToolAPI.DbContexts;
 using SearchAllOccupationsToolAPI.DbContexts.Interfaces;
 using SearchAllOccupationsToolAPI.Models;
@@ -22,31 +23,10 @@ namespace SearchAllOccupationsToolAPI.Repositories
             if (_context.IsSQLServer)
             {
                 var industries = _context.Industries
-                    .Where(i => i.Value != "All industries")
+                    .Include(i => i.SubIndustries)
+                    .OrderBy(i => i.Value)
                     .ToList();
 
-                var subIndustryIndex = 0;
-
-                var fakeSubs = FakeSubs;
-                
-                foreach (var industry in industries)
-                {
-                    industry.SubIndustries = new List<SubIndustry>();
-                    for (var i = 0; i < 4 ; i++)
-                    {
-                        if (subIndustryIndex == fakeSubs.Count)
-                            subIndustryIndex = 0;
-
-                        industry.SubIndustries.Add(
-                            new SubIndustry
-                            {
-                                Id = subIndustryIndex + 1,
-                                Value = fakeSubs.ElementAtOrDefault(subIndustryIndex)
-                            }
-                        );
-                        subIndustryIndex++;
-                    }
-                }
 
                 return industries;
             }

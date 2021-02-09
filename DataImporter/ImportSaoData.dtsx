@@ -13,8 +13,8 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="84"
-  DTS:VersionGUID="{EF2AE45E-FE63-4CF2-B294-129D091E1E47}">
+  DTS:VersionBuild="105"
+  DTS:VersionGUID="{E4AB1B7F-C5B6-4709-8017-1105499F1243}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -103,36 +103,6 @@
               DTS:TextQualified="True"
               DTS:ObjectName="Area"
               DTS:DTSID="{5C7A1790-0A74-4CF5-BD69-F84701422CD7}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Industry Connection Manager]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{1ACE0C55-EC3E-4B36-9729-01D2C6C8A2AA}"
-      DTS:ObjectName="Industry Connection Manager">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[User::WorkingDirectory] + "DataFiles\\ImportIndustries.csv"</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x0022_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Projects\WorkBC SAO\DataImporter\DataFiles\ImportIndustries.csv">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="255"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Industry"
-              DTS:DTSID="{252CB231-32C4-42C1-9975-BF374FA5BCBA}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -402,7 +372,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{8F59D8A3-5FD7-478A-A018-AE743E090100}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="DELETE FROM dbo.[JobOpening]&#xA;DELETE FROM dbo.[NOCOccupationGroup]&#xA;DELETE FROM dbo.[NOCOccupationInterest]&#xA;DELETE FROM dbo.[CommonJobTitle]&#xA;DELETE FROM dbo.[NOC]&#xA;DELETE FROM dbo.[EducationLevel]&#xA;DELETE FROM dbo.[FullOrPartTime]&#xA;DELETE FROM dbo.[GeographicArea]&#xA;DELETE FROM dbo.[Industry]&#xA;DELETE FROM dbo.[OccupationalInterest]&#xA;DELETE FROM dbo.[OccupationInterestOption]&#xA;DELETE FROM dbo.[OccupationGroup]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM dbo.[JobOpening]&#xA;DELETE FROM dbo.[NOCOccupationGroup]&#xA;DELETE FROM dbo.[NOCOccupationInterest]&#xA;DELETE FROM dbo.[CommonJobTitle]&#xA;DELETE FROM dbo.[NOC]&#xA;DELETE FROM dbo.[EducationLevel]&#xA;DELETE FROM dbo.[FullOrPartTime]&#xA;DELETE FROM dbo.[GeographicArea]&#xA;DELETE FROM dbo.[SubIndustry]&#xA;DELETE FROM dbo.[Industry]&#xA;DELETE FROM dbo.[OccupationalInterest]&#xA;DELETE FROM dbo.[OccupationInterestOption]&#xA;DELETE FROM dbo.[OccupationGroup]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2801,13 +2771,14 @@ where [refTable].[NOCCode] = ?</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Insert Dependencies\Industry Destination.Inputs[OLE DB Destination Input].Columns[Industry]"
+                      refId="Package\Insert Dependencies\Industry Destination.Inputs[OLE DB Destination Input].Columns[Parent Industry]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
-                      cachedName="Industry"
+                      cachedName="Parent Industry"
+                      cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\Insert Dependencies\Industry Destination.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
-                      lineageId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].Columns[Industry]" />
+                      lineageId="Package\Insert Dependencies\Unique Sort.Outputs[Sort Output].Columns[Parent Industry]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2871,8 +2842,8 @@ where [refTable].[NOCCode] = ?</property>
               <connections>
                 <connection
                   refId="Package\Insert Dependencies\Industry Source.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Industry Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Industry Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[NOCs Source]"
+                  connectionManagerRefId="Package.ConnectionManagers[NOCs Source]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -2881,15 +2852,15 @@ where [refTable].[NOCCode] = ?</property>
                   name="Flat File Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].Columns[Industry]"
+                      refId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].Columns[Aggregate Industry]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].ExternalColumns[Industry]"
+                      externalMetadataColumnId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].ExternalColumns[Aggregate Industry]"
                       length="255"
-                      lineageId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].Columns[Industry]"
-                      name="Industry"
+                      lineageId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].Columns[Aggregate Industry]"
+                      name="Aggregate Industry"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -2911,6 +2882,56 @@ where [refTable].[NOCCode] = ?</property>
                       dataType="str"
                       length="255"
                       name="Industry" />
+                    <externalMetadataColumn
+                      refId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].ExternalColumns[NOC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="NOC" />
+                    <externalMetadataColumn
+                      refId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].ExternalColumns[Short Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Short Description" />
+                    <externalMetadataColumn
+                      refId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].ExternalColumns[Geographic Area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Geographic Area" />
+                    <externalMetadataColumn
+                      refId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].ExternalColumns[Job Openings 2019-2029]"
+                      dataType="r4"
+                      name="Job Openings 2019-2029" />
+                    <externalMetadataColumn
+                      refId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].ExternalColumns[Education]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Education" />
+                    <externalMetadataColumn
+                      refId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].ExternalColumns[Calculated Median Salary]"
+                      dataType="r4"
+                      name="Calculated Median Salary" />
+                    <externalMetadataColumn
+                      refId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].ExternalColumns[Aggregate Industry]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Aggregate Industry" />
+                    <externalMetadataColumn
+                      refId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].ExternalColumns[Full Part-time]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Full Part-time" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -3699,6 +3720,98 @@ where [refTable].[NOCCode] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Insert Dependencies\Remove All"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Remove All"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Insert Dependencies\Remove All.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert Dependencies\Remove All.Inputs[Conditional Split Input].Columns[Parent Industry]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Parent Industry"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Insert Dependencies\Unique Sort.Outputs[Sort Output].Columns[Parent Industry]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert Dependencies\Remove All.Outputs[Industry Name]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Industry Name"
+                  synchronousInputId="Package\Insert Dependencies\Remove All.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[LOWER](#{Package\Insert Dependencies\Unique Sort.Outputs[Sort Output].Columns[Parent Industry]}) != "all industries"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">LOWER([Parent Industry]) != "all industries"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert Dependencies\Remove All.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Insert Dependencies\Remove All.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert Dependencies\Remove All.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Insert Dependencies\Remove All.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert Dependencies\Remove All.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert Dependencies\Remove All.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert Dependencies\Remove All.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert Dependencies\Remove All.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Insert Dependencies\Sort"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -3980,6 +4093,78 @@ where [refTable].[NOCCode] = ?</property>
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Insert Dependencies\Unique Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Unique Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Insert Dependencies\Unique Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert Dependencies\Unique Sort.Inputs[Sort Input].Columns[Aggregate Industry]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Aggregate Industry"
+                      lineageId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].Columns[Aggregate Industry]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert Dependencies\Unique Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert Dependencies\Unique Sort.Outputs[Sort Output].Columns[Parent Industry]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Insert Dependencies\Unique Sort.Outputs[Sort Output].Columns[Parent Industry]"
+                      name="Parent Industry"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].Columns[Aggregate Industry]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -3999,29 +4184,34 @@ where [refTable].[NOCCode] = ?</property>
               startId="Package\Insert Dependencies\FullTimePartTime Source.Outputs[Flat File Source Output]" />
             <path
               refId="Package\Insert Dependencies.Paths[Flat File Source Output3]"
-              endId="Package\Insert Dependencies\Industry Destination.Inputs[OLE DB Destination Input]"
-              name="Flat File Source Output"
-              startId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output]" />
-            <path
-              refId="Package\Insert Dependencies.Paths[Flat File Source Output4]"
               endId="Package\Insert Dependencies\Sort.Inputs[Sort Input]"
               name="Flat File Source Output"
               startId="Package\Insert Dependencies\Flat File Source.Outputs[Flat File Source Output]" />
             <path
-              refId="Package\Insert Dependencies.Paths[Flat File Source Output5]"
+              refId="Package\Insert Dependencies.Paths[Flat File Source Output4]"
               endId="Package\Insert Dependencies\Sort Options.Inputs[Sort Input]"
               name="Flat File Source Output"
               startId="Package\Insert Dependencies\Occupational Option Source.Outputs[Flat File Source Output]" />
             <path
-              refId="Package\Insert Dependencies.Paths[Flat File Source Output6]"
+              refId="Package\Insert Dependencies.Paths[Flat File Source Output5]"
               endId="Package\Insert Dependencies\Sort Interests.Inputs[Sort Input]"
               name="Flat File Source Output"
               startId="Package\Insert Dependencies\Occupational Interest Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Insert Dependencies.Paths[Flat File Source Output6]"
+              endId="Package\Insert Dependencies\Unique Sort.Inputs[Sort Input]"
+              name="Flat File Source Output"
+              startId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output]" />
             <path
               refId="Package\Insert Dependencies.Paths[Groups with no All]"
               endId="Package\Insert Dependencies\OG Destination.Inputs[OLE DB Destination Input]"
               name="Groups with no All"
               startId="Package\Insert Dependencies\Remove 'All'.Outputs[Groups with no All]" />
+            <path
+              refId="Package\Insert Dependencies.Paths[Industry Name]"
+              endId="Package\Insert Dependencies\Industry Destination.Inputs[OLE DB Destination Input]"
+              name="Industry Name"
+              startId="Package\Insert Dependencies\Remove All.Outputs[Industry Name]" />
             <path
               refId="Package\Insert Dependencies.Paths[Occ Interest]"
               endId="Package\Insert Dependencies\Occ Interest Destination.Inputs[OLE DB Destination Input]"
@@ -4042,6 +4232,11 @@ where [refTable].[NOCCode] = ?</property>
               endId="Package\Insert Dependencies\Remove 'All'.Inputs[Conditional Split Input]"
               name="Sort Output"
               startId="Package\Insert Dependencies\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Insert Dependencies.Paths[Sort Output3]"
+              endId="Package\Insert Dependencies\Remove All.Inputs[Conditional Split Input]"
+              name="Sort Output"
+              startId="Package\Insert Dependencies\Unique Sort.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -4158,15 +4353,15 @@ where [refTable].[NOCCode] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[IndustryLookup]"
+                      refId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[SubIndustryLookup]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Industry]"
                       length="255"
-                      lineageId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[IndustryLookup]"
-                      name="IndustryLookup"
+                      lineageId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[SubIndustryLookup]"
+                      name="SubIndustryLookup"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -4264,15 +4459,15 @@ where [refTable].[NOCCode] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[Aggregate Industry]"
+                      refId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[ParentIndustryLookup]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Aggregate Industry]"
                       length="255"
-                      lineageId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[Aggregate Industry]"
-                      name="Aggregate Industry"
+                      lineageId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[ParentIndustryLookup]"
+                      name="ParentIndustryLookup"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -4614,7 +4809,7 @@ where [refTable].[Value] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[IndustryLookup]};</property>
+                  name="ParameterMap">#{Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[ParentIndustryLookup]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -4638,12 +4833,12 @@ where [refTable].[Value] = ?</property>
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Insert NOC Job Openings\Industry Lookup.Inputs[Lookup Input].Columns[IndustryLookup]"
+                      refId="Package\Insert NOC Job Openings\Industry Lookup.Inputs[Lookup Input].Columns[ParentIndustryLookup]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
-                      cachedName="IndustryLookup"
-                      lineageId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[IndustryLookup]">
+                      cachedName="ParentIndustryLookup"
+                      lineageId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[ParentIndustryLookup]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -5003,6 +5198,12 @@ where [refTable].[NOCCode] = ?</property>
                       cachedName="Job Openings 2019-2029"
                       externalMetadataColumnId="Package\Insert NOC Job Openings\NOC Destination.Inputs[OLE DB Destination Input].ExternalColumns[JobOpenings]"
                       lineageId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[Job Openings 2019-2029]" />
+                    <inputColumn
+                      refId="Package\Insert NOC Job Openings\NOC Destination.Inputs[OLE DB Destination Input].Columns[SubIndustryId]"
+                      cachedDataType="i4"
+                      cachedName="SubIndustryId"
+                      externalMetadataColumnId="Package\Insert NOC Job Openings\NOC Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubIndustryId]"
+                      lineageId="Package\Insert NOC Job Openings\SubIndustry Lookup.Outputs[Lookup Match Output].Columns[SubIndustryId]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5026,6 +5227,10 @@ where [refTable].[NOCCode] = ?</property>
                       refId="Package\Insert NOC Job Openings\NOC Destination.Inputs[OLE DB Destination Input].ExternalColumns[IndustryId]"
                       dataType="i4"
                       name="IndustryId" />
+                    <externalMetadataColumn
+                      refId="Package\Insert NOC Job Openings\NOC Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubIndustryId]"
+                      dataType="i4"
+                      name="SubIndustryId" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -5054,6 +5259,165 @@ where [refTable].[NOCCode] = ?</property>
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Insert NOC Job Openings\SubIndustry Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="SubIndustry Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[SubIndustry]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[SubIndustry]) [refTable]
+where [refTable].[Value] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Value" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="IndustryId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[SubIndustryLookup]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert NOC Job Openings\SubIndustry Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Insert NOC Job Openings\SubIndustry Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert NOC Job Openings\SubIndustry Lookup.Inputs[Lookup Input].Columns[SubIndustryLookup]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="SubIndustryLookup"
+                      lineageId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[SubIndustryLookup]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Value</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert NOC Job Openings\SubIndustry Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Insert NOC Job Openings\SubIndustry Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert NOC Job Openings\SubIndustry Lookup.Outputs[Lookup Match Output].Columns[SubIndustryId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Insert NOC Job Openings\SubIndustry Lookup.Outputs[Lookup Match Output].Columns[SubIndustryId]"
+                      name="SubIndustryId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert NOC Job Openings\SubIndustry Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Insert NOC Job Openings\SubIndustry Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert NOC Job Openings\SubIndustry Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Insert NOC Job Openings\SubIndustry Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert NOC Job Openings\SubIndustry Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert NOC Job Openings\SubIndustry Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert NOC Job Openings\SubIndustry Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert NOC Job Openings\SubIndustry Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -5068,14 +5432,19 @@ where [refTable].[NOCCode] = ?</property>
               startId="Package\Insert NOC Job Openings\GeoArea Lookup.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Insert NOC Job Openings.Paths[Lookup Match Output1]"
-              endId="Package\Insert NOC Job Openings\NOC Destination.Inputs[OLE DB Destination Input]"
-              name="Lookup Match Output"
-              startId="Package\Insert NOC Job Openings\Industry Lookup.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Insert NOC Job Openings.Paths[Lookup Match Output2]"
               endId="Package\Insert NOC Job Openings\GeoArea Lookup.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Insert NOC Job Openings\Lookup NOC.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Insert NOC Job Openings.Paths[Lookup Match Output2]"
+              endId="Package\Insert NOC Job Openings\SubIndustry Lookup.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Insert NOC Job Openings\Industry Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Insert NOC Job Openings.Paths[Lookup Match Output3]"
+              endId="Package\Insert NOC Job Openings\NOC Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Insert NOC Job Openings\SubIndustry Lookup.Outputs[Lookup Match Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -6849,6 +7218,705 @@ where [refTable].[Value] = ?</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Insert SubDependencies"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6143e9cb-a6ec-43c1-985a-a954c13277e2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert SubDependencies">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Insert SubDependencies\Ind Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Ind Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Industry]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Industry]) [refTable]
+where [refTable].[Value] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Value" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Insert SubDependencies\Sort Ind and Sub.Outputs[Sort Output].Columns[Industry]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert SubDependencies\Ind Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Insert SubDependencies\Ind Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert SubDependencies\Ind Lookup.Inputs[Lookup Input].Columns[IndustryName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Industry"
+                      cachedSortKeyPosition="1"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Insert SubDependencies\Sort Ind and Sub.Outputs[Sort Output].Columns[Industry]"
+                      name="IndustryName"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Value</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Value</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert SubDependencies\Ind Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Insert SubDependencies\Ind Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert SubDependencies\Ind Lookup.Outputs[Lookup Match Output].Columns[IndustryId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Insert SubDependencies\Ind Lookup.Outputs[Lookup Match Output].Columns[IndustryId]"
+                      name="IndustryId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert SubDependencies\Ind Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Insert SubDependencies\Ind Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert SubDependencies\Ind Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Insert SubDependencies\Ind Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert SubDependencies\Ind Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert SubDependencies\Ind Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert SubDependencies\Ind Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert SubDependencies\Ind Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert SubDependencies\Remove All Ind"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Remove All Ind"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Insert SubDependencies\Remove All Ind.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert SubDependencies\Remove All Ind.Inputs[Conditional Split Input].Columns[Industry]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Industry"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Insert SubDependencies\Sort Ind and Sub.Outputs[Sort Output].Columns[Industry]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert SubDependencies\Remove All Ind.Outputs[Industry Name]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Industry Name"
+                  synchronousInputId="Package\Insert SubDependencies\Remove All Ind.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[LOWER](#{Package\Insert SubDependencies\Sort Ind and Sub.Outputs[Sort Output].Columns[Industry]}) != "all industries"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">LOWER(Industry) != "all industries"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert SubDependencies\Remove All Ind.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Insert SubDependencies\Remove All Ind.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert SubDependencies\Remove All Ind.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Insert SubDependencies\Remove All Ind.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert SubDependencies\Remove All Ind.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert SubDependencies\Remove All Ind.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert SubDependencies\Remove All Ind.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert SubDependencies\Remove All Ind.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert SubDependencies\Sort Ind and Sub"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort Ind and Sub"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Insert SubDependencies\Sort Ind and Sub.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert SubDependencies\Sort Ind and Sub.Inputs[Sort Input].Columns[Industry]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Industry"
+                      lineageId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].Columns[Industry]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert SubDependencies\Sort Ind and Sub.Inputs[Sort Input].Columns[SubIndustry]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="SubIndustry"
+                      lineageId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].Columns[SubIndustry]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert SubDependencies\Sort Ind and Sub.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert SubDependencies\Sort Ind and Sub.Outputs[Sort Output].Columns[Industry]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Insert SubDependencies\Sort Ind and Sub.Outputs[Sort Output].Columns[Industry]"
+                      name="Industry"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].Columns[Industry]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Insert SubDependencies\Sort Ind and Sub.Outputs[Sort Output].Columns[SubIndustry]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Insert SubDependencies\Sort Ind and Sub.Outputs[Sort Output].Columns[SubIndustry]"
+                      name="SubIndustry"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].Columns[SubIndustry]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert SubDependencies\SubIndustry Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="SubIndustry Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SubIndustry]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert SubDependencies\SubIndustry Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Insert SubDependencies\SubIndustry Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Destination.Inputs[OLE DB Destination Input].Columns[IndustryId]"
+                      cachedDataType="i4"
+                      cachedName="IndustryId"
+                      externalMetadataColumnId="Package\Insert SubDependencies\SubIndustry Destination.Inputs[OLE DB Destination Input].ExternalColumns[IndustryId]"
+                      lineageId="Package\Insert SubDependencies\Ind Lookup.Outputs[Lookup Match Output].Columns[IndustryId]" />
+                    <inputColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Destination.Inputs[OLE DB Destination Input].Columns[SubIndustry]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="SubIndustry"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\Insert SubDependencies\SubIndustry Destination.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                      lineageId="Package\Insert SubDependencies\Sort Ind and Sub.Outputs[Sort Output].Columns[SubIndustry]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Destination.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Value" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Destination.Inputs[OLE DB Destination Input].ExternalColumns[IndustryId]"
+                      dataType="i4"
+                      name="IndustryId" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert SubDependencies\SubIndustry Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Insert SubDependencies\SubIndustry Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert SubDependencies\SubIndustry Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert SubDependencies\SubIndustry Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert SubDependencies\SubIndustry Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="SubIndustry Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert SubDependencies\SubIndustry Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[NOCs Source]"
+                  connectionManagerRefId="Package.ConnectionManagers[NOCs Source]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].Columns[Industry]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].ExternalColumns[Aggregate Industry]"
+                      length="255"
+                      lineageId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].Columns[Industry]"
+                      name="Industry"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].Columns[SubIndustry]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].ExternalColumns[Industry]"
+                      length="255"
+                      lineageId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].Columns[SubIndustry]"
+                      name="SubIndustry"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].ExternalColumns[Industry]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Industry" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].ExternalColumns[NOC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="NOC" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].ExternalColumns[Short Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Short Description" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].ExternalColumns[Geographic Area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Geographic Area" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].ExternalColumns[Job Openings 2019-2029]"
+                      dataType="r4"
+                      name="Job Openings 2019-2029" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].ExternalColumns[Education]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Education" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].ExternalColumns[Calculated Median Salary]"
+                      dataType="r4"
+                      name="Calculated Median Salary" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].ExternalColumns[Aggregate Industry]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Aggregate Industry" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].ExternalColumns[Full Part-time]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Full Part-time" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Insert SubDependencies.Paths[Flat File Source Output]"
+              endId="Package\Insert SubDependencies\Sort Ind and Sub.Inputs[Sort Input]"
+              name="Flat File Source Output"
+              startId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Insert SubDependencies.Paths[Industry Name]"
+              endId="Package\Insert SubDependencies\Ind Lookup.Inputs[Lookup Input]"
+              name="Industry Name"
+              startId="Package\Insert SubDependencies\Remove All Ind.Outputs[Industry Name]" />
+            <path
+              refId="Package\Insert SubDependencies.Paths[Lookup Match Output]"
+              endId="Package\Insert SubDependencies\SubIndustry Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Insert SubDependencies\Ind Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Insert SubDependencies.Paths[Sort Output]"
+              endId="Package\Insert SubDependencies\Remove All Ind.Inputs[Conditional Split Input]"
+              name="Sort Output"
+              startId="Package\Insert SubDependencies\Sort Ind and Sub.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Insert Unique NOCs"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -8102,11 +9170,11 @@ where [refTable].[Value] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{B956214D-673F-41D4-B534-9E618D7ABE36}"
+      DTS:DTSID="{4DBDD958-1A51-49FF-A3B5-57F41498324B}"
       DTS:From="Package\Insert Dependencies"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Insert Unique NOCs" />
+      DTS:To="Package\Insert SubDependencies" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
@@ -8147,6 +9215,14 @@ where [refTable].[Value] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
       DTS:To="Package\Trim NOC Code Hash" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{D097D007-5088-440F-8F06-9869755B8DB2}"
+      DTS:From="Package\Insert SubDependencies"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Insert Unique NOCs" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -8159,7 +9235,7 @@ where [refTable].[Value] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="179,42"
           Id="Package\Delete Existing Data"
@@ -8167,79 +9243,45 @@ where [refTable].[Value] = ?</property>
         <NodeLayout
           Size="180,42"
           Id="Package\Import External Data"
-          TopLeft="390,558" />
+          TopLeft="479,437" />
         <NodeLayout
           Size="180,42"
           Id="Package\Insert Dependencies"
-          TopLeft="123.5,107.5" />
+          TopLeft="277.5,23.5" />
         <NodeLayout
           Size="205,42"
           Id="Package\Insert NOC Job Openings"
-          TopLeft="109,299" />
+          TopLeft="175,206" />
         <NodeLayout
           Size="231,42"
           Id="Package\Insert NOC Occupation Groups"
-          TopLeft="121,398" />
+          TopLeft="178,307" />
         <NodeLayout
           Size="238,42"
           Id="Package\Insert NOC Occupation Interests"
-          TopLeft="118.5,500" />
+          TopLeft="178.5,377" />
         <NodeLayout
           Size="177,42"
           Id="Package\Insert Unique NOCs"
-          TopLeft="120,216" />
+          TopLeft="56,138" />
         <NodeLayout
           Size="186,42"
           Id="Package\Trim NOC Code Hash"
-          TopLeft="149,619" />
+          TopLeft="185,506" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="147,60.5">
+          TopLeft="236.5,42">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="66.5,47"
+              EndConnector="41,0"
               Start="0,0"
-              End="66.5,39.5">
+              End="33.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.5"
-                    Point2="0,23.5"
-                    Point3="4,23.5" />
-                  <mssgle:LineSegment
-                    End="62.5,23.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="62.5,23.5"
-                    Point2="66.5,23.5"
-                    Point3="66.5,27.5" />
-                  <mssgle:LineSegment
-                    End="66.5,39.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="211,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,66.5"
-              Start="0,0"
-              End="0,59">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,59" />
+                    End="33.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8250,18 +9292,30 @@ where [refTable].[Value] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="210,258">
+          TopLeft="144.5,180">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41"
+              EndConnector="133,26"
               Start="0,0"
-              End="0,33.5">
+              End="133,18.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.5" />
+                    End="0,9" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9"
+                    Point2="0,13"
+                    Point3="4,13" />
+                  <mssgle:LineSegment
+                    End="129,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="129,13"
+                    Point2="133,13"
+                    Point3="133,17" />
+                  <mssgle:LineSegment
+                    End="133,18.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8272,30 +9326,30 @@ where [refTable].[Value] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="211.5,341">
+          TopLeft="277.5,248">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="25,57"
+              EndConnector="16,59"
               Start="0,0"
-              End="25,49.5">
+              End="16,51.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.5" />
+                    End="0,25.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,24.5"
-                    Point2="0,28.5"
-                    Point3="4,28.5" />
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="4,29.5" />
                   <mssgle:LineSegment
-                    End="21,28.5" />
+                    End="12,29.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="21,28.5"
-                    Point2="25,28.5"
-                    Point3="25,32.5" />
+                    Point1="12,29.5"
+                    Point2="16,29.5"
+                    Point3="16,33.5" />
                   <mssgle:LineSegment
-                    End="25,49.5" />
+                    End="16,51.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8306,18 +9360,18 @@ where [refTable].[Value] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="237,440">
+          TopLeft="295.5,349">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,28"
               Start="0,0"
-              End="0,52.5">
+              End="0,20.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,20.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8328,30 +9382,30 @@ where [refTable].[Value] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="356.5,521">
+          TopLeft="416.5,398">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="33.5,58"
+              EndConnector="62.5,60"
               Start="0,0"
-              End="26,58">
+              End="55,60">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="12.75,0" />
+                    End="27.25,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="12.75,0"
-                    Point2="16.75,0"
-                    Point3="16.75,4" />
+                    Point1="27.25,0"
+                    Point2="31.25,0"
+                    Point3="31.25,4" />
                   <mssgle:LineSegment
-                    End="16.75,54" />
+                    End="31.25,56" />
                   <mssgle:CubicBezierSegment
-                    Point1="16.75,54"
-                    Point2="16.75,58"
-                    Point3="20.75,58" />
+                    Point1="31.25,56"
+                    Point2="31.25,60"
+                    Point3="35.25,60" />
                   <mssgle:LineSegment
-                    End="26,58" />
+                    End="55,60" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8362,30 +9416,90 @@ where [refTable].[Value] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="390,584.666666666667">
+          TopLeft="569,479">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-55,55.3333333333334"
+              EndConnector="-291,27"
               Start="0,0"
-              End="-47.5,55.3333333333334">
+              End="-291,19.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-19.211009174312,0" />
+                    End="0,9.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-19.211009174312,0"
-                    Point2="-23.211009174312,0"
-                    Point3="-23.211009174312,4" />
+                    Point1="0,9.5"
+                    Point2="0,13.5"
+                    Point3="-4,13.5" />
                   <mssgle:LineSegment
-                    End="-23.211009174312,51.3333333333334" />
+                    End="-287,13.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-23.211009174312,51.3333333333334"
-                    Point2="-23.211009174312,55.3333333333334"
-                    Point3="-27.211009174312,55.3333333333334" />
+                    Point1="-287,13.5"
+                    Point2="-291,13.5"
+                    Point3="-291,17.5" />
                   <mssgle:LineSegment
-                    End="-47.5,55.3333333333334" />
+                    End="-291,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Insert SubDependencies"
+          TopLeft="510,31" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="457.5,48.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.5,0"
+              Start="0,0"
+              End="45,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="45,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="609.5,73">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-465,65"
+              Start="0,0"
+              End="-465,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="-4,32.5" />
+                  <mssgle:LineSegment
+                    End="-461,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-461,32.5"
+                    Point2="-465,32.5"
+                    Point3="-465,36.5" />
+                  <mssgle:LineSegment
+                    End="-465,57.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8455,9 +9569,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8491,9 +9603,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8599,9 +9709,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -8631,9 +9739,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -8830,7 +9936,7 @@ where [refTable].[Value] = ?</property>
           PanelSize="213,205"
           Size="213,248"
           Id="e8f7a646-e2e3-4345-a4bc-ba00fef6d7ae"
-          TopLeft="768.25,459">
+          TopLeft="768.25,527">
           <GroupLayout.ChildrenIds>
             <s:String>Package\Insert Dependencies\GeographicAreas Source</s:String>
             <s:String>Package\Insert Dependencies\Geographic Destination</s:String>
@@ -8875,7 +9981,7 @@ where [refTable].[Value] = ?</property>
           PanelSize="232,205"
           Size="232,248"
           Id="ca76aebd-f2ab-44ec-90f6-a05a6fbed5ee"
-          TopLeft="276.25,463.5">
+          TopLeft="276.25,531.5">
           <GroupLayout.ChildrenIds>
             <s:String>Package\Insert Dependencies\Education Levels Destination</s:String>
             <s:String>Package\Insert Dependencies\Education Source</s:String>
@@ -8920,7 +10026,7 @@ where [refTable].[Value] = ?</property>
           PanelSize="235,205"
           Size="235,248"
           Id="b5679e88-2834-42cc-8f85-7cac4da14ddb"
-          TopLeft="517.75,460.5">
+          TopLeft="517.75,528.5">
           <GroupLayout.ChildrenIds>
             <s:String>Package\Insert Dependencies\FullTimePartTime Source</s:String>
             <s:String>Package\Insert Dependencies\FullTimePartTime Destination</s:String>
@@ -8934,21 +10040,41 @@ where [refTable].[Value] = ?</property>
         <NodeLayout
           Size="176,42"
           Id="Package\Insert Dependencies\Industry Destination"
-          TopLeft="5.50000000000001,107.5" />
+          TopLeft="14.5,247.5" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Insert Dependencies\Remove All"
+          TopLeft="14,161" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\Insert Dependencies\Unique Sort"
+          TopLeft="17,83" />
         <EdgeLayout
-          Id="Package\Insert Dependencies.Paths[Flat File Source Output3]"
+          Id="Package\Insert Dependencies.Paths[Flat File Source Output6]"
           TopLeft="93.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="-8,35.5"
               Start="0,0"
-              End="0,52.5">
+              End="-8,28">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,13.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.75"
+                    Point2="0,17.75"
+                    Point3="-4,17.75" />
+                  <mssgle:LineSegment
+                    End="-4,17.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4,17.75"
+                    Point2="-8,17.75"
+                    Point3="-8,21.75" />
+                  <mssgle:LineSegment
+                    End="-8,28" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8957,19 +10083,81 @@ where [refTable].[Value] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert Dependencies.Paths[Sort Output3]"
+          TopLeft="83.5,125">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert Dependencies.Paths[Industry Name]"
+          TopLeft="81.5,203">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21,44.5"
+              Start="0,0"
+              End="21,37">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.25"
+                    Point2="0,22.25"
+                    Point3="4,22.25" />
+                  <mssgle:LineSegment
+                    End="17,22.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17,22.25"
+                    Point2="21,22.25"
+                    Point3="21,26.25" />
+                  <mssgle:LineSegment
+                    End="21,37" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-22.89794921875,27.25,66.7958984375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <GroupLayout
           Text="Industries"
           ParentId="Package\Insert Dependencies"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="187,205"
-          Size="187,248"
+          PanelSize="201,321"
+          Size="201,364"
           Id="f41122fc-586b-45c7-9516-367d05dc6c73"
-          TopLeft="66.75,316">
+          TopLeft="55.75,170">
           <GroupLayout.ChildrenIds>
             <s:String>Package\Insert Dependencies\Industry Source</s:String>
             <s:String>Package\Insert Dependencies\Industry Destination</s:String>
-            <s:String>Package\Insert Dependencies.Paths[Flat File Source Output3]</s:String>
+            <s:String>Package\Insert Dependencies\Remove All</s:String>
+            <s:String>Package\Insert Dependencies\Unique Sort</s:String>
+            <s:String>Package\Insert Dependencies.Paths[Flat File Source Output6]</s:String>
+            <s:String>Package\Insert Dependencies.Paths[Sort Output3]</s:String>
+            <s:String>Package\Insert Dependencies.Paths[Industry Name]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
         <NodeLayout
@@ -8981,7 +10169,7 @@ where [refTable].[Value] = ?</property>
           Id="Package\Insert Dependencies\Sort"
           TopLeft="37,59.5" />
         <EdgeLayout
-          Id="Package\Insert Dependencies.Paths[Flat File Source Output4]"
+          Id="Package\Insert Dependencies.Paths[Flat File Source Output3]"
           TopLeft="83.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -9082,11 +10270,11 @@ where [refTable].[Value] = ?</property>
           PanelSize="180,307"
           Size="180,350"
           Id="4478e8cc-bb54-4485-93a4-b21cd4388168"
-          TopLeft="770.75,99.5">
+          TopLeft="770.75,167.5">
           <GroupLayout.ChildrenIds>
             <s:String>Package\Insert Dependencies\Flat File Source</s:String>
             <s:String>Package\Insert Dependencies\Sort</s:String>
-            <s:String>Package\Insert Dependencies.Paths[Flat File Source Output4]</s:String>
+            <s:String>Package\Insert Dependencies.Paths[Flat File Source Output3]</s:String>
             <s:String>Package\Insert Dependencies\OG Destination</s:String>
             <s:String>Package\Insert Dependencies\Remove 'All'</s:String>
             <s:String>Package\Insert Dependencies.Paths[Sort Output2]</s:String>
@@ -9106,7 +10294,7 @@ where [refTable].[Value] = ?</property>
           Id="Package\Insert Dependencies\Sort Options"
           TopLeft="47.5,115.5" />
         <EdgeLayout
-          Id="Package\Insert Dependencies.Paths[Flat File Source Output5]"
+          Id="Package\Insert Dependencies.Paths[Flat File Source Output4]"
           TopLeft="115.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -9157,12 +10345,12 @@ where [refTable].[Value] = ?</property>
           PanelSize="227,307"
           Size="227,350"
           Id="492d3c63-6ae8-4e98-a351-39a9ee84e254"
-          TopLeft="277.75,102">
+          TopLeft="277.75,170">
           <GroupLayout.ChildrenIds>
             <s:String>Package\Insert Dependencies\Occupational Option Source</s:String>
             <s:String>Package\Insert Dependencies\Occ Option Destination</s:String>
             <s:String>Package\Insert Dependencies\Sort Options</s:String>
-            <s:String>Package\Insert Dependencies.Paths[Flat File Source Output5]</s:String>
+            <s:String>Package\Insert Dependencies.Paths[Flat File Source Output4]</s:String>
             <s:String>Package\Insert Dependencies.Paths[Sort Output]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
@@ -9183,7 +10371,7 @@ where [refTable].[Value] = ?</property>
           Id="Package\Insert Dependencies\Conditional Split"
           TopLeft="37,168" />
         <EdgeLayout
-          Id="Package\Insert Dependencies.Paths[Flat File Source Output6]"
+          Id="Package\Insert Dependencies.Paths[Flat File Source Output5]"
           TopLeft="114,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -9255,16 +10443,16 @@ where [refTable].[Value] = ?</property>
           ParentId="Package\Insert Dependencies"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="232,353"
-          Size="232,396"
+          PanelSize="232,311"
+          Size="232,354"
           Id="bcb8ffb3-593d-497d-8c06-b8ba863f5b16"
-          TopLeft="521.25,102">
+          TopLeft="521.25,170">
           <GroupLayout.ChildrenIds>
             <s:String>Package\Insert Dependencies\Occupational Interest Source</s:String>
             <s:String>Package\Insert Dependencies\Occ Interest Destination</s:String>
             <s:String>Package\Insert Dependencies\Sort Interests</s:String>
             <s:String>Package\Insert Dependencies\Conditional Split</s:String>
-            <s:String>Package\Insert Dependencies.Paths[Flat File Source Output6]</s:String>
+            <s:String>Package\Insert Dependencies.Paths[Flat File Source Output5]</s:String>
             <s:String>Package\Insert Dependencies.Paths[Sort Output1]</s:String>
             <s:String>Package\Insert Dependencies.Paths[Occ Interest]</s:String>
           </GroupLayout.ChildrenIds>
@@ -9381,14 +10569,14 @@ where [refTable].[Value] = ?</property>
           Id="Package\Insert NOC Job Openings\Flat File Source"
           TopLeft="23.5,10.5" />
         <EdgeLayout
-          Id="Package\Insert NOC Job Openings.Paths[Lookup Match Output2]"
+          Id="Package\Insert NOC Job Openings.Paths[Lookup Match Output1]"
           TopLeft="111,162">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="16,101"
+              EndConnector="25,101"
               Start="0,0"
-              End="16,93.5">
+              End="25,93.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -9399,56 +10587,20 @@ where [refTable].[Value] = ?</property>
                     Point2="0,50.5"
                     Point3="4,50.5" />
                   <mssgle:LineSegment
-                    End="12,50.5" />
+                    End="21,50.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="12,50.5"
-                    Point2="16,50.5"
-                    Point3="16,54.5" />
+                    Point1="21,50.5"
+                    Point2="25,50.5"
+                    Point3="25,54.5" />
                   <mssgle:LineSegment
-                    End="16,93.5" />
+                    End="25,93.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-40.19138671875,55.5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Insert NOC Job Openings.Paths[Lookup Match Output1]"
-          TopLeft="138.5,405">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-15.5,112"
-              Start="0,0"
-              End="-15.5,104.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,52"
-                    Point2="0,56"
-                    Point3="-4,56" />
-                  <mssgle:LineSegment
-                    End="-11.5,56" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-11.5,56"
-                    Point2="-15.5,56"
-                    Point3="-15.5,60" />
-                  <mssgle:LineSegment
-                    End="-15.5,104.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.94138671875,61,96.3827734375,11.609375"
+              BoundingBox="-35.69138671875,55.5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9489,44 +10641,72 @@ where [refTable].[Value] = ?</property>
         <NodeLayout
           Size="157,42"
           Id="Package\Insert NOC Job Openings\Industry Lookup"
-          TopLeft="5.5,106.5" />
+          TopLeft="28,74.5" />
         <NodeLayout
           Size="162,42"
           Id="Package\Insert NOC Job Openings\GeoArea Lookup"
-          TopLeft="15.5,5.5" />
+          TopLeft="25,5.5" />
         <EdgeLayout
           Id="Package\Insert NOC Job Openings.Paths[Lookup Match Output]"
-          TopLeft="96.5,47.5">
+          TopLeft="106.25,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-12.5,59"
+              EndConnector="0,27"
               Start="0,0"
-              End="-12.5,51.5">
+              End="0,19.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.5"
-                    Point2="0,29.5"
-                    Point3="-4,29.5" />
-                  <mssgle:LineSegment
-                    End="-8.5,29.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-8.5,29.5"
-                    Point2="-12.5,29.5"
-                    Point3="-12.5,33.5" />
-                  <mssgle:LineSegment
-                    End="-12.5,51.5" />
+                    End="0,19.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-54.44138671875,34.5,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,3.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Insert NOC Job Openings\SubIndustry Lookup"
+          TopLeft="28.5,137" />
+        <EdgeLayout
+          Id="Package\Insert NOC Job Openings.Paths[Lookup Match Output2]"
+          TopLeft="28,95.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0.5,62.5"
+              Start="0,0"
+              End="-7,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,58.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,58.5"
+                    Point2="-22.5,62.5"
+                    Point3="-18.5,62.5" />
+                  <mssgle:LineSegment
+                    End="-7,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.69138671875,-17.609375,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9535,16 +10715,54 @@ where [refTable].[Value] = ?</property>
           ParentId="Package\Insert NOC Job Openings"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="216,203"
-          Size="216,246"
+          PanelSize="216,234"
+          Size="216,277"
           Id="978873f6-cd9e-40bd-b4cf-982ec5359ff8"
           TopLeft="29.5,214.5">
           <GroupLayout.ChildrenIds>
             <s:String>Package\Insert NOC Job Openings\Industry Lookup</s:String>
             <s:String>Package\Insert NOC Job Openings\GeoArea Lookup</s:String>
             <s:String>Package\Insert NOC Job Openings.Paths[Lookup Match Output]</s:String>
+            <s:String>Package\Insert NOC Job Openings\SubIndustry Lookup</s:String>
+            <s:String>Package\Insert NOC Job Openings.Paths[Lookup Match Output2]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
+        <EdgeLayout
+          Id="Package\Insert NOC Job Openings.Paths[Lookup Match Output3]"
+          TopLeft="146.5,436">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.5,81"
+              Start="0,0"
+              End="-23.5,73.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.5"
+                    Point2="0,40.5"
+                    Point3="-4,40.5" />
+                  <mssgle:LineSegment
+                    End="-19.5,40.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.5,40.5"
+                    Point2="-23.5,40.5"
+                    Point3="-23.5,44.5" />
+                  <mssgle:LineSegment
+                    End="-23.5,73.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-59.94138671875,45.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -9857,7 +11075,7 @@ where [refTable].[Value] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -10244,9 +11462,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10316,9 +11532,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10352,9 +11566,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -10472,6 +11684,215 @@ where [refTable].[Value] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Insert SubDependencies">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Insert SubDependencies\SubIndustry Destination"
+          TopLeft="277,503" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Insert SubDependencies\Ind Lookup"
+          TopLeft="522,415" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Insert SubDependencies\SubIndustry Source"
+          TopLeft="391,195" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Insert SubDependencies\Remove All Ind"
+          TopLeft="258,340" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Insert SubDependencies\Sort Ind and Sub"
+          TopLeft="401,275.5" />
+        <EdgeLayout
+          Id="Package\Insert SubDependencies.Paths[Lookup Match Output]"
+          TopLeft="588.5,457">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-213.5,46"
+              Start="0,0"
+              End="-213.5,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="-4,23" />
+                  <mssgle:LineSegment
+                    End="-209.5,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-209.5,23"
+                    Point2="-213.5,23"
+                    Point3="-213.5,27" />
+                  <mssgle:LineSegment
+                    End="-213.5,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-163.8100390625,28,114.120078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert SubDependencies.Paths[Industry Name]"
+          TopLeft="334.5,382">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="254,33"
+              Start="0,0"
+              End="254,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5"
+                    Point2="0,16.5"
+                    Point3="4,16.5" />
+                  <mssgle:LineSegment
+                    End="250,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="250,16.5"
+                    Point2="254,16.5"
+                    Point3="254,20.5" />
+                  <mssgle:LineSegment
+                    End="254,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="93.60205078125,21.5,66.7958984375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert SubDependencies.Paths[Sort Output]"
+          TopLeft="401,296.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-66.5,43.5"
+              Start="0,0"
+              End="-66.5,36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-62.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-62.5,0"
+                    Point2="-66.5,0"
+                    Point3="-66.5,4" />
+                  <mssgle:LineSegment
+                    End="-66.5,36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert SubDependencies.Paths[Flat File Source Output]"
+          TopLeft="480,237">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.5"
+              Start="0,0"
+              End="0,31">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert SubDependencies\SubIndustry Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert SubDependencies\Ind Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Industry]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert NOC Job Openings\SubIndustry Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[SubIndustry]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
