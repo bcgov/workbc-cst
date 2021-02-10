@@ -11,8 +11,11 @@ namespace SearchAllOccupationsToolAPI.Repositories
     {
         public List<AnnualSalary> GetAnnualSalaries()
         {
-            var salaryEnums = Enum.GetValues(typeof(AnnualSalaryValues)).Cast<AnnualSalaryValues>().ToList();
-            return salaryEnums.Select(salary => new AnnualSalary {Id = (int) salary, SalaryText = salary.GetDescription()}).ToList();
+            var salaryEnums = Enum.GetValues(typeof(AnnualSalaryValues))
+                .Cast<AnnualSalaryValues>()
+                .ToList();
+
+            return salaryEnums.Select(salary => new AnnualSalary { Id = (int)salary, SalaryText = salary.GetDescription() }).ToList();
         }
     }
 }

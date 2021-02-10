@@ -25,9 +25,6 @@ namespace SearchAllOccupationsToolAPI.Repositories
         {
             var occupations = _context.NOCs
                 .Include(no => no.JobOpenings)
-                //    .ThenInclude(jo => jo.GeographicArea)
-                //.Include(no => no.JobOpenings)
-                //    .ThenInclude(jo => jo.Industry)
                 .AsNoTracking()
                 .AsQueryable();
 

@@ -6,6 +6,5 @@ namespace SearchAllOccupationsToolAPI.Repositories.Interfaces
     public interface IOccupationalGroupRepository
     {
         List<OccupationalGroup> GetOccupationalGroups();
-        OccupationalGroup GetAllOccupationalGroup();
     }
 }
