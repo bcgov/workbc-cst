@@ -1,6 +1,6 @@
 import React, {FunctionComponent, createContext, useReducer, useContext} from 'react'
 import {FilterOptionModel, OccupationModel} from '../client/dataTypes'
-import { defaultFilterState, reducer } from './filterReducer'
+import { defaultFilterState, reducer, defaultFilterOption } from './filterReducer'
 
 export interface FilterState {
     filterOption? : FilterOptionModel
@@ -18,7 +18,7 @@ export interface FilterContextProps extends FilterState {
 }
 
 const FilterContext = createContext<FilterContextProps>({
-    filterOption: undefined,
+    filterOption: defaultFilterOption,
     filteredOccupationsList: [],
     selectedNoc: "",
     showCompareView: false,

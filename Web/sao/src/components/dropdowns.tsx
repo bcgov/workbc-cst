@@ -13,15 +13,19 @@ const Dropdowns: FunctionComponent = () => {
     const { data: industryData, isValidating, isSettled } = useGetIndustryData(FilterType.industry)
     const [industryDataTree, setIndustryDataTree] = useState<IndustryData[]>()
 
-    const {filterOption, setFilterOption, resetOptions} = useFilterContext()
+    const {filterOption, setFilterOption, resetOptions, isReset} = useFilterContext()
 
     const [userSelection, setUserSelection] = useState<FilterOptionModel>(defaultFilterOption)
+
+    function getIndustryValues() {
+        return  userSelection.industry.map(item => item.id)
+    }
 
     useEffect(()=> {
         if(!!filterOption) {
             setUserSelection(filterOption)
         }
-    }, [filterOption])
+    }, [filterOption, isReset])
 
     useEffect(() => {
         if(!isValidating && isSettled && !!industryData && industryData.length > 0) {
@@ -61,13 +65,13 @@ const Dropdowns: FunctionComponent = () => {
 
     function handleChangeIndustry(keys, titles) {
         let industries = []
-        try {
-           for(let i=0;i<keys.length;i++) {
-               industries.push({id: keys[i], value: titles[i]})
+        if(!!keys && !!titles && keys.length>0 && titles.length > 0){
+            for(let i=0;i<keys.length;i++) {
+                industries.push({id: keys[i], value: titles[i]})
             }
             setUserSelection({...userSelection, industry:industries})
-        } catch (error) {
-            console.log(error)
+        } else {
+            setUserSelection({...userSelection, industry: []})
         }
     }
 
@@ -183,6 +187,7 @@ const Dropdowns: FunctionComponent = () => {
                                         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
                                         treeData={industryDataTree}
                                         onChange={handleChangeIndustry}
+                                        value={getIndustryValues()}
                                         style={{width: '100%'}} 
                                         multiple />
                                 )}
