@@ -17,6 +17,7 @@ h6, .h6 {
     });
 }
 
+//Ant Overrides
 .ant-row{
     margin-right: -16px;
     margin-left: -16px;
@@ -25,3 +26,12 @@ h6, .h6 {
     }
 }
 
+@ant-table-row-dark: #f0f0f0;
+.ant-table{
+    &-row{
+        &-light{background:white;}
+        &-dark{
+            background:@ant-table-row-dark;           
+        }
+    }  
+}

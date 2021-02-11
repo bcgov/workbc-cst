@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using SearchAllOccupationsToolAPI.DbContexts;
 using SearchAllOccupationsToolAPI.DbContexts.Interfaces;
 using SearchAllOccupationsToolAPI.Models;
@@ -19,7 +20,9 @@ namespace SearchAllOccupationsToolAPI.Repositories
         public List<EducationLevel> GetEducationLevels()
         {
             if (_context.IsSQLServer)
-                return _context.EducationLevels.ToList();
+                return _context.EducationLevels
+                    .AsNoTracking()
+                    .ToList();
             
             return ContextHelper.GetPlaceHolderData<EducationLevel>("SampleJsonFiles/educationlevels.json");
         }
