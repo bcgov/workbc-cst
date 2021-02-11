@@ -137,38 +137,36 @@ const results: FunctionComponent = () => {
                }
                 {selectedNoc!=="default" && filteredOccupationsList && filteredOccupationsList?.length >= 0 &&
                 (<Col span={8}>
-                    <b> {occupationDetail?.title} (NOC {occupationDetail?.noc}) </b>
-                    <img src={profileImagesPath} alt='career profile pic'/>
-                    <Row gutter={8}>
-                        <Col span={8}> Annual Salary </Col>
-                        <Col span={8}> <b> {occupationDetail?.income} </b> </Col>
-                    </Row>
-                    <Row gutter={8}>
-                        <Col span={8}> EducationLevel </Col>
-                        <Col span={8}> <b> {occupationDetail?.education.value} </b> </Col>
-                    </Row>
-                    <Row gutter={8}>
-                        <Col span={8}> Job Openings (2019 - 2029) </Col>
-                        <Col span={8}> <b> {occupationDetail?.jobOpenings} </b> </Col>
-                    </Row>
-                    <Row>
-                        <Col offset={4}> 
+                    <div className="result-detail">
+                        <div className="result-detail__header">{occupationDetail?.title} (NOC {occupationDetail?.noc})</div> 
+                        <img src={profileImagesPath} alt='career profile pic'/>
+                        <div className="result-detail__body result-body">
+                            <Row className="result-body__row" gutter={8}>
+                                <Col span={8}> Annual Salary </Col>
+                                <Col span={8}> <b> {occupationDetail?.income} </b> </Col>
+                            </Row>
+                            <Row className="result-body__row" gutter={8}>
+                                <Col span={8}> EducationLevel </Col>
+                                <Col span={8}> <b> {occupationDetail?.education.value} </b> </Col>
+                            </Row>
+                            <Row className="result-body__row" gutter={8}>
+                                <Col span={8}> Job Openings (2019 - 2029) </Col>
+                                <Col span={8}> <b> {occupationDetail?.jobOpenings} </b> </Col>
+                            </Row>
+                        </div>
+                        <div className="result-detail__footer">                            
                             <a href={careerProfileUrl} target="_blank"> 
-                                <Button style={{width: '200px', margin: '20px 0px'}}>
+                                <Button type="primary" block>
                                     View Career Profile
                                 </Button>
-                            </a>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col offset={4}> 
+                            </a>                    
                             <a href={viewJobsUrl} target="_blank">
-                                <Button style={{width: '200px', margin: '20px 0px'}}>
+                                <Button block>
                                     Find Jobs
                                 </Button>
-                            </a>
-                        </Col>
-                    </Row>
+                            </a>                          
+                        </div>
+                    </div>
                 </Col>)}
             </Row>
             <Row style={{margin: '24px 0px'}}>
