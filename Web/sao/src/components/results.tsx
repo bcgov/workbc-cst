@@ -197,6 +197,7 @@ const results: FunctionComponent = () => {
                 <Col span={16}>
                     { !isValidating && isSettled &&  
                         <Table
+                            rowClassName={(record, index) => index % 2 === 0 ? 'ant-table-row-light' :  'ant-table-row-dark'}
                             columns={columns}
                             dataSource={getDatasource()}
                             rowKey="noc"

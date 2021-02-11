@@ -8,6 +8,8 @@
 @text-color: #333;
 @border-radius-base: 0;
 
+//Colours
+// --
 @primary-color: #234075;
 @yellow: #E3A82B; //government yellow
 @dark-blue: #002855; //government blue
@@ -21,72 +23,38 @@
 @height-sm: 32px;
 
 // LINK
+// --
 @link-color: @primary-color;
-//@link-hover-color: color(~`colorPalette('@{link-color}', 5) `);
-//@link-active-color: color(~`colorPalette('@{link-color}', 7) `);
 @link-decoration: none;
 @link-hover-decoration: none;
 @link-focus-decoration: none;
 @link-focus-outline: 0;
 
 // Buttons
+// --
 @btn-font-weight: 400;
-
 @btn-shadow: none;
 @btn-primary-shadow: none;
 @btn-text-shadow: none;
-
 @btn-primary-color: #fff;
 @btn-primary-bg: @light-blue-btn;
-
 @btn-secondary-color: @light-blue-btn;
 @btn-secondary-bg: #fff;
 
-@input-height-base: @height-base;
-
-
-/*
 // Table
 // --
-@table-bg: @component-background;
-@table-header-bg: @background-color-light;
-@table-header-color: @heading-color;
-@table-header-sort-bg: @background-color-base;
-@table-body-sort-bg: #fafafa;
-@table-row-hover-bg: @background-color-light;
-@table-selected-row-color: inherit;
-@table-selected-row-bg: @primary-1;
-@table-body-selected-sort-bg: @table-selected-row-bg;
-@table-selected-row-hover-bg: darken(@table-selected-row-bg, 2%);
-@table-expanded-row-bg: #fbfbfb;
-@table-padding-vertical: 16px;
-@table-padding-horizontal: 16px;
-@table-padding-vertical-md: (@table-padding-vertical * 3 / 4);
-@table-padding-horizontal-md: (@table-padding-horizontal / 2);
-@table-padding-vertical-sm: (@table-padding-vertical / 2);
-@table-padding-horizontal-sm: (@table-padding-horizontal / 2);
-@table-border-color: @border-color-split;
-@table-border-radius-base: @border-radius-base;
-@table-footer-bg: @background-color-light;
-@table-footer-color: @heading-color;
-@table-header-bg-sm: @table-header-bg;
-@table-font-size: @font-size-base;
-@table-font-size-md: @table-font-size;
-@table-font-size-sm: @table-font-size;
-// Sorter
-// Legacy: `table-header-sort-active-bg` is used for hover not real active
-@table-header-sort-active-bg: darken(@table-header-bg, 3%);
-// Filter
-@table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
-@table-filter-btns-bg: inherit;
-@table-filter-dropdown-bg: @component-background;
-@table-expand-icon-bg: @component-background;
-@table-selection-column-width: 32px;
-// Sticky
-@table-sticky-scroll-bar-bg: fade(#000, 35%);
-@table-sticky-scroll-bar-radius: 4px;
+@table-header-bg: @dark-blue;
+@table-header-color: white;
+@table-header-sort-bg: white;
+@table-font-size: 16px;
+@table-row-hover-bg: inherit;
 
 
+// Input
+// ---
+@input-height-base: @height-base;
+
+/*
 //Dropdown
 @dropdown-menu-bg: @component-background;
 @dropdown-vertical-padding: 5px;
