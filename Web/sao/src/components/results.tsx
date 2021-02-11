@@ -1,16 +1,16 @@
 import React, { FunctionComponent, useEffect, useState } from 'react'
-import { Table, Row, Col, Button, Carousel } from 'antd'
-import { MailOutlined , PrinterOutlined  } from '@ant-design/icons'
+import { Row, Col, Button, Carousel } from 'antd'
+import { MailOutlined , PrinterOutlined } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
-import Checkbox from 'antd/lib/checkbox/Checkbox'
-import { useGetOccupationsList, useGetOccupationSummary, useGetSystemConfigurations } from '../client/apiService'
-import { FilterOptionModel, FilterOccupationParams, OccupationSummary, IndustryTypeModel } from '../client/dataTypes'
-import { defaultFilterParams } from '../state/filterReducer'
+import { useGetOccupationSummary, useGetSystemConfigurations } from '../client/apiService'
+import { OccupationSummary} from '../client/dataTypes'
+import ResultsTable from './table'
 
 const results: FunctionComponent = () => {
-    const {filterOption, filteredOccupationsList, selectedNoc, isReset, setSelectedNoc, setFilteredOccupationsList, setShowCompareView} = useFilterContext()
+    const { filteredOccupationsList, selectedNoc, selectedCheckBoxes,
+        setShowCompareView, setSelectedCheckBoxes } = useFilterContext()
 
-    const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
+   
     const [occupationDetail, setOccupationDetail] = useState<OccupationSummary>()
     const [careerProfileUrl, setCareerProfileUrl] = useState<string>()
     const [viewJobsUrl, setViewJobsUrl] = useState<string>()
@@ -22,7 +22,7 @@ const results: FunctionComponent = () => {
 
     const [carouselImagesPath, setCarouselImagesPath] = useState<string[]>([])
     
-    const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
+
     const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(selectedNoc)
     const {data: CPUrlData, isValidating: isFetchingCPUrl, isSettled: isCPUrlFetched } = useGetSystemConfigurations({name: "CareerProfileBaseUrl"})
     const {data: JOUrlData, isValidating: isFetchingJOUrl, isSettled: isJOUrlFetched } = useGetSystemConfigurations({name: "JobOpeningsBaseUrl"})
@@ -32,21 +32,6 @@ const results: FunctionComponent = () => {
     const {data: ctvUrlData, isValidating: isFetchingCtvUrl, isSettled: isCtvUrlFetched } = useGetSystemConfigurations({name: "CareerTrekVideoBaseUrl"})
     const {data: icNocsData, isValidating: isFetchingIcNocs, isSettled: isIcNocsFetched } = useGetSystemConfigurations({name: "ImageCarouselNOCs"})
 
-    useEffect(() => {
-           if (!!filterOption && !isReset) {
-                const filterParams = getFilterParams(filterOption)
-                setParams(filterParams)
-           }
-           if(isReset) {
-               setParams(defaultFilterParams)
-           }
-    },[filterOption, isReset])
-
-    useEffect(() => {
-        if (!isValidating && isSettled && !!occupationsList && occupationsList.length >= 0) {
-            setFilteredOccupationsList(occupationsList)
-        }
-    }, [occupationsList, isSettled, isValidating])
 
     useEffect(() => {
         if(!isFetchingSummary && isSummaryFetched && occupationSummary) {
@@ -93,30 +78,7 @@ const results: FunctionComponent = () => {
     useEffect(() => {
         setCarouselImagesPath(imageCarouselNocs.map(noc => bgIPathData.value + getBackgroundImageName(noc)))
     }, [imageCarouselNocs])
-
-    const columns = [
-        {
-            title: 'Career Name',
-            dataIndex: 'nocAndTitle',
-            render: (text) => {
-                return (<a> {text} </a>)
-            },
-        },
-        {
-            title: 'Job Openings (2019-2029)',
-            dataIndex: 'jobOpenings'
-        },
-        {
-            title: 'Compare (up to 3 Careers)',
-            dataIndex: 'compare',
-            render: () => {
-                if (filteredOccupationsList && filteredOccupationsList.length > 1) {
-                    return (<Checkbox defaultChecked={false}></Checkbox>)
-                }
-            }
-        }
-    ]
-
+   
     function getBackgroundImageName(noc: string):string {
         return noc + "-NOC-" + "background.png"
     }
@@ -124,53 +86,13 @@ const results: FunctionComponent = () => {
     function getProfileImageName(noc: string):string {
         return noc + "-NOC-" + "profile.png"
     }
-
-    function getIndustryParams(params: IndustryTypeModel[]){
-        let industriesIds = []
-        let subIndustryIds = []
-        params.forEach(params =>{
-            (!!params.id.split(':')[1]) ? subIndustryIds.push(params.id.split(':')[1]) : industriesIds.push(params.id.split(':')[0])
-        })
-        return { industries: industriesIds.join(), subIndustries: subIndustryIds.join() }
-    }
    
-    function  getFilterParams(params: FilterOptionModel) : FilterOccupationParams {
-        const filterParams = {
-            GeographicAreaId: params.region?.id,
-            EducationLevelId: params.education?.id,
-            OccupationalInterestId: params.education?.id,
-            IndustryIds: getIndustryParams(params.industry).industries,
-            SubIndustryIds: getIndustryParams(params.industry).subIndustries,
-            OccupationalGroupId: params.occupational_group?.id,
-            FullTimeOrPartTimeId: params.part_time_option?.id,
-            AnnualSalaryId: params.annual_salary?.id,
-            Keywords: params.keyword
-        }
-        return filterParams
-    }
-
     function handlePrintEvent() {
         console.log(' Print profile ')
     }
 
     function handleEmailEvent() {
         console.log(' Email profile ')
-    }
-
-    function onSelect(nocCode: string) {
-        setSelectedNoc(nocCode)
-    }
-
-    function onRow(record: any) {
-        return {
-            onClick: () => {
-                onSelect(record.noc)
-            },
-        }
-    }
-
-    function getDatasource() {
-        return filteredOccupationsList.length > 0? filteredOccupationsList: [{ id: -1, noc: '', nocAndTitle: 'Your search returned no results', jobOpenings: undefined}]
     }
 
     return (
@@ -195,17 +117,7 @@ const results: FunctionComponent = () => {
             </Row>
             <Row>
                 <Col span={16}>
-                    { !isValidating && isSettled &&  
-                        <Table
-                            columns={columns}
-                            dataSource={getDatasource()}
-                            rowKey="noc"
-                            pagination={false}
-                            bordered
-                            scroll={{ y: 500 }}
-                            onRow={onRow}>
-                        </Table>
-                    }
+                    {   (<ResultsTable/>) }
                 </Col>
                 {(!selectedNoc || selectedNoc === "default") && (
                    <Col span={8}>
@@ -223,7 +135,7 @@ const results: FunctionComponent = () => {
                         </Carousel>
                    </Col>)
                }
-                {selectedNoc!=="default" && isSettled &&  !isValidating && occupationsList && occupationsList?.length >= 0 &&
+                {selectedNoc!=="default" && filteredOccupationsList && filteredOccupationsList?.length >= 0 &&
                 (<Col span={8}>
                     <b> {occupationDetail?.title} (NOC {occupationDetail?.noc}) </b>
                     <img src={profileImagesPath} alt='career profile pic'/>
@@ -260,8 +172,11 @@ const results: FunctionComponent = () => {
                 </Col>)}
             </Row>
             <Row style={{margin: '24px 0px'}}>
-                <Col span={4} offset={12}>
-                    <Button onClick={() => setShowCompareView(true)}> Compare Careers</Button>
+                <Col span={4} offset={8}>
+                    <Button disabled={selectedCheckBoxes < 2} onClick={() => setSelectedCheckBoxes(0)}> Clear Compare </Button>
+                </Col>
+                <Col span={4}>
+                    <Button disabled={selectedCheckBoxes < 2} onClick={() => setShowCompareView(true)}> Compare Careers</Button>
                 </Col>
             </Row>
         </div>

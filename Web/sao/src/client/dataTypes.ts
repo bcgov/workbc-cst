@@ -28,7 +28,7 @@ export interface FilterOptionModel {
     region?: FilterTypeModel, 
     education?: FilterTypeModel, 
     occupational_interest?: FilterTypeModel, 
-    industry?: IndustryTypeModel[], 
+    industry?: IndustryTypeModel, 
     occupational_group?: FilterTypeModel, 
     part_time_option?: FilterTypeModel, 
     annual_salary?: FilterTypeModel,
