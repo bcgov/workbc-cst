@@ -99,7 +99,7 @@ const ResultsTable: FunctionComponent = () => {
     const columns = [
         {
             title: (<div>
-                career name
+                Career name
                 <Popover placement="bottomRight" title={title} content={nameContent} trigger="click">
                     <span style={{float: 'right'}}> <DownOutlined /> </span>
                 </Popover>
