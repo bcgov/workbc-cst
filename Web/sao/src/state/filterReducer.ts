@@ -4,7 +4,7 @@ export const defaultFilterOption = {
     region: {id: 1, value: 'British Columbia'}, 
     education: {id: -1, value: 'All'}, 
     occupational_interest: {id: -1, value: 'All'}, 
-    industry: [{id: 'All', value: 'All'}], 
+    industry: {id: 'All', value: 'All'}, 
     occupational_group: {id: -1, value: 'All'}, 
     part_time_option: {id: -1, value: 'All'}, 
     annual_salary: {id: -1, value: 'All'},
@@ -26,7 +26,8 @@ export interface FilterState {
     filteredOccupationsList? : OccupationModel[],
     selectedNoc: string,
     showCompareView: boolean,
-    isReset: boolean
+    isReset: boolean,
+    selectedCheckBoxes: number
 }
 
 export const defaultFilterState: FilterState = Object.freeze({
@@ -34,6 +35,7 @@ export const defaultFilterState: FilterState = Object.freeze({
     filteredOccupationsList: [],
     selectedNoc: 'default',
     showCompareView: false,
+    selectedCheckBoxes: 0,
     isReset: true
 })
 
@@ -42,6 +44,7 @@ export type FilterAction =
 {type: 'set-selected-noc', payload: string} |
 {type: 'set-filter-options', payload: FilterOptionModel} |
 {type: 'set-show-compare-view', payload: boolean} |
+{type: 'set-selected-boxes', payload: number} |
 {type: 'reset'}
 
 export function reducer(state: FilterState = defaultFilterState , action: FilterAction): FilterState {
@@ -57,6 +60,9 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
 
         case 'set-show-compare-view': 
             return ({...state, showCompareView: action.payload})
+
+        case 'set-selected-boxes': 
+            return ({...state, selectedCheckBoxes: action.payload})
 
         case 'reset': 
             return ({...state, ...defaultFilterState, isReset: !state.isReset })

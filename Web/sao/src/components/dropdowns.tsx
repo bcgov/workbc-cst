@@ -18,7 +18,7 @@ const Dropdowns: FunctionComponent = () => {
     const [userSelection, setUserSelection] = useState<FilterOptionModel>(defaultFilterOption)
 
     function getIndustryValues() {
-        return  userSelection.industry.map(item => item.id)
+        return  userSelection.industry.id
     }
 
     useEffect(()=> {
@@ -63,15 +63,12 @@ const Dropdowns: FunctionComponent = () => {
         }
     }
 
-    function handleChangeIndustry(keys, titles) {
+    function handleChangeIndustry(key, title) {
         let industries = []
-        if(!!keys && !!titles && keys.length>0 && titles.length > 0){
-            for(let i=0;i<keys.length;i++) {
-                industries.push({id: keys[i], value: titles[i]})
-            }
-            setUserSelection({...userSelection, industry:industries})
+        if(!!key && !!title ){
+            setUserSelection({...userSelection, industry:{id: key, value: title}})
         } else {
-            setUserSelection({...userSelection, industry: []})
+            setUserSelection({...userSelection, industry: {id: 'All', value: 'All'}})
         }
     }
 
@@ -176,18 +173,6 @@ const Dropdowns: FunctionComponent = () => {
                                     placeholder={"All"} />
                             </div>
                         </Col>
-                        {/* <Col span={6}> 
-                            <div>
-                                <label className="sao-filters__label">Industry ? </label>
-                                <SelectFilterType  
-                                    filterType={FilterType.industry}
-                                    colSpan={5}
-                                    value = {userSelection?.industry?.value}
-                                    onChange = {handleChangeIndustry}
-                                    showPlaceHolderAsOption={true}
-                                    placeholder={"All"}  />
-                            </div>
-                        </Col> */}
                         <Col xs={24} lg={8}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label"> Industry ? </label>
@@ -199,8 +184,7 @@ const Dropdowns: FunctionComponent = () => {
                                         treeData={industryDataTree}
                                         onChange={handleChangeIndustry}
                                         value={getIndustryValues()}
-                                        style={{width: '100%'}} 
-                                        multiple />
+                                        style={{width: '100%'}} />
                                 )}
                             </div>
                         </Col>

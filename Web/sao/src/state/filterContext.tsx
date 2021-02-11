@@ -7,14 +7,16 @@ export interface FilterState {
     filteredOccupationsList? : OccupationModel[] 
     selectedNoc : string,
     showCompareView: boolean,
-    isReset: boolean
+    isReset: boolean,
+    selectedCheckBoxes: number
 }
 export interface FilterContextProps extends FilterState {
     setFilterOption: (filterOptions: FilterOptionModel) => void,
     resetOptions: () => void
     setFilteredOccupationsList: (occupationsList: OccupationModel[]) => void,
     setSelectedNoc: (nocId: string) => void,
-    setShowCompareView: (value: boolean) => void
+    setShowCompareView: (value: boolean) => void,
+    setSelectedCheckBoxes: (value: number) => void
 }
 
 const FilterContext = createContext<FilterContextProps>({
@@ -23,17 +25,19 @@ const FilterContext = createContext<FilterContextProps>({
     selectedNoc: "",
     showCompareView: false,
     isReset: true,
+    selectedCheckBoxes: 0,
     setFilterOption: () => {},
     resetOptions: () => {},
     setFilteredOccupationsList: () => {},
     setSelectedNoc: () => {},
-    setShowCompareView: () => {}
+    setShowCompareView: () => {},
+    setSelectedCheckBoxes: () => {}
 })
 
 FilterContext.displayName = 'FilterContext'
 
 const FilterContextProvider: FunctionComponent = ({children}) => {
-    const [{filterOption, filteredOccupationsList, selectedNoc, showCompareView, isReset}, dispatch] = useReducer(reducer, defaultFilterState)
+    const [{filterOption, filteredOccupationsList, selectedNoc, showCompareView, isReset, selectedCheckBoxes}, dispatch] = useReducer(reducer, defaultFilterState)
 
     async function setFilterOption(filterOptions: FilterOptionModel) {
         try {
@@ -67,6 +71,14 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
          }
      }
 
+     async function setSelectedCheckBoxes(value: number) {
+         try {
+             dispatch({type: 'set-selected-boxes', payload: value})
+         } catch (error) {
+             console.log(error)
+         }
+     }
+
     async function resetOptions() {
         dispatch({type: 'reset'})
     }
@@ -79,10 +91,12 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
                 selectedNoc,
                 showCompareView,
                 isReset,
+                selectedCheckBoxes,
                 setSelectedNoc,
                 setFilterOption, 
                 resetOptions, 
                 setShowCompareView,
+                setSelectedCheckBoxes,
                 setFilteredOccupationsList }}> 
             {children}
         </FilterContext.Provider>
