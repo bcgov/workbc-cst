@@ -13,7 +13,7 @@
   <DeploymentModelSpecificContent>
     <Manifest>
       <DTSPackages>
-        <DtsPackage FormatVersion="0">
+        <DtsPackage FormatVersion="8">
           <Name>ImportNocVideos.dtsx</Name>
           <FullPath>ImportNocVideos.dtsx</FullPath>
           <References />
