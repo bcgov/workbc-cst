@@ -105,6 +105,7 @@ const ResultsTable: FunctionComponent = () => {
                 </Popover>
             </div>),
             dataIndex: 'nocAndTitle',
+            width:'65%',
             render: (text) => {
                 return (<a> {text} </a>)
             },
