@@ -152,11 +152,11 @@ const ResultsTable: FunctionComponent = () => {
 
     return (<div>
                 {!isValidating && isSettled && <Table
+                    rowClassName={(record, index) => index % 2 === 0 ? 'ant-table-row-light' :  'ant-table-row-dark'}
                     columns={columns}
                     dataSource={getDatasource()}
                     rowKey="noc"
                     pagination={false}
-                    bordered
                     scroll={{ y: 500 }}
                     onRow={onRow}>
                 </Table>}
