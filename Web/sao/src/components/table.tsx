@@ -104,7 +104,7 @@ const ResultsTable: FunctionComponent = () => {
             dataIndex: 'nocAndTitle',
             width:'65%',
             render: (text, record: OccupationModel) => {
-                return (<span> <a> {text} {record.noc}</a> </span>)
+                return (<span onClick={() => handleSelectedNoc(record)}> <a> {text} </a> </span>)
             },
         },
         {
@@ -127,6 +127,10 @@ const ResultsTable: FunctionComponent = () => {
             }
         }
     ]
+
+    function handleSelectedNoc(record: any) {
+        setSelectedNoc(record.noc)
+    }
 
     function onRow(record: any) {
         return {
