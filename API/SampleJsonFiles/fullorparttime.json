@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "value": "Yes"
+    "value": "Full-time"
   },
   {
     "id": 2,
-    "value": "No"
+    "value": "Part-time"
   }
 ]
