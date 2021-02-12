@@ -67,7 +67,7 @@ const ResultsTable: FunctionComponent = () => {
         const filterParams = {
             GeographicAreaId: params.region?.id,
             EducationLevelId: params.education?.id,
-            OccupationalInterestId: params.education?.id,
+            OccupationalInterestId: params.occupational_interest?.id,
             IndustryIds: getIndustryParams(params.industry).industries,
             SubIndustryIds: getIndustryParams(params.industry).subIndustries,
             OccupationalGroupId: params.occupational_group?.id,
