@@ -153,7 +153,7 @@ const ResultsTable: FunctionComponent = () => {
 
     return (<div>
                 {!isValidating && isSettled && <Table
-                    rowClassName={(record, index) => index % 2 === 0 ? 'ant-table-row-light' :  'ant-table-row-dark'}
+                    rowClassName={(record, index) =>  !record.enabled && (index % 2 === 0 ? 'ant-table-row-light' :  'ant-table-row-dark')}
                     columns={columns}
                     dataSource={getDatasource()}
                     rowKey="noc"
