@@ -48,6 +48,41 @@ const CompareCareers: FunctionComponent = () => {
         return noc + "-NOC-" + "profile.png"
     }
 
+    function getCareerDetail(careerObj: OccupationSummaryObj) {
+        return (
+            <div className="result-detail">
+                <div className="result-detail__header">{careerDetail[0].careerDetail.title} <span>(NOC {careerObj.nocId})</span></div>
+                <div  className="result-detail__thumbnail"><img src={profileImagesPath+getProfileImageName(careerObj.nocId)} alt='career profile pic'/></div>
+                <div className="result-detail__body result-body">
+                    <div className="result-body__row">
+                        <div className="result-body__row-left">Annual Salary</div>
+                        <div className="result-body__row-right"><b>{careerObj.careerDetail?.income}</b></div>
+                    </div>
+                    <div className="result-body__row">
+                        <div className="result-body__row-left"> EducationLevel </div>
+                        <div className="result-body__row-right"><b>{careerObj.careerDetail?.education.value}</b></div>
+                    </div>
+                    <div className="result-body__row result-body__row--last">
+                        <div className="result-body__row-left">Job Openings (2019 - 2029) </div>
+                        <div className="result-body__row-right"><b>{careerObj.careerDetail?.jobOpenings}</b></div>
+                    </div>
+                </div>
+                <div className="result-detail__footer">                            
+                    <a href={careerProfileUrl+careerObj.nocId} target="_blank"> 
+                        <Button type="primary" block>
+                            View Career Profile
+                        </Button>
+                    </a>                    
+                    <a href={viewJobsUrl+careerObj.nocId} target="_blank">
+                        <Button block>
+                            Find Jobs
+                        </Button>
+                    </a>                          
+                </div>
+            </div>
+        )
+    }
+
     return(
         <div>
             <h1>Compare Careers 
@@ -63,102 +98,15 @@ const CompareCareers: FunctionComponent = () => {
                 !isFetchingJOUrl && isJOUrlFetched && JOUrlData && viewJobsUrl && careerDetail.length > 1 && (
                     <Row>
                         <Col span={8}>
-                            <div className="result-detail">
-                                <div className="result-detail__header">{careerDetail[0].careerDetail.title} <span>(NOC {careerDetail[0].nocId})</span></div>
-                                <div  className="result-detail__thumbnail"><img src={profileImagesPath+getProfileImageName(careerDetail[0].nocId)} alt='career profile pic'/></div>
-                                <div className="result-detail__body result-body">
-                                    <div className="result-body__row">
-                                        <div className="result-body__row-left">Annual Salary</div>
-                                        <div className="result-body__row-right"><b>{careerDetail[0].careerDetail?.income}</b></div>
-                                    </div>
-                                    <div className="result-body__row">
-                                        <div className="result-body__row-left"> EducationLevel </div>
-                                        <div className="result-body__row-right"><b>{careerDetail[0].careerDetail?.education.value}</b></div>
-                                    </div>
-                                    <div className="result-body__row result-body__row--last">
-                                        <div className="result-body__row-left">Job Openings (2019 - 2029) </div>
-                                        <div className="result-body__row-right"><b>{careerDetail[0].careerDetail?.jobOpenings}</b></div>
-                                    </div>
-                                </div>
-                                <div className="result-detail__footer">                            
-                                    <a href={careerProfileUrl+careerDetail[0].nocId} target="_blank"> 
-                                        <Button type="primary" block>
-                                            View Career Profile
-                                        </Button>
-                                    </a>                    
-                                    <a href={viewJobsUrl+careerDetail[0].nocId} target="_blank">
-                                        <Button block>
-                                            Find Jobs
-                                        </Button>
-                                    </a>                          
-                                </div>
-                            </div>
+                            {getCareerDetail(careerDetail[0])}
                         </Col>
                         <Col span={8}>
-                            <div className="result-detail">
-                                <div className="result-detail__header">{careerDetail[1].careerDetail.title} <span> (NOC {careerDetail[1].nocId})</span></div>
-                                <div  className="result-detail__thumbnail"><img src={profileImagesPath+getProfileImageName(careerDetail[1].nocId)} alt='career profile pic'/></div>
-                                <div className="result-detail__body result-body">
-                                    <div className="result-body__row">
-                                        <div className="result-body__row-left">Annual Salary</div>
-                                        <div className="result-body__row-right"><b>{careerDetail[1].careerDetail?.income}</b></div>
-                                    </div>
-                                    <div className="result-body__row">
-                                        <div className="result-body__row-left"> EducationLevel </div>
-                                        <div className="result-body__row-right"><b>{careerDetail[1].careerDetail?.education.value}</b></div>
-                                    </div>
-                                    <div className="result-body__row result-body__row--last">
-                                        <div className="result-body__row-left">Job Openings (2019 - 2029) </div>
-                                        <div className="result-body__row-right"><b>{careerDetail[1].careerDetail?.jobOpenings}</b></div>
-                                    </div>
-                                </div>
-                                <div className="result-detail__footer">                            
-                                    <a href={careerProfileUrl+careerDetail[1].nocId} target="_blank"> 
-                                        <Button type="primary" block>
-                                            View Career Profile
-                                        </Button>
-                                    </a>                    
-                                    <a href={viewJobsUrl+careerDetail[1].nocId} target="_blank">
-                                        <Button block>
-                                            Find Jobs
-                                        </Button>
-                                    </a>                          
-                                </div>
-                            </div>
+                            {getCareerDetail(careerDetail[1])}
                         </Col>
                         {
                             !!careerDetail[2] && (
                                 <Col span={8}>
-                                    <div className="result-detail">
-                                        <div className="result-detail__header">{careerDetail[2].careerDetail.title} <span> (NOC {careerDetail[2].nocId})</span></div>
-                                        <div  className="result-detail__thumbnail"><img src={profileImagesPath+getProfileImageName(careerDetail[2].nocId)} alt='career profile pic'/></div>
-                                        <div className="result-detail__body result-body">
-                                            <div className="result-body__row">
-                                                <div className="result-body__row-left">Annual Salary</div>
-                                                <div className="result-body__row-right"><b>{careerDetail[2].careerDetail?.income}</b></div>
-                                            </div>
-                                            <div className="result-body__row">
-                                                <div className="result-body__row-left"> EducationLevel </div>
-                                                <div className="result-body__row-right"><b>{careerDetail[2].careerDetail?.education.value}</b></div>
-                                            </div>
-                                            <div className="result-body__row result-body__row--last">
-                                                <div className="result-body__row-left">Job Openings (2019 - 2029) </div>
-                                                <div className="result-body__row-right"><b>{careerDetail[2].careerDetail?.jobOpenings}</b></div>
-                                            </div>
-                                        </div>
-                                        <div className="result-detail__footer">                            
-                                            <a href={careerProfileUrl+careerDetail[2].nocId} target="_blank"> 
-                                                <Button type="primary" block>
-                                                    View Career Profile
-                                                </Button>
-                                            </a>                    
-                                            <a href={viewJobsUrl+careerDetail[2].nocId} target="_blank">
-                                                <Button block>
-                                                    Find Jobs
-                                                </Button>
-                                            </a>                          
-                                        </div>
-                                    </div>
+                                    {getCareerDetail(careerDetail[2])}
                                 </Col>
                             )
                         }
