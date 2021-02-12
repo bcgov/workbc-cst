@@ -1,0 +1,51 @@
+.result-detail{
+    border: 1px solid @grey;
+    &__header, 
+    &__body, 
+    &__thumbnail, 
+    &__footer{
+        padding: 0 1rem;
+    }
+    &__header{
+        background-color: @light-blue;
+        color: white;
+        font-family: @font-family-bold;
+        padding: 1rem 1rem;
+        &--noc{
+            font-family: @font-family;
+        }
+    }
+    &__thumbnail{
+        padding-top: 1.5rem;
+        margin: 0 auto;
+    }
+    &__body{
+        margin: 1rem 0.25rem 0;
+    }
+    &__footer{
+        button{
+            margin-bottom: 1.0rem;
+        }
+    }
+}
+
+.result-body{
+    &__row{
+        border-bottom: thin solid #ccc;
+        padding: 0.5rem 0;
+        .flex-display();
+        &--last{
+            border: none;
+        }
+        &-right, &-left{
+            .flex(0 0 auto);
+        }
+        &-left{
+            width: 35%;
+        }
+        &-right{
+            width: 70%;
+        }
+    }
+    margin-bottom: 2rem;
+}

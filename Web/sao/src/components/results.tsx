@@ -138,21 +138,23 @@ const results: FunctionComponent = () => {
                 {selectedNoc!=="default" && filteredOccupationsList && filteredOccupationsList?.length >= 0 &&
                 (<Col span={8}>
                     <div className="result-detail">
-                        <div className="result-detail__header">{occupationDetail?.title} (NOC {occupationDetail?.noc})</div> 
-                        <img src={profileImagesPath} alt='career profile pic'/>
+                        <div className="result-detail__header">
+                            {occupationDetail?.title} <span className="result-detail__header--noc">(NOC {occupationDetail?.noc})</span>
+                        </div> 
+                        <div className="result-detail__thumbnail"><img src={profileImagesPath} alt='career profile pic'/></div>
                         <div className="result-detail__body result-body">
-                            <Row className="result-body__row" gutter={8}>
-                                <Col span={8}> Annual Salary </Col>
-                                <Col span={8}> <b> {occupationDetail?.income} </b> </Col>
-                            </Row>
-                            <Row className="result-body__row" gutter={8}>
-                                <Col span={8}> EducationLevel </Col>
-                                <Col span={8}> <b> {occupationDetail?.education.value} </b> </Col>
-                            </Row>
-                            <Row className="result-body__row" gutter={8}>
-                                <Col span={8}> Job Openings (2019 - 2029) </Col>
-                                <Col span={8}> <b> {occupationDetail?.jobOpenings} </b> </Col>
-                            </Row>
+                            <div className="result-body__row">
+                                <div className="result-body__row-left">Annual Salary</div>
+                                <div className="result-body__row-right"><b>{occupationDetail?.income}</b></div>
+                            </div>
+                            <div className="result-body__row">
+                                <div className="result-body__row-left"> EducationLevel </div>
+                                <div className="result-body__row-right"><b>{occupationDetail?.education.value}</b></div>
+                            </div>
+                            <div className="result-body__row result-body__row--last">
+                                <div className="result-body__row-left">Job Openings (2019 - 2029) </div>
+                                <div className="result-body__row-right"><b>{occupationDetail?.jobOpenings}</b></div>
+                            </div>
                         </div>
                         <div className="result-detail__footer">                            
                             <a href={careerProfileUrl} target="_blank"> 
