@@ -7,8 +7,8 @@ import { OccupationSummary} from '../client/dataTypes'
 import ResultsTable from './table'
 
 const results: FunctionComponent = () => {
-    const { filteredOccupationsList, selectedNoc, selectedCheckBoxes,
-        setShowCompareView, setSelectedCheckBoxes } = useFilterContext()
+    const { filteredOccupationsList, selectedNoc, checkedNocs,
+        setShowCompareView, setCheckedNocs } = useFilterContext()
 
    
     const [occupationDetail, setOccupationDetail] = useState<OccupationSummary>()
@@ -137,46 +137,46 @@ const results: FunctionComponent = () => {
                }
                 {selectedNoc!=="default" && filteredOccupationsList && filteredOccupationsList?.length >= 0 &&
                 (<Col span={8}>
-                    <b> {occupationDetail?.title} (NOC {occupationDetail?.noc}) </b>
-                    <img src={profileImagesPath} alt='career profile pic'/>
-                    <Row gutter={8}>
-                        <Col span={8}> Annual Salary </Col>
-                        <Col span={8}> <b> {occupationDetail?.income} </b> </Col>
-                    </Row>
-                    <Row gutter={8}>
-                        <Col span={8}> EducationLevel </Col>
-                        <Col span={8}> <b> {occupationDetail?.education.value} </b> </Col>
-                    </Row>
-                    <Row gutter={8}>
-                        <Col span={8}> Job Openings (2019 - 2029) </Col>
-                        <Col span={8}> <b> {occupationDetail?.jobOpenings} </b> </Col>
-                    </Row>
-                    <Row>
-                        <Col offset={4}> 
+                    <div className="result-detail">
+                        <div className="result-detail__header">
+                            {occupationDetail?.title} <span className="result-detail__header--noc">(NOC {occupationDetail?.noc})</span>
+                        </div> 
+                        <div className="result-detail__thumbnail"><img src={profileImagesPath} alt='career profile pic'/></div>
+                        <div className="result-detail__body result-body">
+                            <div className="result-body__row">
+                                <div className="result-body__row-left">Annual Salary</div>
+                                <div className="result-body__row-right"><b>{occupationDetail?.income}</b></div>
+                            </div>
+                            <div className="result-body__row">
+                                <div className="result-body__row-left"> EducationLevel </div>
+                                <div className="result-body__row-right"><b>{occupationDetail?.education.value}</b></div>
+                            </div>
+                            <div className="result-body__row result-body__row--last">
+                                <div className="result-body__row-left">Job Openings (2019 - 2029) </div>
+                                <div className="result-body__row-right"><b>{occupationDetail?.jobOpenings}</b></div>
+                            </div>
+                        </div>
+                        <div className="result-detail__footer">                            
                             <a href={careerProfileUrl} target="_blank"> 
-                                <Button style={{width: '200px', margin: '20px 0px'}}>
+                                <Button type="primary" block>
                                     View Career Profile
                                 </Button>
-                            </a>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col offset={4}> 
+                            </a>                    
                             <a href={viewJobsUrl} target="_blank">
-                                <Button style={{width: '200px', margin: '20px 0px'}}>
+                                <Button block>
                                     Find Jobs
                                 </Button>
-                            </a>
-                        </Col>
-                    </Row>
+                            </a>                          
+                        </div>
+                    </div>
                 </Col>)}
             </Row>
             <Row style={{margin: '24px 0px'}}>
                 <Col span={4} offset={8}>
-                    <Button disabled={selectedCheckBoxes < 2} onClick={() => setSelectedCheckBoxes(0)}> Clear Compare </Button>
+                    <Button disabled={checkedNocs.length < 1} onClick={() => setCheckedNocs([])}> Clear Compare </Button>
                 </Col>
                 <Col span={4}>
-                    <Button disabled={selectedCheckBoxes < 2} onClick={() => setShowCompareView(true)}> Compare Careers</Button>
+                    <Button disabled={checkedNocs.length < 2} onClick={() => setShowCompareView(true)}> Compare Careers</Button>
                 </Col>
             </Row>
         </div>

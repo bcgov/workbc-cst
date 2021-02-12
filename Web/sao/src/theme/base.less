@@ -28,10 +28,28 @@ h6, .h6 {
 
 @ant-table-row-dark: #f0f0f0;
 .ant-table{
+    &-thead{
+        > tr{
+            th{
+                font-weight: normal;
+                font-family: @font-family-bold;
+            }
+        }
+    }    
     &-row{
+        border:none;
+        transition: none;
+        a{
+            color: @text-color;
+            transition: none;
+        }
         &-light{background:white;}
         &-dark{
             background:@ant-table-row-dark;           
+        }
+        &.selected a, a:hover{
+            font-weight: 700;
+            color:@light-blue;
         }
     }  
 }

@@ -9,9 +9,10 @@ import { useGetOccupationsList } from '../client/apiService'
 import { defaultFilterParams } from '../state/filterReducer'
 
 const ResultsTable: FunctionComponent = () => {
-    const { filterOption, filteredOccupationsList, selectedNoc, isReset, selectedCheckBoxes,
-        setSelectedNoc, setFilteredOccupationsList, setShowCompareView, setSelectedCheckBoxes } = useFilterContext()
-    const [sortedOccupationsList, setSortedOccupationsList] = useState<string>('')
+    const { filterOption, filteredOccupationsList, isReset, checkedNocs,
+        setSelectedNoc, setFilteredOccupationsList, setCheckedNocs } = useFilterContext()
+
+    const [occupationsSortOption, setOccupationsSortOption] = useState<string>('')
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
@@ -33,27 +34,23 @@ const ResultsTable: FunctionComponent = () => {
     }, [occupationsList, isSettled, isValidating])
 
     useEffect(() => {
-        switch(sortedOccupationsList) {
+        let tempList = [...filteredOccupationsList]
+        switch(occupationsSortOption) {
             case 'A-Z':
-                console.log('Increase by name')
-                setFilteredOccupationsList(filteredOccupationsList.sort((a: OccupationModel, b: OccupationModel ) => {return a.nocAndTitle < b.nocAndTitle ? 1 : -1 }))                
+                const sortedOrder = tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.nocAndTitle < b.nocAndTitle ? -1 : 1 })
+                setFilteredOccupationsList(sortedOrder)                
                 break
             case 'Z-A':
-                console.log('Decrease by name')
-                setFilteredOccupationsList(filteredOccupationsList.sort((a: OccupationModel, b: OccupationModel ) => {return a.nocAndTitle > b.nocAndTitle ? 1 : -1 }))                
+                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.nocAndTitle > b.nocAndTitle ? -1 : 1 }))                
                 break
             case 'High to Low':
-                console.log('Decrease by jobs')
-                setFilteredOccupationsList(filteredOccupationsList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings> b.jobOpenings ? 1 : -1 }))                
+                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings> b.jobOpenings ? -1 : 1 }))                
                 break
             case 'Low to High':
-                console.log('Increase by jobs')
-                setFilteredOccupationsList(filteredOccupationsList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings < b.jobOpenings ? 1 : -1 }))                
+                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings < b.jobOpenings ? -1 : 1 }))                
                 break
-            default: 
-                console.log('no sorting')
         }
-    }, [sortedOccupationsList])
+    }, [occupationsSortOption])
 
     function getIndustryParams(params: IndustryTypeModel) {
         let industryIds = '-1'
@@ -83,14 +80,14 @@ const ResultsTable: FunctionComponent = () => {
 
     const nameContent = (
         <div>
-            <Row><Col><Button style={{border: 'none'}} onClick={()=>  setSortedOccupationsList('A-Z')}> A - Z </Button></Col></Row>
-            <Row><Col><Button style={{border: 'none'}} onClick={()=>  setSortedOccupationsList('Z-A')}> Z - A </Button></Col></Row>
+            <Row><Col><Button style={{border: 'none'}} onClick={()=>  setOccupationsSortOption('A-Z')}> A - Z </Button></Col></Row>
+            <Row><Col><Button style={{border: 'none'}} onClick={()=>  setOccupationsSortOption('Z-A')}> Z - A </Button></Col></Row>
         </div>
     )
     const jobContent = (
         <div>
-            <Row><Col><Button style={{border: 'none'}} onClick={() =>  setSortedOccupationsList('High to Low')}> High to Low </Button></Col></Row>
-            <Row><Col><Button style={{border: 'none'}} onClick={() =>  setSortedOccupationsList('Low to High')}> Low to High </Button></Col></Row>
+            <Row><Col><Button style={{border: 'none'}} onClick={() =>  setOccupationsSortOption('High to Low')}> High to Low </Button></Col></Row>
+            <Row><Col><Button style={{border: 'none'}} onClick={() =>  setOccupationsSortOption('Low to High')}> Low to High </Button></Col></Row>
         </div>
     )
 
@@ -99,14 +96,15 @@ const ResultsTable: FunctionComponent = () => {
     const columns = [
         {
             title: (<div>
-                career name
+                Career name
                 <Popover placement="bottomRight" title={title} content={nameContent} trigger="click">
                     <span style={{float: 'right'}}> <DownOutlined /> </span>
                 </Popover>
             </div>),
             dataIndex: 'nocAndTitle',
-            render: (text) => {
-                return (<a> {text} </a>)
+            width:'65%',
+            render: (text, record: OccupationModel) => {
+                return (<span onClick={() => handleSelectedNoc(record)}> <a> {text} </a> </span>)
             },
         },
         {
@@ -122,27 +120,30 @@ const ResultsTable: FunctionComponent = () => {
         {
             title: 'Compare (up to 3 Careers)',
             dataIndex: 'compare',
-            render: () => {
+            render: (text, record: OccupationModel) => {
                 if (filteredOccupationsList && filteredOccupationsList.length > 1) {
-                    return (<Checkbox disabled={selectedCheckBoxes > 2} onChange={handleSelectCheckBox}></Checkbox>)
+                    return (<Checkbox disabled={checkedNocs.length > 2} onChange={(event)=> handleSelectCheckBox(event, record.noc)}></Checkbox>)
                 }
             }
         }
     ]
 
-    function handleSelectCheckBox (event: CheckboxChangeEvent) {
-        event.target.checked? setSelectedCheckBoxes(selectedCheckBoxes+1) : setSelectedCheckBoxes(selectedCheckBoxes-1)
+    function handleSelectCheckBox (event: CheckboxChangeEvent, nocId) {
+        if(event.target.checked) {
+            setCheckedNocs([...checkedNocs, nocId])
+        } else {
+            const newCheckedNocs = checkedNocs.filter(noc => noc !== nocId)
+            setCheckedNocs(newCheckedNocs)
+        }
     }
 
-    function onSelect(nocCode: string) {
-        setSelectedNoc(nocCode)
+    function handleSelectedNoc(record: any) {
+        setSelectedNoc(record.noc)
     }
 
     function onRow(record: any) {
         return {
-            onClick: () => {
-                onSelect(record.noc)
-            }
+            onClick: () => {}
         }
     }
 
