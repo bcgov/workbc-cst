@@ -8,7 +8,6 @@ export interface FilterState {
     selectedNoc : string,
     showCompareView: boolean,
     isReset: boolean,
-    selectedCheckBoxes: number,
     checkedNocs: string[]
 }
 export interface FilterContextProps extends FilterState {
@@ -17,7 +16,6 @@ export interface FilterContextProps extends FilterState {
     setFilteredOccupationsList: (occupationsList: OccupationModel[]) => void,
     setSelectedNoc: (nocId: string) => void,
     setShowCompareView: (value: boolean) => void,
-    setSelectedCheckBoxes: (value: number) => void,
     setCheckedNocs: (value: string[]) => void
 }
 
@@ -27,21 +25,19 @@ const FilterContext = createContext<FilterContextProps>({
     selectedNoc: "",
     showCompareView: false,
     isReset: true,
-    selectedCheckBoxes: 0,
     checkedNocs: [],
     setFilterOption: () => {},
     resetOptions: () => {},
     setFilteredOccupationsList: () => {},
     setSelectedNoc: () => {},
     setShowCompareView: () => {},
-    setSelectedCheckBoxes: () => {},
     setCheckedNocs: () =>{}
 })
 
 FilterContext.displayName = 'FilterContext'
 
 const FilterContextProvider: FunctionComponent = ({children}) => {
-    const [{filterOption, filteredOccupationsList, selectedNoc, showCompareView, isReset, selectedCheckBoxes, checkedNocs}, dispatch] = useReducer(reducer, defaultFilterState)
+    const [{filterOption, filteredOccupationsList, selectedNoc, showCompareView, isReset, checkedNocs}, dispatch] = useReducer(reducer, defaultFilterState)
 
     async function setFilterOption(filterOptions: FilterOptionModel) {
         try {
@@ -75,14 +71,6 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
          }
      }
 
-     async function setSelectedCheckBoxes(value: number) {
-         try {
-             dispatch({type: 'set-selected-boxes', payload: value})
-         } catch (error) {
-             console.log(error)
-         }
-     }
-
     async function resetOptions() {
         dispatch({type: 'reset'})
     }
@@ -103,13 +91,11 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
                 selectedNoc,
                 showCompareView,
                 isReset,
-                selectedCheckBoxes,
                 checkedNocs,
                 setSelectedNoc,
                 setFilterOption, 
                 resetOptions, 
                 setShowCompareView,
-                setSelectedCheckBoxes,
                 setFilteredOccupationsList, 
                 setCheckedNocs }}> 
             {children}

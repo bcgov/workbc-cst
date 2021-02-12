@@ -7,8 +7,8 @@ import { OccupationSummary} from '../client/dataTypes'
 import ResultsTable from './table'
 
 const results: FunctionComponent = () => {
-    const { filteredOccupationsList, selectedNoc, selectedCheckBoxes,
-        setShowCompareView, setSelectedCheckBoxes } = useFilterContext()
+    const { filteredOccupationsList, selectedNoc, checkedNocs,
+        setShowCompareView, setCheckedNocs } = useFilterContext()
 
    
     const [occupationDetail, setOccupationDetail] = useState<OccupationSummary>()
@@ -173,10 +173,10 @@ const results: FunctionComponent = () => {
             </Row>
             <Row style={{margin: '24px 0px'}}>
                 <Col span={4} offset={8}>
-                    <Button disabled={selectedCheckBoxes < 1} onClick={() => setSelectedCheckBoxes(0)}> Clear Compare </Button>
+                    <Button disabled={checkedNocs.length < 1} onClick={() => setCheckedNocs([])}> Clear Compare </Button>
                 </Col>
                 <Col span={4}>
-                    <Button disabled={selectedCheckBoxes < 2} onClick={() => setShowCompareView(true)}> Compare Careers</Button>
+                    <Button disabled={checkedNocs.length < 2} onClick={() => setShowCompareView(true)}> Compare Careers</Button>
                 </Col>
             </Row>
         </div>

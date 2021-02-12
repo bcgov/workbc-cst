@@ -9,8 +9,8 @@ import { useGetOccupationsList } from '../client/apiService'
 import { defaultFilterParams } from '../state/filterReducer'
 
 const ResultsTable: FunctionComponent = () => {
-    const { filterOption, filteredOccupationsList, isReset, selectedCheckBoxes, checkedNocs,
-        setSelectedNoc, setFilteredOccupationsList, setSelectedCheckBoxes, setCheckedNocs } = useFilterContext()
+    const { filterOption, filteredOccupationsList, isReset, checkedNocs,
+        setSelectedNoc, setFilteredOccupationsList, setCheckedNocs } = useFilterContext()
 
     const [occupationsSortOption, setOccupationsSortOption] = useState<string>('')
 
@@ -122,11 +122,20 @@ const ResultsTable: FunctionComponent = () => {
             dataIndex: 'compare',
             render: (text, record: OccupationModel) => {
                 if (filteredOccupationsList && filteredOccupationsList.length > 1) {
-                    return (<Checkbox disabled={selectedCheckBoxes > 2}></Checkbox>)
+                    return (<Checkbox disabled={checkedNocs.length > 2} onChange={(event)=> handleSelectCheckBox(event, record.noc)}></Checkbox>)
                 }
             }
         }
     ]
+
+    function handleSelectCheckBox (event: CheckboxChangeEvent, nocId) {
+        if(event.target.checked) {
+            setCheckedNocs([...checkedNocs, nocId])
+        } else {
+            const newCheckedNocs = checkedNocs.filter(noc => noc !== nocId)
+            setCheckedNocs(newCheckedNocs)
+        }
+    }
 
     function handleSelectedNoc(record: any) {
         setSelectedNoc(record.noc)
