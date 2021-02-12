@@ -27,7 +27,8 @@ export interface FilterState {
     selectedNoc: string,
     showCompareView: boolean,
     isReset: boolean,
-    selectedCheckBoxes: number
+    selectedCheckBoxes: number,
+    checkedNocs: string[]
 }
 
 export const defaultFilterState: FilterState = Object.freeze({
@@ -36,7 +37,8 @@ export const defaultFilterState: FilterState = Object.freeze({
     selectedNoc: 'default',
     showCompareView: false,
     selectedCheckBoxes: 0,
-    isReset: true
+    isReset: true,
+    checkedNocs: []
 })
 
 export type FilterAction = 
@@ -45,6 +47,7 @@ export type FilterAction =
 {type: 'set-filter-options', payload: FilterOptionModel} |
 {type: 'set-show-compare-view', payload: boolean} |
 {type: 'set-selected-boxes', payload: number} |
+{type: 'set-checked-nocs', payload: string[]} |
 {type: 'reset'}
 
 export function reducer(state: FilterState = defaultFilterState , action: FilterAction): FilterState {
@@ -63,6 +66,9 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
 
         case 'set-selected-boxes': 
             return ({...state, selectedCheckBoxes: action.payload})
+
+        case 'set-checked-nocs':
+            return ({...state, checkedNocs: action.payload})
 
         case 'reset': 
             return ({...state, ...defaultFilterState, isReset: !state.isReset })

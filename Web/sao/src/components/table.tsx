@@ -9,9 +9,10 @@ import { useGetOccupationsList } from '../client/apiService'
 import { defaultFilterParams } from '../state/filterReducer'
 
 const ResultsTable: FunctionComponent = () => {
-    const { filterOption, filteredOccupationsList, selectedNoc, isReset, selectedCheckBoxes,
-        setSelectedNoc, setFilteredOccupationsList, setShowCompareView, setSelectedCheckBoxes } = useFilterContext()
-    const [sortedOccupationsList, setSortedOccupationsList] = useState<string>('')
+    const { filterOption, filteredOccupationsList, isReset, selectedCheckBoxes, checkedNocs,
+        setSelectedNoc, setFilteredOccupationsList, setSelectedCheckBoxes, setCheckedNocs } = useFilterContext()
+
+    const [occupationsSortOption, setOccupationsSortOption] = useState<string>('')
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
@@ -33,27 +34,23 @@ const ResultsTable: FunctionComponent = () => {
     }, [occupationsList, isSettled, isValidating])
 
     useEffect(() => {
-        switch(sortedOccupationsList) {
+        let tempList = [...filteredOccupationsList]
+        switch(occupationsSortOption) {
             case 'A-Z':
-                console.log('Increase by name')
-                setFilteredOccupationsList(filteredOccupationsList.sort((a: OccupationModel, b: OccupationModel ) => {return a.nocAndTitle < b.nocAndTitle ? 1 : -1 }))                
+                const sortedOrder = tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.nocAndTitle < b.nocAndTitle ? -1 : 1 })
+                setFilteredOccupationsList(sortedOrder)                
                 break
             case 'Z-A':
-                console.log('Decrease by name')
-                setFilteredOccupationsList(filteredOccupationsList.sort((a: OccupationModel, b: OccupationModel ) => {return a.nocAndTitle > b.nocAndTitle ? 1 : -1 }))                
+                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.nocAndTitle > b.nocAndTitle ? -1 : 1 }))                
                 break
             case 'High to Low':
-                console.log('Decrease by jobs')
-                setFilteredOccupationsList(filteredOccupationsList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings> b.jobOpenings ? 1 : -1 }))                
+                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings> b.jobOpenings ? -1 : 1 }))                
                 break
             case 'Low to High':
-                console.log('Increase by jobs')
-                setFilteredOccupationsList(filteredOccupationsList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings < b.jobOpenings ? 1 : -1 }))                
+                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings < b.jobOpenings ? -1 : 1 }))                
                 break
-            default: 
-                console.log('no sorting')
         }
-    }, [sortedOccupationsList])
+    }, [occupationsSortOption])
 
     function getIndustryParams(params: IndustryTypeModel) {
         let industryIds = '-1'
@@ -83,14 +80,14 @@ const ResultsTable: FunctionComponent = () => {
 
     const nameContent = (
         <div>
-            <Row><Col><Button style={{border: 'none'}} onClick={()=>  setSortedOccupationsList('A-Z')}> A - Z </Button></Col></Row>
-            <Row><Col><Button style={{border: 'none'}} onClick={()=>  setSortedOccupationsList('Z-A')}> Z - A </Button></Col></Row>
+            <Row><Col><Button style={{border: 'none'}} onClick={()=>  setOccupationsSortOption('A-Z')}> A - Z </Button></Col></Row>
+            <Row><Col><Button style={{border: 'none'}} onClick={()=>  setOccupationsSortOption('Z-A')}> Z - A </Button></Col></Row>
         </div>
     )
     const jobContent = (
         <div>
-            <Row><Col><Button style={{border: 'none'}} onClick={() =>  setSortedOccupationsList('High to Low')}> High to Low </Button></Col></Row>
-            <Row><Col><Button style={{border: 'none'}} onClick={() =>  setSortedOccupationsList('Low to High')}> Low to High </Button></Col></Row>
+            <Row><Col><Button style={{border: 'none'}} onClick={() =>  setOccupationsSortOption('High to Low')}> High to Low </Button></Col></Row>
+            <Row><Col><Button style={{border: 'none'}} onClick={() =>  setOccupationsSortOption('Low to High')}> Low to High </Button></Col></Row>
         </div>
     )
 
@@ -106,8 +103,8 @@ const ResultsTable: FunctionComponent = () => {
             </div>),
             dataIndex: 'nocAndTitle',
             width:'65%',
-            render: (text) => {
-                return (<a> {text} </a>)
+            render: (text, record: OccupationModel) => {
+                return (<span> <a> {text} {record.noc}</a> </span>)
             },
         },
         {
@@ -123,27 +120,17 @@ const ResultsTable: FunctionComponent = () => {
         {
             title: 'Compare (up to 3 Careers)',
             dataIndex: 'compare',
-            render: () => {
+            render: (text, record: OccupationModel) => {
                 if (filteredOccupationsList && filteredOccupationsList.length > 1) {
-                    return (<Checkbox disabled={selectedCheckBoxes > 2} onChange={handleSelectCheckBox}></Checkbox>)
+                    return (<Checkbox disabled={selectedCheckBoxes > 2}></Checkbox>)
                 }
             }
         }
     ]
 
-    function handleSelectCheckBox (event: CheckboxChangeEvent) {
-        event.target.checked? setSelectedCheckBoxes(selectedCheckBoxes+1) : setSelectedCheckBoxes(selectedCheckBoxes-1)
-    }
-
-    function onSelect(nocCode: string) {
-        setSelectedNoc(nocCode)
-    }
-
     function onRow(record: any) {
         return {
-            onClick: () => {
-                onSelect(record.noc)
-            }
+            onClick: () => {}
         }
     }
 
@@ -153,7 +140,7 @@ const ResultsTable: FunctionComponent = () => {
 
     return (<div>
                 {!isValidating && isSettled && <Table
-                    rowClassName={(record, index) =>  !record.enabled && (index % 2 === 0 ? 'ant-table-row-light' :  'ant-table-row-dark')}
+                    rowClassName={(record, index) => index % 2 === 0 ? 'ant-table-row-light' :  'ant-table-row-dark'}
                     columns={columns}
                     dataSource={getDatasource()}
                     rowKey="noc"

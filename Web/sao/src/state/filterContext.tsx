@@ -8,7 +8,8 @@ export interface FilterState {
     selectedNoc : string,
     showCompareView: boolean,
     isReset: boolean,
-    selectedCheckBoxes: number
+    selectedCheckBoxes: number,
+    checkedNocs: string[]
 }
 export interface FilterContextProps extends FilterState {
     setFilterOption: (filterOptions: FilterOptionModel) => void,
@@ -16,7 +17,8 @@ export interface FilterContextProps extends FilterState {
     setFilteredOccupationsList: (occupationsList: OccupationModel[]) => void,
     setSelectedNoc: (nocId: string) => void,
     setShowCompareView: (value: boolean) => void,
-    setSelectedCheckBoxes: (value: number) => void
+    setSelectedCheckBoxes: (value: number) => void,
+    setCheckedNocs: (value: string[]) => void
 }
 
 const FilterContext = createContext<FilterContextProps>({
@@ -26,18 +28,20 @@ const FilterContext = createContext<FilterContextProps>({
     showCompareView: false,
     isReset: true,
     selectedCheckBoxes: 0,
+    checkedNocs: [],
     setFilterOption: () => {},
     resetOptions: () => {},
     setFilteredOccupationsList: () => {},
     setSelectedNoc: () => {},
     setShowCompareView: () => {},
-    setSelectedCheckBoxes: () => {}
+    setSelectedCheckBoxes: () => {},
+    setCheckedNocs: () =>{}
 })
 
 FilterContext.displayName = 'FilterContext'
 
 const FilterContextProvider: FunctionComponent = ({children}) => {
-    const [{filterOption, filteredOccupationsList, selectedNoc, showCompareView, isReset, selectedCheckBoxes}, dispatch] = useReducer(reducer, defaultFilterState)
+    const [{filterOption, filteredOccupationsList, selectedNoc, showCompareView, isReset, selectedCheckBoxes, checkedNocs}, dispatch] = useReducer(reducer, defaultFilterState)
 
     async function setFilterOption(filterOptions: FilterOptionModel) {
         try {
@@ -47,7 +51,7 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
         }
     }
 
-    async function setFilteredOccupationsList(occupationList: OccupationModel[] | undefined) {
+    async function setFilteredOccupationsList(occupationList: OccupationModel[]) {
         try {
             dispatch({ type: 'set-filtered-occupation-list', payload: occupationList})
         } catch (error) {
@@ -83,6 +87,14 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
         dispatch({type: 'reset'})
     }
 
+    async function setCheckedNocs(value: string[]) {
+        try {
+            dispatch({type: 'set-checked-nocs', payload: value})
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <FilterContext.Provider 
             value = {{ 
@@ -92,12 +104,14 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
                 showCompareView,
                 isReset,
                 selectedCheckBoxes,
+                checkedNocs,
                 setSelectedNoc,
                 setFilterOption, 
                 resetOptions, 
                 setShowCompareView,
                 setSelectedCheckBoxes,
-                setFilteredOccupationsList }}> 
+                setFilteredOccupationsList, 
+                setCheckedNocs }}> 
             {children}
         </FilterContext.Provider>
     )
