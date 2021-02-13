@@ -9,10 +9,8 @@ import { useGetOccupationsList } from '../client/apiService'
 import { defaultFilterParams } from '../state/filterReducer'
 
 const ResultsTable: FunctionComponent = () => {
-    const { filterOption, filteredOccupationsList, isReset, checkedNocs,
+    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, setSortOption,
         setSelectedNoc, setFilteredOccupationsList, setCheckedNocs } = useFilterContext()
-
-    const [occupationsSortOption, setOccupationsSortOption] = useState<string>('')
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
@@ -35,7 +33,7 @@ const ResultsTable: FunctionComponent = () => {
 
     useEffect(() => {
         let tempList = [...filteredOccupationsList]
-        switch(occupationsSortOption) {
+        switch(sortOption) {
             case 'A-Z':
                 const sortedOrder = tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.nocAndTitle < b.nocAndTitle ? -1 : 1 })
                 setFilteredOccupationsList(sortedOrder)                
@@ -50,7 +48,7 @@ const ResultsTable: FunctionComponent = () => {
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings < b.jobOpenings ? -1 : 1 }))                
                 break
         }
-    }, [occupationsSortOption])
+    }, [sortOption])
 
     function getIndustryParams(params: IndustryTypeModel) {
         let industryIds = '-1'
@@ -80,14 +78,14 @@ const ResultsTable: FunctionComponent = () => {
 
     const nameContent = (
         <div>
-            <Row><Col><Button style={{border: 'none'}} onClick={()=>  setOccupationsSortOption('A-Z')}> A - Z </Button></Col></Row>
-            <Row><Col><Button style={{border: 'none'}} onClick={()=>  setOccupationsSortOption('Z-A')}> Z - A </Button></Col></Row>
+            <Row><Col><Button style={{border: 'none'}} onClick={()=>  setSortOption('A-Z')}> A - Z </Button></Col></Row>
+            <Row><Col><Button style={{border: 'none'}} onClick={()=>  setSortOption('Z-A')}> Z - A </Button></Col></Row>
         </div>
     )
     const jobContent = (
         <div>
-            <Row><Col><Button style={{border: 'none'}} onClick={() =>  setOccupationsSortOption('High to Low')}> High to Low </Button></Col></Row>
-            <Row><Col><Button style={{border: 'none'}} onClick={() =>  setOccupationsSortOption('Low to High')}> Low to High </Button></Col></Row>
+            <Row><Col><Button style={{border: 'none'}} onClick={() =>  setSortOption('High to Low')}> High to Low </Button></Col></Row>
+            <Row><Col><Button style={{border: 'none'}} onClick={() =>  setSortOption('Low to High')}> Low to High </Button></Col></Row>
         </div>
     )
 
