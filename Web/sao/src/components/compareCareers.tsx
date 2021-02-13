@@ -51,7 +51,7 @@ const CompareCareers: FunctionComponent = () => {
     function getCareerDetail(careerObj: OccupationSummaryObj) {
         return (
             <div className="result-detail">
-                <div className="result-detail__header">{careerDetail[0].careerDetail.title} <span>(NOC {careerObj.nocId})</span></div>
+                <div className="result-detail__header">{careerObj.careerDetail.title} <span>(NOC {careerObj.nocId})</span></div>
                 <div  className="result-detail__thumbnail"><img src={profileImagesPath+getProfileImageName(careerObj.nocId)} alt='career profile pic'/></div>
                 <div className="result-detail__body result-body">
                     <div className="result-body__row">
