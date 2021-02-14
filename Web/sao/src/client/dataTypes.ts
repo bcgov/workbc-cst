@@ -75,8 +75,13 @@ export interface OccupationSummary {
     jobOpenings: number
 }
 
+export interface OccupationSummaryObj {
+    nocId: string, 
+    careerDetail: OccupationSummary
+}
+
 export interface OccupationSummaryResponse {
-    data: OccupationSummary[] | undefined,
+    data: OccupationSummary[],
     isValidating: boolean,
     isSettled: boolean
 }

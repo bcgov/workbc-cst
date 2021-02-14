@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace SearchAllOccupationsToolAPI.Models
@@ -17,7 +18,6 @@ namespace SearchAllOccupationsToolAPI.Models
 
         [JsonPropertyName("jobOpenings")]
         public int JobOpenings { get; set; }
-
         //public string DebugInfo { get; set; }
     }
 }

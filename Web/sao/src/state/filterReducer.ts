@@ -27,7 +27,8 @@ export interface FilterState {
     selectedNoc: string,
     showCompareView: boolean,
     isReset: boolean,
-    selectedCheckBoxes: number
+    checkedNocs: string[],
+    sortOption: string
 }
 
 export const defaultFilterState: FilterState = Object.freeze({
@@ -35,8 +36,9 @@ export const defaultFilterState: FilterState = Object.freeze({
     filteredOccupationsList: [],
     selectedNoc: 'default',
     showCompareView: false,
-    selectedCheckBoxes: 0,
-    isReset: true
+    isReset: true,
+    checkedNocs: [],
+    sortOption: ''
 })
 
 export type FilterAction = 
@@ -45,12 +47,15 @@ export type FilterAction =
 {type: 'set-filter-options', payload: FilterOptionModel} |
 {type: 'set-show-compare-view', payload: boolean} |
 {type: 'set-selected-boxes', payload: number} |
+{type: 'set-checked-nocs', payload: string[]} |
+{type: 'set-sort-option', payload: string} |
 {type: 'reset'}
 
 export function reducer(state: FilterState = defaultFilterState , action: FilterAction): FilterState {
     switch(action.type) {        
-        case 'set-filtered-occupation-list': 
-            return ({...state, filteredOccupationsList: action.payload})
+        case 'set-filtered-occupation-list': //sorts table results from high to low job openings and displays preview of career with max openings
+            action.payload = state.sortOption === ''? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings> b.jobOpenings ? -1 : 1 }): action.payload
+            return ({...state, filteredOccupationsList: action.payload, selectedNoc: action.payload[0]?.noc})
         
         case 'set-selected-noc':
             return ({...state, selectedNoc: action.payload})
@@ -61,10 +66,13 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
         case 'set-show-compare-view': 
             return ({...state, showCompareView: action.payload})
 
-        case 'set-selected-boxes': 
-            return ({...state, selectedCheckBoxes: action.payload})
+        case 'set-checked-nocs':
+            return ({...state, checkedNocs: action.payload})
+
+        case 'set-sort-option':
+            return ({...state, sortOption: action.payload})
 
         case 'reset': 
-            return ({...state, ...defaultFilterState, isReset: !state.isReset })
+            return ({...state, ...defaultFilterState, isReset: !state.isReset})
     }
 }

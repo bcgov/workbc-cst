@@ -23,8 +23,13 @@ namespace SearchAllOccupationsToolAPI.Repositories
 
         public Task<List<OccupationListItem>> GetOccupationsAsync(OccupationSearchFilter filter)
         {
-            var occupations = _context.NOCs
-                .Include(no => no.JobOpenings)
+            // Always force BC if we have no geographic filter set
+            if (!filter.GeographicAreaId.HasValue || filter.GeographicAreaId < 0)
+                filter.GeographicAreaId = _geographicAreasRepository.GetBritishColumbiaId();
+
+            var occupations = _context.JobOpenings
+                .Include(no => no.Noc)
+//                .ThenInclude(jo => jo.GeographicArea) // We always filter on Geo
                 .AsNoTracking()
                 .AsQueryable();
 
@@ -36,14 +41,14 @@ namespace SearchAllOccupationsToolAPI.Repositories
                     .Select(c => c.Noc.Id)
                     .Distinct();
 
-                occupations = occupations.Where(o => o.NocCode.Equals(filter.Keywords) || o.Description.Contains(filter.Keywords) || jobTitles.Contains(o.Id));
+                occupations = occupations.Where(o => o.Noc.NocCode.Equals(filter.Keywords) || o.Noc.Description.Contains(filter.Keywords) || jobTitles.Contains(o.Id));
             }
 
             if (filter.EducationLevelId > 0)
-                occupations = occupations.Where(o => o.EducationLevel.Id == filter.EducationLevelId);
+                occupations = occupations.Where(o => o.Noc.EducationLevel.Id == filter.EducationLevelId);
 
             if (filter.FullTimeOrPartTimeId > 0)
-                occupations = occupations.Where(o => o.FullOrPartTime.Id == filter.FullTimeOrPartTimeId);
+                occupations = occupations.Where(o => o.Noc.FullOrPartTime.Id == filter.FullTimeOrPartTimeId);
 
             if (filter.AnnualSalaryId > 0)
             {
@@ -52,91 +57,70 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 switch (salaryChoice)
                 {
                     case AnnualSalaryValues.LessThan20:
-                        occupations = occupations.Where(o => o.MedianSalary < 20000);
+                        occupations = occupations.Where(o => o.Noc.MedianSalary < 20000);
                         break;
                     case AnnualSalaryValues.Between20And40:
-                        occupations = occupations.Where(o => o.MedianSalary >= 20000 && o.MedianSalary < 40000);
+                        occupations = occupations.Where(o => o.Noc.MedianSalary >= 20000 && o.Noc.MedianSalary < 40000);
                         break;
                     case AnnualSalaryValues.Between40And60:
-                        occupations = occupations.Where(o => o.MedianSalary >= 40000 && o.MedianSalary < 60000);
+                        occupations = occupations.Where(o => o.Noc.MedianSalary >= 40000 && o.Noc.MedianSalary < 60000);
                         break;
                     case AnnualSalaryValues.Between60And80:
-                        occupations = occupations.Where(o => o.MedianSalary >= 60000 && o.MedianSalary < 80000);
+                        occupations = occupations.Where(o => o.Noc.MedianSalary >= 60000 && o.Noc.MedianSalary < 80000);
                         break;
                     case AnnualSalaryValues.Between80And100:
-                        occupations = occupations.Where(o => o.MedianSalary >= 80000 && o.MedianSalary < 100000);
+                        occupations = occupations.Where(o => o.Noc.MedianSalary >= 80000 && o.Noc.MedianSalary < 100000);
                         break;
                     case AnnualSalaryValues.Between100And120:
-                        occupations = occupations.Where(o => o.MedianSalary >= 100000 && o.MedianSalary < 120000);
+                        occupations = occupations.Where(o => o.Noc.MedianSalary >= 100000 && o.Noc.MedianSalary < 120000);
                         break;
                     case AnnualSalaryValues.Between120And140:
-                        occupations = occupations.Where(o => o.MedianSalary >= 120000 && o.MedianSalary < 140000);
+                        occupations = occupations.Where(o => o.Noc.MedianSalary >= 120000 && o.Noc.MedianSalary < 140000);
                         break;
                     case AnnualSalaryValues.Over140:
-                        occupations = occupations.Where(o => o.MedianSalary >= 140000);
+                        occupations = occupations.Where(o => o.Noc.MedianSalary >= 140000);
                         break;
                 }
             }
 
-            // Always force BC if we have no geographic filter set
-            if (!filter.GeographicAreaId.HasValue || filter.GeographicAreaId < 0)
-                filter.GeographicAreaId = _geographicAreasRepository.GetBritishColumbiaId();
-
             if (filter.GeographicAreaId > 0)
             {
                 occupations = occupations
-                    .Include(no => no.JobOpenings)
-                    .ThenInclude(jo => jo.GeographicArea);
-                occupations = occupations.Where(o => o.JobOpenings.Any(jo => jo.GeographicArea.Id == filter.GeographicAreaId));
+                    .Include(no => no.GeographicArea);;
+                occupations = occupations.Where(o => o.GeographicArea.Id == filter.GeographicAreaId);
                 // NOCOccupationGroup also has a Geographic Area. Do we filter?
             }
 
             if (filter.IndustryIds.Any())
             {
                 occupations = occupations
-                    .Include(no => no.JobOpenings)
-                    .ThenInclude(jo => jo.Industry);
-                occupations = occupations.Where(o => o.JobOpenings.Any(jo => filter.IndustryIds.Contains(jo.Industry.Id)));
+                    .Include(no => no.Industry);
+                occupations = occupations.Where(o => filter.IndustryIds.Contains(o.Industry.Id));
             }
 
             if (filter.SubIndustryIds.Any())
             {
                 occupations = occupations
-                    .Include(no => no.JobOpenings)
-                    .ThenInclude(jo => jo.SubIndustry);
-                occupations = occupations.Where(o => o.JobOpenings.Any(jo => filter.SubIndustryIds.Contains(jo.SubIndustry.Id)));
+                    .Include(no => no.SubIndustry);
+                occupations = occupations.Where(o => filter.SubIndustryIds.Contains(o.SubIndustry.Id));
             }
 
             if (filter.OccupationalInterestId > 0)
-                occupations = occupations.Where(o => o.OccupationInterests.Any(og => og.OccupationalInterest.Id == filter.OccupationalInterestId));
+                occupations = occupations.Where(o => o.Noc.OccupationInterests.Any(og => og.OccupationalInterest.Id == filter.OccupationalInterestId));
 
             if (filter.OccupationalGroupId > 0)
-                occupations = occupations.Where(o => o.OccupationalGroups.Any(og => og.OccupationalGroup.Id == filter.OccupationalGroupId));
+                occupations = occupations.Where(o => o.Noc.OccupationalGroups.Any(og => og.OccupationalGroup.Id == filter.OccupationalGroupId));
 
-            return occupations.Select(o => new OccupationListItem
+            return occupations
+                .GroupBy(o => new { NocCode = o.Noc.NocCode, NocDescription = o.Noc.Description, NocId = o.Noc.Id })
+                .Select(o => new OccupationListItem
                 {
-                    Id = o.Id,
-                    JobOpenings = JobOpenings(o, filter),  // This might not be filtered down correctly or reflecting filters that restrict it
-                    NOC = o.NocCode,
-                    NOCAndTitle = $"{o.Description} ({o.NocCode})"
+                    Id = o.Key.NocId,
+                    NOC = o.Key.NocCode,
+                    NOCAndTitle = $"{o.Key.NocDescription} ({o.Key.NocCode})",
+                    JobOpenings = o.Sum(jo => jo.JobOpenings)
                 })
                 .ToListAsync();
-        }
-
-        private static int JobOpenings(NOC o, OccupationSearchFilter filter)
-        {
-            var occ = o.JobOpenings.AsQueryable();
-
-            if (filter.GeographicAreaId > 0)
-                occ = occ.Where(oi => oi.GeographicArea.Id == filter.GeographicAreaId.Value);
-
-            if (filter.IndustryIds.Any()) 
-                occ = occ.Where(oi => filter.IndustryIds.Contains(oi.Industry.Id));
-
-            if (filter.SubIndustryIds.Any()) 
-                occ = occ.Where(oi => filter.SubIndustryIds.Contains(oi.SubIndustry.Id));
-
-            return occ.Sum(oi => oi.JobOpenings);
         }
 
         public List<Occupation> GetNocList(string nocs)

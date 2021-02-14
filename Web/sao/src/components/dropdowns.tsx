@@ -208,7 +208,7 @@ const Dropdowns: FunctionComponent = () => {
                         </Col>
                         <Col xs={24} lg={4}> 
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label">Part-time Option ? </label>
+                                <label className="sao-filters__label">Job Type ? </label>
                                 <SelectFilterType  
                                     filterType={FilterType.part_time_option}
                                     style={{ width: '100%' }}
