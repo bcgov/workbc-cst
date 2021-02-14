@@ -8,6 +8,8 @@ import { useGetIndustryData } from '../client/apiService'
 import {modifyIndustryData} from '../client/modifyAPIData'
 import { defaultFilterOption } from '../state/filterReducer'
 import Results from './results'
+import Header from './header'
+import Footer from './footer'
 
 const Dropdowns: FunctionComponent = () => {
     const { data: industryData, isValidating, isSettled } = useGetIndustryData(FilterType.industry)
@@ -120,6 +122,7 @@ const Dropdowns: FunctionComponent = () => {
 
     return (
         <div>
+            <Header />
             <div className="sao-filters-header">
                 <div className="container">
                     <Row><Col span={24}>
@@ -255,6 +258,7 @@ const Dropdowns: FunctionComponent = () => {
             <div>
                 <Results />
             </div>
+            <Footer />
         </div>
     );
 }

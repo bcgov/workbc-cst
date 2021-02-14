@@ -1,0 +1,60 @@
+//Tools and Resources Section
+.tools-resources{
+    background: @dark-blue;
+    text-align: center;
+    padding: 3rem 0 8rem;
+    &__header{
+        color: white;
+    }
+    //Card or Column Element for tools and resources
+    &-card{
+        border-right: 2px solid #405E80;
+        padding: 0 2rem;
+        height: 100%;
+        &__header, &__body{
+            color:white;
+        }
+        &--last{
+            border:none;
+        }
+    }
+}
+
+
+//Footer Container
+.footer{
+    padding: 2rem 0;
+}
+
+//Main content for footer
+.footer-content{
+    .flex-display();
+    .flex-wrap(wrap);
+    //Work bc social logo
+    &__social-icons{
+        margin-left: auto;
+    }
+    //Copyright and Government Images
+    &__copyright{
+        margin-top: 2rem;
+        padding: 2rem 0 0;
+        width: 100%;
+        .flex(0 0 auto);
+        border-top: thin solid @border-grey-thin;
+    }
+}
+
+//General Styles for the Social Icons
+.footer-icon {
+    height: 35px;
+    width: 35px;
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentcolor;
+    line-height: 20px;
+    margin-left: 1rem;    
+    &:hover{
+      border-radius: 50px;
+      transform: scale(1.2);
+    } 
+}
