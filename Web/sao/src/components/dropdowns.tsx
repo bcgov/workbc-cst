@@ -179,7 +179,6 @@ const Dropdowns: FunctionComponent = () => {
                         <Col xs={24} lg={8}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label"> Industry ? </label>
-                                {isSettled && !isValidating&& industryDataTree && (
                                     <TreeSelect allowClear
                                         placeholder="All"
                                         showArrow={true}
@@ -188,7 +187,6 @@ const Dropdowns: FunctionComponent = () => {
                                         onChange={handleChangeIndustry}
                                         value={getIndustryValues()}
                                         style={{width: '100%'}} />
-                                )}
                             </div>
                         </Col>
                     </Row>
