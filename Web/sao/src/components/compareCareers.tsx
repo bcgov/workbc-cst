@@ -6,7 +6,7 @@ import {OccupationSummaryObj} from '../client/dataTypes'
 import {useGetOccupationSummary, useGetSystemConfigurations} from '../client/apiService'
 
 const CompareCareers: FunctionComponent = () => {
-    const {setShowCompareView, checkedNocs} = useFilterContext()
+    const {setShowCompareView, checkedNocs, setCheckedNocs} = useFilterContext()
 
     const [careerDetail, setCareerDetail] = useState<OccupationSummaryObj[]>([])
     const [profileImagesPath, setProfileImagesPath] = useState<string>()
@@ -89,7 +89,7 @@ const CompareCareers: FunctionComponent = () => {
                 <span style={{float: 'right'}}>
                     <Button style={{border: 'none'}}> <PrinterOutlined/> </Button>
                     <Button style={{border: 'none'}}> <MailOutlined/> </Button>
-                    <Button style={{border: 'none'}} onClick={()=> setShowCompareView(false)}> <CloseOutlined /> </Button>
+                    <Button style={{border: 'none'}} onClick={()=> {setShowCompareView(false); setCheckedNocs([])}}> <CloseOutlined /> </Button>
                 </span>
             </h1>
             {
