@@ -116,7 +116,7 @@ const results: FunctionComponent = () => {
                 </Col>
             </Row>
             <Row>
-                <Col span={16}>
+                <Col xs={24} lg={16}>
                     {   (<ResultsTable/>) }
                 </Col>
                 {(!selectedNoc || selectedNoc === "default") && (   // Carousel code can be removed if not used at anytime in future
@@ -136,7 +136,7 @@ const results: FunctionComponent = () => {
                    </Col>)
                }
                 {selectedNoc!=="default" && filteredOccupationsList && filteredOccupationsList?.length >= 0 &&
-                (<Col span={8}>
+                (<Col xs={24} lg={8}>
                     <div className="result-detail">
                         <div className="result-detail__header">
                             {occupationDetail?.title} <span className="result-detail__header--noc">(NOC {occupationDetail?.noc})</span>
