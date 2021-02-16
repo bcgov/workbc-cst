@@ -73,8 +73,6 @@ const Dropdowns: FunctionComponent = () => {
         return regionContent
     }
 
-    
-
     function handleChangeRegion(value: Key, options: any) {
         try {
             if (!!value && !!options && options.value) {
