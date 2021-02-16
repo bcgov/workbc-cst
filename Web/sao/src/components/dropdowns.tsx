@@ -1,6 +1,6 @@
 import React, { FunctionComponent, Key, useEffect, useState } from 'react'
-import { Input, Row, Col, Button, TreeSelect} from 'antd'
-import { SyncOutlined } from '@ant-design/icons'
+import { Input, Row, Col, Button, TreeSelect, Popover} from 'antd'
+import { SyncOutlined, QuestionCircleFilled, CheckCircleFilled } from '@ant-design/icons'
 import SelectFilterType from './wbSelectFilterType'
 import { FilterType, FilterOptionModel, IndustryData } from '../client/dataTypes'
 import { useFilterContext } from '../state/filterContext'
@@ -34,6 +34,36 @@ const Dropdowns: FunctionComponent = () => {
             setIndustryDataTree(modifyIndustryData(industryData))
         }
     }, [industryData, isValidating, isSettled])
+
+    function getHoverContent(filtername: string) {
+        switch (filtername)  {
+            case 'Region': 
+                return (<div> Careers based on 10-year job openings (2019-2029) within a region </div>)
+            case 'Education': 
+                return (<div> Careers based on educational requirements that you have or want to achieve </div>)
+            case 'OccupationalCategory': 
+                return (<div>
+                    <p> Quick links to selected groupings of careers </p>
+                    <p> High oppurtunity occupations are those expected to have higher demand within B.C.</p>
+                </div>)
+            case 'JobType':
+                return (<div> Careers with a high or low share of part-time workers</div>)
+            case 'Keywords':
+                return (<div> The <b>National Occupational Classifications System (NOC) </b> classifies all occupations in Canada</div>)
+        }
+    }
+
+    function getPopOver(filtername: string) {
+        const regionContent = (
+            <div>
+                <CheckCircleFilled />
+                {getHoverContent(filtername)}
+            </div>
+        )
+        return regionContent
+    }
+
+    
 
     function handleChangeRegion(value: Key, options: any) {
         try {
@@ -139,7 +169,9 @@ const Dropdowns: FunctionComponent = () => {
                     <Row className="sao-filters__row">
                         <Col xs={24} lg={6}>
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label">Region ?</label>
+                                <label className="sao-filters__label">Region 
+                                    <Popover placement="top" content={getPopOver('Region')}>  <QuestionCircleFilled /> </Popover>                                   
+                                </label>
                                 <SelectFilterType  
                                     filterType={FilterType.region}
                                     showArrow={true}
@@ -152,7 +184,9 @@ const Dropdowns: FunctionComponent = () => {
                         </Col>
                         <Col xs={24} lg={4}> 
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label">Education ? </label>
+                                <label className="sao-filters__label">Education 
+                                    <Popover placement="top" content={getPopOver('Education')}>  <QuestionCircleFilled /> </Popover>
+                                </label>
                                 <SelectFilterType  
                                     filterType={FilterType.education}
                                     showArrow={true}
@@ -165,7 +199,7 @@ const Dropdowns: FunctionComponent = () => {
                         </Col>
                         <Col xs={24} lg={6}> 
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label">Occupational Interest ?</label>
+                                <label className="sao-filters__label">Occupational Interest <QuestionCircleFilled /></label>
                                 <SelectFilterType  
                                     filterType={FilterType.occupational_interest}
                                     showArrow={true}
@@ -178,7 +212,7 @@ const Dropdowns: FunctionComponent = () => {
                         </Col>
                         <Col xs={24} lg={8}>
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label"> Industry ? </label>
+                                <label className="sao-filters__label"> Industry <QuestionCircleFilled /> </label>
                                     <TreeSelect allowClear
                                         placeholder="All"
                                         showArrow={true}
@@ -193,7 +227,9 @@ const Dropdowns: FunctionComponent = () => {
                     <Row className="sao-filters__row">
                         <Col xs={24} lg={6}>
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label"> Occupational Group ? </label>
+                                <label className="sao-filters__label"> Occupational Category 
+                                    <Popover placement="top" content={getPopOver('OccupationalCategory')}>  <QuestionCircleFilled /> </Popover> 
+                                </label>
                                 <SelectFilterType  
                                     filterType={FilterType.occupational_group}
                                     showArrow={true}
@@ -206,7 +242,9 @@ const Dropdowns: FunctionComponent = () => {
                         </Col>
                         <Col xs={24} lg={4}> 
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label">Job Type ? </label>
+                                <label className="sao-filters__label">Job Type 
+                                    <Popover placement="top" content={getPopOver('JobType')}>  <QuestionCircleFilled /> </Popover> 
+                                </label>
                                 <SelectFilterType  
                                     filterType={FilterType.part_time_option}
                                     style={{ width: '100%' }}
@@ -219,7 +257,7 @@ const Dropdowns: FunctionComponent = () => {
                         </Col>
                         <Col xs={24} lg={6}> 
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label">Annual Salary ? </label>
+                                <label className="sao-filters__label">Annual Salary </label>
                                 <SelectFilterType  
                                     filterType={FilterType.annual_salary}
                                     style={{ width: '100%' }}
@@ -232,7 +270,9 @@ const Dropdowns: FunctionComponent = () => {
                         </Col>
                         <Col xs={24} lg={8}>
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label"> Keyword ? </label>
+                                <label className="sao-filters__label"> Keyword
+                                    <Popover placement="top" content={getPopOver('Keywords')}>  <QuestionCircleFilled /> </Popover> 
+                                </label>
                                 <Input placeholder="Enter career title, Keyword(s) or NOC"
                                     value= {userSelection?.keyword}
                                     style={{ width: '100%' }}

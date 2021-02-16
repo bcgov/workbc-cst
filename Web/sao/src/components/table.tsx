@@ -9,8 +9,8 @@ import { useGetOccupationsList } from '../client/apiService'
 import { defaultFilterParams } from '../state/filterReducer'
 
 const ResultsTable: FunctionComponent = () => {
-    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, setSortOption,
-        setSelectedNoc, setFilteredOccupationsList, setCheckedNocs } = useFilterContext()
+    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc,
+        setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs } = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
@@ -102,7 +102,7 @@ const ResultsTable: FunctionComponent = () => {
             dataIndex: 'nocAndTitle',
             width:'65%',
             render: (text, record: OccupationModel) => {
-                return (<span onClick={() => handleSelectedNoc(record)}> <a> {text} </a> </span>)
+                return (<span onClick={() => handleSelectedNoc(record)}> <a className = {selectedNoc === record.noc? 'selected': ''}> {text} </a> </span>)
             },
         },
         {

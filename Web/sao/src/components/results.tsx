@@ -119,7 +119,7 @@ const results: FunctionComponent = () => {
                 <Col span={16}>
                     {   (<ResultsTable/>) }
                 </Col>
-                {(!selectedNoc || selectedNoc === "default") && (
+                {(!selectedNoc || selectedNoc === "default") && (   // Carousel code can be removed if not used at anytime in future
                    <Col span={8}>
                        <h2>Please select a career to preview</h2>
                         <Carousel autoplay>
@@ -154,6 +154,9 @@ const results: FunctionComponent = () => {
                             <div className="result-body__row result-body__row--last">
                                 <div className="result-body__row-left">Job Openings (2019 - 2029) </div>
                                 <div className="result-body__row-right"><b>{occupationDetail?.jobOpenings}</b></div>
+                            </div>
+                            <div className="result-body__row result-body__row--last">
+                                <div>{occupationDetail?.description}</div>
                             </div>
                         </div>
                         <div className="result-detail__footer">                            
