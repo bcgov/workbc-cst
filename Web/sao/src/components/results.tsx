@@ -5,7 +5,6 @@ import { useFilterContext } from '../state/filterContext'
 import { useGetOccupationSummary, useGetSystemConfigurations } from '../client/apiService'
 import { OccupationSummary} from '../client/dataTypes'
 import ResultsTable from './table'
-import Ellipsis from 'ant-design-pro/lib/Ellipsis';
 
 const results: FunctionComponent = () => {
     const { filteredOccupationsList, selectedNoc, checkedNocs,
@@ -157,9 +156,7 @@ const results: FunctionComponent = () => {
                                 <div className="result-body__row-right"><b>{occupationDetail?.jobOpenings}</b></div>
                             </div>
                             <div className="result-body__row result-body__row--last">
-                                <div>
-                                    <Ellipsis length={250} tooltip>{occupationDetail?.description}</Ellipsis>
-                                </div>
+                                <div>{occupationDetail?.description}</div>
                             </div>
                         </div>
                         <div className="result-detail__footer">                            
