@@ -8,6 +8,8 @@ import { useGetIndustryData } from '../client/apiService'
 import {modifyIndustryData} from '../client/modifyAPIData'
 import { defaultFilterOption } from '../state/filterReducer'
 import Results from './results'
+import Header from './header'
+import Footer from './footer'
 
 const Dropdowns: FunctionComponent = () => {
     const { data: industryData, isValidating, isSettled } = useGetIndustryData(FilterType.industry)
@@ -120,6 +122,7 @@ const Dropdowns: FunctionComponent = () => {
 
     return (
         <div>
+            <Header />
             <div className="sao-filters-header">
                 <div className="container">
                     <Row><Col span={24}>
@@ -176,7 +179,6 @@ const Dropdowns: FunctionComponent = () => {
                         <Col xs={24} lg={8}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label"> Industry ? </label>
-                                {isSettled && !isValidating&& industryDataTree && (
                                     <TreeSelect allowClear
                                         placeholder="All"
                                         showArrow={true}
@@ -185,7 +187,6 @@ const Dropdowns: FunctionComponent = () => {
                                         onChange={handleChangeIndustry}
                                         value={getIndustryValues()}
                                         style={{width: '100%'}} />
-                                )}
                             </div>
                         </Col>
                     </Row>
@@ -255,6 +256,7 @@ const Dropdowns: FunctionComponent = () => {
             <div>
                 <Results />
             </div>
+            <Footer />
         </div>
     );
 }

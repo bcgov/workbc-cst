@@ -6,7 +6,7 @@ import {OccupationSummaryObj} from '../client/dataTypes'
 import {useGetOccupationSummary, useGetSystemConfigurations} from '../client/apiService'
 
 const CompareCareers: FunctionComponent = () => {
-    const {setShowCompareView, checkedNocs} = useFilterContext()
+    const {setShowCompareView, checkedNocs, setCheckedNocs} = useFilterContext()
 
     const [careerDetail, setCareerDetail] = useState<OccupationSummaryObj[]>([])
     const [profileImagesPath, setProfileImagesPath] = useState<string>()
@@ -39,7 +39,18 @@ const CompareCareers: FunctionComponent = () => {
         const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(noc)
         useEffect(() => {
             if(!isFetchingSummary && isSummaryFetched && occupationSummary) {
-                setCareerDetail([...careerDetail, {nocId: occupationSummary[0].noc, careerDetail: occupationSummary[0]}])
+                let newCareerDetail = [... careerDetail]
+                let nocMatch = false
+                newCareerDetail.forEach((career, index) => {
+                    if(career.nocId === occupationSummary[0].noc) {
+                        newCareerDetail[index] = {nocId: occupationSummary[0].noc, careerDetail: occupationSummary[0]}
+                        nocMatch = true
+                    }
+                })
+                if(!nocMatch) {
+                     newCareerDetail = [...newCareerDetail, {nocId: occupationSummary[0].noc, careerDetail: occupationSummary[0]}]
+                }
+                setCareerDetail(newCareerDetail)
             }
         }, [isFetchingSummary, isSummaryFetched])
     })
@@ -51,7 +62,7 @@ const CompareCareers: FunctionComponent = () => {
     function getCareerDetail(careerObj: OccupationSummaryObj) {
         return (
             <div className="result-detail">
-                <div className="result-detail__header">{careerDetail[0].careerDetail.title} <span>(NOC {careerObj.nocId})</span></div>
+                <div className="result-detail__header">{careerObj.careerDetail.title} <span>(NOC {careerObj.nocId})</span></div>
                 <div  className="result-detail__thumbnail"><img src={profileImagesPath+getProfileImageName(careerObj.nocId)} alt='career profile pic'/></div>
                 <div className="result-detail__body result-body">
                     <div className="result-body__row">
@@ -89,7 +100,7 @@ const CompareCareers: FunctionComponent = () => {
                 <span style={{float: 'right'}}>
                     <Button style={{border: 'none'}}> <PrinterOutlined/> </Button>
                     <Button style={{border: 'none'}}> <MailOutlined/> </Button>
-                    <Button style={{border: 'none'}} onClick={()=> setShowCompareView(false)}> <CloseOutlined /> </Button>
+                    <Button style={{border: 'none'}} onClick={()=> {setShowCompareView(false)}}> <CloseOutlined /> </Button>
                 </span>
             </h1>
             {
