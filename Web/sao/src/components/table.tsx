@@ -76,6 +76,10 @@ const ResultsTable: FunctionComponent = () => {
         return filterParams
     }    
 
+    function isChecked(nocId: string): boolean {
+        return checkedNocs.find(noc => noc === nocId)? true: false
+    }
+
     const nameContent = (
         <div>
             <Row><Col><Button style={{border: 'none'}} onClick={()=>  setSortOption('A-Z')}> A - Z </Button></Col></Row>
@@ -120,7 +124,7 @@ const ResultsTable: FunctionComponent = () => {
             dataIndex: 'compare',
             render: (text, record: OccupationModel) => {
                 if (filteredOccupationsList && filteredOccupationsList.length > 1) {
-                    return (<Checkbox disabled={checkedNocs.length > 2} onChange={(event)=> handleSelectCheckBox(event, record.noc)}></Checkbox>)
+                    return (<Checkbox disabled={checkedNocs.length > 2} checked={isChecked(record.noc)} onChange={(event)=> handleSelectCheckBox(event, record.noc)}></Checkbox>)
                 }
             }
         }

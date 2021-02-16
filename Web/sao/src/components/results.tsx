@@ -175,7 +175,10 @@ const results: FunctionComponent = () => {
                 </Col>)}
             </Row>
             <Row style={{margin: '24px 0px'}}>
-                <Col span={4} offset={13}>
+                <Col span={4} offset={9}>
+                    <Button disabled={checkedNocs.length < 1} onClick={() => setCheckedNocs([])}> Clear Careers</Button>
+                </Col>
+                <Col span={4}>
                     <Button disabled={checkedNocs.length < 2} onClick={() => setShowCompareView(true)}> Compare Careers</Button>
                 </Col>
             </Row>
