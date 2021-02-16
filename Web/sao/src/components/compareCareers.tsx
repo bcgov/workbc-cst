@@ -89,7 +89,7 @@ const CompareCareers: FunctionComponent = () => {
                 <span style={{float: 'right'}}>
                     <Button style={{border: 'none'}}> <PrinterOutlined/> </Button>
                     <Button style={{border: 'none'}}> <MailOutlined/> </Button>
-                    <Button style={{border: 'none'}} onClick={()=> {setShowCompareView(false); setCheckedNocs([])}}> <CloseOutlined /> </Button>
+                    <Button style={{border: 'none'}} onClick={()=> {setShowCompareView(false)}}> <CloseOutlined /> </Button>
                 </span>
             </h1>
             {
