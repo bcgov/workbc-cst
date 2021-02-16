@@ -39,7 +39,18 @@ const CompareCareers: FunctionComponent = () => {
         const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(noc)
         useEffect(() => {
             if(!isFetchingSummary && isSummaryFetched && occupationSummary) {
-                setCareerDetail([...careerDetail, {nocId: occupationSummary[0].noc, careerDetail: occupationSummary[0]}])
+                let newCareerDetail = [... careerDetail]
+                let nocMatch = false
+                newCareerDetail.forEach((career, index) => {
+                    if(career.nocId === occupationSummary[0].noc) {
+                        newCareerDetail[index] = {nocId: occupationSummary[0].noc, careerDetail: occupationSummary[0]}
+                        nocMatch = true
+                    }
+                })
+                if(!nocMatch) {
+                     newCareerDetail = [...newCareerDetail, {nocId: occupationSummary[0].noc, careerDetail: occupationSummary[0]}]
+                }
+                setCareerDetail(newCareerDetail)
             }
         }, [isFetchingSummary, isSummaryFetched])
     })
