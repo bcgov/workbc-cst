@@ -41,6 +41,16 @@ const Dropdowns: FunctionComponent = () => {
                 return (<div> Careers based on 10-year job openings (2019-2029) within a region </div>)
             case 'Education': 
                 return (<div> Careers based on educational requirements that you have or want to achieve </div>)
+            case 'OccupationalInterest':
+                return (<div> 
+                    <p>Groups careers based on 6 broad personality types. You can take a quiz to find your interests.</p>
+                    <p>Learn more on <a href="https://www.workbc.ca/" target="_blank">WorkBC.ca.</a></p>
+                </div>)
+            case 'Industry':
+                return (<div>
+                    <p>Careers based on an association to an industry</p>
+                    <p>Learn more on <a href="https://www.workbc.ca/" target="_blank">WorkBC.ca.</a></p>
+                </div>)
             case 'OccupationalCategory': 
                 return (<div>
                     <p> Quick links to selected groupings of careers </p>
@@ -199,7 +209,9 @@ const Dropdowns: FunctionComponent = () => {
                         </Col>
                         <Col xs={24} lg={6}> 
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label">Occupational Interest <QuestionCircleFilled /></label>
+                                <label className="sao-filters__label"> Occupational Interest 
+                                    <Popover placement="top" content={getPopOver('OccupationalInterest')}>  <QuestionCircleFilled /> </Popover>
+                                </label>
                                 <SelectFilterType  
                                     filterType={FilterType.occupational_interest}
                                     showArrow={true}
@@ -212,7 +224,9 @@ const Dropdowns: FunctionComponent = () => {
                         </Col>
                         <Col xs={24} lg={8}>
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label"> Industry <QuestionCircleFilled /> </label>
+                                <label className="sao-filters__label"> Industry 
+                                    <Popover placement="top" content={getPopOver('Industry')}>  <QuestionCircleFilled /> </Popover>
+                                </label>
                                     <TreeSelect allowClear
                                         placeholder="All"
                                         showArrow={true}
