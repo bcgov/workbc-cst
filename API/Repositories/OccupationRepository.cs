@@ -153,18 +153,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 })
                 .ToList();
 
-            foreach (var occupation in nocList) 
-                occupation.Description = GetDescription(occupation.Description);
-
             return nocList;
-        }
-
-        private string GetDescription(string summary, int chopLength = 250)
-        {
-            if (string.IsNullOrWhiteSpace(summary))
-                return string.Empty;
-
-            return summary.Length > chopLength ? $"{summary.Substring(0, chopLength - 3)}..." : summary;
         }
 
         private List<string> GetNocItems(string nocs)
