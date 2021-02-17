@@ -77,6 +77,9 @@ const CompareCareers: FunctionComponent = () => {
                         <div className="result-body__row-left">Job Openings (2019 - 2029) </div>
                         <div className="result-body__row-right"><b>{careerObj.careerDetail?.jobOpenings}</b></div>
                     </div>
+                    <div className="result-body__row result-body__row--last">
+                        <div>{careerObj.careerDetail?.description}</div>
+                    </div>
                 </div>
                 <div className="result-detail__footer">                            
                     <a href={careerProfileUrl+careerObj.nocId} target="_blank"> 
