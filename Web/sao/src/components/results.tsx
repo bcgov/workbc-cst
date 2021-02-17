@@ -5,6 +5,7 @@ import { useFilterContext } from '../state/filterContext'
 import { useGetOccupationSummary, useGetSystemConfigurations } from '../client/apiService'
 import { OccupationSummary} from '../client/dataTypes'
 import ResultsTable from './table'
+import YouTube from 'react-youtube';
 
 const results: FunctionComponent = () => {
     const { filteredOccupationsList, selectedNoc, checkedNocs,
@@ -96,6 +97,10 @@ const results: FunctionComponent = () => {
         console.log(' Email profile ')
     }
 
+    function _onReady(event) {
+        event.target.pauseVideo();
+    }
+
     return (
         <div className="container">
             <Row>
@@ -133,9 +138,8 @@ const results: FunctionComponent = () => {
                             {occupationDetail?.title} <span className="result-detail__header--noc">(NOC {occupationDetail?.noc})</span>
                         </div> 
                         <div className="result-detail__thumbnail">
-                        <img src={profileImagesPath} alt='career profile pic'/>
-                          {/* {  !!careerTrekBaseUrl? (<iframe  width="560" height="315" src={careerTrekBaseUrl}></iframe>) : 
-                                                (<img src={profileImagesPath} alt='career profile pic'/>) } */}
+                        {(occupationDetail?.careertrekvideoids.length === 0) ? (<img src={profileImagesPath} alt='career profile pic'/>) :
+                        (<YouTube videoId={occupationDetail?.careertrekvideoids[0]} opts={{height: '315', width: '420'}} onReady={_onReady} />)}
                         </div>
                         <div className="result-detail__body result-body">
                             <div className="result-body__row">

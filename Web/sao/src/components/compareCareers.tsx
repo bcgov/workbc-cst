@@ -4,6 +4,7 @@ import {CloseOutlined, MailOutlined , PrinterOutlined } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import {OccupationSummaryObj} from '../client/dataTypes'
 import {useGetOccupationSummary, useGetSystemConfigurations} from '../client/apiService'
+import YouTube from 'react-youtube';
 
 const CompareCareers: FunctionComponent = () => {
     const {setShowCompareView, checkedNocs, setCheckedNocs} = useFilterContext()
@@ -59,11 +60,18 @@ const CompareCareers: FunctionComponent = () => {
         return noc + "-NOC-" + "profile.png"
     }
 
+    function _onReady(event) {
+        event.target.pauseVideo();
+    }
+
     function getCareerDetail(careerObj: OccupationSummaryObj) {
         return (
             <div className="result-detail">
                 <div className="result-detail__header">{careerObj.careerDetail.title} <span>(NOC {careerObj.nocId})</span></div>
-                <div  className="result-detail__thumbnail"><img src={profileImagesPath+getProfileImageName(careerObj.nocId)} alt='career profile pic'/></div>
+                <div  className="result-detail__thumbnail">
+                    {(careerObj.careerDetail?.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.nocId)} alt='career profile pic'/>)
+                    : (<YouTube videoId={careerObj.careerDetail?.careertrekvideoids[0]} opts={{height: '315', width: '420'}} onReady={_onReady} />)}
+                </div>
                 <div className="result-detail__body result-body">
                     <div className="result-body__row">
                         <div className="result-body__row-left">Annual Salary</div>
