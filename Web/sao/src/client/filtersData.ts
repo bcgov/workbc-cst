@@ -12,3 +12,13 @@ export function modifyIndustryData(industriesData: IndustryModel[]): IndustryDat
     })
     return modifiedIndustryData
 }
+
+export const filtersPopOverVisible = {
+    region: false,
+    education: false,
+    occupationalInterest: false,
+    industry: false,
+    occupationalCategory: false,
+    jobType: false,
+    keywords: false
+}

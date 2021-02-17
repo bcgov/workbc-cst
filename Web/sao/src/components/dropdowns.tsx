@@ -5,7 +5,7 @@ import SelectFilterType from './wbSelectFilterType'
 import { FilterType, FilterOptionModel, IndustryData } from '../client/dataTypes'
 import { useFilterContext } from '../state/filterContext'
 import { useGetIndustryData } from '../client/apiService'
-import {modifyIndustryData} from '../client/modifyAPIData'
+import {modifyIndustryData, filtersPopOverVisible} from '../client/filtersData'
 import { defaultFilterOption } from '../state/filterReducer'
 import Results from './results'
 import Header from './header'
@@ -15,9 +15,11 @@ const Dropdowns: FunctionComponent = () => {
     const { data: industryData, isValidating, isSettled } = useGetIndustryData(FilterType.industry)
     const [industryDataTree, setIndustryDataTree] = useState<IndustryData[]>()
 
-    const {filterOption, setFilterOption, resetOptions, isReset} = useFilterContext()
+    const {filterOption, setFilterOption, resetOptions, setCheckedNocs, isReset} = useFilterContext()
 
     const [userSelection, setUserSelection] = useState<FilterOptionModel>(defaultFilterOption)
+
+    const [popOvervisible, setPopOverVisible] = useState(filtersPopOverVisible)
 
     function getIndustryValues() {
         return  userSelection.industry.id
@@ -64,13 +66,14 @@ const Dropdowns: FunctionComponent = () => {
     }
 
     function getPopOver(filtername: string) {
-        const regionContent = (
+        const Content = (
             <div>
                 <CheckCircleFilled />
                 {getHoverContent(filtername)}
+                <Button type="link" onClick={handleHide}> Close </Button>
             </div>
         )
-        return regionContent
+        return Content
     }
 
     function handleChangeRegion(value: Key, options: any) {
@@ -104,7 +107,6 @@ const Dropdowns: FunctionComponent = () => {
     }
 
     function handleChangeIndustry(key, title) {
-        let industries = []
         if(!!key && !!title ){
             setUserSelection({...userSelection, industry:{id: key, value: title}})
         } else {
@@ -156,6 +158,37 @@ const Dropdowns: FunctionComponent = () => {
 
     function applyFilters() {
         setFilterOption(userSelection)
+        setCheckedNocs([])
+    }
+
+    function handlepopOverVisibilityChange (filterType: string, visible: boolean) {
+        switch(filterType) {
+            case 'region':
+                setPopOverVisible({...popOvervisible, 'region': visible})
+                break
+            case 'education':
+                setPopOverVisible({...popOvervisible, 'education': visible})
+                break
+            case 'occupationalInterest':
+                setPopOverVisible({...popOvervisible, 'occupationalInterest': visible})
+                break
+            case 'industry':
+                setPopOverVisible({...popOvervisible, 'industry': visible})
+                break
+            case 'occupationalCategory':
+                setPopOverVisible({...popOvervisible, 'occupationalCategory': visible})
+                break
+            case 'jobType':
+                setPopOverVisible({...popOvervisible, 'jobType': visible})
+                break
+            case 'keywords':
+                setPopOverVisible({...popOvervisible, 'keywords': visible})
+                break
+        }
+    }
+
+    function handleHide() {
+        setPopOverVisible(filtersPopOverVisible )
     }
 
     return (
@@ -171,14 +204,14 @@ const Dropdowns: FunctionComponent = () => {
             <div className="sao-filters">
                 <div className="container">
                     <Row><Col span={24}>
-                        
                         <h3>Use the filter(s) to explore your career options.</h3>    
                     </Col></Row>
                     <Row className="sao-filters__row">
                         <Col xs={24} lg={6}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Region 
-                                    <Popover placement="top" content={getPopOver('Region')}>  <QuestionCircleFilled /> </Popover>                                   
+                                    <Popover placement="top" content={getPopOver('Region')} trigger="click" visible={popOvervisible.region}
+                                    onVisibleChange={(visible)=> handlepopOverVisibilityChange('region', visible)}>  <QuestionCircleFilled /> </Popover>                                   
                                 </label>
                                 <SelectFilterType  
                                     filterType={FilterType.region}
@@ -193,7 +226,8 @@ const Dropdowns: FunctionComponent = () => {
                         <Col xs={24} lg={4}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Education 
-                                    <Popover placement="top" content={getPopOver('Education')}>  <QuestionCircleFilled /> </Popover>
+                                    <Popover placement="top" content={getPopOver('Education')} trigger="click" visible={popOvervisible.education}
+                                    onVisibleChange={(visible)=> handlepopOverVisibilityChange('education', visible)}>  <QuestionCircleFilled /> </Popover>
                                 </label>
                                 <SelectFilterType  
                                     filterType={FilterType.education}
@@ -208,7 +242,8 @@ const Dropdowns: FunctionComponent = () => {
                         <Col xs={24} lg={6}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label"> Occupational Interest 
-                                    <Popover placement="top" content={getPopOver('OccupationalInterest')}>  <QuestionCircleFilled /> </Popover>
+                                    <Popover placement="top" content={getPopOver('OccupationalInterest')} trigger="click" visible={popOvervisible.occupationalInterest}
+                                    onVisibleChange={(visible)=> handlepopOverVisibilityChange('occupationalInterest', visible)}>  <QuestionCircleFilled /> </Popover>
                                 </label>
                                 <SelectFilterType  
                                     filterType={FilterType.occupational_interest}
@@ -223,7 +258,8 @@ const Dropdowns: FunctionComponent = () => {
                         <Col xs={24} lg={8}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label"> Industry 
-                                    <Popover placement="top" content={getPopOver('Industry')}>  <QuestionCircleFilled /> </Popover>
+                                    <Popover placement="top" content={getPopOver('Industry')} trigger="click" visible={popOvervisible.industry}
+                                    onVisibleChange={(visible)=> handlepopOverVisibilityChange('industry', visible)}>  <QuestionCircleFilled /> </Popover>
                                 </label>
                                     <TreeSelect allowClear
                                         placeholder="All"
@@ -240,7 +276,8 @@ const Dropdowns: FunctionComponent = () => {
                         <Col xs={24} lg={6}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label"> Occupational Category 
-                                    <Popover placement="top" content={getPopOver('OccupationalCategory')}>  <QuestionCircleFilled /> </Popover> 
+                                    <Popover placement="top" content={getPopOver('OccupationalCategory')} trigger="click" visible={popOvervisible.occupationalCategory}
+                                     onVisibleChange={(visible)=> handlepopOverVisibilityChange('occupationalCategory', visible)}>  <QuestionCircleFilled /> </Popover> 
                                 </label>
                                 <SelectFilterType  
                                     filterType={FilterType.occupational_group}
@@ -255,7 +292,8 @@ const Dropdowns: FunctionComponent = () => {
                         <Col xs={24} lg={4}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Job Type 
-                                    <Popover placement="top" content={getPopOver('JobType')}>  <QuestionCircleFilled /> </Popover> 
+                                    <Popover placement="top" content={getPopOver('JobType')} trigger="click" visible={popOvervisible.jobType}
+                                    onVisibleChange={(visible)=> handlepopOverVisibilityChange('jobType', visible)}>  <QuestionCircleFilled /> </Popover> 
                                 </label>
                                 <SelectFilterType  
                                     filterType={FilterType.part_time_option}
@@ -283,7 +321,8 @@ const Dropdowns: FunctionComponent = () => {
                         <Col xs={24} lg={8}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label"> Keyword
-                                    <Popover placement="top" content={getPopOver('Keywords')}>  <QuestionCircleFilled /> </Popover> 
+                                    <Popover placement="top" content={getPopOver('Keywords')} trigger="click" visible={popOvervisible.keywords} 
+                                    onVisibleChange={(visible)=> handlepopOverVisibilityChange('keywords', visible)}>  <QuestionCircleFilled /> </Popover> 
                                 </label>
                                 <Input placeholder="Enter career title, Keyword(s) or NOC"
                                     value= {userSelection?.keyword}
