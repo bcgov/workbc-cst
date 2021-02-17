@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from 'react'
 import { Row, Col, Button, Carousel } from 'antd'
-import { MailOutlined , PrinterOutlined } from '@ant-design/icons'
+import { MailOutlined , PrinterOutlined, BulbOutlined } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import { useGetOccupationSummary, useGetSystemConfigurations } from '../client/apiService'
 import { OccupationSummary} from '../client/dataTypes'
@@ -65,9 +65,10 @@ const results: FunctionComponent = () => {
 
     useEffect(() => {
         if(!isFetchingCtvUrl && isCtvUrlFetched && ctvUrlData) {
-            setCareerTrekBaseUrl(ctvUrlData.value + selectedNoc)
+            console.log(`Video ink : ${ctvUrlData.value + occupationDetail?.careertrekvideoids[0]}`)
+            setCareerTrekBaseUrl(ctvUrlData.value + occupationDetail?.careertrekvideoids[0])
         }
-    }, [selectedNoc, isFetchingCtvUrl, isCtvUrlFetched])
+    }, [selectedNoc, occupationDetail, isFetchingSummary, isSummaryFetched, isFetchingCtvUrl, isCtvUrlFetched])
 
     useEffect(() => {
         if(!isFetchingIcNocs && isIcNocsFetched && icNocsData) {
@@ -108,8 +109,14 @@ const results: FunctionComponent = () => {
                 </Col>
             </Row>
             <Row>
-                <Col span={16}>
-                    Compare upto 3 careers by selecting the checkboxes in the table and clicking on Compare careers
+                <Col span={8}>
+                    <span><BulbOutlined /></span>Compare upto 3 careers by selecting the checkboxes in the table and clicking on Compare careers
+                </Col>
+                <Col span={3} offset={1}>
+                    <Button disabled={checkedNocs.length < 1} onClick={() => setCheckedNocs([])}> Clear Compare</Button>
+                </Col>
+                <Col span={3} offset={1}>
+                    <Button  type="primary" disabled={checkedNocs.length < 2} onClick={() => setShowCompareView(true)}> Compare Careers</Button>
                 </Col>
                 <Col span={8}>
                     <Button icon={<MailOutlined />} onClick={handleEmailEvent} block> Email </Button>
@@ -119,29 +126,17 @@ const results: FunctionComponent = () => {
                 <Col xs={24} lg={16}>
                     {   (<ResultsTable/>) }
                 </Col>
-                {(!selectedNoc || selectedNoc === "default") && (   // Carousel code can be removed if not used at anytime in future
-                   <Col span={8}>
-                       <h2>Please select a career to preview</h2>
-                        <Carousel autoplay>
-                            <div>
-                                <img src={carouselImagesPath[0]} alt={carouselImagesPath[0]} style={{height: '500px'}}/>
-                            </div>
-                            <div>
-                                <img src={carouselImagesPath[1]} alt={carouselImagesPath[1]} style={{height: '500px'}}/>
-                            </div>
-                            <div>
-                                <img src={carouselImagesPath[2]} alt={carouselImagesPath[2]} style={{height: '500px'}}/>
-                            </div>
-                        </Carousel>
-                   </Col>)
-               }
                 {selectedNoc!=="default" && filteredOccupationsList && filteredOccupationsList?.length >= 0 &&
                 (<Col xs={24} lg={8}>
                     <div className="result-detail">
                         <div className="result-detail__header">
                             {occupationDetail?.title} <span className="result-detail__header--noc">(NOC {occupationDetail?.noc})</span>
                         </div> 
-                        <div className="result-detail__thumbnail"><img src={profileImagesPath} alt='career profile pic'/></div>
+                        <div className="result-detail__thumbnail">
+                        <img src={profileImagesPath} alt='career profile pic'/>
+                          {/* {  !!careerTrekBaseUrl? (<iframe  width="560" height="315" src={careerTrekBaseUrl}></iframe>) : 
+                                                (<img src={profileImagesPath} alt='career profile pic'/>) } */}
+                        </div>
                         <div className="result-detail__body result-body">
                             <div className="result-body__row">
                                 <div className="result-body__row-left">Annual Salary</div>
@@ -173,14 +168,6 @@ const results: FunctionComponent = () => {
                         </div>
                     </div>
                 </Col>)}
-            </Row>
-            <Row style={{margin: '24px 0px'}}>
-                <Col span={4} offset={9}>
-                    <Button disabled={checkedNocs.length < 1} onClick={() => setCheckedNocs([])}> Clear Careers</Button>
-                </Col>
-                <Col span={4}>
-                    <Button disabled={checkedNocs.length < 2} onClick={() => setShowCompareView(true)}> Compare Careers</Button>
-                </Col>
             </Row>
         </div>
     );

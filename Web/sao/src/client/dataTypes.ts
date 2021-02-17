@@ -73,6 +73,7 @@ export interface OccupationSummary {
     workExperience: string,
     income: string,
     jobOpenings: number
+    careertrekvideoids: string[]
 }
 
 export interface OccupationSummaryObj {
