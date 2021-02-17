@@ -13,6 +13,8 @@ const ResultsTable: FunctionComponent = () => {
         setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs } = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
+    const [nameSortVisible, setNameSortVisible] = useState<boolean>(false)
+    const [jobsSortVisible, setJobsSortVisible] = useState<boolean>(false)
     const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
     
     useEffect(() => {
@@ -80,16 +82,29 @@ const ResultsTable: FunctionComponent = () => {
         return checkedNocs.find(noc => noc === nocId)? true: false
     }
 
+    function handleNameSortVisible(visible:boolean) {
+        setNameSortVisible(visible)
+    }
+
+    function handleJobsSortVisible(visible:boolean) {
+        setJobsSortVisible(visible)
+    }
+
+    function hide() {
+        setNameSortVisible(false)
+        setJobsSortVisible(false)
+    }
+
     const nameContent = (
         <div>
-            <Row><Col><Button style={{border: 'none'}} onClick={()=>  setSortOption('A-Z')}> A - Z </Button></Col></Row>
-            <Row><Col><Button style={{border: 'none'}} onClick={()=>  setSortOption('Z-A')}> Z - A </Button></Col></Row>
+            <Row><Col><Button style={{border: 'none'}} onClick={()=> {hide();setSortOption('A-Z')}}> A - Z </Button></Col></Row>
+            <Row><Col><Button style={{border: 'none'}} onClick={()=> {hide();setSortOption('Z-A')}}> Z - A </Button></Col></Row>
         </div>
     )
     const jobContent = (
         <div>
-            <Row><Col><Button style={{border: 'none'}} onClick={() =>  setSortOption('High to Low')}> High to Low </Button></Col></Row>
-            <Row><Col><Button style={{border: 'none'}} onClick={() =>  setSortOption('Low to High')}> Low to High </Button></Col></Row>
+            <Row><Col><Button style={{border: 'none'}} onClick={() => {hide();setSortOption('High to Low')}}> High to Low </Button></Col></Row>
+            <Row><Col><Button style={{border: 'none'}} onClick={() => {hide();setSortOption('Low to High')}}> Low to High </Button></Col></Row>
         </div>
     )
 
@@ -99,7 +114,7 @@ const ResultsTable: FunctionComponent = () => {
         {
             title: (<div>
                 Career name
-                <Popover placement="bottomRight" title={title} content={nameContent} trigger="click">
+                <Popover placement="bottomRight" title={title} content={nameContent} trigger="click" visible={nameSortVisible} onVisibleChange={handleNameSortVisible}>
                     <span style={{float: 'right'}}> <DownOutlined /> </span>
                 </Popover>
             </div>),
@@ -112,7 +127,7 @@ const ResultsTable: FunctionComponent = () => {
         {
             title: (<div> 
                 Job Openings (2019-2029)
-                <Popover placement="bottomRight" title={title} content={jobContent} trigger="click">
+                <Popover placement="bottomRight" title={title} content={jobContent} trigger="click" visible={jobsSortVisible} onVisibleChange={handleJobsSortVisible}>
                     <span style={{float: 'right'}}> <DownOutlined /> </span>
                 </Popover>
             </div>),
