@@ -13,8 +13,8 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="112"
-  DTS:VersionGUID="{E5CDF8A7-EF9D-4BA4-9A4C-9042FC5FFCD9}">
+  DTS:VersionBuild="113"
+  DTS:VersionGUID="{294A9AC7-88D4-4AA3-A965-B80CC68AA718}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -9168,20 +9168,20 @@ where [refTable].[Value] = ?</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Trim NOC Code Hash"
+      DTS:refId="Package\Trim NOC and SubIndustry"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{88472B3D-14FF-4857-B7BF-DFCAEEB399AA}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Trim NOC Code Hash"
+      DTS:ObjectName="Trim NOC and SubIndustry"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{8F59D8A3-5FD7-478A-A018-AE743E090100}"
-          SQLTask:SqlStatementSource="UPDATE NOC SET NOCCode = REPLACE(NOCCode, '#', '')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE NOC SET NOCCode = REPLACE(NOCCode, '#', '')&#xA;&#xA;UPDATE SubIndustry SET Value = TRIM(Value)&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -9241,7 +9241,7 @@ where [refTable].[Value] = ?</property>
       DTS:From="Package\Import External Data"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
-      DTS:To="Package\Trim NOC Code Hash" />
+      DTS:To="Package\Trim NOC and SubIndustry" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
       DTS:CreationName=""
@@ -9296,8 +9296,8 @@ where [refTable].[Value] = ?</property>
           Id="Package\Insert Unique NOCs"
           TopLeft="56,138" />
         <NodeLayout
-          Size="186,42"
-          Id="Package\Trim NOC Code Hash"
+          Size="211,42"
+          Id="Package\Trim NOC and SubIndustry"
           TopLeft="185,506" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
@@ -9473,9 +9473,9 @@ where [refTable].[Value] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-291,27"
+              EndConnector="-278.5,27"
               Start="0,0"
-              End="-291,19.5">
+              End="-278.5,19.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -9486,13 +9486,13 @@ where [refTable].[Value] = ?</property>
                     Point2="0,13.5"
                     Point3="-4,13.5" />
                   <mssgle:LineSegment
-                    End="-287,13.5" />
+                    End="-274.5,13.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-287,13.5"
-                    Point2="-291,13.5"
-                    Point3="-291,17.5" />
+                    Point1="-274.5,13.5"
+                    Point2="-278.5,13.5"
+                    Point3="-278.5,17.5" />
                   <mssgle:LineSegment
-                    End="-291,19.5" />
+                    End="-278.5,19.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
