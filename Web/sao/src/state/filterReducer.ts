@@ -38,7 +38,7 @@ export const defaultFilterState: FilterState = Object.freeze({
     showCompareView: false,
     isReset: true,
     checkedNocs: [],
-    sortOption: ''
+    sortOption: 'High to Low'
 })
 
 export type FilterAction = 
@@ -54,8 +54,11 @@ export type FilterAction =
 export function reducer(state: FilterState = defaultFilterState , action: FilterAction): FilterState {
     switch(action.type) {        
         case 'set-filtered-occupation-list': //sorts table results from high to low job openings and displays preview of career with max openings
-            action.payload = state.sortOption === ''? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings> b.jobOpenings ? -1 : 1 }): action.payload
-            return ({...state, filteredOccupationsList: action.payload, selectedNoc: state.selectedNoc === 'default'? action.payload[0]?.noc : state.selectedNoc})
+        action.payload = state.sortOption === 'High to Low'? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings > b.jobOpenings ? -1 : 1 }):
+        state.sortOption === 'Low to High'? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings < b.jobOpenings ? -1 : 1 }):
+        state.sortOption === 'A-Z'? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.nocAndTitle < b.nocAndTitle ? -1 : 1 }): 
+        state.sortOption === 'A-Z'? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.nocAndTitle > b.nocAndTitle ? -1 : 1 }): action.payload    
+        return ({...state, filteredOccupationsList: action.payload, selectedNoc: state.selectedNoc === 'default'? action.payload[0]?.noc : state.selectedNoc})
         
         case 'set-selected-noc':
             return ({...state, selectedNoc: action.payload})
@@ -74,5 +77,8 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
 
         case 'reset': 
             return ({...state, ...defaultFilterState, isReset: !state.isReset})
+        
+        default: 
+            return state
     }
 }

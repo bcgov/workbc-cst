@@ -28,7 +28,7 @@ const FilterContext = createContext<FilterContextProps>({
     showCompareView: false,
     isReset: true,
     checkedNocs: [],
-    sortOption: '',
+    sortOption: 'High to Low',
     setFilterOption: () => {},
     resetOptions: () => {},
     setFilteredOccupationsList: () => {},
