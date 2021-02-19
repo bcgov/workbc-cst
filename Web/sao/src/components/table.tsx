@@ -16,6 +16,8 @@ const ResultsTable: FunctionComponent = () => {
     const [nameSortVisible, setNameSortVisible] = useState<boolean>(false)
     const [jobsSortVisible, setJobsSortVisible] = useState<boolean>(false)
     const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
+
+    const [extraSelection, setExtraSelection] = useState<string>()
     
     useEffect(() => {
         if (!!filterOption && !isReset) {
@@ -93,6 +95,7 @@ const ResultsTable: FunctionComponent = () => {
     function hide() {
         setNameSortVisible(false)
         setJobsSortVisible(false)
+        setExtraSelection(undefined)
     }
 
     const nameContent = (
@@ -105,6 +108,14 @@ const ResultsTable: FunctionComponent = () => {
         <div>
             <Row><Col><Button style={{border: 'none'}} onClick={() => {hide();setSortOption('High to Low')}}> High to Low </Button></Col></Row>
             <Row><Col><Button style={{border: 'none'}} onClick={() => {hide();setSortOption('Low to High')}}> Low to High </Button></Col></Row>
+        </div>
+    )
+
+    const checkBoxContent = (
+        <div>
+            <b>You have reached the maximum number of careers you are able to add to the compare feature.</b>
+            Please deselect one of your selected careers to add this career
+            <Button type="primary" onClick={()=> hide()}>Close</Button>
         </div>
     )
 
@@ -139,7 +150,11 @@ const ResultsTable: FunctionComponent = () => {
             dataIndex: 'compare',
             render: (text, record: OccupationModel) => {
                 if (filteredOccupationsList && filteredOccupationsList.length > 1) {
-                    return (<Checkbox disabled={checkedNocs.length > 2} checked={isChecked(record.noc)} onChange={(event)=> handleSelectCheckBox(event, record.noc)}></Checkbox>)
+                    return (
+                        <Popover placement="leftTop" content={checkBoxContent} trigger="click" visible={(extraSelection === record.noc)}>
+                            <Checkbox checked={isChecked(record.noc)} onChange={(event)=> handleSelectCheckBox(event, record.noc)}></Checkbox>
+                        </Popover>
+                    )
                 }
             }
         }
@@ -147,7 +162,7 @@ const ResultsTable: FunctionComponent = () => {
 
     function handleSelectCheckBox (event: CheckboxChangeEvent, nocId) {
         if(event.target.checked) {
-            setCheckedNocs([...checkedNocs, nocId])
+            checkedNocs.length < 3 ? setCheckedNocs([...checkedNocs, nocId]) : setExtraSelection(nocId)
         } else {
             const newCheckedNocs = checkedNocs.filter(noc => noc !== nocId)
             setCheckedNocs(newCheckedNocs)
