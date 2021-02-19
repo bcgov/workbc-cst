@@ -1,5 +1,7 @@
 ALTER TABLE [dbo].[SubIndustry] DROP CONSTRAINT [FK_SubIndustry_Industry]
 GO
+ALTER TABLE [dbo].[NOCVideos] DROP CONSTRAINT [FK_NOCVideos_NOC]
+GO
 ALTER TABLE [dbo].[NOCOccupationInterest] DROP CONSTRAINT [FK_NOCOccupationInterest_OccupationInterestOption]
 GO
 ALTER TABLE [dbo].[NOCOccupationInterest] DROP CONSTRAINT [FK_NOCOccupationInterest_OccupationalInterest]
@@ -24,42 +26,45 @@ ALTER TABLE [dbo].[JobOpening] DROP CONSTRAINT [FK_JobOpening_Industry]
 GO
 ALTER TABLE [dbo].[CommonJobTitle] DROP CONSTRAINT [FK_CommonJobTitle_NOC]
 GO
-/****** Object:  Table [dbo].[SubIndustry]    Script Date: 2/9/2021 2:00:18 PM ******/
+/****** Object:  Table [dbo].[SubIndustry]    Script Date: 2/19/2021 1:31:09 PM ******/
 DROP TABLE [dbo].[SubIndustry]
 GO
-/****** Object:  Table [dbo].[OccupationInterestOption]    Script Date: 2/9/2021 2:00:18 PM ******/
+/****** Object:  Table [dbo].[OccupationInterestOption]    Script Date: 2/19/2021 1:31:09 PM ******/
 DROP TABLE [dbo].[OccupationInterestOption]
 GO
-/****** Object:  Table [dbo].[OccupationGroup]    Script Date: 2/9/2021 2:00:18 PM ******/
+/****** Object:  Table [dbo].[OccupationGroup]    Script Date: 2/19/2021 1:31:09 PM ******/
 DROP TABLE [dbo].[OccupationGroup]
 GO
-/****** Object:  Table [dbo].[OccupationalInterest]    Script Date: 2/9/2021 2:00:18 PM ******/
+/****** Object:  Table [dbo].[OccupationalInterest]    Script Date: 2/19/2021 1:31:09 PM ******/
 DROP TABLE [dbo].[OccupationalInterest]
 GO
-/****** Object:  Table [dbo].[NOCOccupationInterest]    Script Date: 2/9/2021 2:00:18 PM ******/
+/****** Object:  Table [dbo].[NOCVideos]    Script Date: 2/19/2021 1:31:09 PM ******/
+DROP TABLE [dbo].[NOCVideos]
+GO
+/****** Object:  Table [dbo].[NOCOccupationInterest]    Script Date: 2/19/2021 1:31:09 PM ******/
 DROP TABLE [dbo].[NOCOccupationInterest]
 GO
-/****** Object:  Table [dbo].[NOCOccupationGroup]    Script Date: 2/9/2021 2:00:18 PM ******/
+/****** Object:  Table [dbo].[NOCOccupationGroup]    Script Date: 2/19/2021 1:31:09 PM ******/
 DROP TABLE [dbo].[NOCOccupationGroup]
 GO
-/****** Object:  Table [dbo].[NOC]    Script Date: 2/9/2021 2:00:18 PM ******/
+/****** Object:  Table [dbo].[NOC]    Script Date: 2/19/2021 1:31:09 PM ******/
 DROP TABLE [dbo].[NOC]
 GO
-/****** Object:  Table [dbo].[JobOpening]    Script Date: 2/9/2021 2:00:18 PM ******/
+/****** Object:  Table [dbo].[JobOpening]    Script Date: 2/19/2021 1:31:09 PM ******/
 DROP TABLE [dbo].[JobOpening]
 GO
-/****** Object:  Table [dbo].[Industry]    Script Date: 2/9/2021 2:00:18 PM ******/
+/****** Object:  Table [dbo].[Industry]    Script Date: 2/19/2021 1:31:09 PM ******/
 DROP TABLE [dbo].[Industry]
 GO
-/****** Object:  Table [dbo].[GeographicArea]    Script Date: 2/9/2021 2:00:18 PM ******/
+/****** Object:  Table [dbo].[GeographicArea]    Script Date: 2/19/2021 1:31:09 PM ******/
 DROP TABLE [dbo].[GeographicArea]
 GO
-/****** Object:  Table [dbo].[FullOrPartTime]    Script Date: 2/9/2021 2:00:18 PM ******/
+/****** Object:  Table [dbo].[FullOrPartTime]    Script Date: 2/19/2021 1:31:09 PM ******/
 DROP TABLE [dbo].[FullOrPartTime]
 GO
-/****** Object:  Table [dbo].[EducationLevel]    Script Date: 2/9/2021 2:00:18 PM ******/
+/****** Object:  Table [dbo].[EducationLevel]    Script Date: 2/19/2021 1:31:09 PM ******/
 DROP TABLE [dbo].[EducationLevel]
 GO
-/****** Object:  Table [dbo].[CommonJobTitle]    Script Date: 2/9/2021 2:00:18 PM ******/
+/****** Object:  Table [dbo].[CommonJobTitle]    Script Date: 2/19/2021 1:31:09 PM ******/
 DROP TABLE [dbo].[CommonJobTitle]
 GO

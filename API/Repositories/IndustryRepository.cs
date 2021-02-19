@@ -27,6 +27,9 @@ namespace SearchAllOccupationsToolAPI.Repositories
                     .OrderBy(i => i.Value)
                     .ToList();
 
+                // Don't return any single sub-category categories
+                foreach (var industry in industries.Where(industry => industry.SubIndustries.Count == 1))
+                    industry.SubIndustries.Clear();
 
                 return industries;
             }
