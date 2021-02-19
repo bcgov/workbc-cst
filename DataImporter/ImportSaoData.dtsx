@@ -13,8 +13,8 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="113"
-  DTS:VersionGUID="{294A9AC7-88D4-4AA3-A965-B80CC68AA718}">
+  DTS:VersionBuild="114"
+  DTS:VersionGUID="{1921EAE9-BF3D-46AE-BBA8-C3EA4E126429}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
         <DTS:ConnectionManager
           DTS:Format="Delimited"
           DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:HeaderRowDelimiter="_x000A_"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
@@ -42,7 +42,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Column 0"
-              DTS:DTSID="{81ED31E2-4592-41E4-8C96-CA3A29865459}"
+              DTS:DTSID="{6A05EF25-1BDD-4681-87FE-2E6DF412370B}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -59,7 +59,7 @@
         <DTS:ConnectionManager
           DTS:Format="Delimited"
           DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:HeaderRowDelimiter="_x000A_"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
@@ -72,7 +72,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Value"
-              DTS:DTSID="{804B6C56-27E1-4E3E-B1B0-4A27521E31D4}"
+              DTS:DTSID="{0F80260B-DADC-4D8F-A2A7-9E651ABFC05C}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -89,7 +89,7 @@
         <DTS:ConnectionManager
           DTS:Format="Delimited"
           DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:HeaderRowDelimiter="_x000A_"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
@@ -102,7 +102,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Area"
-              DTS:DTSID="{5C7A1790-0A74-4CF5-BD69-F84701422CD7}"
+              DTS:DTSID="{A053B621-0909-47C5-8B24-CF5F5B8C5BA4}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -119,7 +119,7 @@
         <DTS:ConnectionManager
           DTS:Format="Delimited"
           DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:HeaderRowDelimiter="_x000A_"
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
@@ -133,7 +133,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="NOC"
-              DTS:DTSID="{25F3F756-3F8A-4B02-B751-12C7F9DDEE41}"
+              DTS:DTSID="{905A98B4-5F77-45AC-B1AD-023C087A82EB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -142,7 +142,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Description"
-              DTS:DTSID="{E000CF2D-18A6-44C6-A75D-14DCD72EFD5D}"
+              DTS:DTSID="{94DEE10B-6E73-4087-BAE8-F2816847D76A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -151,7 +151,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Short Description"
-              DTS:DTSID="{44E3357E-7804-47A2-9BD5-C4B57EBC1C9B}"
+              DTS:DTSID="{95D2698F-B19E-4DA0-A926-2EB34A252D06}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -160,7 +160,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Industry"
-              DTS:DTSID="{09761C42-2DF4-4B61-9F1D-F733E36BCA69}"
+              DTS:DTSID="{AAEEAB1A-57A1-4BDE-A95C-4EC995B15D0D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -169,7 +169,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Geographic Area"
-              DTS:DTSID="{DE1F3D53-1457-441A-B38B-48604B3250E9}"
+              DTS:DTSID="{04B17C8D-14F8-4252-B1D0-27CFC4D8A660}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -177,7 +177,7 @@
               DTS:DataType="4"
               DTS:TextQualified="True"
               DTS:ObjectName="Job Openings 2019-2029"
-              DTS:DTSID="{B7441931-0EE9-45BC-A1ED-B5827F513D76}"
+              DTS:DTSID="{71DE1305-54A9-47C7-B0B1-8A93346B6937}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -186,7 +186,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Education"
-              DTS:DTSID="{9AA2AD4B-8AEC-4F41-BD56-5A84417A4B88}"
+              DTS:DTSID="{E312290F-C169-49FD-B670-3F9C2203FCF3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -194,7 +194,7 @@
               DTS:DataType="4"
               DTS:TextQualified="True"
               DTS:ObjectName="Calculated Median Salary"
-              DTS:DTSID="{EE2FB8FE-B656-4AA1-9320-375C34D0EC12}"
+              DTS:DTSID="{62745432-2463-4FA0-898D-5F58D0843030}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -203,7 +203,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Aggregate Industry"
-              DTS:DTSID="{CDB24AD3-904F-4D2C-914B-CCD41EE8282F}"
+              DTS:DTSID="{516B325C-CABE-4D00-B968-79B7D15E6D70}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -212,7 +212,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Full Part-time"
-              DTS:DTSID="{34A05DD4-3223-4BB8-8DFE-E6772FDDD58D}"
+              DTS:DTSID="{BA1ACE6D-CF05-42BF-835B-4E8BFD8D35F6}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -229,7 +229,7 @@
         <DTS:ConnectionManager
           DTS:Format="Delimited"
           DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:HeaderRowDelimiter="_x000A_"
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
@@ -243,7 +243,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="NOC"
-              DTS:DTSID="{C014039A-D25C-467D-99B7-83C33D806246}"
+              DTS:DTSID="{63BC8E41-24EF-4F7A-BC02-EFECD2DC7974}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -252,7 +252,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Options"
-              DTS:DTSID="{52FF6F82-12FA-4220-9D46-D94AFFFDF7D9}"
+              DTS:DTSID="{26EA9CCE-2099-4FB4-BC57-1CC945442405}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -261,7 +261,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Occ Interest"
-              DTS:DTSID="{0A9FC452-FCC3-4FC9-95FF-D48FFDB45B16}"
+              DTS:DTSID="{44FC5094-E7D5-4217-B590-41F26867686F}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -278,7 +278,7 @@
         <DTS:ConnectionManager
           DTS:Format="Delimited"
           DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:HeaderRowDelimiter="_x000A_"
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
@@ -292,7 +292,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="NOC"
-              DTS:DTSID="{C677CEC6-9E94-4260-81E8-555F85F655B9}"
+              DTS:DTSID="{A4DE35E5-4FF3-4ECF-AA16-550E8E27197C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -301,7 +301,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Geographic Area"
-              DTS:DTSID="{B32764A7-1FFB-49F8-AC98-2998C3840872}"
+              DTS:DTSID="{F44B74C2-D5BC-41FB-B7AC-34B3AD8B47B4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -310,7 +310,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Occupation Group"
-              DTS:DTSID="{84EB2794-7EAB-4EAE-86C0-3E4C440E692C}"
+              DTS:DTSID="{9F5DA123-9C14-41E3-AA5A-73473EE2BBA1}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -9972,7 +9972,7 @@ where [refTable].[Value] = ?</property>
     design-time-name="Package\Insert Dependencies">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="202,42"
           Id="Package\Insert Dependencies\GeographicAreas Source"
@@ -10000,9 +10000,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -10047,9 +10045,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -10094,9 +10090,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -10161,9 +10155,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10185,9 +10177,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10278,9 +10268,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -10322,9 +10310,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10401,9 +10387,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10425,9 +10409,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -10482,9 +10464,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10506,9 +10486,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
