@@ -1,5 +1,5 @@
 import React, {FunctionComponent, useState, useEffect} from 'react'
-import { Row, Col, Table, Button, Popover, Checkbox } from 'antd'
+import { Row, Col, Table, Button, Popover, Checkbox, Modal } from 'antd'
 import { CheckboxChangeEvent } from 'antd/lib/checkbox/Checkbox'
 import { DownOutlined  } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
@@ -111,14 +111,6 @@ const ResultsTable: FunctionComponent = () => {
         </div>
     )
 
-    const checkBoxContent = (
-        <div>
-            <b>You have reached the maximum number of careers you are able to add to the compare feature.</b>
-            Please deselect one of your selected careers to add this career
-            <Button type="primary" onClick={()=> hide()}>Close</Button>
-        </div>
-    )
-
     const title = (<b> SORT BY: </b>)
 
     const columns = [
@@ -150,11 +142,14 @@ const ResultsTable: FunctionComponent = () => {
             dataIndex: 'compare',
             render: (text, record: OccupationModel) => {
                 if (filteredOccupationsList && filteredOccupationsList.length > 1) {
-                    return (
-                        <Popover placement="leftTop" content={checkBoxContent} trigger="click" visible={(extraSelection === record.noc)}>
-                            <Checkbox checked={isChecked(record.noc)} onChange={(event)=> handleSelectCheckBox(event, record.noc)}></Checkbox>
-                        </Popover>
-                    )
+                    return (<div>
+                                <Checkbox checked={isChecked(record.noc)} onChange={(event)=> handleSelectCheckBox(event, record.noc)}></Checkbox>
+                                <Modal visible={extraSelection === record.noc} footer={null} centered>
+                                    <p><b>You have reached the maximum number of careers you are able to add to the compare feature.</b></p>
+                                    <p> Please deselect one of your selected careers to add this career </p>
+                                    <Button type="primary" onClick={()=> hide()}>Close</Button>
+                                </Modal>
+                            </div>)
                 }
             }
         }
