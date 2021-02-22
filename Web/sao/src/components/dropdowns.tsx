@@ -7,6 +7,7 @@ import { useFilterContext } from '../state/filterContext'
 import { useGetIndustryData } from '../client/apiService'
 import {modifyIndustryData, filtersPopOverVisible} from '../client/filtersData'
 import { defaultFilterOption } from '../state/filterReducer'
+import {configureHttpClient} from '../client/httpClient'
 import Results from './results'
 import Header from './header'
 import Footer from './footer'
@@ -24,6 +25,10 @@ const Dropdowns: FunctionComponent = () => {
     function getIndustryValues() {
         return  userSelection.industry.id
     }
+
+    useEffect(() => {
+        configureHttpClient()
+    },[])
 
     useEffect(()=> {
         if(!!filterOption) {

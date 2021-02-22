@@ -13,8 +13,8 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="114"
-  DTS:VersionGUID="{1921EAE9-BF3D-46AE-BBA8-C3EA4E126429}">
+  DTS:VersionBuild="115"
+  DTS:VersionGUID="{719A2141-BA05-436E-97FD-FD483E045BFC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -389,6 +389,189 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\Import External Data\2006 to 2011 Noc Match DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="2006 to 2011 Noc Match DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CONCAT('#', n2011.NOCCode) AS NOCCode2011, n2011.NameEnglish AS NocTitle2011, n2006.NOCCode AS NOCCode2006, n2006.NameEnglish AS NocTitle2006
+FROM EDM_NOC n2011
+LEFT JOIN EDM_NOC n2006 ON n2011.NOC_ID2006 = n2006.NOC_ID
+WHERE n2011.NOCYear = 2011
+AND n2011.NOCCode != n2006.NOCCode
+ORDER BY n2011.NameEnglish</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import External Data\2006 to 2011 Noc Match DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WorkBC Enterprise Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[WorkBC Enterprise Database]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].Columns[NOCCode2011]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].ExternalColumns[NOCCode2011]"
+                      length="5"
+                      lineageId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].Columns[NOCCode2011]"
+                      name="NOCCode2011"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].Columns[NocTitle2011]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].ExternalColumns[NocTitle2011]"
+                      length="200"
+                      lineageId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].Columns[NocTitle2011]"
+                      name="NocTitle2011"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].Columns[NOCCode2006]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].ExternalColumns[NOCCode2006]"
+                      length="4"
+                      lineageId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].Columns[NOCCode2006]"
+                      name="NOCCode2006"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].Columns[NocTitle2006]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].ExternalColumns[NocTitle2006]"
+                      length="200"
+                      lineageId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].Columns[NocTitle2006]"
+                      name="NocTitle2006"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].ExternalColumns[NOCCode2011]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="NOCCode2011" />
+                    <externalMetadataColumn
+                      refId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].ExternalColumns[NocTitle2011]"
+                      dataType="wstr"
+                      length="200"
+                      name="NocTitle2011" />
+                    <externalMetadataColumn
+                      refId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].ExternalColumns[NOCCode2006]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="NOCCode2006" />
+                    <externalMetadataColumn
+                      refId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].ExternalColumns[NocTitle2006]"
+                      dataType="wstr"
+                      length="200"
+                      name="NocTitle2006" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Error Output].Columns[NOCCode2011]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Error Output].Columns[NOCCode2011]"
+                      name="NOCCode2011" />
+                    <outputColumn
+                      refId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Error Output].Columns[NocTitle2011]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Error Output].Columns[NocTitle2011]"
+                      name="NocTitle2011" />
+                    <outputColumn
+                      refId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Error Output].Columns[NOCCode2006]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Error Output].Columns[NOCCode2006]"
+                      name="NOCCode2006" />
+                    <outputColumn
+                      refId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Error Output].Columns[NocTitle2006]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Error Output].Columns[NocTitle2006]"
+                      name="NocTitle2006" />
+                    <outputColumn
+                      refId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\Import External Data\Data Conversion"
               componentClassID="Microsoft.DataConvert"
@@ -1376,6 +1559,165 @@ where [refTable].[NOCCode] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Import External Data\Noc Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Noc Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[NOC]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[NOC]) [refTable]
+where [refTable].[NOCCode] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NOCCode" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Description" dataType="DT_TEXT" length="0" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="MedianSalary" dataType="DT_NUMERIC" length="0" precision="18" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EducationLevelId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FullOrPartTimeId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="JobOverviewSummary" dataType="DT_TEXT" length="0" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="JobBoardNOCCode" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].Columns[NOCCode2011]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import External Data\Noc Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import External Data\Noc Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import External Data\Noc Lookup.Inputs[Lookup Input].Columns[NOCCode2011]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="NOCCode2011"
+                      lineageId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].Columns[NOCCode2011]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">NOCCode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import External Data\Noc Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Import External Data\Noc Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import External Data\Noc Lookup.Outputs[Lookup Match Output].Columns[NocId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Import External Data\Noc Lookup.Outputs[Lookup Match Output].Columns[NocId]"
+                      name="NocId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import External Data\Noc Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Import External Data\Noc Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import External Data\Noc Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Import External Data\Noc Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import External Data\Noc Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import External Data\Noc Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import External Data\Noc Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import External Data\Noc Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Import External Data\OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -1648,6 +1990,122 @@ ORDER BY NOC.NOCCode, CPCTV.CareerTrekVideoPosition</property>
               </outputs>
             </component>
             <component
+              refId="Package\Import External Data\Update NOC 2006 Codes"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Update NOC 2006 Codes"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE NOC SET JobBoardNocCode = ? WHERE Id= ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import External Data\Update NOC 2006 Codes.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
+                  connectionManagerRefId="Package.ConnectionManagers[SearchAllOccupationsTool Database]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import External Data\Update NOC 2006 Codes.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import External Data\Update NOC 2006 Codes.Inputs[OLE DB Command Input].Columns[NOCCode2006]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="NOCCode2006"
+                      externalMetadataColumnId="Package\Import External Data\Update NOC 2006 Codes.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output].Columns[NOCCode2006]" />
+                    <inputColumn
+                      refId="Package\Import External Data\Update NOC 2006 Codes.Inputs[OLE DB Command Input].Columns[NocId]"
+                      cachedDataType="i4"
+                      cachedName="NocId"
+                      externalMetadataColumnId="Package\Import External Data\Update NOC 2006 Codes.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Import External Data\Noc Lookup.Outputs[Lookup Match Output].Columns[NocId]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import External Data\Update NOC 2006 Codes.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Import External Data\Update NOC 2006 Codes.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import External Data\Update NOC 2006 Codes.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Import External Data\Update NOC 2006 Codes.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import External Data\Update NOC 2006 Codes.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Import External Data\Update NOC 2006 Codes.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import External Data\Update NOC 2006 Codes.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import External Data\Update NOC 2006 Codes.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import External Data\Update NOC 2006 Codes.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import External Data\Update NOC 2006 Codes.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Import External Data\Write NOC Videos"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -1816,6 +2274,11 @@ ORDER BY NOC.NOCCode, CPCTV.CareerTrekVideoPosition</property>
               name="Lookup Match Output"
               startId="Package\Import External Data\Lookup.Outputs[Lookup Match Output]" />
             <path
+              refId="Package\Import External Data.Paths[Lookup Match Output3]"
+              endId="Package\Import External Data\Update NOC 2006 Codes.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\Import External Data\Noc Lookup.Outputs[Lookup Match Output]" />
+            <path
               refId="Package\Import External Data.Paths[OLE DB Source Output]"
               endId="Package\Import External Data\Lookup Noc Title.Inputs[Lookup Input]"
               name="OLE DB Source Output"
@@ -1830,6 +2293,11 @@ ORDER BY NOC.NOCCode, CPCTV.CareerTrekVideoPosition</property>
               endId="Package\Import External Data\Data Conversion 1.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\Import External Data\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Import External Data.Paths[OLE DB Source Output3]"
+              endId="Package\Import External Data\Noc Lookup.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import External Data\2006 to 2011 Noc Match DB.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -9544,9 +10012,25 @@ where [refTable].[Value] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
         <NodeLayout
+          Size="162,42"
+          Id="Package\Import External Data\Lookup Noc Text"
+          TopLeft="621.5,166.5" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Import External Data\Lookup Noc Title"
+          TopLeft="435,168" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Import External Data\Update Career Trek Links 1"
+          TopLeft="680.5,260.5" />
+        <NodeLayout
           Size="177,42"
           Id="Package\Import External Data\Job Title Source DB"
           TopLeft="378,51" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Import External Data\Data Conversion"
+          TopLeft="776,91" />
         <NodeLayout
           Size="204,42"
           Id="Package\Import External Data\Insert Common Job Titles"
@@ -9555,50 +10039,6 @@ where [refTable].[Value] = ?</property>
           Size="211,42"
           Id="Package\Import External Data\Job Description Source DB"
           TopLeft="600,30" />
-        <NodeLayout
-          Size="205,42"
-          Id="Package\Import External Data\Update Career Trek Links 1"
-          TopLeft="680.5,260.5" />
-        <NodeLayout
-          Size="161,42"
-          Id="Package\Import External Data\Lookup Noc Title"
-          TopLeft="435,168" />
-        <NodeLayout
-          Size="161,42"
-          Id="Package\Import External Data\Data Conversion"
-          TopLeft="776,91" />
-        <NodeLayout
-          Size="162,42"
-          Id="Package\Import External Data\Lookup Noc Text"
-          TopLeft="621.5,166.5" />
-        <EdgeLayout
-          Id="Package\Import External Data.Paths[OLE DB Source Output1]"
-          TopLeft="811,51">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="45.5,40"
-              Start="0,0"
-              End="45.5,32.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="41.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="41.5,0"
-                    Point2="45.5,0"
-                    Point3="45.5,4" />
-                  <mssgle:LineSegment
-                    End="45.5,32.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Import External Data.Paths[OLE DB Source Output]"
           TopLeft="466.5,93">
@@ -9739,6 +10179,34 @@ where [refTable].[Value] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import External Data.Paths[OLE DB Source Output1]"
+          TopLeft="811,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="45.5,40"
+              Start="0,0"
+              End="45.5,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="41.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.5,0"
+                    Point2="45.5,0"
+                    Point3="45.5,4" />
+                  <mssgle:LineSegment
+                    End="45.5,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <NodeLayout
           Size="115,42"
           Id="Package\Import External Data\Lookup"
@@ -9854,6 +10322,88 @@ where [refTable].[Value] = ?</property>
             <s:String>Package\Import External Data.Paths[OLE DB Source Output2]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Import External Data\2006 to 2011 Noc Match DB"
+          TopLeft="984,42" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Import External Data\Noc Lookup"
+          TopLeft="1008,134" />
+        <EdgeLayout
+          Id="Package\Import External Data.Paths[OLE DB Source Output3]"
+          TopLeft="1092.5,84">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.5,50"
+              Start="0,0"
+              End="-15.5,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="-4,25" />
+                  <mssgle:LineSegment
+                    End="-11.5,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.5,25"
+                    Point2="-15.5,25"
+                    Point3="-15.5,29" />
+                  <mssgle:LineSegment
+                    End="-15.5,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Import External Data\Update NOC 2006 Codes"
+          TopLeft="1015,246" />
+        <EdgeLayout
+          Id="Package\Import External Data.Paths[Lookup Match Output3]"
+          TopLeft="1077,176">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="40,70"
+              Start="0,0"
+              End="40,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="4,35" />
+                  <mssgle:LineSegment
+                    End="36,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="36,35"
+                    Point2="40,35"
+                    Point3="40,39" />
+                  <mssgle:LineSegment
+                    End="40,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.19138671875,40,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -11972,6 +12522,37 @@ where [refTable].[Value] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import External Data\2006 to 2011 Noc Match DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import External Data\Noc Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[NOC]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

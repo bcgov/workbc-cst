@@ -13,6 +13,9 @@ namespace SearchAllOccupationsToolAPI.Models
         [JsonPropertyName("noc")]
         public string NOC { get; set; }
 
+        [JsonPropertyName("jobBoardNoc")]
+        public string JobBoardNOC { get; set; }
+
         [JsonPropertyName("description")]
         public string Description { get; set; }
 
