@@ -98,7 +98,7 @@ const CareerPreview: FunctionComponent = () => {
                             View Career Profile
                         </Button>
                     </a>                    
-                    <a href={viewJobsUrl+careerObj.noc} target="_blank">
+                    <a href={viewJobsUrl+careerObj.jobBoardNoc} target="_blank">
                         <Button block>
                             Find Jobs
                         </Button>

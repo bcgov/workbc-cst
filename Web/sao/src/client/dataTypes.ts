@@ -67,6 +67,7 @@ export interface Education { // Education is similar to FilterTypeModel but for 
 export interface OccupationSummary {
     id: number, 
     noc: string,
+    jobBoardNoc: string
     description: string, 
     title: string, 
     education: Education,
