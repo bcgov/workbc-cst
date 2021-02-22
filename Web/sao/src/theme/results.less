@@ -18,8 +18,12 @@
     &__thumbnail{
         margin: 0 auto;
         margin-top: 1.5rem;
-        img{
+        img, iframe{
             width:100%;
+            height: auto;
+        }
+        iframe{
+            height: 350px;
         }
     }
     &__body{
@@ -32,7 +36,7 @@
     }
 }
 
-.result-body{
+.result-body{    
     &__row{
         border-bottom: thin solid @border-grey-thin;
         padding: 0.5rem 0;

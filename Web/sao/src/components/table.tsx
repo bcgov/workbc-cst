@@ -1,5 +1,5 @@
 import React, {FunctionComponent, useState, useEffect} from 'react'
-import { Row, Col, Table, Button, Popover, Checkbox } from 'antd'
+import { Row, Col, Table, Button, Popover, Checkbox, Modal } from 'antd'
 import { CheckboxChangeEvent } from 'antd/lib/checkbox/Checkbox'
 import { DownOutlined  } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
@@ -7,16 +7,24 @@ import { OccupationModel } from 'client/dataTypes'
 import { FilterOptionModel, FilterOccupationParams, IndustryTypeModel } from '../client/dataTypes'
 import { useGetOccupationsList } from '../client/apiService'
 import { defaultFilterParams } from '../state/filterReducer'
+import useWindowSize from '../client/useWindowSize'
 
 const ResultsTable: FunctionComponent = () => {
     const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc,
-        setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs } = useFilterContext()
+        setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs, setView } = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const [nameSortVisible, setNameSortVisible] = useState<boolean>(false)
     const [jobsSortVisible, setJobsSortVisible] = useState<boolean>(false)
     const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
-    
+
+    const [extraSelection, setExtraSelection] = useState<string>()
+    const [width] = useWindowSize()
+
+    function isMobile() {
+        return width < 1024
+    }
+
     useEffect(() => {
         if (!!filterOption && !isReset) {
             const filterParams = getFilterParams(filterOption)
@@ -93,6 +101,7 @@ const ResultsTable: FunctionComponent = () => {
     function hide() {
         setNameSortVisible(false)
         setJobsSortVisible(false)
+        setExtraSelection(undefined)
     }
 
     const nameContent = (
@@ -139,7 +148,14 @@ const ResultsTable: FunctionComponent = () => {
             dataIndex: 'compare',
             render: (text, record: OccupationModel) => {
                 if (filteredOccupationsList && filteredOccupationsList.length > 1) {
-                    return (<Checkbox disabled={checkedNocs.length > 2} checked={isChecked(record.noc)} onChange={(event)=> handleSelectCheckBox(event, record.noc)}></Checkbox>)
+                    return (<div>
+                                <Checkbox checked={isChecked(record.noc)} onChange={(event)=> handleSelectCheckBox(event, record.noc)}></Checkbox>
+                                <Modal visible={extraSelection === record.noc} footer={null} centered>
+                                    <p><b>You have reached the maximum number of careers you are able to add to the compare feature.</b></p>
+                                    <p> Please deselect one of your selected careers to add this career </p>
+                                    <Button type="primary" onClick={()=> hide()}>Close</Button>
+                                </Modal>
+                            </div>)
                 }
             }
         }
@@ -147,7 +163,7 @@ const ResultsTable: FunctionComponent = () => {
 
     function handleSelectCheckBox (event: CheckboxChangeEvent, nocId) {
         if(event.target.checked) {
-            setCheckedNocs([...checkedNocs, nocId])
+            checkedNocs.length < 3 ? setCheckedNocs([...checkedNocs, nocId]) : setExtraSelection(nocId)
         } else {
             const newCheckedNocs = checkedNocs.filter(noc => noc !== nocId)
             setCheckedNocs(newCheckedNocs)
@@ -156,6 +172,11 @@ const ResultsTable: FunctionComponent = () => {
 
     function handleSelectedNoc(record: any) {
         setSelectedNoc(record.noc)
+        if(isMobile()) {
+            setView('careerPreview')
+        } else {
+            setView('results')
+        }
     }
 
     function onRow(record: any) {
