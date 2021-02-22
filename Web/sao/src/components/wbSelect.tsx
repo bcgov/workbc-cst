@@ -23,6 +23,7 @@ const WbSelect: FunctionComponent<WbSelectProps> = ({
     noForm,
     maxWidth,
     minWidth,
+    className,
     // onInfoClick,
     // titleColSpan,
     warningText,
@@ -34,7 +35,7 @@ const WbSelect: FunctionComponent<WbSelectProps> = ({
     return (
       <>
         <Col offset={colOffset} span={colSpan}>
-          <div className="select__container">
+          <div className={className + " select__container"}>
             <Select className="select__select" {...rest}>
                 {children}
             </Select>

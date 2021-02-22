@@ -11,7 +11,7 @@ interface OwnProps {
   
 type Props = OwnProps & WbSelectProps
 
-const SelectFilterType: FunctionComponent<Props> = ({filterType, onChange, showPlaceHolderAsOption, placeholder, ...rest}) => {
+const SelectFilterType: FunctionComponent<Props> = ({filterType, onChange, showPlaceHolderAsOption, placeholder, className, ...rest}) => {
     const { data: codeTypes, isValidating, isSettled } = useGetFilterData(filterType)
 
     function handleChange(value: Key, options: any) {
@@ -36,6 +36,7 @@ const SelectFilterType: FunctionComponent<Props> = ({filterType, onChange, showP
             filterOption={false}
             onChange={handleChange}
             placeholder={placeholder}
+            className={className}
             {...rest}
         >
             {showPlaceHolderAsOption && placeholder &&

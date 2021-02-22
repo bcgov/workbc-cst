@@ -217,6 +217,7 @@ const Dropdowns: FunctionComponent = () => {
                                     filterType={FilterType.region}
                                     showArrow={true}
                                     style={{ width: '100%' }}
+                                    className="sao-filters__select"
                                     value = {userSelection?.region?.value}
                                     onChange = {handleChangeRegion}
                                     showPlaceHolderAsOption={false}
@@ -295,10 +296,12 @@ const Dropdowns: FunctionComponent = () => {
                                     <Popover placement="top" className="sao-filters__popover" content={getPopOver('JobType')} trigger="click" visible={popOvervisible.jobType}
                                     onVisibleChange={(visible)=> handlepopOverVisibilityChange('jobType', visible)}>  <QuestionCircleFilled /> </Popover> 
                                 </label>
+
                                 <SelectFilterType  
                                     filterType={FilterType.part_time_option}
                                     style={{ width: '100%' }}
                                     showArrow={true}
+                                    className="sao-filters__select"
                                     value = {userSelection?.part_time_option?.value}
                                     onChange = {handleChangePartTimeOption}
                                     showPlaceHolderAsOption={true}
