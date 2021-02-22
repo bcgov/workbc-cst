@@ -233,6 +233,7 @@ const Dropdowns: FunctionComponent = () => {
                                 <SelectFilterType  
                                     filterType={FilterType.education}
                                     showArrow={true}
+                                    className="sao-filters__select"
                                     style={{ width: '100%' }}
                                     value = {userSelection?.education?.value}
                                     onChange = {handleChangeEducation}
@@ -249,6 +250,7 @@ const Dropdowns: FunctionComponent = () => {
                                 <SelectFilterType  
                                     filterType={FilterType.occupational_interest}
                                     showArrow={true}
+                                    className="sao-filters__select"
                                     style={{ width: '100%' }}
                                     value = {userSelection?.occupational_interest?.value}
                                     onChange = {handleChangeOccupationalInterest}
@@ -265,6 +267,7 @@ const Dropdowns: FunctionComponent = () => {
                                     <TreeSelect allowClear
                                         placeholder="All"
                                         showArrow={true}
+                                        className="sao-filters__select"
                                         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
                                         treeData={industryDataTree}
                                         onChange={handleChangeIndustry}
@@ -283,6 +286,8 @@ const Dropdowns: FunctionComponent = () => {
                                 <SelectFilterType  
                                     filterType={FilterType.occupational_group}
                                     showArrow={true}
+                                    className="sao-filters__select"
+
                                     style={{ width: '100%' }}
                                     value = {userSelection?.occupational_group?.value}
                                     onChange = {handleChangeOccupationalGroup}
@@ -315,6 +320,7 @@ const Dropdowns: FunctionComponent = () => {
                                     filterType={FilterType.annual_salary}
                                     style={{ width: '100%' }}
                                     showArrow={true}
+                                    className="sao-filters__select"
                                     value = {userSelection?.annual_salary?.value}
                                     onChange = {handleChangeAnnualSalary}
                                     showPlaceHolderAsOption={true}
@@ -335,14 +341,14 @@ const Dropdowns: FunctionComponent = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col span={8} offset={16}> 
-                            <Button type="primary" style={{width: "250px"}} onClick = {applyFilters}> Apply Filters </Button>
-                            <Button style={{border: "none"}} onClick = {handleReset}> 
-                                <div>
-                                    <SyncOutlined /> 
+                        <Col xs={24} lg={8}> 
+                            <div className="sao-filters__button-layout">
+                                <div className="sao-filters__button sao-filters__button--apply" type="primary" onClick = {applyFilters}> Apply </div>
+                                <div className="sao-filters__button sao-filters__button--reset" onClick = {handleReset}> 
                                     Reset
+                                    <SyncOutlined /> 
                                 </div>
-                            </Button>
+                            </div>
                         </Col>
                     </Row>
                 </div>
