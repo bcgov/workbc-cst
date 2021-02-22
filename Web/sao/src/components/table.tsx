@@ -7,10 +7,11 @@ import { OccupationModel } from 'client/dataTypes'
 import { FilterOptionModel, FilterOccupationParams, IndustryTypeModel } from '../client/dataTypes'
 import { useGetOccupationsList } from '../client/apiService'
 import { defaultFilterParams } from '../state/filterReducer'
+import useWindowSize from '../client/useWindowSize'
 
 const ResultsTable: FunctionComponent = () => {
     const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc,
-        setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs } = useFilterContext()
+        setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs, setView } = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const [nameSortVisible, setNameSortVisible] = useState<boolean>(false)
@@ -18,7 +19,12 @@ const ResultsTable: FunctionComponent = () => {
     const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
 
     const [extraSelection, setExtraSelection] = useState<string>()
-    
+    const [width] = useWindowSize()
+
+    function isMobile() {
+        return width < 1024
+    }
+
     useEffect(() => {
         if (!!filterOption && !isReset) {
             const filterParams = getFilterParams(filterOption)
@@ -166,6 +172,11 @@ const ResultsTable: FunctionComponent = () => {
 
     function handleSelectedNoc(record: any) {
         setSelectedNoc(record.noc)
+        if(isMobile()) {
+            setView('careerPreview')
+        } else {
+            setView('results')
+        }
     }
 
     function onRow(record: any) {

@@ -6,7 +6,7 @@ export interface FilterState {
     filterOption? : FilterOptionModel
     filteredOccupationsList? : OccupationModel[] 
     selectedNoc : string,
-    showCompareView: boolean,
+    view: string,
     isReset: boolean,
     checkedNocs: string[],
     sortOption: string, 
@@ -16,7 +16,7 @@ export interface FilterContextProps extends FilterState {
     resetOptions: () => void
     setFilteredOccupationsList: (occupationsList: OccupationModel[]) => void,
     setSelectedNoc: (nocId: string) => void,
-    setShowCompareView: (value: boolean) => void,
+    setView: (value: string) => void,
     setCheckedNocs: (value: string[]) => void,
     setSortOption: (value: string) => void
 }
@@ -25,7 +25,7 @@ const FilterContext = createContext<FilterContextProps>({
     filterOption: defaultFilterOption,
     filteredOccupationsList: [],
     selectedNoc: "",
-    showCompareView: false,
+    view: 'results',
     isReset: true,
     checkedNocs: [],
     sortOption: 'High to Low',
@@ -33,7 +33,7 @@ const FilterContext = createContext<FilterContextProps>({
     resetOptions: () => {},
     setFilteredOccupationsList: () => {},
     setSelectedNoc: () => {},
-    setShowCompareView: () => {},
+    setView: () => {},
     setCheckedNocs: () =>{},
     setSortOption: () => {}
 })
@@ -41,7 +41,7 @@ const FilterContext = createContext<FilterContextProps>({
 FilterContext.displayName = 'FilterContext'
 
 const FilterContextProvider: FunctionComponent = ({children}) => {
-    const [{filterOption, filteredOccupationsList, selectedNoc, showCompareView, isReset, checkedNocs, sortOption}, dispatch] = useReducer(reducer, defaultFilterState)
+    const [{filterOption, filteredOccupationsList, selectedNoc, view, isReset, checkedNocs, sortOption}, dispatch] = useReducer(reducer, defaultFilterState)
 
     async function setFilterOption(filterOptions: FilterOptionModel) {
         try {
@@ -67,9 +67,9 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
          }
      }
 
-     async function setShowCompareView(value: boolean) {
+     async function setView(value: string) {
          try {
-            dispatch({ type: 'set-show-compare-view', payload: value})
+            dispatch({ type: 'set-view', payload: value})
          } catch (error) {
              console.log(error)
          }
@@ -101,14 +101,14 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
                 filterOption,
                 filteredOccupationsList, 
                 selectedNoc,
-                showCompareView,
+                view,
                 isReset,
                 checkedNocs,
                 sortOption,
                 setSelectedNoc,
                 setFilterOption, 
                 resetOptions, 
-                setShowCompareView,
+                setView,
                 setFilteredOccupationsList, 
                 setSortOption,
                 setCheckedNocs }}> 
