@@ -36,9 +36,9 @@
 .sao-filters{
     color: white;
     background: @grey;
-    padding-top: 35px;
+    padding: 25px 0;
     .largeScreen({
-        padding-top: 35px;
+        padding: 85px 0;
     });
     h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
         color: @dark-blue;
@@ -46,11 +46,15 @@
     &__type{
         width: 100%;
     }
+    //The "?" - Does not apply to internal
     &__popover{
         cursor: pointer;
         margin-left: 0.5rem;
         svg{
             fill: @dark-blue;
+        }
+        &-inner{
+
         }
     }
     &__button{

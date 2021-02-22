@@ -210,7 +210,7 @@ const Dropdowns: FunctionComponent = () => {
                         <Col xs={24} lg={6}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Region 
-                                    <Popover placement="top" className="sao-filters__popover" content={getPopOver('Region')} trigger="click" visible={popOvervisible.region}
+                                    <Popover placement="top" overlayClassName="sao-filters__popover-inner" className="sao-filters__popover" content={getPopOver('Region')} trigger="click" visible={popOvervisible.region}
                                     onVisibleChange={(visible)=> handlepopOverVisibilityChange('region', visible)}>  <QuestionCircleFilled /> </Popover>                                   
                                 </label>
                                 <SelectFilterType  
@@ -353,7 +353,7 @@ const Dropdowns: FunctionComponent = () => {
                     </Row>
                 </div>
             </div>
-            <div>
+            <div className="results-background">
                 <Results />
             </div>
             <Footer />

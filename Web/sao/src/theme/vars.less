@@ -18,6 +18,8 @@
 @grey: #e6e6e6;
 @border-grey: #d6d6d6;
 @border-grey-thin: #ccc;;
+@results-background: #f2f2f2;
+@results-border-color: #007eb4;
 
 // height rules
 @height-base: 40px;
@@ -54,166 +56,24 @@
 @table-font-size: 16px;
 @table-row-hover-bg: inherit;
 
-/*
-// Table
-// --
-@table-bg: @component-background;
-@table-header-bg: @background-color-light;
-@table-header-color: @heading-color;
-@table-header-sort-bg: @background-color-base;
-@table-body-sort-bg: #fafafa;
-@table-row-hover-bg: @background-color-light;
-@table-selected-row-color: inherit;
-@table-selected-row-bg: @primary-1;
-@table-body-selected-sort-bg: @table-selected-row-bg;
-@table-selected-row-hover-bg: darken(@table-selected-row-bg, 2%);
-@table-expanded-row-bg: #fbfbfb;
-@table-padding-vertical: 16px;
-@table-padding-horizontal: 16px;
-@table-padding-vertical-md: (@table-padding-vertical * 3 / 4);
-@table-padding-horizontal-md: (@table-padding-horizontal / 2);
-@table-padding-vertical-sm: (@table-padding-vertical / 2);
-@table-padding-horizontal-sm: (@table-padding-horizontal / 2);
-@table-border-color: @border-color-split;
-@table-border-radius-base: @border-radius-base;
-@table-footer-bg: @background-color-light;
-@table-footer-color: @heading-color;
-@table-header-bg-sm: @table-header-bg;
-@table-font-size: @font-size-base;
-@table-font-size-md: @table-font-size;
-@table-font-size-sm: @table-font-size;
-// Sorter
-// Legacy: `table-header-sort-active-bg` is used for hover not real active
-@table-header-sort-active-bg: darken(@table-header-bg, 3%);
-// Filter
-@table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
-@table-filter-btns-bg: inherit;
-@table-filter-dropdown-bg: @component-background;
-@table-expand-icon-bg: @component-background;
-@table-selection-column-width: 32px;
-// Sticky
-@table-sticky-scroll-bar-bg: fade(#000, 35%);
-@table-sticky-scroll-bar-radius: 4px;
-
-
-//Dropdown
-@dropdown-menu-bg: @component-background;
-@dropdown-vertical-padding: 5px;
-@dropdown-edge-child-vertical-padding: 4px;
-@dropdown-font-size: @font-size-base;
-@dropdown-line-height: 22px;
-
-// Form
-// ---
-@label-required-color: @highlight-color;
-@label-color: @heading-color;
-@form-warning-input-bg: @input-bg;
-@form-item-margin-bottom: 24px;
-@form-item-trailing-colon: true;
-@form-vertical-label-padding: 0 0 8px;
-@form-vertical-label-margin: 0;
-@form-item-label-font-size: @font-size-base;
-@form-item-label-height: @input-height-base;
-@form-item-label-colon-margin-right: 8px;
-@form-item-label-colon-margin-left: 2px;
-@form-error-input-bg: @input-bg;
-
-// Input
-// ---
-
-@input-height-base: @height-base;
-@input-height-lg: @height-lg;
-@input-height-sm: @height-sm;
-@input-padding-horizontal: @control-padding-horizontal - 1px;
-@input-padding-horizontal-base: @input-padding-horizontal;
-@input-padding-horizontal-sm: @control-padding-horizontal-sm - 1px;
-@input-padding-horizontal-lg: @input-padding-horizontal;
-@input-padding-vertical-base: max(
-  (round(((@input-height-base - @font-size-base * @line-height-base) / 2) * 10) / 10) -
-    @border-width-base,
-  3px
-);
-@input-padding-vertical-sm: max(
-  (round(((@input-height-sm - @font-size-base * @line-height-base) / 2) * 10) / 10) -
-    @border-width-base,
-  0
-);
-@input-padding-vertical-lg: (
-    ceil(((@input-height-lg - @font-size-lg * @line-height-base) / 2) * 10) / 10
-  ) - @border-width-base;
-@input-placeholder-color: hsv(0, 0, 75%);
-@input-color: @text-color;
-@input-icon-color: @input-color;
-@input-border-color: @border-color-base;
-@input-bg: @component-background;
-@input-number-hover-border-color: @input-hover-border-color;
-@input-number-handler-active-bg: #f4f4f4;
-@input-number-handler-hover-bg: @primary-5;
-@input-number-handler-bg: @component-background;
-@input-number-handler-border-color: @border-color-base;
-@input-addon-bg: @background-color-light;
-@input-hover-border-color: @primary-5;
-@input-disabled-bg: @disabled-bg;
-@input-outline-offset: 0 0;
-@input-icon-hover-color: fade(@black, 85%);
-@input-disabled-color: @disabled-color;
-
-// Select
-// ---
-@select-border-color: @border-color-base;
-@select-item-selected-color: @text-color;
-@select-item-selected-font-weight: 600;
-@select-dropdown-bg: @component-background;
-@select-item-selected-bg: @primary-1;
-@select-item-active-bg: @item-hover-bg;
-@select-dropdown-vertical-padding: @dropdown-vertical-padding;
-@select-dropdown-font-size: @dropdown-font-size;
-@select-dropdown-line-height: @dropdown-line-height;
-@select-dropdown-height: 32px;
-@select-background: @component-background;
-@select-clear-background: @select-background;
-@select-selection-item-bg: @background-color-base;
-@select-selection-item-border-color: @border-color-split;
-@select-single-item-height-lg: 40px;
-@select-multiple-item-height: @input-height-base - @input-padding-vertical-base * 2; // Normal 24px
-@select-multiple-item-height-lg: 32px;
-@select-multiple-item-spacing-half: ceil((@input-padding-vertical-base / 2));
-@select-multiple-disabled-background: @input-disabled-bg;
-@select-multiple-item-disabled-color: #bfbfbf;
-@select-multiple-item-disabled-border-color: @select-border-color;
-
-// Tooltip
-// ---
-// Tooltip max width
-@tooltip-max-width: 250px;
-// Tooltip text color
-@tooltip-color: #fff;
-// Tooltip background color
-@tooltip-bg: rgba(0, 0, 0, 0.75);
-// Tooltip arrow width
-@tooltip-arrow-width: 5px;
-// Tooltip distance with trigger
-@tooltip-distance: @tooltip-arrow-width - 1px + 4px;
-// Tooltip arrow color
-@tooltip-arrow-color: @tooltip-bg;
 
 // Popover
 // ---
 // Popover body background color
-@popover-bg: @component-background;
+@popover-bg: White;
 // Popover text color
 @popover-color: @text-color;
 // Popover maximum width
-@popover-min-width: 177px;
+@popover-min-width: 273px;
 @popover-min-height: 32px;
 // Popover arrow width
-@popover-arrow-width: 6px;
+@popover-arrow-width: 15px;
 // Popover arrow color
-@popover-arrow-color: @popover-bg;
+@popover-arrow-color: @yellow;
 // Popover outer arrow width
 // Popover outer arrow color
-@popover-arrow-outer-color: @popover-bg;
+@popover-arrow-outer-color: @yellow;
 // Popover distance with trigger
-@popover-distance: @popover-arrow-width + 4px;
-@popover-padding-horizontal: @padding-md;
-*/
+@popover-distance: @popover-arrow-width;
+
+
