@@ -1,12 +1,14 @@
 import React, {FunctionComponent, useState, useEffect} from 'react'
 import {Button} from 'antd'
+import { LeftOutlined  } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import {OccupationSummary} from '../client/dataTypes'
 import {useGetOccupationSummary, useGetSystemConfigurations} from '../client/apiService'
 import YouTube from 'react-youtube';
+import useWindowSize from '../client/useWindowSize'
 
 const CareerPreview: FunctionComponent = () => {
-    const {filteredOccupationsList, selectedNoc, setSelectedNoc} = useFilterContext()
+    const {filteredOccupationsList, selectedNoc, setSelectedNoc, setView} = useFilterContext()
 
     const [careerDetail, setCareerDetail] = useState<OccupationSummary>()
     const [profileImagesPath, setProfileImagesPath] = useState<string>()
@@ -16,7 +18,12 @@ const CareerPreview: FunctionComponent = () => {
     const {data: piPathData, isValidating: isFetchingPIPath, isSettled: isPiPathFetched } = useGetSystemConfigurations({name: "ProfileImagesPath"})
     const {data: CPUrlData, isValidating: isFetchingCPUrl, isSettled: isCPUrlFetched } = useGetSystemConfigurations({name: "CareerProfileBaseUrl"})
     const {data: JOUrlData, isValidating: isFetchingJOUrl, isSettled: isJOUrlFetched } = useGetSystemConfigurations({name: "JobOpeningsBaseUrl"})
+    const [width] = useWindowSize()
     
+    function isMobile() {
+        return width < 1024
+    }
+
     useEffect(() => {
         setSelectedNoc(filteredOccupationsList[0]?.noc)
     }, [filteredOccupationsList])
@@ -52,6 +59,14 @@ const CareerPreview: FunctionComponent = () => {
         event.target.pauseVideo();
     }
 
+    function removeTags(str) { 
+        if ((str===null) || (str==='')) 
+            return false; 
+        else
+            str = str.toString();
+        return str.replace( /(<([^>]+)>)/ig, ''); 
+    } 
+
     function getCareerDetail(careerObj: OccupationSummary) {
         return (
             <div className="result-detail">
@@ -74,7 +89,7 @@ const CareerPreview: FunctionComponent = () => {
                         <div className="result-body__row-right"><b>{careerObj.jobOpenings}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
-                        <div>{careerObj.description}</div>
+                        <div>{removeTags(careerObj.description)}</div>
                     </div>
                 </div>
                 <div className="result-detail__footer">                            
@@ -92,7 +107,13 @@ const CareerPreview: FunctionComponent = () => {
             </div>
         )
     }
-    return (<div> { !!careerDetail && filteredOccupationsList.length > 0 && getCareerDetail(careerDetail)} </div>)
+    return (<div> 
+            { !!isMobile() && (<Button type="link" onClick={() => setView('results')}>
+                <span><LeftOutlined/></span>
+                Back to search results
+                </Button>)} 
+            { !!careerDetail && filteredOccupationsList.length > 0 && getCareerDetail(careerDetail)} 
+        </div>)
 }
 
 export default CareerPreview

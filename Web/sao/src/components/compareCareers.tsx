@@ -5,9 +5,11 @@ import { useFilterContext } from '../state/filterContext'
 import {OccupationSummaryObj} from '../client/dataTypes'
 import {useGetOccupationSummary, useGetSystemConfigurations} from '../client/apiService'
 import YouTube from 'react-youtube';
+import { LeftOutlined  } from '@ant-design/icons'
+import useWindowSize from '../client/useWindowSize'
 
 const CompareCareers: FunctionComponent = () => {
-    const {setShowCompareView, checkedNocs, setCheckedNocs} = useFilterContext()
+    const {setView, checkedNocs, setCheckedNocs} = useFilterContext()
 
     const [careerDetail, setCareerDetail] = useState<OccupationSummaryObj[]>([])
     const [profileImagesPath, setProfileImagesPath] = useState<string>()
@@ -17,7 +19,12 @@ const CompareCareers: FunctionComponent = () => {
     const {data: piPathData, isValidating: isFetchingPIPath, isSettled: isPiPathFetched } = useGetSystemConfigurations({name: "ProfileImagesPath"})
     const {data: CPUrlData, isValidating: isFetchingCPUrl, isSettled: isCPUrlFetched } = useGetSystemConfigurations({name: "CareerProfileBaseUrl"})
     const {data: JOUrlData, isValidating: isFetchingJOUrl, isSettled: isJOUrlFetched } = useGetSystemConfigurations({name: "JobOpeningsBaseUrl"})
+    const [width] = useWindowSize()
 
+    function isMobile() {
+        return width < 1024
+    }
+    
     useEffect(() => {
         if(!isFetchingPIPath && isPiPathFetched && piPathData) {
             setProfileImagesPath(piPathData.value)
@@ -107,11 +114,16 @@ const CompareCareers: FunctionComponent = () => {
 
     return(
         <div>
+            { !!isMobile() && (<Button type="link" onClick={() => setView('results')}>
+                <span><LeftOutlined/></span>
+                Back to search results
+                </Button>)
+            } 
             <h1>Compare Careers 
                 <span style={{float: 'right'}}>
                     <Button style={{border: 'none'}}> <PrinterOutlined/> </Button>
                     <Button style={{border: 'none'}}> <MailOutlined/> </Button>
-                    <Button style={{border: 'none'}} onClick={()=> {setShowCompareView(false)}}> <CloseOutlined /> </Button>
+                    <Button style={{border: 'none'}} onClick={()=> {setView('results')}}> <CloseOutlined /> </Button>
                 </span>
             </h1>
             {
