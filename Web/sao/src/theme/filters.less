@@ -1,37 +1,47 @@
 
 .sao-filters-header{
-    background: @yellow;
+    background: @dark-blue;
     color:white;
-    font-size: 16px;
+    font-size: 24px;
     .largeScreen({
-        font-size: 32px;
+        font-size: 36px;
     });
 
     &__content{
         position: relative;
+        height: 84px;
+        .flex-display();
+        .align-items(center);
+        .largeScreen({
+            height: 138px;
+        });
         &::after{
-            left: 0;
-            bottom: -35px;
+            left: -15px;
+            bottom: -30px;
             position:absolute;
             content:"";
             width: 0; 
             height: 0; 
             border-left: 35px solid transparent;
             border-right: 35px solid transparent;        
-            border-top: 35px solid @yellow;
+            border-top: 35px solid @dark-blue;
+            .largeScreen({
+                left: 0;
+                bottom: -35px;
+            });
         }
     }
 }
 
 .sao-filters{
     color: white;
-    background: @dark-blue;
+    background: @grey;
     padding-top: 35px;
     .largeScreen({
         padding-top: 35px;
     });
     h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-        color: white;
+        color: @dark-blue;
     }
     &__type{
         width: 100%;
@@ -40,8 +50,7 @@
         }
     }
     &__label{
-        font-family: @font-family-bold;
-        color: white;
+        color: @text-color;
     }
     &__row{
         .largeScreen({
