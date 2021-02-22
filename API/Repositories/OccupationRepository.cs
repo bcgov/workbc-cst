@@ -144,6 +144,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 {
                     Id = o.Id,
                     NOC = o.NocCode,
+                    JobBoardNOC = o.JobBoardNocCode ?? o.NocCode, // Return 2006 Job Board NOC if it is set
                     Title = o.Description,
                     Education = o.EducationLevel,
                     Description = o.JobOverviewSummary,

@@ -8,6 +8,7 @@ namespace SearchAllOccupationsToolAPI.Models
     {
         public int Id { get; set; }
         public string NocCode { get; set; }
+        public string JobBoardNocCode { get; set; }
         public string Description { get; set; }
         public decimal? MedianSalary { get; set; }
         public virtual EducationLevel EducationLevel { get; set; }

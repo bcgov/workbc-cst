@@ -1,4 +1,6 @@
-/****** Object:  Table [dbo].[CommonJobTitle]    Script Date: 2/9/2021 2:01:11 PM ******/
+USE [SearchAllOccupationsTool]
+GO
+/****** Object:  Table [dbo].[CommonJobTitle]    Script Date: 2/22/2021 2:14:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -9,7 +11,7 @@ CREATE TABLE [dbo].[CommonJobTitle](
 	[NOCId] [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[EducationLevel]    Script Date: 2/9/2021 2:01:11 PM ******/
+/****** Object:  Table [dbo].[EducationLevel]    Script Date: 2/22/2021 2:14:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -23,7 +25,7 @@ CREATE TABLE [dbo].[EducationLevel](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[FullOrPartTime]    Script Date: 2/9/2021 2:01:11 PM ******/
+/****** Object:  Table [dbo].[FullOrPartTime]    Script Date: 2/22/2021 2:14:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -37,7 +39,7 @@ CREATE TABLE [dbo].[FullOrPartTime](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[GeographicArea]    Script Date: 2/9/2021 2:01:11 PM ******/
+/****** Object:  Table [dbo].[GeographicArea]    Script Date: 2/22/2021 2:14:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -51,7 +53,7 @@ CREATE TABLE [dbo].[GeographicArea](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Industry]    Script Date: 2/9/2021 2:01:11 PM ******/
+/****** Object:  Table [dbo].[Industry]    Script Date: 2/22/2021 2:14:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -65,7 +67,7 @@ CREATE TABLE [dbo].[Industry](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobOpening]    Script Date: 2/9/2021 2:01:11 PM ******/
+/****** Object:  Table [dbo].[JobOpening]    Script Date: 2/22/2021 2:14:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -83,7 +85,7 @@ CREATE TABLE [dbo].[JobOpening](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[NOC]    Script Date: 2/9/2021 2:01:11 PM ******/
+/****** Object:  Table [dbo].[NOC]    Script Date: 2/22/2021 2:14:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -96,13 +98,14 @@ CREATE TABLE [dbo].[NOC](
 	[EducationLevelId] [int] NULL,
 	[FullOrPartTimeId] [int] NULL,
 	[JobOverviewSummary] [varchar](max) NULL,
+	[JobBoardNOCCode] [varchar](255) NULL,
  CONSTRAINT [PK_NOC] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[NOCOccupationGroup]    Script Date: 2/9/2021 2:01:11 PM ******/
+/****** Object:  Table [dbo].[NOCOccupationGroup]    Script Date: 2/22/2021 2:14:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -118,7 +121,7 @@ CREATE TABLE [dbo].[NOCOccupationGroup](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[NOCOccupationInterest]    Script Date: 2/9/2021 2:01:11 PM ******/
+/****** Object:  Table [dbo].[NOCOccupationInterest]    Script Date: 2/22/2021 2:14:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -134,7 +137,7 @@ CREATE TABLE [dbo].[NOCOccupationInterest](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[NOCVideos]    Script Date: 2/9/2021 2:01:11 PM ******/
+/****** Object:  Table [dbo].[NOCVideos]    Script Date: 2/22/2021 2:14:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -150,7 +153,7 @@ CREATE TABLE [dbo].[NOCVideos](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OccupationalInterest]    Script Date: 2/9/2021 2:01:11 PM ******/
+/****** Object:  Table [dbo].[OccupationalInterest]    Script Date: 2/22/2021 2:14:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -164,7 +167,7 @@ CREATE TABLE [dbo].[OccupationalInterest](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OccupationGroup]    Script Date: 2/9/2021 2:01:11 PM ******/
+/****** Object:  Table [dbo].[OccupationGroup]    Script Date: 2/22/2021 2:14:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -178,7 +181,7 @@ CREATE TABLE [dbo].[OccupationGroup](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OccupationInterestOption]    Script Date: 2/9/2021 2:01:11 PM ******/
+/****** Object:  Table [dbo].[OccupationInterestOption]    Script Date: 2/22/2021 2:14:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -192,7 +195,7 @@ CREATE TABLE [dbo].[OccupationInterestOption](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SubIndustry]    Script Date: 2/9/2021 2:01:11 PM ******/
+/****** Object:  Table [dbo].[SubIndustry]    Script Date: 2/22/2021 2:14:26 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

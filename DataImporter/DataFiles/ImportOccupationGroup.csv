@@ -1,4 +1,4 @@
-NOC,Geographic Area,Occupation Group
+﻿NOC,Geographic Area,Occupation Group
 #0012,British Columbia,HOO
 #0013,British Columbia,HOO
 #0014,British Columbia,HOO
@@ -10067,3 +10067,339 @@ NOC,Geographic Area,Occupation Group
 #9617,Vancouver Island Coast,All Occupations
 #9618,Vancouver Island Coast,All Occupations
 #9619,Vancouver Island Coast,All Occupations
+#1253,British Columbia,Technicians and Technologists
+#2211,British Columbia,Technicians and Technologists
+#2212,British Columbia,Technicians and Technologists
+#2221,British Columbia,Technicians and Technologists
+#2223,British Columbia,Technicians and Technologists
+#2225,British Columbia,Technicians and Technologists
+#2231,British Columbia,Technicians and Technologists
+#2232,British Columbia,Technicians and Technologists
+#2233,British Columbia,Technicians and Technologists
+#2234,British Columbia,Technicians and Technologists
+#2241,British Columbia,Technicians and Technologists
+#2242,British Columbia,Technicians and Technologists
+#2243,British Columbia,Technicians and Technologists
+#2244,British Columbia,Technicians and Technologists
+#2251,British Columbia,Technicians and Technologists
+#2252,British Columbia,Technicians and Technologists
+#2253,British Columbia,Technicians and Technologists
+#2254,British Columbia,Technicians and Technologists
+#2255,British Columbia,Technicians and Technologists
+#2261,British Columbia,Technicians and Technologists
+#2281,British Columbia,Technicians and Technologists
+#2282,British Columbia,Technicians and Technologists
+#2283,British Columbia,Technicians and Technologists
+#3211,British Columbia,Technicians and Technologists
+#3212,British Columbia,Technicians and Technologists
+#3213,British Columbia,Technicians and Technologists
+#3214,British Columbia,Technicians and Technologists
+#3215,British Columbia,Technicians and Technologists
+#3216,British Columbia,Technicians and Technologists
+#3217,British Columbia,Technicians and Technologists
+#3219,British Columbia,Technicians and Technologists
+#3221,British Columbia,Technicians and Technologists
+#3222,British Columbia,Technicians and Technologists
+#3223,British Columbia,Technicians and Technologists
+#3231,British Columbia,Technicians and Technologists
+#3237,British Columbia,Technicians and Technologists
+#5211,British Columbia,Technicians and Technologists
+#5223,British Columbia,Technicians and Technologists
+#5224,British Columbia,Technicians and Technologists
+#5225,British Columbia,Technicians and Technologists
+#7247,British Columbia,Technicians and Technologists
+#7321,British Columbia,Technicians and Technologists
+#1253,Cariboo,Technicians and Technologists
+#2211,Cariboo,Technicians and Technologists
+#2212,Cariboo,Technicians and Technologists
+#2221,Cariboo,Technicians and Technologists
+#2223,Cariboo,Technicians and Technologists
+#2225,Cariboo,Technicians and Technologists
+#2231,Cariboo,Technicians and Technologists
+#2232,Cariboo,Technicians and Technologists
+#2233,Cariboo,Technicians and Technologists
+#2234,Cariboo,Technicians and Technologists
+#2241,Cariboo,Technicians and Technologists
+#2242,Cariboo,Technicians and Technologists
+#2243,Cariboo,Technicians and Technologists
+#2244,Cariboo,Technicians and Technologists
+#2251,Cariboo,Technicians and Technologists
+#2252,Cariboo,Technicians and Technologists
+#2253,Cariboo,Technicians and Technologists
+#2254,Cariboo,Technicians and Technologists
+#2255,Cariboo,Technicians and Technologists
+#2261,Cariboo,Technicians and Technologists
+#2281,Cariboo,Technicians and Technologists
+#2282,Cariboo,Technicians and Technologists
+#2283,Cariboo,Technicians and Technologists
+#3211,Cariboo,Technicians and Technologists
+#3212,Cariboo,Technicians and Technologists
+#3213,Cariboo,Technicians and Technologists
+#3214,Cariboo,Technicians and Technologists
+#3215,Cariboo,Technicians and Technologists
+#3216,Cariboo,Technicians and Technologists
+#3217,Cariboo,Technicians and Technologists
+#3219,Cariboo,Technicians and Technologists
+#3221,Cariboo,Technicians and Technologists
+#3222,Cariboo,Technicians and Technologists
+#3223,Cariboo,Technicians and Technologists
+#3231,Cariboo,Technicians and Technologists
+#3237,Cariboo,Technicians and Technologists
+#5211,Cariboo,Technicians and Technologists
+#5223,Cariboo,Technicians and Technologists
+#5224,Cariboo,Technicians and Technologists
+#5225,Cariboo,Technicians and Technologists
+#7247,Cariboo,Technicians and Technologists
+#7321,Cariboo,Technicians and Technologists
+#1253,Kootenay,Technicians and Technologists
+#2211,Kootenay,Technicians and Technologists
+#2212,Kootenay,Technicians and Technologists
+#2221,Kootenay,Technicians and Technologists
+#2223,Kootenay,Technicians and Technologists
+#2225,Kootenay,Technicians and Technologists
+#2231,Kootenay,Technicians and Technologists
+#2232,Kootenay,Technicians and Technologists
+#2233,Kootenay,Technicians and Technologists
+#2234,Kootenay,Technicians and Technologists
+#2241,Kootenay,Technicians and Technologists
+#2242,Kootenay,Technicians and Technologists
+#2243,Kootenay,Technicians and Technologists
+#2244,Kootenay,Technicians and Technologists
+#2251,Kootenay,Technicians and Technologists
+#2252,Kootenay,Technicians and Technologists
+#2253,Kootenay,Technicians and Technologists
+#2254,Kootenay,Technicians and Technologists
+#2255,Kootenay,Technicians and Technologists
+#2261,Kootenay,Technicians and Technologists
+#2281,Kootenay,Technicians and Technologists
+#2282,Kootenay,Technicians and Technologists
+#2283,Kootenay,Technicians and Technologists
+#3211,Kootenay,Technicians and Technologists
+#3212,Kootenay,Technicians and Technologists
+#3213,Kootenay,Technicians and Technologists
+#3214,Kootenay,Technicians and Technologists
+#3215,Kootenay,Technicians and Technologists
+#3216,Kootenay,Technicians and Technologists
+#3217,Kootenay,Technicians and Technologists
+#3219,Kootenay,Technicians and Technologists
+#3221,Kootenay,Technicians and Technologists
+#3222,Kootenay,Technicians and Technologists
+#3223,Kootenay,Technicians and Technologists
+#3231,Kootenay,Technicians and Technologists
+#3237,Kootenay,Technicians and Technologists
+#5211,Kootenay,Technicians and Technologists
+#5223,Kootenay,Technicians and Technologists
+#5224,Kootenay,Technicians and Technologists
+#5225,Kootenay,Technicians and Technologists
+#7247,Kootenay,Technicians and Technologists
+#7321,Kootenay,Technicians and Technologists
+#1253,Mainland South West,Technicians and Technologists
+#2211,Mainland South West,Technicians and Technologists
+#2212,Mainland South West,Technicians and Technologists
+#2221,Mainland South West,Technicians and Technologists
+#2223,Mainland South West,Technicians and Technologists
+#2225,Mainland South West,Technicians and Technologists
+#2231,Mainland South West,Technicians and Technologists
+#2232,Mainland South West,Technicians and Technologists
+#2233,Mainland South West,Technicians and Technologists
+#2234,Mainland South West,Technicians and Technologists
+#2241,Mainland South West,Technicians and Technologists
+#2242,Mainland South West,Technicians and Technologists
+#2243,Mainland South West,Technicians and Technologists
+#2244,Mainland South West,Technicians and Technologists
+#2251,Mainland South West,Technicians and Technologists
+#2252,Mainland South West,Technicians and Technologists
+#2253,Mainland South West,Technicians and Technologists
+#2254,Mainland South West,Technicians and Technologists
+#2255,Mainland South West,Technicians and Technologists
+#2261,Mainland South West,Technicians and Technologists
+#2281,Mainland South West,Technicians and Technologists
+#2282,Mainland South West,Technicians and Technologists
+#2283,Mainland South West,Technicians and Technologists
+#3211,Mainland South West,Technicians and Technologists
+#3212,Mainland South West,Technicians and Technologists
+#3213,Mainland South West,Technicians and Technologists
+#3214,Mainland South West,Technicians and Technologists
+#3215,Mainland South West,Technicians and Technologists
+#3216,Mainland South West,Technicians and Technologists
+#3217,Mainland South West,Technicians and Technologists
+#3219,Mainland South West,Technicians and Technologists
+#3221,Mainland South West,Technicians and Technologists
+#3222,Mainland South West,Technicians and Technologists
+#3223,Mainland South West,Technicians and Technologists
+#3231,Mainland South West,Technicians and Technologists
+#3237,Mainland South West,Technicians and Technologists
+#5211,Mainland South West,Technicians and Technologists
+#5223,Mainland South West,Technicians and Technologists
+#5224,Mainland South West,Technicians and Technologists
+#5225,Mainland South West,Technicians and Technologists
+#7247,Mainland South West,Technicians and Technologists
+#7321,Mainland South West,Technicians and Technologists
+#1253,North Coast & Nechako,Technicians and Technologists
+#2211,North Coast & Nechako,Technicians and Technologists
+#2212,North Coast & Nechako,Technicians and Technologists
+#2221,North Coast & Nechako,Technicians and Technologists
+#2223,North Coast & Nechako,Technicians and Technologists
+#2225,North Coast & Nechako,Technicians and Technologists
+#2231,North Coast & Nechako,Technicians and Technologists
+#2232,North Coast & Nechako,Technicians and Technologists
+#2233,North Coast & Nechako,Technicians and Technologists
+#2234,North Coast & Nechako,Technicians and Technologists
+#2241,North Coast & Nechako,Technicians and Technologists
+#2242,North Coast & Nechako,Technicians and Technologists
+#2243,North Coast & Nechako,Technicians and Technologists
+#2244,North Coast & Nechako,Technicians and Technologists
+#2251,North Coast & Nechako,Technicians and Technologists
+#2252,North Coast & Nechako,Technicians and Technologists
+#2253,North Coast & Nechako,Technicians and Technologists
+#2254,North Coast & Nechako,Technicians and Technologists
+#2255,North Coast & Nechako,Technicians and Technologists
+#2261,North Coast & Nechako,Technicians and Technologists
+#2281,North Coast & Nechako,Technicians and Technologists
+#2282,North Coast & Nechako,Technicians and Technologists
+#2283,North Coast & Nechako,Technicians and Technologists
+#3211,North Coast & Nechako,Technicians and Technologists
+#3212,North Coast & Nechako,Technicians and Technologists
+#3213,North Coast & Nechako,Technicians and Technologists
+#3214,North Coast & Nechako,Technicians and Technologists
+#3215,North Coast & Nechako,Technicians and Technologists
+#3216,North Coast & Nechako,Technicians and Technologists
+#3217,North Coast & Nechako,Technicians and Technologists
+#3219,North Coast & Nechako,Technicians and Technologists
+#3221,North Coast & Nechako,Technicians and Technologists
+#3222,North Coast & Nechako,Technicians and Technologists
+#3223,North Coast & Nechako,Technicians and Technologists
+#3231,North Coast & Nechako,Technicians and Technologists
+#3237,North Coast & Nechako,Technicians and Technologists
+#5211,North Coast & Nechako,Technicians and Technologists
+#5223,North Coast & Nechako,Technicians and Technologists
+#5224,North Coast & Nechako,Technicians and Technologists
+#5225,North Coast & Nechako,Technicians and Technologists
+#7247,North Coast & Nechako,Technicians and Technologists
+#7321,North Coast & Nechako,Technicians and Technologists
+#1253,North East,Technicians and Technologists
+#2211,North East,Technicians and Technologists
+#2212,North East,Technicians and Technologists
+#2221,North East,Technicians and Technologists
+#2223,North East,Technicians and Technologists
+#2225,North East,Technicians and Technologists
+#2231,North East,Technicians and Technologists
+#2232,North East,Technicians and Technologists
+#2233,North East,Technicians and Technologists
+#2234,North East,Technicians and Technologists
+#2241,North East,Technicians and Technologists
+#2242,North East,Technicians and Technologists
+#2243,North East,Technicians and Technologists
+#2244,North East,Technicians and Technologists
+#2251,North East,Technicians and Technologists
+#2252,North East,Technicians and Technologists
+#2253,North East,Technicians and Technologists
+#2254,North East,Technicians and Technologists
+#2255,North East,Technicians and Technologists
+#2261,North East,Technicians and Technologists
+#2281,North East,Technicians and Technologists
+#2282,North East,Technicians and Technologists
+#2283,North East,Technicians and Technologists
+#3211,North East,Technicians and Technologists
+#3212,North East,Technicians and Technologists
+#3213,North East,Technicians and Technologists
+#3214,North East,Technicians and Technologists
+#3215,North East,Technicians and Technologists
+#3216,North East,Technicians and Technologists
+#3217,North East,Technicians and Technologists
+#3219,North East,Technicians and Technologists
+#3221,North East,Technicians and Technologists
+#3222,North East,Technicians and Technologists
+#3223,North East,Technicians and Technologists
+#3231,North East,Technicians and Technologists
+#3237,North East,Technicians and Technologists
+#5211,North East,Technicians and Technologists
+#5223,North East,Technicians and Technologists
+#5224,North East,Technicians and Technologists
+#5225,North East,Technicians and Technologists
+#7247,North East,Technicians and Technologists
+#7321,North East,Technicians and Technologists
+#1253,Thompson Okanagan,Technicians and Technologists
+#2211,Thompson Okanagan,Technicians and Technologists
+#2212,Thompson Okanagan,Technicians and Technologists
+#2221,Thompson Okanagan,Technicians and Technologists
+#2223,Thompson Okanagan,Technicians and Technologists
+#2225,Thompson Okanagan,Technicians and Technologists
+#2231,Thompson Okanagan,Technicians and Technologists
+#2232,Thompson Okanagan,Technicians and Technologists
+#2233,Thompson Okanagan,Technicians and Technologists
+#2234,Thompson Okanagan,Technicians and Technologists
+#2241,Thompson Okanagan,Technicians and Technologists
+#2242,Thompson Okanagan,Technicians and Technologists
+#2243,Thompson Okanagan,Technicians and Technologists
+#2244,Thompson Okanagan,Technicians and Technologists
+#2251,Thompson Okanagan,Technicians and Technologists
+#2252,Thompson Okanagan,Technicians and Technologists
+#2253,Thompson Okanagan,Technicians and Technologists
+#2254,Thompson Okanagan,Technicians and Technologists
+#2255,Thompson Okanagan,Technicians and Technologists
+#2261,Thompson Okanagan,Technicians and Technologists
+#2281,Thompson Okanagan,Technicians and Technologists
+#2282,Thompson Okanagan,Technicians and Technologists
+#2283,Thompson Okanagan,Technicians and Technologists
+#3211,Thompson Okanagan,Technicians and Technologists
+#3212,Thompson Okanagan,Technicians and Technologists
+#3213,Thompson Okanagan,Technicians and Technologists
+#3214,Thompson Okanagan,Technicians and Technologists
+#3215,Thompson Okanagan,Technicians and Technologists
+#3216,Thompson Okanagan,Technicians and Technologists
+#3217,Thompson Okanagan,Technicians and Technologists
+#3219,Thompson Okanagan,Technicians and Technologists
+#3221,Thompson Okanagan,Technicians and Technologists
+#3222,Thompson Okanagan,Technicians and Technologists
+#3223,Thompson Okanagan,Technicians and Technologists
+#3231,Thompson Okanagan,Technicians and Technologists
+#3237,Thompson Okanagan,Technicians and Technologists
+#5211,Thompson Okanagan,Technicians and Technologists
+#5223,Thompson Okanagan,Technicians and Technologists
+#5224,Thompson Okanagan,Technicians and Technologists
+#5225,Thompson Okanagan,Technicians and Technologists
+#7247,Thompson Okanagan,Technicians and Technologists
+#7321,Thompson Okanagan,Technicians and Technologists
+#1253,Vancouver Island Coast,Technicians and Technologists
+#2211,Vancouver Island Coast,Technicians and Technologists
+#2212,Vancouver Island Coast,Technicians and Technologists
+#2221,Vancouver Island Coast,Technicians and Technologists
+#2223,Vancouver Island Coast,Technicians and Technologists
+#2225,Vancouver Island Coast,Technicians and Technologists
+#2231,Vancouver Island Coast,Technicians and Technologists
+#2232,Vancouver Island Coast,Technicians and Technologists
+#2233,Vancouver Island Coast,Technicians and Technologists
+#2234,Vancouver Island Coast,Technicians and Technologists
+#2241,Vancouver Island Coast,Technicians and Technologists
+#2242,Vancouver Island Coast,Technicians and Technologists
+#2243,Vancouver Island Coast,Technicians and Technologists
+#2244,Vancouver Island Coast,Technicians and Technologists
+#2251,Vancouver Island Coast,Technicians and Technologists
+#2252,Vancouver Island Coast,Technicians and Technologists
+#2253,Vancouver Island Coast,Technicians and Technologists
+#2254,Vancouver Island Coast,Technicians and Technologists
+#2255,Vancouver Island Coast,Technicians and Technologists
+#2261,Vancouver Island Coast,Technicians and Technologists
+#2281,Vancouver Island Coast,Technicians and Technologists
+#2282,Vancouver Island Coast,Technicians and Technologists
+#2283,Vancouver Island Coast,Technicians and Technologists
+#3211,Vancouver Island Coast,Technicians and Technologists
+#3212,Vancouver Island Coast,Technicians and Technologists
+#3213,Vancouver Island Coast,Technicians and Technologists
+#3214,Vancouver Island Coast,Technicians and Technologists
+#3215,Vancouver Island Coast,Technicians and Technologists
+#3216,Vancouver Island Coast,Technicians and Technologists
+#3217,Vancouver Island Coast,Technicians and Technologists
+#3219,Vancouver Island Coast,Technicians and Technologists
+#3221,Vancouver Island Coast,Technicians and Technologists
+#3222,Vancouver Island Coast,Technicians and Technologists
+#3223,Vancouver Island Coast,Technicians and Technologists
+#3231,Vancouver Island Coast,Technicians and Technologists
+#3237,Vancouver Island Coast,Technicians and Technologists
+#5211,Vancouver Island Coast,Technicians and Technologists
+#5223,Vancouver Island Coast,Technicians and Technologists
+#5224,Vancouver Island Coast,Technicians and Technologists
+#5225,Vancouver Island Coast,Technicians and Technologists
+#7247,Vancouver Island Coast,Technicians and Technologists
+#7321,Vancouver Island Coast,Technicians and Technologists
