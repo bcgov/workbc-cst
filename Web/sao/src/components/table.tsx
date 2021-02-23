@@ -149,7 +149,7 @@ const ResultsTable: FunctionComponent = () => {
             defaultSortOrder: 'descend'
         },
         {
-            title: 'Compare (up to 3 Careers)',
+            title: 'Compare Careers',
             dataIndex: 'compare',
             render: (text, record: OccupationModel) => {
                 if (filteredOccupationsList && filteredOccupationsList.length > 1) {
