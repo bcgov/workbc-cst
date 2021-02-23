@@ -8,7 +8,7 @@ export const apiURLs = {
         part_time_option: 'api/FullOrPartTime', 
         annual_salary: 'api/AnnualSalaries'
     },
-    occupations_list: 'api/OccupationListItems',
+    occupations_list: '/OccupationListItems',
     occupation_summary: 'api/Occupations',
     system: {
         configurations: 'api/Configuration'
