@@ -22,7 +22,7 @@ const CompareCareers: FunctionComponent = () => {
     const [width] = useWindowSize()
 
     function isMobile() {
-        return width < 1024
+        return width < 1200
     }
     
     useEffect(() => {

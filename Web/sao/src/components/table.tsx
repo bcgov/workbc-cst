@@ -23,7 +23,7 @@ const ResultsTable: FunctionComponent = () => {
     const [width] = useWindowSize()
 
     function isMobile() {
-        return width < 1024
+        return width < 1200
     }
 
     useEffect(() => {
@@ -209,8 +209,7 @@ const ResultsTable: FunctionComponent = () => {
                     scroll={!isMobile() ? { y: 500 } : undefined}
                     onRow={onRow}>
                 </Table>}
-                {!!isMobile() && (<p> Showing <b>{getDatasource().length}</b> of <b>{filteredOccupationsList.length}</b> results</p>)}
-                {!!isMobile() && (<Button type="primary" onClick={() => loadMore()}>Load More</Button>)}
+                {!!isMobile() && (<Button className="results-table-button" block type="primary" onClick={() => loadMore()}>Load More</Button>)}
         </div>)
 }
 

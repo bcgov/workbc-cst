@@ -13,7 +13,7 @@ body{
 }
 
 .container{
-    max-width: 1440px;
+    max-width: 1200px;
     margin: 0 auto;
     padding:0 24px;
     .largeScreen({
@@ -35,6 +35,16 @@ body{
 }
 
 @ant-table-row-dark: #f0f0f0;
+.ant-table-wrapper{
+    max-width: none;
+    margin-left: -16px;
+    margin-right: -16px;
+    .largeScreen({
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+    });
+}
 .ant-table{
     &-thead{
         > tr{
@@ -57,4 +67,7 @@ body{
             color:@light-blue;
         }
     }  
+}
+.results-table-button {
+    margin-top: 1rem;
 }

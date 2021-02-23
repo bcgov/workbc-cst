@@ -11,7 +11,7 @@ const results: FunctionComponent = () => {
     const [width] = useWindowSize()
 
     function isMobile() {
-        return width < 1024
+        return width < 1200
     }
 
     function handlePrintEvent() {
@@ -28,9 +28,9 @@ const results: FunctionComponent = () => {
                 <Col span={24}>
                     <Row>
                         <Col span={16}>
-                            <h3>
-                                Displaying <b className="highlighted_text"> {filteredOccupationsList?.length} results </b>
-                            </h3>
+                            <div className="results-header">
+                                Displaying <span className="highlighted-text"> {filteredOccupationsList?.length} results </span>
+                            </div>
                         </Col>
                     </Row>
                     <Row>
@@ -58,11 +58,11 @@ const results: FunctionComponent = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={24} lg={16}>
+                        <Col xs={24} xl={16}>
                             {(<ResultsTable/>)}
                         </Col>
                         {selectedNoc!=="default" && filteredOccupationsList && filteredOccupationsList?.length >= 0 &&
-                        (<Col xs={24} lg={8}>
+                        (<Col xs={24} xl={8}>
                             {!isMobile() && (<CareerPreview/>)}
                         </Col>)}
                     </Row>

@@ -1,7 +1,19 @@
 .header{
     background-color: white;
     &__logo{
-        padding: 1rem 0;
+        height: 88px;
+        .flex-display();
+        .flex-direction(column);
+        .justify-content(center);
+        .largeScreen({
+            height: 135px;
+        });
+        &--img{
+            height: 35px;
+            .largeScreen({
+                height: auto;
+            });
+        }
     }
     &__hero{
         width: 100%;
