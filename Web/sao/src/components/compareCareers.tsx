@@ -1,6 +1,6 @@
 import React, {FunctionComponent, useState, useEffect} from 'react'
 import {Button, Row, Col} from 'antd'
-import {CloseOutlined, MailOutlined , PrinterOutlined } from '@ant-design/icons'
+import {CloseOutlined, MailFilled , PrinterFilled } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import {OccupationSummaryObj} from '../client/dataTypes'
 import {useGetOccupationSummary, useGetSystemConfigurations} from '../client/apiService'
@@ -9,7 +9,7 @@ import { LeftOutlined  } from '@ant-design/icons'
 import useWindowSize from '../client/useWindowSize'
 
 const CompareCareers: FunctionComponent = () => {
-    const {setView, checkedNocs, setCheckedNocs} = useFilterContext()
+    const {setView, checkedNocs} = useFilterContext()
 
     const [careerDetail, setCareerDetail] = useState<OccupationSummaryObj[]>([])
     const [profileImagesPath, setProfileImagesPath] = useState<string>()
@@ -121,9 +121,9 @@ const CompareCareers: FunctionComponent = () => {
             } 
             <h1>Compare Careers 
                 <span style={{float: 'right'}}>
-                    <Button style={{border: 'none'}}> <PrinterOutlined/> </Button>
-                    <Button style={{border: 'none'}}> <MailOutlined/> </Button>
-                    {!isMobile() && (<Button style={{border: 'none'}} onClick={()=> {setView('results')}}> <CloseOutlined /> </Button>)}
+                    <PrinterFilled style={{color: "#355992"}}/>
+                    <MailFilled style={{color: "#355992"}}/>
+                    {!isMobile() && ( <CloseOutlined style={{color: "#355992"}}  onClick={()=> setView('results')}/> )}
                 </span>
             </h1>
             {

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { Row, Col, Button } from 'antd'
-import { MailOutlined , PrinterOutlined, BulbOutlined } from '@ant-design/icons'
+import { MailFilled , PrinterFilled, BulbOutlined } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import ResultsTable from './table'
 import CareerPreview from './careerPreview'
@@ -52,8 +52,8 @@ const results: FunctionComponent = () => {
                         </Col>
                         <Col span={1} offset={4}>
                             <div style={{display: 'flex'}}>
-                                <PrinterOutlined onClick={handlePrintEvent} style={{fontSize: '32px', padding:'0px 16px'}}/>
-                                <MailOutlined onClick={handleEmailEvent} style={{fontSize: '32px'}}/>
+                                <PrinterFilled onClick={handlePrintEvent} style={{fontSize: '32px', padding:'0px 16px', color: "#355992" }}/>
+                                <MailFilled onClick={handleEmailEvent} style={{fontSize: '32px', color: "#355992"}}/>
                             </div>
                         </Col>
                     </Row>
