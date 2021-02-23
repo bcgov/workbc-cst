@@ -28,6 +28,7 @@ const Dropdowns: FunctionComponent = () => {
 
     useEffect(() => {
         configureHttpClient()
+        resetOptions()
     },[])
 
     useEffect(()=> {
