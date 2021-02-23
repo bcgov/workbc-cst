@@ -26,11 +26,6 @@ const Dropdowns: FunctionComponent = () => {
         return  userSelection.industry.id
     }
 
-    useEffect(() => {
-        configureHttpClient()
-        resetOptions()
-    },[])
-
     useEffect(()=> {
         if(!!filterOption) {
             setUserSelection(filterOption)
