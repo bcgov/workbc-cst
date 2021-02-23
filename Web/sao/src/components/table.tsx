@@ -209,7 +209,7 @@ const ResultsTable: FunctionComponent = () => {
                     scroll={!isMobile() ? { y: 500 } : undefined}
                     onRow={onRow}>
                 </Table>}
-                {!!isMobile() && (<Button onClick={() => loadMore()}>Load More</Button>)}
+                {!!isMobile() && (<Button type="primary" style={{width: '95%', margin: '16px'}} onClick={() => loadMore()}>Load More</Button>)}
         </div>)
 }
 
