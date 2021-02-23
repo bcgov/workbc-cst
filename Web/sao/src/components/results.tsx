@@ -46,7 +46,7 @@ const results: FunctionComponent = () => {
                         {filteredOccupationsList.length > 1 && (
                             <div>
                                 <Button onClick={() => setCheckedNocs([])} style={{margin: '0px 16px'}}> Clear Compare</Button>
-                                <Button type="primary" onClick={() => setView('compareCareers')}> Compare Careers</Button>
+                                <Button className="compare__button" onClick={() => setView('compareCareers')}> Compare Careers</Button>
                             </div>
                         )}
                         </Col>
