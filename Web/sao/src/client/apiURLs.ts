@@ -1,16 +1,16 @@
 export const apiURLs = {
     filterType: {
-        region: '/GeographicAreas', 
-        education: '/EducationLevels', 
-        occupational_interest: '/OccupationInterests', 
-        industry: '/Industries', 
-        occupational_group: '/OccupationalGroups', 
-        part_time_option: '/FullOrPartTime', 
-        annual_salary: '/AnnualSalaries'
+        region: 'api/GeographicAreas', 
+        education: 'api/EducationLevels', 
+        occupational_interest: 'api/OccupationInterests', 
+        industry: 'api/Industries', 
+        occupational_group: 'api/OccupationalGroups', 
+        part_time_option: 'api/FullOrPartTime', 
+        annual_salary: 'api/AnnualSalaries'
     },
-    occupations_list: '/OccupationListItems',
-    occupation_summary: '/Occupations',
+    occupations_list: 'api/OccupationListItems',
+    occupation_summary: 'api/Occupations',
     system: {
-        configurations: '/Configuration'
+        configurations: 'api/Configuration'
     }
 }
