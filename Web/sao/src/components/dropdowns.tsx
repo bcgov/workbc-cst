@@ -232,7 +232,7 @@ const Dropdowns: FunctionComponent = () => {
                         <Col xs={24} lg={4}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Education 
-                                    <Popover placement="top" className="sao-filters__popover" content={getPopOver('Education')} trigger="click" visible={popOvervisible.education}
+                                    <Popover placement="top" overlayClassName="sao-filters__popover-inner" className="sao-filters__popover" content={getPopOver('Education')} trigger="click" visible={popOvervisible.education}
                                     onVisibleChange={(visible)=> handlepopOverVisibilityChange('education', visible)}>  <QuestionCircleFilled /> </Popover>
                                 </label>
                                 <SelectFilterType  
@@ -249,7 +249,7 @@ const Dropdowns: FunctionComponent = () => {
                         <Col xs={24} lg={6}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label"> Occupational Interest 
-                                    <Popover placement="top" className="sao-filters__popover" content={getPopOver('OccupationalInterest')} trigger="click" visible={popOvervisible.occupationalInterest}
+                                    <Popover placement="top" overlayClassName="sao-filters__popover-inner" className="sao-filters__popover" content={getPopOver('OccupationalInterest')} trigger="click" visible={popOvervisible.occupationalInterest}
                                     onVisibleChange={(visible)=> handlepopOverVisibilityChange('occupationalInterest', visible)}>  <QuestionCircleFilled /> </Popover>
                                 </label>
                                 <SelectFilterType  
@@ -266,7 +266,7 @@ const Dropdowns: FunctionComponent = () => {
                         <Col xs={24} lg={8}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label"> Industry 
-                                    <Popover placement="top" className="sao-filters__popover" content={getPopOver('Industry')} trigger="click" visible={popOvervisible.industry}
+                                    <Popover placement="top" overlayClassName="sao-filters__popover-inner" className="sao-filters__popover" content={getPopOver('Industry')} trigger="click" visible={popOvervisible.industry}
                                     onVisibleChange={(visible)=> handlepopOverVisibilityChange('industry', visible)}>  <QuestionCircleFilled /> </Popover>
                                 </label>
                                     <TreeSelect allowClear
@@ -285,14 +285,13 @@ const Dropdowns: FunctionComponent = () => {
                         <Col xs={24} lg={6}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label"> Occupational Category 
-                                    <Popover placement="top" className="sao-filters__popover" content={getPopOver('OccupationalCategory')} trigger="click" visible={popOvervisible.occupationalCategory}
+                                    <Popover placement="top" overlayClassName="sao-filters__popover-inner" className="sao-filters__popover" content={getPopOver('OccupationalCategory')} trigger="click" visible={popOvervisible.occupationalCategory}
                                      onVisibleChange={(visible)=> handlepopOverVisibilityChange('occupationalCategory', visible)}>  <QuestionCircleFilled /> </Popover> 
                                 </label>
                                 <SelectFilterType  
                                     filterType={FilterType.occupational_group}
                                     showArrow={true}
                                     className="sao-filters__select"
-
                                     style={{ width: '100%' }}
                                     value = {userSelection?.occupational_group?.value}
                                     onChange = {handleChangeOccupationalGroup}
@@ -303,7 +302,7 @@ const Dropdowns: FunctionComponent = () => {
                         <Col xs={24} lg={4}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Job Type 
-                                    <Popover placement="top" className="sao-filters__popover" content={getPopOver('JobType')} trigger="click" visible={popOvervisible.jobType}
+                                    <Popover placement="top" overlayClassName="sao-filters__popover-inner" className="sao-filters__popover" content={getPopOver('JobType')} trigger="click" visible={popOvervisible.jobType}
                                     onVisibleChange={(visible)=> handlepopOverVisibilityChange('jobType', visible)}>  <QuestionCircleFilled /> </Popover> 
                                 </label>
 
@@ -335,7 +334,7 @@ const Dropdowns: FunctionComponent = () => {
                         <Col xs={24} lg={8}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label"> Keyword
-                                    <Popover placement="top" className="sao-filters__popover" content={getPopOver('Keywords')} trigger="click" visible={popOvervisible.keywords} 
+                                    <Popover placement="top" overlayClassName="sao-filters__popover-inner" className="sao-filters__popover" content={getPopOver('Keywords')} trigger="click" visible={popOvervisible.keywords} 
                                     onVisibleChange={(visible)=> handlepopOverVisibilityChange('keywords', visible)}>  <QuestionCircleFilled /> </Popover> 
                                 </label>
                                 <Input placeholder="Enter career title, Keyword(s) or NOC"

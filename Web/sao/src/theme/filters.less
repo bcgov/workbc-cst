@@ -33,6 +33,9 @@
     }
 }
 
+
+@border-width-filter: 15px;
+
 .sao-filters{
     color: white;
     background: @grey;
@@ -54,7 +57,45 @@
             fill: @dark-blue;
         }
         &-inner{
-
+            max-width: 273px;
+            .ant-popover{
+                &-content{
+                    > .ant-popover-arrow{                        
+                       display:none;                                             
+                    }
+                }
+                &-inner{
+                    border: 1px solid #fcc43b;
+                    &::before,
+                    &::after{
+                        content: ' ';
+                        position: absolute;
+                        width: 0;
+                        height: 0;
+                        bottom: -1px;
+                        border-left: @border-width-filter solid transparent;
+                        border-right: @border-width-filter solid transparent;
+                        border-top: @border-width-filter solid #fcc43b;
+                        border-bottom: none;
+                        transform: rotate(0deg);
+                        margin-left: auto;
+                        margin-right: auto;
+                        left: 0;
+                        right: 0;
+                        text-align: center;
+                    }
+                    &::before{        
+                        transform: scale(1.05);
+                    }
+                    &::after{
+                        bottom: 1px;
+                        border-left: @border-width-filter solid transparent;
+                        border-right: @border-width-filter solid transparent;
+                        border-top: @border-width-filter solid white;
+                        
+                    }
+                }                
+            }
         }
     }
     &__button{
