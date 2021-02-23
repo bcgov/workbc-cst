@@ -16,6 +16,45 @@
     });
 }
 
+.results-compare{
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    .largeScreen({
+        padding-top: 0;
+        padding-bottom: 0;
+    });
+    .compare-description{
+        margin-bottom: 1.5rem;
+    }
+    .compare-buttons{
+        button{
+            width: calc(50% - 4px);
+            .largeScreen({
+                width: auto;
+            })
+        }
+        &__compare{
+    
+        }
+        &__clear{
+            margin-right: 8px;
+        }
+    }
+    
+    //Print Email Icons 
+    .print-email-buttons{
+        padding: 0;
+        .largeScreen({
+            padding: 0 8px;   
+        });
+        text-align: right;
+        .anticon-printer{
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+
 .ant-table-cell { 
     .downicon:hover {
         color: @yellow
@@ -23,14 +62,16 @@
 }
 
 .results-header{
-    font-size: 27px;
-    font-weight: 400;
-    margin-top: 0.5rem;
-    .largeScreen({
-        margin-top: 1rem;
-    });
-    .highlighted-text{
-        color: @light-blue
+    &__text{
+        font-size: 27px;
+        font-weight: 400;
+        margin-top: 0.5rem;
+        .largeScreen({
+            margin: 1rem 0;
+        });
+        .highlighted-text{
+            color: @light-blue
+        }
     }
 }
 
