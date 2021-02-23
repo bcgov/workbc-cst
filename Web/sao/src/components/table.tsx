@@ -19,11 +19,16 @@ const ResultsTable: FunctionComponent = () => {
     const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
 
     const [extraSelection, setExtraSelection] = useState<string>()
+    const [listSize, setListSize] = useState(0)
     const [width] = useWindowSize()
 
     function isMobile() {
         return width < 1024
     }
+
+    useEffect(() => {
+        setListSize(isMobile()? 10: 500)
+    }, [width])
 
     useEffect(() => {
         if (!!filterOption && !isReset) {
@@ -185,8 +190,13 @@ const ResultsTable: FunctionComponent = () => {
         }
     }
 
+    function loadMore() {
+        setListSize(listSize + 10)
+    }
+
     function getDatasource() {
-        return filteredOccupationsList.length > 0? filteredOccupationsList: [{ id: -1, noc: '', nocAndTitle: 'Your search returned no results', jobOpenings: undefined}]
+        let size = listSize < filteredOccupationsList.length ? listSize : filteredOccupationsList.length
+        return filteredOccupationsList.length > 0? filteredOccupationsList.slice(0,size): [{ id: -1, noc: '', nocAndTitle: 'Your search returned no results', jobOpenings: undefined}]
     }
 
     return (<div>
@@ -196,9 +206,10 @@ const ResultsTable: FunctionComponent = () => {
                     dataSource={getDatasource()}
                     rowKey="noc"
                     pagination={false}
-                    scroll={{ y: 500 }}
+                    scroll={!isMobile() ? { y: 500 } : undefined}
                     onRow={onRow}>
                 </Table>}
+                {!!isMobile() && (<Button onClick={() => loadMore()}>Load More</Button>)}
         </div>)
 }
 

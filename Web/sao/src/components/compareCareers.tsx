@@ -123,7 +123,7 @@ const CompareCareers: FunctionComponent = () => {
                 <span style={{float: 'right'}}>
                     <Button style={{border: 'none'}}> <PrinterOutlined/> </Button>
                     <Button style={{border: 'none'}}> <MailOutlined/> </Button>
-                    <Button style={{border: 'none'}} onClick={()=> {setView('results')}}> <CloseOutlined /> </Button>
+                    {!isMobile() && (<Button style={{border: 'none'}} onClick={()=> {setView('results')}}> <CloseOutlined /> </Button>)}
                 </span>
             </h1>
             {
