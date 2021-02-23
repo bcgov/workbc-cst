@@ -29,7 +29,7 @@ const results: FunctionComponent = () => {
                     <Row>
                         <Col span={16}>
                             <h3>
-                                Displaying <b> {filteredOccupationsList?.length} results </b>
+                                Displaying <b className="highlighted_text"> {filteredOccupationsList?.length} results </b>
                             </h3>
                         </Col>
                     </Row>
