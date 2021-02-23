@@ -129,20 +129,20 @@ const ResultsTable: FunctionComponent = () => {
             title: (<div>
                 Career name
                 <Popover placement="bottomRight" title={title} content={nameContent} trigger="click" visible={nameSortVisible} onVisibleChange={handleNameSortVisible}>
-                    <span style={{float: 'right'}}> <DownOutlined /> </span>
+                    <span> <DownOutlined className="downicon"/> </span>
                 </Popover>
             </div>),
             dataIndex: 'nocAndTitle',
             width:'65%',
             render: (text, record: OccupationModel) => {
-                return (<span onClick={() => handleSelectedNoc(record)}> <a className = {selectedNoc === record.noc? 'selected': ''}> {text} </a> </span>)
+                return (<span onClick={() => handleSelectedNoc(record)}> <a className = {selectedNoc === record.noc? 'highlighted_text': ''}> {text} </a> </span>)
             },
         },
         {
             title: (<div> 
                 Job Openings (2019-2029)
                 <Popover placement="bottomRight" title={title} content={jobContent} trigger="click" visible={jobsSortVisible} onVisibleChange={handleJobsSortVisible}>
-                    <span style={{float: 'right'}}> <DownOutlined /> </span>
+                    <span> <DownOutlined className="downicon" /> </span>
                 </Popover>
             </div>),
             dataIndex: 'jobOpenings',
@@ -201,7 +201,7 @@ const ResultsTable: FunctionComponent = () => {
 
     return (<div>
                 {<Table
-                    rowClassName={(record, index) => index % 2 === 0 ? 'ant-table-row-light' :  'ant-table-row-dark'}
+                    rowClassName={'ant-table-row-light'}
                     columns={columns}
                     dataSource={getDatasource()}
                     rowKey="noc"
@@ -209,7 +209,8 @@ const ResultsTable: FunctionComponent = () => {
                     scroll={!isMobile() ? { y: 500 } : undefined}
                     onRow={onRow}>
                 </Table>}
-                {!!isMobile() && (<Button type="primary" style={{width: '95%', margin: '16px'}} onClick={() => loadMore()}>Load More</Button>)}
+                {!!isMobile() && (<p> Showing <b>{getDatasource().length}</b> of <b>{filteredOccupationsList.length}</b> results</p>)}
+                {!!isMobile() && (<Button type="primary" onClick={() => loadMore()}>Load More</Button>)}
         </div>)
 }
 
