@@ -93,7 +93,7 @@ const CompareCareers: FunctionComponent = () => {
                         <div className="result-body__row-right"><b>{careerObj.careerDetail?.jobOpenings}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
-                        <div>{careerObj.careerDetail?.description}</div>
+                        <div>{removeTags(careerObj.careerDetail?.description)}</div>
                     </div>
                 </div>
                 <div className="result-detail__footer">                            
@@ -110,6 +110,14 @@ const CompareCareers: FunctionComponent = () => {
                 </div>
             </div>
         )
+    }
+
+    function removeTags(str) { 
+        if ((str===null) || (str==='')) 
+            return false; 
+        else
+            str = str.toString();
+        return str.replace( /(<([^>]+)>)/ig, ''); 
     }
 
     return(
