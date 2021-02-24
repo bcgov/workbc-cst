@@ -25,6 +25,21 @@
     });
     .compare-description{
         margin-bottom: 1.5rem;
+        &__flexbox {
+            display: flex;
+            align-items: stretch;
+            > span {
+                margin: auto;
+                :hover {
+                    color: @yellow;
+                }
+            }
+            &__icon > svg{
+                color: @yellow;
+                font-size: larger;
+                align-self: center;
+            }
+        }
     }
     .compare-buttons{
         button{
