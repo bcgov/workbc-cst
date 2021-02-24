@@ -112,7 +112,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 {
                     Id = o.Key.NocId,
                     NOC = o.Key.NocCode,
-                    NOCAndTitle = $"{o.Key.NocDescription} (NOC {o.Key.NocCode})",
+                    Title = o.Key.NocDescription,
                     JobOpenings = o.Sum(jo => jo.JobOpenings)
                 })
                 .ToListAsync();

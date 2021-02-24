@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace SearchAllOccupationsToolAPI.Models
@@ -13,11 +12,10 @@ namespace SearchAllOccupationsToolAPI.Models
         [JsonPropertyName("noc")]
         public string NOC { get; set; }
 
-        [JsonPropertyName("nocAndTitle")]
-        public string NOCAndTitle { get; set; }
+        [JsonPropertyName("title")]
+        public string Title { get; set; }
 
         [JsonPropertyName("jobOpenings")]
         public int JobOpenings { get; set; }
-        //public string DebugInfo { get; set; }
     }
 }
