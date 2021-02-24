@@ -6,6 +6,7 @@ namespace SearchAllOccupationsToolAPI.Models
     public class JobOpening
     {
         public int Id { get; set; }
+        public int NocId { get; set; }
         public virtual NOC Noc { get; set; }
         public virtual GeographicArea GeographicArea { get; set; }
         public virtual Industry Industry { get; set; }
