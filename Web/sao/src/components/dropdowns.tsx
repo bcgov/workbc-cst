@@ -26,11 +26,6 @@ const Dropdowns: FunctionComponent = () => {
         return  userSelection.industry.id
     }
 
-    useEffect(() => {
-        configureHttpClient()
-        resetOptions()
-    },[])
-
     useEffect(()=> {
         if(!!filterOption) {
             setUserSelection(filterOption)
@@ -213,7 +208,7 @@ const Dropdowns: FunctionComponent = () => {
                         <h3>Use the filter(s) to explore your career options.</h3>    
                     </Col></Row>
                     <Row className="sao-filters__row">
-                        <Col xs={24} lg={6}>
+                        <Col xs={24} xl={6}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Region 
                                     <Popover placement="top" overlayClassName="sao-filters__popover-inner" className="sao-filters__popover" content={getPopOver('Region')} trigger="click" visible={popOvervisible.region}
@@ -230,7 +225,7 @@ const Dropdowns: FunctionComponent = () => {
                                     placeholder={"British Columbia"}  />
                             </div>
                         </Col>
-                        <Col xs={24} lg={4}> 
+                        <Col xs={24} xl={4}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Education 
                                     <Popover placement="top" overlayClassName="sao-filters__popover-inner" className="sao-filters__popover" content={getPopOver('Education')} trigger="click" visible={popOvervisible.education}
@@ -247,7 +242,7 @@ const Dropdowns: FunctionComponent = () => {
                                     placeholder={"All"} />
                             </div>
                         </Col>
-                        <Col xs={24} lg={6}> 
+                        <Col xs={24} xl={6}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label"> Occupational Interest 
                                     <Popover placement="top" overlayClassName="sao-filters__popover-inner" className="sao-filters__popover" content={getPopOver('OccupationalInterest')} trigger="click" visible={popOvervisible.occupationalInterest}
@@ -264,7 +259,7 @@ const Dropdowns: FunctionComponent = () => {
                                     placeholder={"All"} />
                             </div>
                         </Col>
-                        <Col xs={24} lg={8}>
+                        <Col xs={24} xl={8}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label"> Industry 
                                     <Popover placement="top" overlayClassName="sao-filters__popover-inner" className="sao-filters__popover" content={getPopOver('Industry')} trigger="click" visible={popOvervisible.industry}
@@ -283,7 +278,7 @@ const Dropdowns: FunctionComponent = () => {
                         </Col>
                     </Row>
                     <Row className="sao-filters__row">
-                        <Col xs={24} lg={6}>
+                        <Col xs={24} xl={6}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label"> Occupational Category 
                                     <Popover placement="top" overlayClassName="sao-filters__popover-inner" className="sao-filters__popover" content={getPopOver('OccupationalCategory')} trigger="click" visible={popOvervisible.occupationalCategory}
@@ -300,7 +295,7 @@ const Dropdowns: FunctionComponent = () => {
                                     placeholder={"All"} />
                             </div>
                         </Col>
-                        <Col xs={24} lg={4}> 
+                        <Col xs={24} xl={4}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Job Type 
                                     <Popover placement="top" overlayClassName="sao-filters__popover-inner" className="sao-filters__popover" content={getPopOver('JobType')} trigger="click" visible={popOvervisible.jobType}
@@ -318,7 +313,7 @@ const Dropdowns: FunctionComponent = () => {
                                     placeholder={"All"} />
                             </div>
                         </Col>
-                        <Col xs={24} lg={6}> 
+                        <Col xs={24} xl={6}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Annual Salary </label>
                                 <SelectFilterType  
@@ -332,7 +327,7 @@ const Dropdowns: FunctionComponent = () => {
                                     placeholder={"All"} />
                             </div>
                         </Col>
-                        <Col xs={24} lg={8}>
+                        <Col xs={24} xl={8}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label"> Keyword
                                     <Popover placement="top" overlayClassName="sao-filters__popover-inner" className="sao-filters__popover" content={getPopOver('Keywords')} trigger="click" visible={popOvervisible.keywords} 
@@ -346,7 +341,7 @@ const Dropdowns: FunctionComponent = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={24} lg={{span:8, offset:16}}> 
+                        <Col xs={24} xl={{span:8, offset:16}}> 
                             <div className="sao-filters__button-layout">
                                 <div className="sao-filters__button sao-filters__button--apply" onClick = {applyFilters}> Apply </div>
                                 <div className="sao-filters__button sao-filters__button--reset" onClick = {handleReset}> 

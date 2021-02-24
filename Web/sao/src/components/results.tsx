@@ -11,7 +11,7 @@ const results: FunctionComponent = () => {
     const [width] = useWindowSize()
 
     function isMobile() {
-        return width < 1024
+        return width < 1200
     }
 
     function handlePrintEvent() {
@@ -26,15 +26,15 @@ const results: FunctionComponent = () => {
         <div className="container">
             <Row className="results-wrapper">
                 <Col span={24}>
-                    <Row>
-                        <Col span={16}>
-                            <h3>
-                                Displaying <b className="highlighted_text"> {filteredOccupationsList?.length} results </b>
-                            </h3>
+                    <Row className="results-header">
+                        <Col span={24}>
+                            <div className="results-header__text">
+                                Displaying <span className="highlighted-text"> {filteredOccupationsList?.length} results </span>
+                            </div>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col span={8}>
+                    <Row className="results-compare">
+                        <Col className="compare-description" xs={24} xl={9}>
                         {filteredOccupationsList.length > 1 && (
                             <div>
                                 <span><BulbOutlined /></span>
@@ -42,27 +42,27 @@ const results: FunctionComponent = () => {
                             </div>
                         )}
                         </Col>
-                        <Col span={8} offset={2}>
+                        <Col className="compare-buttons" xl={7}>
                         {filteredOccupationsList.length > 1 && (
                             <div>
-                                <Button disabled={checkedNocs.length < 1} onClick={() => setCheckedNocs([])} style={{margin: '0px 16px'}}> Clear Compare</Button>
-                                <Button type="primary" className="__compare" disabled={checkedNocs.length < 2} onClick={() => setView('compareCareers')}> Compare Careers</Button>
+                                <Button className="compare-buttons__clear" disabled={checkedNocs.length < 1} onClick={() => setCheckedNocs([])} > Clear Compare</Button>
+                                <Button type="primary" className="compare-buttons__compare" disabled={checkedNocs.length < 2} onClick={() => setView('compareCareers')}> Compare Careers</Button>
                             </div>
                         )}
                         </Col>
-                        <Col span={1} offset={4}>
-                            <div style={{display: 'flex'}}>
-                                <PrinterFilled onClick={handlePrintEvent} style={{fontSize: '32px', padding:'0px 16px', color: "#355992" }}/>
+                        <Col className="print-email-buttons" xl={8}>
+                            <div>
+                                <PrinterFilled onClick={handlePrintEvent} style={{fontSize: '32px', color: "#355992" }}/>
                                 <MailFilled onClick={handleEmailEvent} style={{fontSize: '32px', color: "#355992"}}/>
                             </div>
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={24} lg={16}>
+                        <Col xs={24} xl={16}>
                             {(<ResultsTable/>)}
                         </Col>
                         {selectedNoc!=="default" && filteredOccupationsList && filteredOccupationsList?.length >= 0 &&
-                        (<Col xs={24} lg={8}>
+                        (<Col xs={24} xl={8}>
                             {!isMobile() && (<CareerPreview/>)}
                         </Col>)}
                     </Row>

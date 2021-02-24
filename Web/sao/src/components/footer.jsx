@@ -78,7 +78,7 @@ function Footer() {
 			<div className="container">
 				<h3 className="tools-resources__header">Tools & Resources</h3>
 				<Row>
-                	<Col xs={24} lg={6}>
+                	<Col xs={24} xl={6}>
 						<div className="tools-resources-card">
 							<i className="tools-resources-card__icon tools-resources-card__icon--compass">{compass}</i>
 							<h3 className="tools-resources-card__header">Career Compass</h3>
@@ -88,7 +88,7 @@ function Footer() {
 							</div>
 						</div>
 					</Col>
-                	<Col xs={24} lg={6}>
+                	<Col xs={24} xl={6}>
 						<div className="tools-resources-card">
 							<i className="tools-resources-card__icon tools-resources-card__icon--videos">{videos}</i>
 							<h3 className="tools-resources-card__header">Career Trek Videos</h3>
@@ -98,7 +98,7 @@ function Footer() {
 							</div>
 						</div>
 					</Col>
-                	<Col xs={24} lg={6}>
+                	<Col xs={24} xl={6}>
 						<div className="tools-resources-card">
 							<i className="tools-resources-card__icon tools-resources-card__icon--sign">{pathway}</i>	
 							<h3 className="tools-resources-card__header">Career Transition Tool</h3>
@@ -107,7 +107,7 @@ function Footer() {
 							</div>
 						</div>
 					</Col>
-                	<Col xs={24} lg={6}>
+                	<Col xs={24} xl={6}>
 						<div className="tools-resources-card tools-resources-card--last">
 							<i className="tools-resources-card__icon tools-resources-card__icon--throttle">{throttle}</i>	
 							<h3 className="tools-resources-card__header">High Opportunity Occupations</h3>
