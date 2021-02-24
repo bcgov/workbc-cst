@@ -33,11 +33,23 @@
                 width: auto;
             })
         }
-        &__compare{
-    
+        &__compare {
+            &:enabled{
+                background: @yellow;
+                color: white;
+                border: none;
+            }
+            &:active:hover{
+            }
         }
-        &__clear{
+        &__clear {
             margin-right: 8px;
+            &:enabled {
+                color: @light-blue;
+                border-color: @light-blue;
+            }
+            &:active:hover{
+            }
         }
     }
     
