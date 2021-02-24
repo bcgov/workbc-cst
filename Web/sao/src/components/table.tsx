@@ -155,7 +155,7 @@ const ResultsTable: FunctionComponent = () => {
                 if (filteredOccupationsList && filteredOccupationsList.length > 1) {
                     return (<div>
                                 <Checkbox checked={isChecked(record.noc)} onChange={(event)=> handleSelectCheckBox(event, record.noc)}></Checkbox>
-                                <Modal visible={extraSelection === record.noc} footer={null} centered>
+                                <Modal visible={extraSelection === record.noc} footer={null} onCancel={hide} centered>
                                     <p><b>You have reached the maximum number of careers you are able to add to the compare feature.</b></p>
                                     <p> Please deselect one of your selected careers to add this career </p>
                                     <Button type="primary" onClick={()=> hide()}>Close</Button>
