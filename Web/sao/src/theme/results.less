@@ -84,10 +84,12 @@
     }
 }
 
-
 .ant-table-cell { 
-    .downicon:hover {
-        color: @yellow
+    .downicon {
+        color: @yellow;
+        :hover {
+            fill: @yellow;
+        }
     }
 }
 
@@ -99,9 +101,6 @@
         .largeScreen({
             margin: 1rem 0;
         });
-        .highlighted-text{
-            color: @light-blue
-        }
     }
 }
 
