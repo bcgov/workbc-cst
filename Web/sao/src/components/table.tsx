@@ -133,24 +133,26 @@ const ResultsTable: FunctionComponent = () => {
                 </Popover>
             </div>),
             dataIndex: 'nocAndTitle',
-            width:'65%',
+            width:'60%',
             render: (text, record: OccupationModel) => {
-                return (<span onClick={() => handleSelectedNoc(record)}> <a className = {selectedNoc === record.noc? 'highlighted_text': ''}> {text} </a> </span>)
+                return (<span onClick={() => handleSelectedNoc(record)}> <a className = {selectedNoc === record.noc? 'selected': ''}> {text} </a> </span>)
             },
         },
         {
             title: (<div> 
                 Job Openings (2019-2029)
                 <Popover placement="bottomRight" title={title} content={jobContent} trigger="click" visible={jobsSortVisible} onVisibleChange={handleJobsSortVisible}>
-                    <span> <DownOutlined className="downicon" /> </span>
+                    <span style={{marginLeft: '10px'}}> <DownOutlined className="downicon" /> </span>
                 </Popover>
             </div>),
+            width: '25%',
             dataIndex: 'jobOpenings',
             defaultSortOrder: 'descend'
         },
         {
             title: 'Compare Careers',
             dataIndex: 'compare',
+            width: '15%',
             render: (text, record: OccupationModel) => {
                 if (filteredOccupationsList && filteredOccupationsList.length > 1) {
                     return (<div>
