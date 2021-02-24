@@ -13,8 +13,8 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="115"
-  DTS:VersionGUID="{719A2141-BA05-436E-97FD-FD483E045BFC}">
+  DTS:VersionBuild="116"
+  DTS:VersionGUID="{94EC4CFD-CE48-4955-9855-9F8AF060B6A3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -9500,6 +9500,12 @@ where [refTable].[Value] = ?</property>
                       codePage="1252"
                       dataType="text"
                       name="JobOverviewSummary" />
+                    <externalMetadataColumn
+                      refId="Package\Insert Unique NOCs\NOC Destination.Inputs[OLE DB Destination Input].ExternalColumns[JobBoardNOCCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="JobBoardNOCCode" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -10012,65 +10018,79 @@ where [refTable].[Value] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
         <NodeLayout
+          Size="138,42"
+          Id="Package\Import External Data\Noc Lookup"
+          TopLeft="1008,134" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\Import External Data\Job Description Source DB"
+          TopLeft="600,30" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Import External Data\Update NOC 2006 Codes"
+          TopLeft="1015,246" />
+        <NodeLayout
           Size="162,42"
           Id="Package\Import External Data\Lookup Noc Text"
           TopLeft="621.5,166.5" />
-        <NodeLayout
-          Size="161,42"
-          Id="Package\Import External Data\Lookup Noc Title"
-          TopLeft="435,168" />
-        <NodeLayout
-          Size="205,42"
-          Id="Package\Import External Data\Update Career Trek Links 1"
-          TopLeft="680.5,260.5" />
         <NodeLayout
           Size="177,42"
           Id="Package\Import External Data\Job Title Source DB"
           TopLeft="378,51" />
         <NodeLayout
-          Size="161,42"
-          Id="Package\Import External Data\Data Conversion"
-          TopLeft="776,91" />
-        <NodeLayout
           Size="204,42"
           Id="Package\Import External Data\Insert Common Job Titles"
           TopLeft="401.5,262.5" />
         <NodeLayout
-          Size="211,42"
-          Id="Package\Import External Data\Job Description Source DB"
-          TopLeft="600,30" />
+          Size="161,42"
+          Id="Package\Import External Data\Data Conversion"
+          TopLeft="776,91" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Import External Data\Lookup Noc Title"
+          TopLeft="435,168" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Import External Data\2006 to 2011 Noc Match DB"
+          TopLeft="984,42" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Import External Data\Update Career Trek Links 1"
+          TopLeft="680.5,260.5" />
         <EdgeLayout
-          Id="Package\Import External Data.Paths[OLE DB Source Output]"
-          TopLeft="466.5,93">
+          Id="Package\Import External Data.Paths[Lookup Match Output3]"
+          TopLeft="1077,176">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="49,75"
+              EndConnector="40,70"
               Start="0,0"
-              End="49,67.5">
+              End="40,62.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.5" />
+                    End="0,31" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,33.5"
-                    Point2="0,37.5"
-                    Point3="4,37.5" />
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="4,35" />
                   <mssgle:LineSegment
-                    End="45,37.5" />
+                    End="36,35" />
                   <mssgle:CubicBezierSegment
-                    Point1="45,37.5"
-                    Point2="49,37.5"
-                    Point3="49,41.5" />
+                    Point1="36,35"
+                    Point2="40,35"
+                    Point3="40,39" />
                   <mssgle:LineSegment
-                    End="49,67.5" />
+                    End="40,62.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-28.19138671875,40,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10180,6 +10200,40 @@ where [refTable].[Value] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Import External Data.Paths[OLE DB Source Output3]"
+          TopLeft="1092.5,84">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.5,50"
+              Start="0,0"
+              End="-15.5,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="-4,25" />
+                  <mssgle:LineSegment
+                    End="-11.5,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.5,25"
+                    Point2="-15.5,25"
+                    Point3="-15.5,29" />
+                  <mssgle:LineSegment
+                    End="-15.5,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Import External Data.Paths[OLE DB Source Output1]"
           TopLeft="811,51">
           <EdgeLayout.Curve>
@@ -10199,6 +10253,40 @@ where [refTable].[Value] = ?</property>
                     Point3="45.5,4" />
                   <mssgle:LineSegment
                     End="45.5,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import External Data.Paths[OLE DB Source Output]"
+          TopLeft="466.5,93">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49,75"
+              Start="0,0"
+              End="49,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.5"
+                    Point2="0,37.5"
+                    Point3="4,37.5" />
+                  <mssgle:LineSegment
+                    End="45,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45,37.5"
+                    Point2="49,37.5"
+                    Point3="49,41.5" />
+                  <mssgle:LineSegment
+                    End="49,67.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10322,93 +10410,24 @@ where [refTable].[Value] = ?</property>
             <s:String>Package\Import External Data.Paths[OLE DB Source Output2]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
-        <NodeLayout
-          Size="217,42"
-          Id="Package\Import External Data\2006 to 2011 Noc Match DB"
-          TopLeft="984,42" />
-        <NodeLayout
-          Size="138,42"
-          Id="Package\Import External Data\Noc Lookup"
-          TopLeft="1008,134" />
-        <EdgeLayout
-          Id="Package\Import External Data.Paths[OLE DB Source Output3]"
-          TopLeft="1092.5,84">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-15.5,50"
-              Start="0,0"
-              End="-15.5,42.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21"
-                    Point2="0,25"
-                    Point3="-4,25" />
-                  <mssgle:LineSegment
-                    End="-11.5,25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-11.5,25"
-                    Point2="-15.5,25"
-                    Point3="-15.5,29" />
-                  <mssgle:LineSegment
-                    End="-15.5,42.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="204,42"
-          Id="Package\Import External Data\Update NOC 2006 Codes"
-          TopLeft="1015,246" />
-        <EdgeLayout
-          Id="Package\Import External Data.Paths[Lookup Match Output3]"
-          TopLeft="1077,176">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="40,70"
-              Start="0,0"
-              End="40,62.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31"
-                    Point2="0,35"
-                    Point3="4,35" />
-                  <mssgle:LineSegment
-                    End="36,35" />
-                  <mssgle:CubicBezierSegment
-                    Point1="36,35"
-                    Point2="40,35"
-                    Point3="40,39" />
-                  <mssgle:LineSegment
-                    End="40,62.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-28.19138671875,40,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Import External Data\Lookup Noc Text">
+    design-time-name="Package\Import External Data\Write NOC Videos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import External Data\Noc Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -10427,27 +10446,6 @@ where [refTable].[Value] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import External Data\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import External Data\Write NOC Videos">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -10475,7 +10473,15 @@ where [refTable].[Value] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Import External Data\Lookup Noc Title">
+    design-time-name="Package\Import External Data\Job Description Source DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import External Data\Lookup Noc Text">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -10511,7 +10517,38 @@ where [refTable].[Value] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Import External Data\Job Description Source DB">
+    design-time-name="Package\Import External Data\Lookup Noc Title">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[NOC]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import External Data\2006 to 2011 Noc Match DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import External Data\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -12270,10 +12307,6 @@ where [refTable].[Value] = ?</property>
           Id="Package\Insert Unique NOCs\Get Unique NOC (sort)"
           TopLeft="37,92" />
         <NodeLayout
-          Size="183,42"
-          Id="Package\Insert Unique NOCs\Trim Tabs from Titles"
-          TopLeft="283,47" />
-        <NodeLayout
           Size="156,42"
           Id="Package\Insert Unique NOCs\Flat File Source"
           TopLeft="67.5,10.5" />
@@ -12281,6 +12314,10 @@ where [refTable].[Value] = ?</property>
           Size="162,42"
           Id="Package\Insert Unique NOCs\NOC Destination"
           TopLeft="42,517" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Insert Unique NOCs\Trim Tabs from Titles"
+          TopLeft="283,47" />
         <EdgeLayout
           Id="Package\Insert Unique NOCs.Paths[Sort Output]"
           TopLeft="131,134">
@@ -12522,37 +12559,6 @@ where [refTable].[Value] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import External Data\2006 to 2011 Noc Match DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import External Data\Noc Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[NOC]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
