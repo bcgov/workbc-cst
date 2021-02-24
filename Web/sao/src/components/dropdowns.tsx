@@ -46,12 +46,12 @@ const Dropdowns: FunctionComponent = () => {
             case 'OccupationalInterest':
                 return (<div> 
                     <p>Groups careers based on 6 broad personality types. You can take a quiz to find your interests.</p>
-                    <p>Learn more on <a href="https://www.workbc.ca/" target="_blank">WorkBC.ca.</a></p>
+                    <p>Learn more on <a className="filter-popover-link" href="https://www.workbc.ca/" target="_blank">WorkBC.ca.</a></p>
                 </div>)
             case 'Industry':
                 return (<div>
                     <p>Careers based on an association to an industry</p>
-                    <p>Learn more on <a href="https://www.workbc.ca/" target="_blank">WorkBC.ca.</a></p>
+                    <p>Learn more on <a className="filter-popover-link" href="https://www.workbc.ca/" target="_blank">WorkBC.ca.</a></p>
                 </div>)
             case 'OccupationalCategory': 
                 return (<div>
@@ -74,7 +74,7 @@ const Dropdowns: FunctionComponent = () => {
                 </Row>
                 <Row>
                     <Col span={4} offset={16}>
-                        <a onClick={handleHide} className="filter-popover__close-text"> CLOSE </a>
+                        <a onClick={() =>handleHide(filtername)} className="filter-popover__close-text"> CLOSE </a>
                     </Col>
                 </Row>
             </div>
@@ -167,8 +167,31 @@ const Dropdowns: FunctionComponent = () => {
         setCheckedNocs([])
     }
 
-    function handleHide() {
-        setPopOverVisible(filtersPopOverVisible )
+    function handleHide(filtername: string) {
+        console.log(filtername)
+        switch(filtername) {
+            case 'Region':
+                setPopOverVisible({ ...popOvervisible, 'region': false })
+                break
+            case 'Education':
+                setPopOverVisible({ ...popOvervisible, 'education': false })
+                break
+            case 'OccupationalInterest':
+                setPopOverVisible({ ...popOvervisible, 'occupationalInterest': false })
+                break
+            case 'Industry':
+                setPopOverVisible({ ...popOvervisible, 'industry': false })
+                break
+            case 'OccupationalCategory':
+                setPopOverVisible({ ...popOvervisible, 'occupationalCategory': false })
+                break
+            case 'JobType':
+                setPopOverVisible({ ...popOvervisible, 'jobType': false })
+                break
+            case 'Keywords':
+                setPopOverVisible({ ...popOvervisible, 'keywords': false })
+                break
+        }       
     }
 
     return (

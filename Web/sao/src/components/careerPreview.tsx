@@ -71,9 +71,9 @@ const CareerPreview: FunctionComponent = () => {
         return (
             <div className="result-detail">
                 <div className="result-detail__header">{careerObj.title} <span>(NOC {careerObj.noc})</span></div>
-                <div  className="result-detail__thumbnail">
+                <div  className="result-detail__thumbnail__preview">
                     {(careerObj.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.noc)} alt='career profile pic'/>)
-                    : (<YouTube videoId={careerObj.careertrekvideoids[0]} opts={{height: '315', width: '420'}} onReady={_onReady} />)}
+                    : (<YouTube  videoId={careerObj.careertrekvideoids[0]} onReady={_onReady} />)}
                 </div>
                 <div className="result-detail__body result-body">
                     <div className="result-body__row">
@@ -93,16 +93,22 @@ const CareerPreview: FunctionComponent = () => {
                     </div>
                 </div>
                 <div className="result-detail__footer">                            
-                    <a href={careerProfileUrl+careerObj.noc} target="_blank"> 
-                        <Button type="primary" block>
-                            View Career Profile
-                        </Button>
-                    </a>                    
-                    <a href={viewJobsUrl+careerObj.jobBoardNoc} target="_blank">
-                        <Button block>
-                            Find Jobs
-                        </Button>
-                    </a>                          
+                    <div className="result-detail__footer__button-box">
+                       <div style={{marginRight: '10px'}}>
+                            <a href={careerProfileUrl+careerObj.noc} target="_blank"> 
+                                <Button type="primary" block>
+                                    View Career Profile
+                                </Button>
+                            </a>  
+                        </div>                  
+                        <div>
+                            <a href={viewJobsUrl+careerObj.jobBoardNoc} target="_blank">
+                                <Button block>
+                                    Find Jobs
+                                </Button>
+                            </a>  
+                        </div>
+                    </div>                        
                 </div>
             </div>
         )
