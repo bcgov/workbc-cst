@@ -51,10 +51,8 @@ const results: FunctionComponent = () => {
                         )}
                         </Col>
                         <Col className="print-email-buttons" xl={8}>
-                            <div>
-                                <PrinterFilled onClick={handlePrintEvent} style={{fontSize: '32px', color: "#355992" }}/>
-                                <MailFilled onClick={handleEmailEvent} style={{fontSize: '32px', color: "#355992"}}/>
-                            </div>
+                            <PrinterFilled onClick={handlePrintEvent} style={{fontSize: '32px', color: "#355992", paddingRight: '16px'}}/>
+                            <MailFilled onClick={handleEmailEvent} style={{fontSize: '32px', color: "#355992"}}/>
                         </Col>
                     </Row>
                     <Row>
