@@ -34,15 +34,10 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(filter.Keywords))
-            {
-                var jobTitles = _context.CommonJobTitles
-                    .AsNoTracking()
-                    .Where(c => c.JobTitle.Contains(filter.Keywords))
-                    .Select(c => c.Noc.Id)
-                    .Distinct();
-
-                occupations = occupations.Where(o => o.Noc.NocCode.Equals(filter.Keywords) || o.Noc.Description.Contains(filter.Keywords) || jobTitles.Contains(o.Id));
-            }
+                occupations = occupations.Where(o =>
+                    o.Noc.NocCode == filter.Keywords
+                    || o.Noc.Description.Contains(filter.Keywords)
+                    || o.Noc.CommonJobTitles.Any(jo => jo.JobTitle.Contains(filter.Keywords)));
 
             if (filter.EducationLevelId > 0)
                 occupations = occupations.Where(o => o.Noc.EducationLevel.Id == filter.EducationLevelId);
