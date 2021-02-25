@@ -38,7 +38,7 @@ const results: FunctionComponent = () => {
                         {filteredOccupationsList.length > 1 && (
                             <div className="compare-description__flexbox">
                                 <BulbOutlined className="compare-description__flexbox__icon"/>
-                                <div style={{fontSize: '14px', paddingLeft: '16px'}}><b>Compare upto 3 careers </b> by selecting the checkboxes and clicking on the Compare Careers button.</div>                                  
+                                <div style={{fontSize: '14px', paddingLeft: '16px'}}><b>Compare up to 3 careers </b> by selecting the checkboxes and clicking on the Compare Careers button.</div>                                  
                             </div>
                         )}
                         </Col>

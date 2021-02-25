@@ -76,12 +76,16 @@ function Footer() {
 		<>
 		<div className="tools-resources">
 			<div className="container">
-				<h3 className="tools-resources__header">Tools & Resources</h3>
+				<h1 className="tools-resources__header">Tools & Resources</h1>
 				<Row>
                 	<Col xs={24} xl={6}>
 						<div className="tools-resources-card">
-							<i className="tools-resources-card__icon tools-resources-card__icon--compass">{compass}</i>
-							<h3 className="tools-resources-card__header">Career Compass</h3>
+							<div className="tools-resources-card__icon">
+								<i className="tools-resources-card__icon--compass">{compass}</i>
+							</div>
+							<a className="tools-resources-card__link" href="https://www.workbc.ca/careercompass" target="_blank">
+								<h3 className="tools-resources-card__header" style={{padding: '0 2rem 4rem 2rem'}}>Career Compass</h3>
+							</a>
 							<div className="tools-resources-card__body">
 								Explore your career direction. Take one or more of our three career
 								quizzes –  and find careers that fit you.
@@ -90,8 +94,12 @@ function Footer() {
 					</Col>
                 	<Col xs={24} xl={6}>
 						<div className="tools-resources-card">
-							<i className="tools-resources-card__icon tools-resources-card__icon--videos">{videos}</i>
-							<h3 className="tools-resources-card__header">Career Trek Videos</h3>
+							<div className="tools-resources-card__icon">
+								<i className="tools-resources-card__icon--videos">{videos}</i>
+							</div>
+							<a className="tools-resources-card__link" href="https://www.careertrekbc.ca/" target="_blank">
+								<h3 className="tools-resources-card__header">Career Trek Videos</h3>
+							</a>
 							<div className="tools-resources-card__body">
 								Discover the career of your dreams with 147 videos highlighting
 								careers throughout B.C. Watch career videos now!
@@ -100,8 +108,12 @@ function Footer() {
 					</Col>
                 	<Col xs={24} xl={6}>
 						<div className="tools-resources-card">
-							<i className="tools-resources-card__icon tools-resources-card__icon--sign">{pathway}</i>	
-							<h3 className="tools-resources-card__header">Career Transition Tool</h3>
+							<div className="tools-resources-card__icon">
+								<i className="tools-resources-card__icon--sign">{pathway}</i>
+							</div>	
+							<a className="tools-resources-card__link" href="https://www.workbc.ca/careertransitiontool/" target="_blank">
+								<h3 className="tools-resources-card__header">Career Transition Tool</h3>
+							</a>
 							<div className="tools-resources-card__body">
 								Find out what careers you may be able to transition to based on your current occupation.
 							</div>
@@ -109,8 +121,10 @@ function Footer() {
 					</Col>
                 	<Col xs={24} xl={6}>
 						<div className="tools-resources-card tools-resources-card--last">
-							<i className="tools-resources-card__icon tools-resources-card__icon--throttle">{throttle}</i>	
-							<h3 className="tools-resources-card__header">High Opportunity Occupations</h3>
+							<div className="tools-resources-card__icon">
+								<i className="tools-resources-card__icon--throttle">{throttle}</i>
+							</div>	
+							<a className="tools-resources-card__link" href="https://www.workbc.ca/Labour-Market-Industry/High-Opportunity-Occupations.aspx" target="_blank"><h3 className="tools-resources-card__header">High Opportunity Occupations</h3></a>
 							<div className="tools-resources-card__body">
 								Discover occupations in B.C. that are expected to offer the best opportunities over the next 10 years.
 							</div>

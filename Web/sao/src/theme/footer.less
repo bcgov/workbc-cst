@@ -5,17 +5,29 @@
     padding: 3rem 0 8rem;
     &__header{
         color: white;
+        padding-bottom: 2rem;
     }
     //Card or Column Element for tools and resources
     &-card{
-        border-right: 2px solid #405E80;
+        border-right: 2px solid #7d8fa6;
         padding: 0 2rem;
         height: 100%;
         &__header, &__body{
             color:white;
         }
+        &__header {
+           height: 3rem;
+           padding: 0 1.5rem 4rem 1.5rem;
+        }
         &--last{
             border:none;
+        }
+        &__link :hover {
+            text-decoration: underline;
+        }
+
+        &__icon {
+            height: 100px;
         }
     }
 }
