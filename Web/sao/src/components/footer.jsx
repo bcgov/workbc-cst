@@ -39,7 +39,7 @@ function FooterIcons() {
 		<div className="footer__social-icons">
 			{/* Twitter */}
 			<a href="https://twitter.com/WorkBC" target="_blank" rel="noreferrer">
-				<svg viewBox="0 0 36 36" focusable="false" className="footer-icon">
+				<svg viewBox="0 0 36 36" focusable="false" className="footer-icon footer-icon--no-margin">
 					<path fill="#26A7DF" d="M36 18c0 9.94-8.06 18-18 18S0 27.94 0 18 8.06 0 18 0s18 8.06 18 18" />
 					<path fill="#FFF" d="M10.967 11.963s2.51 3.325 6.87 3.555c0 0-.592-1.964 1.218-3.466 1.81-1.505 4.05-.232 4.48.336 0 0 1.274-.2 2.162-.798 0 0-.29 1.15-1.365 1.84 0 0 1.26-.167 1.84-.505 0 0-.61.982-1.67 1.733 0 0 .445 4.15-3.122 7.58-3.567 3.428-9.436 2.715-11.55.92 0 0 2.874.322 4.9-1.404 0 0-2.394-.047-3.083-2.278 0 0 1.196.093 1.403-.138 0 0-2.577-.62-2.6-3.313 0 0 .782.39 1.494.414 0-.002-2.485-1.796-.977-4.477" />
 				</svg>
@@ -70,6 +70,8 @@ function FooterIcons() {
 		</div>
 	)
 }
+
+const handleFontResize = (size) => document?.getElementsByTagName('html')[0].setAttribute('data-font-size', size);
 
 function Footer() {
 	return (
@@ -131,6 +133,16 @@ function Footer() {
                 <div className="footer-content__social-icons">
                     <FooterIcons />
                 </div>
+				<div className="footer-content__font-resizer">
+					<font-resizer>
+						<span className="font-resizer-desc">Increase text size</span>
+						<ko-selector params="selected: _selected">
+							<button onClick={() => handleFontResize('normal')} type="button" title="Site Wide Text Size: Normal" className="unButton fontResizer font-resizer-button__normal">A</button>
+							<button onClick={() => handleFontResize('big')} type="button" title="Site Wide Text Size: Big" className="unButton fontResizer font-resizer-button__big">A</button>
+							<button onClick={() => handleFontResize('bigger')} type="button" title="Site Wide Text Size: Bigger" className="unButton fontResizer font-resizer-button__bigger">A</button>
+						</ko-selector>
+					</font-resizer>
+				</div>
 				<div className="footer-content__copyright">
 					<div className="footer-copyright-link">Copyright 2020 <a href="//google.ca">Province of British Columbia. All rights reserved.</a></div>
 					<div className="footer-copyright-logo"></div>

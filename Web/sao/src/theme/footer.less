@@ -31,8 +31,21 @@
     .flex-display();
     .flex-wrap(wrap);
     //Work bc social logo
+    &__links{
+        .flex-order(1);
+        .largeScreen({
+            .flex-order(0);
+        });
+    }
     &__social-icons{
         margin-left: auto;
+        width: 100%;
+        margin-bottom: 1rem;
+        .flex-order(0);
+        .largeScreen({
+            width: auto;
+            .flex-order(1);
+        });
     }
     //Copyright and Government Images
     &__copyright{
@@ -40,7 +53,16 @@
         padding: 2rem 0 0;
         width: 100%;
         .flex(0 0 auto);
+        .flex-order(3);
         border-top: thin solid @border-grey-thin;
+    }
+    &__font-resizer{
+        width: 100%;
+        margin-top: 1rem;
+        .flex-order(2);
+        .largeScreen({
+            margin-top: 0;
+        });
     }
 }
 
@@ -57,4 +79,7 @@
       border-radius: 50px;
       transform: scale(1.2);
     } 
+    &--no-margin{
+        margin-left: 0;
+    }
 }
