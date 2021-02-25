@@ -1,15 +1,12 @@
-import React, {FunctionComponent, useEffect} from "react" 
+import React, {FunctionComponent} from "react"
+// import {Route, BrowserRouter, Switch} from 'react-router-dom' 
 import '../theme/index.less' 
+//import 'antd/dist/antd.css'
+// import NotFoundPage from '../components/404'
 import {FilterContextProvider} from '../state/filterContext'
 import SAOComponent from './app'
-import {configureHttpClient} from '../client/httpClient'
 
 const IndexController:FunctionComponent = () => {
-
-  useEffect(() => {
-    configureHttpClient()
-  }, [])
-
 
   return (
     <FilterContextProvider>
