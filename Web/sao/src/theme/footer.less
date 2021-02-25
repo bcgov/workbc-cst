@@ -3,6 +3,8 @@
     background: @dark-blue;
     text-align: center;
     padding: 3rem 0 8rem;
+    border-bottom: 6px solid @yellow;
+
     &__header{
         color: white;
         padding-bottom: 2rem;
@@ -12,12 +14,16 @@
         border-right: 2px solid #7d8fa6;
         padding: 0 2rem;
         height: 100%;
-        &__header, &__body{
+        &__body{
             color:white;
+            line-height: 1.2rem;
+            font-size: 14px;
         }
         &__header {
+           color: white;
            height: 3rem;
            padding: 0 1.5rem 4rem 1.5rem;
+           line-height: 1.5rem;
         }
         &--last{
             border:none;
