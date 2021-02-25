@@ -85,7 +85,7 @@ function Footer() {
 							<div className="tools-resources-card__icon">
 								<i className="tools-resources-card__icon--compass">{compass}</i>
 							</div>
-							<a className="tools-resources-card__link" href="https://www.workbc.ca/careercompass" target="_blank">
+							<a className="tools-resources-card__link" href="https://www.workbc.ca/careercompass" target="_blank" rel="noreferrer">
 								<h3 className="tools-resources-card__header" style={{padding: '0 2rem 4rem 2rem'}}>Career Compass</h3>
 							</a>
 							<div className="tools-resources-card__body">
@@ -99,7 +99,7 @@ function Footer() {
 							<div className="tools-resources-card__icon">
 								<i className="tools-resources-card__icon--videos">{videos}</i>
 							</div>
-							<a className="tools-resources-card__link" href="https://www.careertrekbc.ca/" target="_blank">
+							<a className="tools-resources-card__link" href="https://www.careertrekbc.ca/" target="_blank" rel="noreferrer">
 								<h3 className="tools-resources-card__header">Career Trek Videos</h3>
 							</a>
 							<div className="tools-resources-card__body">
@@ -113,7 +113,7 @@ function Footer() {
 							<div className="tools-resources-card__icon">
 								<i className="tools-resources-card__icon--sign">{pathway}</i>
 							</div>	
-							<a className="tools-resources-card__link" href="https://www.workbc.ca/careertransitiontool/" target="_blank">
+							<a className="tools-resources-card__link" href="https://www.workbc.ca/careertransitiontool/" target="_blank" rel="noreferrer">
 								<h3 className="tools-resources-card__header">Career Transition Tool</h3>
 							</a>
 							<div className="tools-resources-card__body">
@@ -126,7 +126,7 @@ function Footer() {
 							<div className="tools-resources-card__icon">
 								<i className="tools-resources-card__icon--throttle">{throttle}</i>
 							</div>	
-							<a className="tools-resources-card__link" href="https://www.workbc.ca/Labour-Market-Industry/High-Opportunity-Occupations.aspx" target="_blank"><h3 className="tools-resources-card__header">High Opportunity Occupations</h3></a>
+							<a className="tools-resources-card__link" href="https://www.workbc.ca/Labour-Market-Industry/High-Opportunity-Occupations.aspx" target="_blank" rel="noreferrer"><h3 className="tools-resources-card__header">High Opportunity Occupations</h3></a>
 							<div className="tools-resources-card__body">
 								Discover occupations in B.C. that are expected to offer the best opportunities over the next 10 years.
 							</div>
