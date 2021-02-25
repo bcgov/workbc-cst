@@ -1,0 +1,47 @@
+//
+// Font Resizer
+//
+
+html[data-font-size='normal'] {
+    font-size: 1rem !important;
+}
+  
+html[data-font-size='big'] {
+    font-size: 1.15rem !important;
+}
+  
+html[data-font-size='bigger'] {
+    font-size: 1.25rem !important;
+}
+  
+font-resizer {
+    width: 100%;
+    padding-top: 6px;
+    color: @primary-color;
+    
+    .font-resizer-desc {
+        font-size: 0.85rem;
+
+    }
+    button {
+        border: none;
+        margin-left: 10px;
+        font-family: @font-family-bold;
+        color: @font-resize-button;
+        background: none;
+        &:hover {
+            cursor: pointer;
+        }
+        &.font-resizer-button__normal {
+            font-size: 12px;
+            
+        }
+        &.font-resizer-button__big {
+            font-size: 16px;
+        }
+        &.font-resizer-button__bigger {
+            font-size: 20px;
+        }
+    }
+}
+  
