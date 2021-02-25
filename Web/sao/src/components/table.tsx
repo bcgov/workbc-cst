@@ -128,7 +128,8 @@ const ResultsTable: FunctionComponent = () => {
         {
             title: (<div className="table-header">
                 <div className="table-header__title"> Career Name </div>
-                <Popover placement="bottomRight" title={title} content={nameContent} trigger="click" visible={nameSortVisible} onVisibleChange={handleNameSortVisible}>
+                <Popover placement="bottomRight" title={title} content={nameContent} overlayClassName="sort-options__popover-inner" 
+                className="sort-options__popover"  trigger="click" visible={nameSortVisible} onVisibleChange={handleNameSortVisible}>
                     <span className="table-header__icon" style={{marginLeft: '25px'}}> <DownOutlined className="downicon"/> </span>
                 </Popover>
             </div>),
@@ -150,7 +151,8 @@ const ResultsTable: FunctionComponent = () => {
         {
             title: (<div className="table-header"> 
                 <div className="table-header__title"> Job Openings (2019-2029) </div>
-                <Popover placement="bottomRight" title={title} content={jobContent} trigger="click" visible={jobsSortVisible} onVisibleChange={handleJobsSortVisible}>
+                <Popover placement="bottomRight" title={title} content={jobContent} overlayClassName="sort-options__popover-inner" 
+                className="sort-options__popover" trigger="click" visible={jobsSortVisible} onVisibleChange={handleJobsSortVisible}>
                     <span className="table-header__icon"> <DownOutlined className="downicon" /> </span>
                 </Popover>
             </div>),

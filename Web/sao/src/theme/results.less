@@ -100,18 +100,6 @@
     }
 }
 
-.ant-popover-title {
-    border-bottom: none;
-}
-
-.ant-popover-content {
-    width: 150px;
-}
-
-.ant-popover-inner-content {
-    padding: 0;
-}
-
 .sort-options {
     display: inline-grid; 
     a {
@@ -120,6 +108,20 @@
     }
     a:hover {
         font-weight: bold;
+    }
+
+    &__popover-inner {
+        .ant-popover-title {
+            border-bottom: none;
+        }
+        
+        .ant-popover-content {
+            width: 150px;
+        }
+        
+        .ant-popover-inner-content {
+            padding: 0;
+        }
     }
 }
 
