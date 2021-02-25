@@ -135,7 +135,16 @@ const ResultsTable: FunctionComponent = () => {
             dataIndex: 'title',
             width:'60%',
             render: (text, record: OccupationModel) => {
-                return (<span onClick={() => handleSelectedNoc(record)}> <a className = {selectedNoc === record.noc? 'selected': ''}> <b>{text}</b> (NOC {record.noc})</a> </span>)
+                if (filteredOccupationsList.length > 0 ) {
+                    return (
+                    <span onClick={() => handleSelectedNoc(record)}> 
+                        <a style={record.noc === selectedNoc ? {color: '#007eb4'} : {color: 'black'}}> 
+                            <b>{text}</b> (NOC {record.noc})
+                        </a> 
+                    </span>)
+                } else {
+                    return (<h4>Your search returned no results.</h4>)
+                }
             },
         },
         {
@@ -198,7 +207,7 @@ const ResultsTable: FunctionComponent = () => {
 
     function getDatasource() {
         let size = listSize < filteredOccupationsList.length ? listSize : filteredOccupationsList.length
-        return filteredOccupationsList.length > 0? filteredOccupationsList.slice(0,size): [{ id: -1, noc: '', nocAndTitle: 'Your search returned no results', jobOpenings: undefined}]
+        return filteredOccupationsList.length > 0? filteredOccupationsList.slice(0,size): [{ id: -1, noc: '', title: '', jobOpenings: undefined}]
     }
 
     return (<div>
