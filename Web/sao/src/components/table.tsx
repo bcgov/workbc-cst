@@ -110,15 +110,15 @@ const ResultsTable: FunctionComponent = () => {
     }
 
     const nameContent = (
-        <div>
-            <Row><Col><Button style={{border: 'none'}} onClick={()=> {hide();setSortOption('A-Z')}}> A - Z </Button></Col></Row>
-            <Row><Col><Button style={{border: 'none'}} onClick={()=> {hide();setSortOption('Z-A')}}> Z - A </Button></Col></Row>
+        <div className="sort-options">
+            <a onClick={()=> {hide();setSortOption('A-Z')}}> A - Z </a>
+            <a onClick={()=> {hide();setSortOption('Z-A')}}> Z - A </a>
         </div>
     )
     const jobContent = (
-        <div>
-            <Row><Col><Button style={{border: 'none'}} onClick={() => {hide();setSortOption('High to Low')}}> High to Low </Button></Col></Row>
-            <Row><Col><Button style={{border: 'none'}} onClick={() => {hide();setSortOption('Low to High')}}> Low to High </Button></Col></Row>
+        <div className="sort-options">
+            <a onClick={() => {hide();setSortOption('High to Low')}}> High to Low </a>
+            <a onClick={() => {hide();setSortOption('Low to High')}}> Low to High </a>
         </div>
     )
 
@@ -126,10 +126,10 @@ const ResultsTable: FunctionComponent = () => {
 
     const columns = [
         {
-            title: (<div>
-                Career name
+            title: (<div className="table-header">
+                <div className="table-header__title"> Career Name </div>
                 <Popover placement="bottomRight" title={title} content={nameContent} trigger="click" visible={nameSortVisible} onVisibleChange={handleNameSortVisible}>
-                    <span> <DownOutlined className="downicon"/> </span>
+                    <span className="table-header__icon" style={{marginLeft: '25px'}}> <DownOutlined className="downicon"/> </span>
                 </Popover>
             </div>),
             dataIndex: 'title',
@@ -139,10 +139,10 @@ const ResultsTable: FunctionComponent = () => {
             },
         },
         {
-            title: (<div> 
-                Job Openings (2019-2029)
+            title: (<div className="table-header"> 
+                <div className="table-header__title"> Job Openings (2019-2029) </div>
                 <Popover placement="bottomRight" title={title} content={jobContent} trigger="click" visible={jobsSortVisible} onVisibleChange={handleJobsSortVisible}>
-                    <span style={{marginLeft: '10px'}}> <DownOutlined className="downicon" /> </span>
+                    <span className="table-header__icon"> <DownOutlined className="downicon" /> </span>
                 </Popover>
             </div>),
             width: '25%',

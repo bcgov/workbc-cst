@@ -84,12 +84,47 @@
     }
 }
 
-.ant-table-cell { 
+.table-header {
+    display: inline-flex;
+    justify-content: space-around;
+
+    &__icon {
+        align-self: initial;
+        margin: auto;
+    }
+
     .downicon {
         color: @yellow;
         :hover {
             fill: @yellow;
         }
+    }
+}
+
+.ant-popover-title {
+    border-bottom: none;
+}
+
+.ant-popover-content {
+    width: 144px;
+}
+
+.ant-popover-inner-content {
+    padding: 0;
+}
+
+.sort-options {
+    display: inline-grid;       
+    padding-left:16px;
+    padding-bottom: 16px;
+
+    a {
+        color: black;
+        padding: 0.4em;
+    }
+
+    a:hover {
+        font-weight: bold;
     }
 }
 
