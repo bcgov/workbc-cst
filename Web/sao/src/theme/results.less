@@ -1,7 +1,7 @@
 
 .results-wrapper{
-    margin-right: -1.5rem;
-    margin-left: -1.5rem;
+    margin-right: -1.0rem;
+    margin-left: -1.0rem;
     background: white;
     border-top: 15px solid @border-grey;
     padding: 0 1.0rem 2rem;
@@ -29,7 +29,10 @@
             display: flex;
             align-items: stretch;
             > span {
-                margin: auto;
+                margin: none;
+                .largeScreen({
+                    margin: auto;
+                })
                 :hover {
                     color: @yellow;
                 }
@@ -42,6 +45,10 @@
         }
     }
     .compare-buttons{
+        width: 85%;
+        .largeScreen({
+            width: auto;
+        });
         button{
             width: calc(50% - 4px);
             .largeScreen({
