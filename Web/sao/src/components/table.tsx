@@ -50,11 +50,11 @@ const ResultsTable: FunctionComponent = () => {
         let tempList = [...filteredOccupationsList]
         switch(sortOption) {
             case 'A-Z':
-                const sortedOrder = tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.nocAndTitle < b.nocAndTitle ? -1 : 1 })
+                const sortedOrder = tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title < b.title ? -1 : 1 })
                 setFilteredOccupationsList(sortedOrder)                
                 break
             case 'Z-A':
-                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.nocAndTitle > b.nocAndTitle ? -1 : 1 }))                
+                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title > b.title ? -1 : 1 }))                
                 break
             case 'High to Low':
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings> b.jobOpenings ? -1 : 1 }))                
@@ -132,10 +132,10 @@ const ResultsTable: FunctionComponent = () => {
                     <span> <DownOutlined className="downicon"/> </span>
                 </Popover>
             </div>),
-            dataIndex: 'nocAndTitle',
+            dataIndex: 'title',
             width:'60%',
             render: (text, record: OccupationModel) => {
-                return (<span onClick={() => handleSelectedNoc(record)}> <a className = {selectedNoc === record.noc? 'selected': ''}> {text} </a> </span>)
+                return (<span onClick={() => handleSelectedNoc(record)}> <a className = {selectedNoc === record.noc? 'selected': ''}> <b>{text}</b> (NOC {record.noc})</a> </span>)
             },
         },
         {

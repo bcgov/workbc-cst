@@ -56,8 +56,8 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
         case 'set-filtered-occupation-list': //sorts table results from high to low job openings and displays preview of career with max openings
         action.payload = state.sortOption === 'High to Low'? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings > b.jobOpenings ? -1 : 1 }):
         state.sortOption === 'Low to High'? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings < b.jobOpenings ? -1 : 1 }):
-        state.sortOption === 'A-Z'? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.nocAndTitle < b.nocAndTitle ? -1 : 1 }): 
-        state.sortOption === 'A-Z'? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.nocAndTitle > b.nocAndTitle ? -1 : 1 }): action.payload    
+        state.sortOption === 'A-Z'? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.title < b.title ? -1 : 1 }): 
+        state.sortOption === 'A-Z'? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.title > b.title ? -1 : 1 }): action.payload    
         return ({...state, filteredOccupationsList: action.payload, selectedNoc: state.selectedNoc === 'default'? action.payload[0]?.noc : state.selectedNoc})
         
         case 'set-selected-noc':

@@ -44,7 +44,7 @@ export interface OccupationalListResponse {
 export interface OccupationModel {
     id: number, 
     noc: string,
-    nocAndTitle: string,
+    title: string,
     jobOpenings: number
 }
 
