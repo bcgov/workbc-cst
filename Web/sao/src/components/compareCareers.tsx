@@ -100,14 +100,14 @@ const CompareCareers: FunctionComponent = () => {
                     <div className="result-detail__footer__button-box">
                        <div style={{marginRight: '10px'}}>
                             <a href={careerProfileUrl+careerObj.careerDetail?.noc} target="_blank"> 
-                                <Button type="primary" block>
+                                <Button type="primary" className="result-detail__footer__button-box__career" block>
                                     View Career Profile
                                 </Button>
                             </a>  
                         </div>                  
                         <div>
                             <a href={viewJobsUrl+careerObj.careerDetail?.jobBoardNoc} target="_blank">
-                                <Button block>
+                                <Button  className="result-detail__footer__button-box__jobs" block>
                                     Find Jobs
                                 </Button>
                             </a>  
