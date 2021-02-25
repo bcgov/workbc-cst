@@ -127,7 +127,7 @@ const CompareCareers: FunctionComponent = () => {
     }
 
     return(
-        <div>
+        <div className="container">
             { !!isMobile() && (<Button type="link" onClick={() => setView('results')}>
                 <span><LeftOutlined/></span>
                 Back to search results
@@ -144,7 +144,7 @@ const CompareCareers: FunctionComponent = () => {
                 !isFetchingPIPath && isPiPathFetched && piPathData &&  profileImagesPath && 
                 !isFetchingCPUrl && isCPUrlFetched && CPUrlData && careerProfileUrl &&
                 !isFetchingJOUrl && isJOUrlFetched && JOUrlData && viewJobsUrl && careerDetail.length > 1 && (
-                    <Row>
+                    <Row className={careerDetail.length <= 2 ? 'compare-careers--center' : '' + "compare-careers"}>
                         <Col span={8}>
                             {getCareerDetail(careerDetail[0])}
                         </Col>
