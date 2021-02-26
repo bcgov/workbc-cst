@@ -82,11 +82,11 @@ const CareerPreview: FunctionComponent = () => {
                         <div className="result-body__row-right"><b>{careerObj.income}</b></div>
                     </div>
                     <div className="result-body__row">
-                        <div className="result-body__row-left"> Education Level </div>
+                        <div className="result-body__row-left">Education Level</div>
                         <div className="result-body__row-right"><b>{careerObj.education.value}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
-                        <div className="result-body__row-left">Job Openings (2019 - 2029) </div>
+                        <div className="result-body__row-left">Job Openings <span>(2019 - 2029)</span></div>
                         <div className="result-body__row-right"><b>{format(careerObj.jobOpenings)}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">

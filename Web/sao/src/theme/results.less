@@ -10,7 +10,7 @@
     .largeScreen({
         margin-right: -1.0rem;
         margin-left: -1.0rem;
-        margin-top:-50px;
+        margin-top: -50px;
         padding: 0 16px 2rem;
         margin-bottom: 2rem;
     });
@@ -96,6 +96,13 @@
     display: inline-flex;
     justify-content: space-around;
 
+    .table-header__title {
+        span {
+            font-family: @font-family;
+            font-weight: 400;
+            display: block;
+        }
+    }
     &__icon {
         align-self: initial;
         margin: auto;
@@ -263,11 +270,14 @@
             .flex(0 0 auto);
         }
         &-left{
-            width: 40%;
+            width: 50%;
         }
         &-right{
-            width: 60%;
-            text-align: center;
+            width: 50%;
+            text-align: left;
+        }
+        span {
+            display: block;
         }
     }
     margin-bottom: 2rem;
