@@ -153,6 +153,10 @@
     color:  @light-blue;
 }
 
+
+.preview-career, .result-detail{
+    height: 100%;
+}
 .result-detail{
     border: 1px solid @grey;
     &__header, 
@@ -165,7 +169,10 @@
         background-color: @light-blue;
         color: white;
         font-family: @font-family-bold;
-        padding: 1rem 1rem;
+        padding: 0 1rem;
+        height: 64px;
+        .flex-display();
+        .align-items(center);
         &--noc{
             font-family: @font-family;
         }
@@ -217,7 +224,21 @@
            flex: 1 1 0;
         }
     }
+    &--compare{
+        .flex-display();
+        .flex-direction(column);
+        .result-detail__thumbnail{
+            margin: 1.5rem 0 0;
+        }
+        .result-detail__footer{
+            margin-top: auto;
+        }
+    }
 }
+
+
+
+
 
 .result-body{    
     &__row{

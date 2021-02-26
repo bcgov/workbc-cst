@@ -219,7 +219,7 @@ const ResultsTable: FunctionComponent = () => {
                     dataSource={getDatasource()}
                     rowKey="noc"
                     pagination={false}
-                    scroll={!isMobile() ? { y: 500 } : undefined}
+                    scroll={!isMobile() ? { y: 622 } : undefined}
                     onRow={onRow}>
                 </Table>}
                 {!!isMobile() && (<Button className="results-table-button" block type="primary" onClick={() => loadMore()}>Load More</Button>)}

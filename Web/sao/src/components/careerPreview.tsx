@@ -113,7 +113,7 @@ const CareerPreview: FunctionComponent = () => {
             </div>
         )
     }
-    return (<div> 
+    return (<div className="preview-career"> 
             { !!isMobile() && (<Button type="link" onClick={() => setView('results')}>
                 <span><LeftOutlined/></span>
                 Back to search results

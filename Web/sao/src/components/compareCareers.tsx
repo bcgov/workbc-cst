@@ -73,8 +73,8 @@ const CompareCareers: FunctionComponent = () => {
 
     function getCareerDetail(careerObj: OccupationSummaryObj) {
         return (
-            <div className="result-detail">
-                <div className="result-detail__header">{careerObj.careerDetail.title} <span>(NOC {careerObj.nocId})</span></div>
+            <div className="result-detail result-detail--compare">
+                <div className="result-detail__header"><div className="result-detail__header-details"> {careerObj.careerDetail.title} <span>(NOC {careerObj.nocId})</span></div></div>
                 <div  className="result-detail__thumbnail">
                     {(careerObj.careerDetail?.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.nocId)} alt='career profile pic'/>)
                     : (<YouTube videoId={careerObj.careerDetail?.careertrekvideoids[0]} opts={{height: '315', width: '420'}} onReady={_onReady} />)}
