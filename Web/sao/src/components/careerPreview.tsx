@@ -24,10 +24,6 @@ const CareerPreview: FunctionComponent = () => {
         return width < 1200
     }
 
-    useEffect(() => {
-        setSelectedNoc(filteredOccupationsList[0]?.noc)
-    }, [filteredOccupationsList])
-
     const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(selectedNoc)
     
     useEffect(() => {

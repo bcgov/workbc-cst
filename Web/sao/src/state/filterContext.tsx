@@ -24,7 +24,7 @@ export interface FilterContextProps extends FilterState {
 const FilterContext = createContext<FilterContextProps>({
     filterOption: defaultFilterOption,
     filteredOccupationsList: [],
-    selectedNoc: "",
+    selectedNoc: undefined,
     view: 'results',
     isReset: true,
     checkedNocs: [],
