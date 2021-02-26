@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'antd'
+import WorkBCLogo from '../images/workbc-header-logo.svg'
 
 const compass = (
 	<svg version="1.1" width="71px" height="71px">
@@ -143,7 +144,7 @@ function Footer() {
                     <a target="_blank" rel="noreferrer" href="https://www.workbc.ca/Contact-Us.aspx"> Contact Us</a> |
                     <a target="_blank" rel="noreferrer" href="http://www2.gov.bc.ca/gov/content/home/disclaimer"> Disclaimer</a> |
                     <a target="_blank" rel="noreferrer" href="http://www2.gov.bc.ca/gov/content/home/privacy"> Privacy</a> |
-					<a target="_blank" rel="noreferrer" href="http://www2.gov.bc.ca/gov/content/home/privacy">  Resources for Teachers & Parents </a>
+					<a target="_blank" rel="noreferrer" href="https://www.workbc.ca/Resources-for/Resources-for-Counsellors-Teachers-Parents.aspx">  Resources for Teachers & Parents </a>
                 </div>
                 <div className="footer-content__social-icons">
                     <FooterIcons />
@@ -159,8 +160,16 @@ function Footer() {
 					</font-resizer>
 				</div>
 				<div className="footer-content__copyright">
-					<div className="footer-copyright-link">Copyright 2021 <span style={{textDecoration: 'underline'}}>Province of British Columbia. All rights reserved.</span></div>
-					<div className="footer-copyright-logo"></div>
+					<div className="footer-copyright-link">
+						<div>
+							Copyright 2021 
+							<span style={{textDecoration: 'underline'}}>Province of British Columbia. All rights reserved.</span>
+						</div>
+						<div style={{float: 'right'}}>
+							<img className="header__logo--img" src={WorkBCLogo} alt="Work BC" />
+						</div>					
+					</div>
+					
 				</div>
             </div>
         </footer>	
