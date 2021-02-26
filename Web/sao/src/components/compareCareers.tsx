@@ -1,5 +1,5 @@
 import React, {FunctionComponent, useState, useEffect} from 'react'
-import {Button, Row, Col} from 'antd'
+import {Button, Row, Col, Divider} from 'antd'
 import {CloseOutlined, MailFilled , PrinterFilled } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import {OccupationSummaryObj} from '../client/dataTypes'
@@ -135,9 +135,14 @@ const CompareCareers: FunctionComponent = () => {
             } 
             <h1>Compare Careers 
                 <span style={{float: 'right'}}>
-                    <PrinterFilled style={{color: "#355992"}}/>
-                    <MailFilled style={{color: "#355992"}}/>
-                    {!isMobile() && ( <CloseOutlined style={{color: "#355992"}}  onClick={()=> setView('results')}/> )}
+                    <PrinterFilled style={{color: "#355992", margin: '0 0.5rem'}}/>
+                    <MailFilled style={{color: "#355992",  margin: '0 0.5rem'}}/>
+                    {!isMobile() && ( 
+                        <span>
+                            <Divider type="vertical" style={{height: '3.8em', marginTop: '-0.8em'}}/>
+                            <CloseOutlined style={{color: "#355992", margin: '0 0.5rem'}}  onClick={()=> setView('results')}/> 
+                        </span>
+                    )}
                 </span>
             </h1>
             {
