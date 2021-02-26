@@ -142,7 +142,8 @@ function Footer() {
                     <a target="_blank" rel="noreferrer" href="https://www.workbc.ca/browsers"> Browsers</a> |
                     <a target="_blank" rel="noreferrer" href="https://www.workbc.ca/Contact-Us.aspx"> Contact Us</a> |
                     <a target="_blank" rel="noreferrer" href="http://www2.gov.bc.ca/gov/content/home/disclaimer"> Disclaimer</a> |
-                    <a target="_blank" rel="noreferrer" href="http://www2.gov.bc.ca/gov/content/home/privacy"> Privacy</a>
+                    <a target="_blank" rel="noreferrer" href="http://www2.gov.bc.ca/gov/content/home/privacy"> Privacy</a> |
+					<a target="_blank" rel="noreferrer" href="http://www2.gov.bc.ca/gov/content/home/privacy">  Resources for Teachers & Parents </a>
                 </div>
                 <div className="footer-content__social-icons">
                     <FooterIcons />
@@ -158,7 +159,7 @@ function Footer() {
 					</font-resizer>
 				</div>
 				<div className="footer-content__copyright">
-					<div className="footer-copyright-link">Copyright 2020 <a href="//google.ca">Province of British Columbia. All rights reserved.</a></div>
+					<div className="footer-copyright-link">Copyright 2021 <span style={{textDecoration: 'underline'}}>Province of British Columbia. All rights reserved.</span></div>
 					<div className="footer-copyright-logo"></div>
 				</div>
             </div>
