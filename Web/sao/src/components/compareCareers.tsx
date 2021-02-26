@@ -70,6 +70,10 @@ const CompareCareers: FunctionComponent = () => {
     function _onReady(event) {
         event.target.pauseVideo();
     }
+    
+    function format(value: number) { //add ',' for numbers with 5 digits. Note: At this point greatest value of job openings has just 5 digits
+        return value?.toString().length === 5 ? value.toString().slice(0,2)+','+value.toString().slice(2,5) : value
+    }
 
     function getCareerDetail(careerObj: OccupationSummaryObj) {
         return (
@@ -90,7 +94,7 @@ const CompareCareers: FunctionComponent = () => {
                     </div>
                     <div className="result-body__row result-body__row--last">
                         <div className="result-body__row-left">Job Openings (2019 - 2029) </div>
-                        <div className="result-body__row-right"><b>{careerObj.careerDetail?.jobOpenings}</b></div>
+                        <div className="result-body__row-right"><b>{format(careerObj.careerDetail?.jobOpenings)}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
                         <div>{removeTags(careerObj.careerDetail?.description)}</div>
