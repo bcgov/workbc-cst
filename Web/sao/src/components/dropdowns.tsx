@@ -165,6 +165,7 @@ const Dropdowns: FunctionComponent = () => {
     function applyFilters() {
         setFilterOption(userSelection)
         setCheckedNocs([])
+        document.getElementById('middle').scrollIntoView()
     }
 
     function handleHide(filtername: string) {
@@ -390,7 +391,7 @@ const Dropdowns: FunctionComponent = () => {
                     </Row>
                 </div>
             </div>
-            <div className="results-background">
+            <div id="middle" className="results-background">
                 <Results />
             </div>
             <Footer />
