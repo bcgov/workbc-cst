@@ -50,8 +50,7 @@ const ResultsTable: FunctionComponent = () => {
         let tempList = [...filteredOccupationsList]
         switch(sortOption) {
             case 'A-Z':
-                const sortedOrder = tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title < b.title ? -1 : 1 })
-                setFilteredOccupationsList(sortedOrder)                
+                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title < b.title ? -1 : 1 }))                
                 break
             case 'Z-A':
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title > b.title ? -1 : 1 }))                
@@ -109,6 +108,10 @@ const ResultsTable: FunctionComponent = () => {
         setExtraSelection(undefined)
     }
 
+    function format(value: string) { //add ',' for numbers with 5 digits. Note: At this point greatest value of job openings has just 5 digits
+        return value?.toString().length === 5 ? value.toString().slice(0,2)+','+value.toString().slice(2,5) : value
+    }
+
     const nameContent = (
         <div className="sort-options">
             <a onClick={()=> {hide();setSortOption('A-Z')}}> A - Z </a>
@@ -158,7 +161,10 @@ const ResultsTable: FunctionComponent = () => {
             </div>),
             width: '25%',
             dataIndex: 'jobOpenings',
-            defaultSortOrder: 'descend'
+            defaultSortOrder: 'descend',
+            render: (text, record) => {
+                return (<div>{format(text)}</div>)
+            }
         },
         {
             title: 'Compare Careers',
