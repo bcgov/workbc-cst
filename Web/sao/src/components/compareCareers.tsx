@@ -149,7 +149,7 @@ const CompareCareers: FunctionComponent = () => {
                 !isFetchingPIPath && isPiPathFetched && piPathData &&  profileImagesPath && 
                 !isFetchingCPUrl && isCPUrlFetched && CPUrlData && careerProfileUrl &&
                 !isFetchingJOUrl && isJOUrlFetched && JOUrlData && viewJobsUrl && careerDetail.length > 1 && (
-                    <Row className={careerDetail.length <= 2 ? 'compare-careers--center' : '' + "compare-careers"}>
+                    <Row className={careerDetail.length <= 2 ? 'compare-careers compare-careers--center' : "compare-careers"}>
                         <Col span={8}>
                             {getCareerDetail(careerDetail[0])}
                         </Col>
