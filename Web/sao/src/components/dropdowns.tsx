@@ -207,7 +207,7 @@ const Dropdowns: FunctionComponent = () => {
             </div>
             <div className="sao-filters">
                 <div className="container">
-                    <Row><Col span={24}>
+                    <Row className="sao-filters__help"><Col span={24}>
                         <h3>Use the filter(s) to explore your career options.</h3>    
                     </Col></Row>
                     <Row className="sao-filters__row">
@@ -378,7 +378,7 @@ const Dropdowns: FunctionComponent = () => {
                             </div>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row className="sao-filters__filter-buttons">
                         <Col xs={24} xl={{span:8, offset:16}}> 
                             <div className="sao-filters__button-layout">
                                 <div className="sao-filters__button sao-filters__button--apply" onClick = {applyFilters}> Apply </div>

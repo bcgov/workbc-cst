@@ -21,7 +21,7 @@ const ResultsTable: FunctionComponent = () => {
     const [extraSelection, setExtraSelection] = useState<string>()
     const [listSize, setListSize] = useState(0)
     const [width] = useWindowSize()
-
+    
     function isMobile() {
         return width < 1200
     }

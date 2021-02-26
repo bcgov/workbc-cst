@@ -169,9 +169,11 @@ function Footer() {
 							<img className="header__logo--img" src={WorkBCLogo} alt="Work BC" />
 						</div>					
 					</div>
-					
 				</div>
             </div>
+			<div className="footer-content-print container">
+				WorkBC Career Search Tool <strong>www.workbc.ca/careersearchtool/</strong>
+			</div>
         </footer>	
 		</>
 	)

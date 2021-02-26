@@ -1,0 +1,200 @@
+@media print {
+    body {
+    }
+
+    .header__hero > .container {
+        height: auto;
+        border-top: 5px solid #000;
+    }
+
+    .header{
+        background-color: white;
+        &__logo{
+            height: 40px;
+            &--img{
+                height: 30px;
+                margin-bottom: 10px;
+                color: #000;
+            }
+        }
+        &__hero{
+            width: 100%;
+            background-image: none !important;
+            > .container{
+                height: auto;
+            }
+            &-text{          
+                &--header{
+                    color: @print-color;
+                    font-family: @font-family-bold;
+                    font-size: 32px;
+                    margin-top: 40px;
+                }
+                &--body{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .results-wrapper {
+        border-top: 0;
+        border-bottom: 0;
+    }
+
+    .sao-filters-header {
+        display: none;
+    }
+
+    .sao-filters {
+        background-color: transparent;
+        &__help {
+            display: none;
+        }
+        &__type {
+            margin-bottom: 0;
+            .ant-col {
+                width: 65%;
+                display: inline-block;
+            }
+            input[type=text]{
+                background: transparent;
+                border: none;
+                padding: 0;
+                width: auto !important;
+                min-width: 320px;
+            }
+        }
+        &__label {
+            width: 35%;
+            display: inline-block;
+            font-family: @font-family-bold;
+        }
+        &__popover {
+            display: none;
+        }
+        &__select {
+            width: auto !important;
+            .ant-select-arrow {
+                display: none;
+            }
+            .ant-select {
+                .ant-select-selector {
+                    background: transparent;
+                    border: none;
+                    padding: 0;
+                    width: auto !important;
+                }
+            }
+        }
+
+        .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+            background: transparent;
+            border: none;
+            padding: 0;
+            width: auto !important;
+        }
+
+        &__filter-buttons{
+            display: none;
+        }
+    }
+
+    /* Not sure how else to target these ANT Table selectors */
+    
+    /* Hide the top cell scrollbar spacer, and the compare columns */
+    .ant-table-container table > thead > tr:first-child th:nth-child(3), 
+    .ant-table-container table > thead > tr:first-child th:nth-child(4),
+    .ant-table-container table > tbody > tr td:nth-child(3), 
+    .ant-table-container table > tbody > tr td:nth-child(4) {
+            display: none;
+    }
+
+    .ant-table-container .ant-table-body {
+        max-height: auto !important;
+        overflow: none !important;
+    }
+
+    .ant-table-container .ant-table-tbody td a {
+        color: @print-color !important;
+    }
+
+    .ant-table-thead > tr th{
+        background-color: @grey;
+        color: @print-color;
+    }
+    .results-header{
+        &__printtitle{
+            display: block;
+            font-family: @font-family-bold;
+            font-size: 24px;
+        }
+        &__text{
+            font-size: 14px;
+            .highlighted-text{
+                color: @print-color;
+            }
+        }
+    }
+    .result-detail{
+        margin-top: 1rem;
+        &__printtitle{
+            display: block;
+            font-family: @font-family-bold;
+            font-size: 24px;
+            border-bottom: 3px solid @grey;
+        }
+        border: none;
+        &__header, 
+        &__body, 
+        &__thumbnail, 
+        &__footer{
+            padding: 0;
+        }
+        &__header{
+            background-color: white;
+            color: @print-color;
+            font-family: @font-family-bold;
+            padding: 0 1rem;
+            height: auto;
+        }
+        &__thumbnail{
+            display: none;
+            img{
+                display: none;
+            }
+            iframe {
+                display: none;
+            }
+            &__preview {
+                display: none;
+                iframe {
+                    display: none;
+                }
+                img {
+                    display: none;
+                }
+            }
+        }
+        &__footer{
+            &__button-box {
+                display: none;
+            }
+        }    
+    }
+
+    .results-compare {
+        display: none;
+    }
+    .tools-resources {
+        display: none;
+    }
+    .footer-content {
+        display: none;
+    }
+    .footer-content-print {
+        padding-top: 5px;
+        border-top: 6px solid @print-color;
+        display: block;
+    }
+}

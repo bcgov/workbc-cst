@@ -71,6 +71,10 @@ const CareerPreview: FunctionComponent = () => {
     function getCareerDetail(careerObj: OccupationSummary) {
         return (
             <div className="result-detail">
+                <div className="result-detail__printtitle">
+                    Career Preview
+                </div>
+
                 <div className="result-detail__header">{careerObj.title} <span>(NOC {careerObj.noc})</span></div>
                 <div  className="result-detail__thumbnail__preview">
                     {(careerObj.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.noc)} alt='career profile pic'/>)

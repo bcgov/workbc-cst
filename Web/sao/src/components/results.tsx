@@ -15,7 +15,7 @@ const results: FunctionComponent = () => {
     }
 
     function handlePrintEvent() {
-        console.log(' Print profile ')
+        print();
     }
 
     function handleEmailEvent() {
@@ -28,6 +28,9 @@ const results: FunctionComponent = () => {
                 <Col span={24}>
                     <Row className="results-header">
                         <Col span={24}>
+                            <div className="results-header__printtitle">
+                                Search Results
+                            </div>
                             <div className="results-header__text">
                                 Displaying <span className="highlighted-text"> {filteredOccupationsList?.length} results </span>
                             </div>
