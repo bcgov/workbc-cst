@@ -27,6 +27,7 @@ const CareerPreview: FunctionComponent = () => {
     useEffect(() => {
         setSelectedNoc(filteredOccupationsList[0]?.noc)
     }, [filteredOccupationsList])
+
     const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(selectedNoc)
     
     useEffect(() => {
@@ -67,6 +68,10 @@ const CareerPreview: FunctionComponent = () => {
         return str.replace( /(<([^>]+)>)/ig, ''); 
     } 
 
+    function format(value: number) { //add ',' for numbers with 5 digits. Note: At this point greatest value of job openings has just 5 digits
+        return value?.toString().length === 5 ? value.toString().slice(0,2)+','+value.toString().slice(2,5) : value
+    }
+
     function getCareerDetail(careerObj: OccupationSummary) {
         return (
             <div className="result-detail">
@@ -86,7 +91,7 @@ const CareerPreview: FunctionComponent = () => {
                     </div>
                     <div className="result-body__row result-body__row--last">
                         <div className="result-body__row-left">Job Openings (2019 - 2029) </div>
-                        <div className="result-body__row-right"><b>{careerObj.jobOpenings}</b></div>
+                        <div className="result-body__row-right"><b>{format(careerObj.jobOpenings)}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
                         <div>{removeTags(careerObj.description)}</div>
