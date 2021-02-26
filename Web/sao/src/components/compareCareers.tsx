@@ -85,7 +85,7 @@ const CompareCareers: FunctionComponent = () => {
                         <div className="result-body__row-right"><b>{careerObj.careerDetail?.income}</b></div>
                     </div>
                     <div className="result-body__row">
-                        <div className="result-body__row-left"> EducationLevel </div>
+                        <div className="result-body__row-left"> Education Level </div>
                         <div className="result-body__row-right"><b>{careerObj.careerDetail?.education.value}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
