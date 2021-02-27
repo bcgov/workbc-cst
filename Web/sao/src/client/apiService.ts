@@ -47,14 +47,17 @@ async function getFilterData(filterUrl: string): Promise<FilterTypeModel[]> {
 }
 
 export function useGetFilterData (filterType: FilterType): FilterDataResponse {
+  if (axios.defaults.baseURL) {
     const filterUrl = getFilterUrl(filterType); // Fetches the right url to be used in API call
     const {data, isValidating, error } = useSWR<FilterTypeModel[]>(filterUrl, () => getFilterData(filterUrl), {})
     return {data, isValidating, isSettled: !!data || !!error}
+  }
+  return {data: [], isValidating: false, isSettled: true}
 }
 
 async function getIndustryData(filterUrl: string): Promise<IndustryModel[]> {
   try {
-      if (!filterUrl) return Promise.resolve([])
+      if (!filterUrl || !axios.defaults.baseURL) return Promise.resolve([])
       const response: AxiosResponse<IndustryModel[]> = await axios.get(filterUrl)
       return Array.isArray(response.data)? response.data : []
   } catch (error) {
@@ -78,6 +81,7 @@ async function getOccupationsList(params: FilterOccupationParams): Promise<Occup
 }
 
 export function useGetOccupationsList(params: FilterOccupationParams): OccupationalListResponse {
+  axios.defaults.baseURL = process.env.GATSBY_API_URL!
   const filterParams = JSON.stringify(params)
   const {data, isValidating, error} = useSWR<OccupationModel[]>(filterParams, () => getOccupationsList(params))
   return {data, isValidating, isSettled: !!data || !!error}
