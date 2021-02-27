@@ -166,3 +166,36 @@
         text-decoration: underline;
     }
 }
+
+
+@media print {
+    .sao-filters{ 
+        &__type{
+            .ant-col{
+                width: 60%;
+                display: inline-block;
+            }
+        }
+        &__label{
+            width: 40%;
+            display: inline-block;
+        }
+        &__popover{
+            display:none;
+        }
+
+        &__select{
+            .ant-select-arrow{
+                display: none;;
+            }
+            .ant-select{
+                >  .ant-select-selector{
+                    background: transparent;
+                    border:none;
+                    padding: 0;
+                }
+
+            }
+        }
+    }
+}

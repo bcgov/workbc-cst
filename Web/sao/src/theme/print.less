@@ -1,7 +1,14 @@
 @media print {
     body {
     }
-
+    .container{
+        width: auto;
+        max-width: none;
+    }
+    .results-background{
+        padding: 0;
+    }
+  
     .header__hero > .container {
         height: auto;
         border-top: 5px solid #000;
@@ -40,6 +47,17 @@
     .results-wrapper {
         border-top: 0;
         border-bottom: 0;
+        .ant-col{ 
+            width: 100%;
+            .flex(0 0 100%);
+            max-width: 100%;
+        }
+        .ant-row{
+            display: block;            
+        }
+        .results-compare{
+            display: none;
+        }
     }
 
     .sao-filters-header {
@@ -47,7 +65,8 @@
     }
 
     .sao-filters {
-        background-color: transparent;
+        background: white;
+        padding: 0 0 1rem;
         &__help {
             display: none;
         }
@@ -65,6 +84,16 @@
                 min-width: 320px;
             }
         }
+        &__row{
+            display: block;
+            padding: 0 16px;
+            > .ant-col{
+                padding:0;
+                width:100%;
+                .flex(0 0 100%);
+                max-width: 100%;
+            }   
+        }
         &__label {
             width: 35%;
             display: inline-block;
@@ -79,6 +108,7 @@
                 display: none;
             }
             .ant-select {
+                width: 35% !important;
                 .ant-select-selector {
                     background: transparent;
                     border: none;
@@ -99,15 +129,37 @@
             display: none;
         }
     }
-
-    /* Not sure how else to target these ANT Table selectors */
-    
-    /* Hide the top cell scrollbar spacer, and the compare columns */
-    .ant-table-container table > thead > tr:first-child th:nth-child(3), 
-    .ant-table-container table > thead > tr:first-child th:nth-child(4),
-    .ant-table-container table > tbody > tr td:nth-child(3), 
-    .ant-table-container table > tbody > tr td:nth-child(4) {
-            display: none;
+    .ant-table-wrapper{
+        table{
+            table-layout: auto !important;
+        }
+    }
+    .ant-table{
+        &-thead{
+            > tr{
+                *:nth-child(3){
+                    display: none;
+                    width: 0;
+                }       
+            }
+        }
+        &-body{
+            max-height: none !important;
+            overflow-y: visible !important;
+        }    
+        &-tbody{
+            > tr{
+                *:nth-child(3){
+                    display: none;
+                }       
+            }
+        }
+        &-row{
+          
+        } 
+        &-cell-scrollbar{
+            display:none;
+        } 
     }
 
     .ant-table-container .ant-table-body {
@@ -124,6 +176,10 @@
         color: @print-color;
     }
     .results-header{
+        &__text{
+            margin-bottom: 1rem;
+ 
+        }
         &__printtitle{
             display: block;
             font-family: @font-family-bold;
@@ -132,6 +188,7 @@
         &__text{
             font-size: 14px;
             .highlighted-text{
+                font-family: @font-family-bold;
                 color: @print-color;
             }
         }
@@ -155,8 +212,12 @@
             background-color: white;
             color: @print-color;
             font-family: @font-family-bold;
-            padding: 0 1rem;
             height: auto;
+            padding: 1rem 0 0;
+
+        }
+        &__body{
+            margin-bottom: 0;
         }
         &__thumbnail{
             display: none;
@@ -198,3 +259,4 @@
         display: block;
     }
 }
+
