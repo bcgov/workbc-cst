@@ -11,7 +11,8 @@ export interface FilterState {
     isReset: boolean,
     checkedNocs: string[],
     isSorted: boolean,
-    sortOption: string, 
+    sortOption: string,
+    returnToResults: boolean
 }
 export interface FilterContextProps extends FilterState {
     setFilterOption: (filterOptions: FilterOptionModel) => void,
@@ -21,7 +22,8 @@ export interface FilterContextProps extends FilterState {
     filterApplied: () => void,
     resetOptions: () => void,
     setCheckedNocs: (value: string[]) => void,
-    setSortOption: (value: string) => void
+    setSortOption: (value: string) => void,
+    setReturnToResults: (value: boolean) => void
 }
 
 const FilterContext = createContext<FilterContextProps>({
@@ -33,6 +35,7 @@ const FilterContext = createContext<FilterContextProps>({
     isReset: true,
     checkedNocs: [],
     isSorted: false,
+    returnToResults: false,
     sortOption: 'High to Low',
     setFilterOption: () => {},
     filterApplied: () => {},
@@ -41,13 +44,15 @@ const FilterContext = createContext<FilterContextProps>({
     setSelectedNoc: () => {},
     setView: () => {},
     setCheckedNocs: () =>{},
-    setSortOption: () => {}
+    setSortOption: () => {},
+    setReturnToResults: () => {}
 })
 
 FilterContext.displayName = 'FilterContext'
 
 const FilterContextProvider: FunctionComponent = ({children}) => {
-    const [{filterOption, filteredOccupationsList, selectedNoc, view, isFilterApplied, isReset, checkedNocs, isSorted, sortOption}, dispatch] = useReducer(reducer, defaultFilterState)
+    const [{filterOption, filteredOccupationsList, selectedNoc, view, isFilterApplied, isReset, checkedNocs, isSorted, sortOption, returnToResults}, 
+        dispatch] = useReducer(reducer, defaultFilterState)
 
     async function setFilterOption(filterOptions: FilterOptionModel) {
         try {
@@ -105,6 +110,14 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
         }
     }
 
+    async function setReturnToResults(value: boolean) {
+        try {
+            dispatch({type: 'set-return-to-results', payload: value})
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <FilterContext.Provider 
             value = {{ 
@@ -117,6 +130,7 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
                 checkedNocs,
                 isSorted,
                 sortOption,
+                returnToResults,
                 setSelectedNoc,
                 setFilterOption,
                 filterApplied, 
@@ -124,7 +138,8 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
                 setView,
                 setFilteredOccupationsList, 
                 setSortOption,
-                setCheckedNocs }}> 
+                setCheckedNocs, 
+                setReturnToResults }}> 
             {children}
         </FilterContext.Provider>
     )
