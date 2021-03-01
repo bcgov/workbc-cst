@@ -23,9 +23,9 @@ namespace SearchAllOccupationsToolAPI.Models
             switch (Value.ToLower())
             {
                 case "high":
-                    return "Full-time";
-                case "low":
                     return "Part-time";
+                case "low":
+                    return "Full-time";
                 default:
                     return Value;
             }

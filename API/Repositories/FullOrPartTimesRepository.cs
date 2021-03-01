@@ -26,7 +26,9 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 foreach (var item in fullOrPartTimes) 
                     item.Value = item.GetNameForApi();
 
-                return fullOrPartTimes;
+                return fullOrPartTimes
+                    .OrderBy(f => f.Value)
+                    .ToList();
             }
 
             return ContextHelper.GetPlaceHolderData<FullOrPartTime>("SampleJsonFiles/fullorparttime.json");
