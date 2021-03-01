@@ -14,8 +14,8 @@
     <Manifest>
       <DTSPackages>
         <DtsPackage FormatVersion="0">
-          <Name>ImportNocDescriptions.dtsx</Name>
-          <FullPath>ImportNocDescriptions.dtsx</FullPath>
+          <Name>ImportDescriptions.dtsx</Name>
+          <FullPath>ImportDescriptions.dtsx</FullPath>
           <References />
         </DtsPackage>
         <DtsPackage FormatVersion="8">
