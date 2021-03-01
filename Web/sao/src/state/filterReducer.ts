@@ -26,8 +26,10 @@ export interface FilterState {
     filteredOccupationsList? : OccupationModel[],
     selectedNoc: string,
     view: string,
+    isFilterApplied: boolean,
     isReset: boolean,
     checkedNocs: string[],
+    isSorted: boolean,
     sortOption: string
 }
 
@@ -36,8 +38,10 @@ export const defaultFilterState: FilterState = Object.freeze({
     filteredOccupationsList: [],
     selectedNoc: undefined,
     view: 'results',
+    isFilterApplied: false,
     isReset: true,
     checkedNocs: [],
+    isSorted: false,
     sortOption: 'High to Low'
 })
 
@@ -49,6 +53,7 @@ export type FilterAction =
 {type: 'set-selected-boxes', payload: number} |
 {type: 'set-checked-nocs', payload: string[]} |
 {type: 'set-sort-option', payload: string} |
+{type: 'apply-filter'} |
 {type: 'reset'}
 
 export function reducer(state: FilterState = defaultFilterState , action: FilterAction): FilterState {
@@ -73,7 +78,10 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
             return ({...state, checkedNocs: action.payload})
 
         case 'set-sort-option':
-            return ({...state, sortOption: action.payload})
+            return ({...state, isSorted: true, sortOption: action.payload})
+
+        case 'apply-filter': 
+            return ({...state, isSorted: false, sortOption: 'High to Low', isFilterApplied: true})
 
         case 'reset': 
             return ({...state, ...defaultFilterState, isReset: !state.isReset})

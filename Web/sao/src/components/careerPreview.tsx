@@ -8,7 +8,7 @@ import YouTube from 'react-youtube';
 import useWindowSize from '../client/useWindowSize'
 
 const CareerPreview: FunctionComponent = () => {
-    const {filteredOccupationsList, selectedNoc, setSelectedNoc, setView} = useFilterContext()
+    const {filteredOccupationsList, selectedNoc, isFilterApplied, isSorted, setSelectedNoc, setView} = useFilterContext()
 
     const [careerDetail, setCareerDetail] = useState<OccupationSummary>()
     const [profileImagesPath, setProfileImagesPath] = useState<string>()
@@ -26,6 +26,12 @@ const CareerPreview: FunctionComponent = () => {
 
     const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(selectedNoc)
     
+    useEffect(() => {
+        console.log('filter applied: ', isFilterApplied, 'sort applied: ', isSorted)
+        if(!isSorted) setSelectedNoc(filteredOccupationsList[0]?.noc)
+    }, [isFilterApplied, isSorted, filteredOccupationsList])
+
+
     useEffect(() => {
         if(occupationSummary) setCareerDetail(occupationSummary[0])
         }, [selectedNoc, isFetchingSummary, isSummaryFetched])
