@@ -15,7 +15,7 @@ const Dropdowns: FunctionComponent = () => {
     const { data: industryData, isValidating, isSettled } = useGetIndustryData(FilterType.industry)
     const [industryDataTree, setIndustryDataTree] = useState<IndustryData[]>()
 
-    const {filterOption, setFilterOption, resetOptions, setCheckedNocs, isReset} = useFilterContext()
+    const {filterOption, setFilterOption, filterApplied, resetOptions, setCheckedNocs, isReset} = useFilterContext()
 
     const [userSelection, setUserSelection] = useState<FilterOptionModel>(defaultFilterOption)
 
@@ -164,6 +164,7 @@ const Dropdowns: FunctionComponent = () => {
 
     function applyFilters() {
         setFilterOption(userSelection)
+        filterApplied()
         setCheckedNocs([])
         document.getElementById('middle').scrollIntoView()
     }
