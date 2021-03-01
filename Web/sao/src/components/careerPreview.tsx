@@ -27,7 +27,6 @@ const CareerPreview: FunctionComponent = () => {
     const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(selectedNoc)
     
     useEffect(() => {
-        console.log('filter applied: ', isFilterApplied, 'sort applied: ', isSorted)
         if(!isSorted) setSelectedNoc(filteredOccupationsList[0]?.noc)
     }, [isFilterApplied, isSorted, filteredOccupationsList])
 

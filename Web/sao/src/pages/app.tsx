@@ -4,6 +4,7 @@ import Dropdowns from '../components/dropdowns'
 import {useFilterContext} from '../state/filterContext'
 import CompareCareers from "../components/compareCareers"
 import CareerPreview from "../components/careerPreview"
+import Helmet from 'react-helmet'
 
 const SAOTool:FunctionComponent = () => {
 
@@ -11,6 +12,7 @@ const SAOTool:FunctionComponent = () => {
 
   return (
       <div>
+        <Helmet title={'WorkBC Career search Tool'}></Helmet>
         {view === 'results'? <Dropdowns /> : view === 'careerPreview' ? <CareerPreview /> : <CompareCareers />}
       </div>
     )
