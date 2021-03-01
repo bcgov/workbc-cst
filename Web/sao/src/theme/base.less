@@ -45,6 +45,12 @@ body{
         max-width: 100%;
     });
 }
+
+//Set font to rem so we can properly use font resizer
+body, .ant-table, .ant-select{
+    font-size: 1rem;
+}
+
 .ant-table{
     &-thead{
         > tr{
@@ -52,7 +58,7 @@ body{
                 font-weight: normal;
                 font-family: @font-family-bold;
                 padding: 0 16px;
-                font-size: 14px;
+                font-size: 0.875rem;
                 height: 64px;
             }
 

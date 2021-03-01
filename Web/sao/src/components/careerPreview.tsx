@@ -27,7 +27,6 @@ const CareerPreview: FunctionComponent = () => {
     const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(selectedNoc)
     
     useEffect(() => {
-        console.log('filter applied: ', isFilterApplied, 'sort applied: ', isSorted)
         if(!isSorted) setSelectedNoc(filteredOccupationsList[0]?.noc)
     }, [isFilterApplied, isSorted, filteredOccupationsList])
 
@@ -81,7 +80,7 @@ const CareerPreview: FunctionComponent = () => {
                     Career Preview
                 </div>
 
-                <div className="result-detail__header">{careerObj.title} <span>(NOC {careerObj.noc})</span></div>
+                <div className="result-detail__header"><div className="result-detail__header-details">{careerObj.title} <span>(NOC {careerObj.noc})</span></div></div>
                 <div  className="result-detail__thumbnail__preview">
                     {(careerObj.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.noc)} alt='career profile pic'/>)
                     : (<YouTube  videoId={careerObj.careertrekvideoids[0]} onReady={_onReady} />)}
