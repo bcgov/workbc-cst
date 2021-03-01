@@ -11,7 +11,7 @@ import useWindowSize from '../client/useWindowSize'
 const WorkBCLogo = require('../images/workbc-header-logo.svg')
 
 const CompareCareers: FunctionComponent = () => {
-    const {setView, checkedNocs} = useFilterContext()
+    const {setView, setReturnToResults, checkedNocs} = useFilterContext()
 
     const [careerDetail, setCareerDetail] = useState<OccupationSummaryObj[]>([])
     const [profileImagesPath, setProfileImagesPath] = useState<string>()
@@ -152,7 +152,7 @@ const CompareCareers: FunctionComponent = () => {
                     {!isMobile() && ( 
                         <span>
                             <Divider type="vertical" style={{height: '3.8em', marginTop: '-0.8em'}}/>
-                            <CloseOutlined style={{color: "#355992", margin: '0 0.5rem'}}  onClick={()=> setView('results')}/> 
+                            <CloseOutlined style={{color: "#355992", margin: '0 0.5rem'}}  onClick={()=> {setView('results');setReturnToResults(true) }}/> 
                         </span>
                     )}
                 </span>
