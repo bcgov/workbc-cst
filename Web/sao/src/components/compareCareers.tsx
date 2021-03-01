@@ -8,6 +8,8 @@ import YouTube from 'react-youtube';
 import { LeftOutlined  } from '@ant-design/icons'
 import useWindowSize from '../client/useWindowSize'
 
+const WorkBCLogo = require('../images/workbc-header-logo.svg')
+
 const CompareCareers: FunctionComponent = () => {
     const {setView, checkedNocs} = useFilterContext()
 
@@ -132,6 +134,12 @@ const CompareCareers: FunctionComponent = () => {
 
     return(
         <div className="container">
+            <div className="header__logo">
+                <a href="https://www.workbc.ca">
+                    <img className="header__logo--img" src={WorkBCLogo} alt="Work BC" />
+                </a>
+            </div>
+
             { !!isMobile() && (<Button type="link" onClick={() => setView('results')}>
                 <span><LeftOutlined/></span>
                 Back to search results

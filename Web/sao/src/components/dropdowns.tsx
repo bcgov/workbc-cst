@@ -231,7 +231,7 @@ const Dropdowns: FunctionComponent = () => {
                                     value = {userSelection?.region?.value}
                                     onChange = {handleChangeRegion}
                                     showPlaceHolderAsOption={false}
-                                    placeholder={"British Columbia"}  />
+                                    placeholder={"British Columbia"} />
                             </div>
                         </Col>
                         <Col xs={24} xl={4}> 
