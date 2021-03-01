@@ -23,8 +23,8 @@ namespace SearchAllOccupationsToolAPI.Repositories
 
         public Task<List<OccupationListItem>> GetOccupationsAsync(OccupationSearchFilter filter)
         {
-            // Always force BC if we have no geographic filter set
-            if (!filter.GeographicAreaId.HasValue || filter.GeographicAreaId < 0)
+            // Always force BC if we have no geographic filter set - and look it up if the UI passes "1"
+            if (!filter.GeographicAreaId.HasValue || filter.GeographicAreaId < 0 || filter.GeographicAreaId == 1)
                 filter.GeographicAreaId = _geographicAreasRepository.GetBritishColumbiaId();
 
             var occupations = _context.JobOpenings

@@ -1,9 +1,9 @@
 .sao-filters-header{
     background: @dark-blue;
     color:white;
-    font-size: 24px;
+    font-size: 1.5rem;
     .largeScreen({
-        font-size: 36px;
+        font-size: 2.25rem;
     });
 
     &__content{
@@ -98,7 +98,7 @@
     }
     &__button{
         font-family: @font-family-bold;
-        font-size: 18px;
+        font-size: 1.125rem;
         cursor: pointer;
         &-layout{
             .flex-display();
@@ -112,7 +112,7 @@
             padding: 9px 0;
         }
         &--reset{
-            font-size: 16px;
+            font-size: 1rem;
             color: @text-color;
             flex: 1 1 auto;
             .flex-display(inline-flex);
@@ -148,6 +148,9 @@
 .filter-popover {
     &__check-icon {
         color: @yellow;
+        svg{
+            fill: @yellow;
+        }
     }
     &__check-icon svg:hover {
         fill: @yellow;
