@@ -7,7 +7,6 @@
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
-  "proxy": "http://https://dev.workbc.ca/sao/",
   "dependencies": {
     "@ant-design/icons": "^4.4.0",
     "antd": "^4.10.3",
@@ -38,7 +37,6 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.3",
     "react-youtube": "^7.13.1",
     "sharp": "^0.25.4",
     "swr": "^0.4.0",
