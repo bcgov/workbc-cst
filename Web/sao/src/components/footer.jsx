@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'antd'
-import WorkBCLogo from '../images/workbc-header-logo.svg'
+import BCLogo from '../images/bc-logo.svg'
 
 const compass = (
 	<svg version="1.1" width="71px" height="71px">
@@ -162,11 +162,11 @@ function Footer() {
 				<div className="footer-content__copyright">
 					<div className="footer-copyright-link">
 						<div>
-							Copyright 2021 
+							<span class="footer-copyright-year">Copyright 2021</span>
 							<span style={{textDecoration: 'underline'}}>Province of British Columbia. All rights reserved.</span>
 						</div>
 						<div style={{float: 'right'}}>
-							<img className="header__logo--img" src={WorkBCLogo} alt="Work BC" />
+							<img className="footer__logo--img" src={BCLogo} alt="Work BC" />
 						</div>					
 					</div>
 				</div>

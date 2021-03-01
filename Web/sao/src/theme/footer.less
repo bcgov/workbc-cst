@@ -45,6 +45,11 @@
     &-copyright-link > div {
         display: inline-block;
     }
+    &__logo{
+        &--img{
+            height: 44px;
+        }
+    }
 }
 .footer-content-print {
     display: none;
@@ -82,7 +87,13 @@
         .flex(0 0 auto);
         .flex-order(3);
         border-top: thin solid @border-grey-thin;
+
+        .footer-copyright-year {
+            display: inline-block;
+            padding-right: 5px;
+        }
     }
+   
     &__font-resizer{
         width: 100%;
         margin-top: 1rem;
