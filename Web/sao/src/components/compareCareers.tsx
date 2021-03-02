@@ -73,8 +73,9 @@ const CompareCareers: FunctionComponent = () => {
         event.target.pauseVideo();
     }
     
-    function format(value: number) { //add ',' for numbers with 5 digits. Note: At this point greatest value of job openings has just 5 digits
-        return value?.toString().length === 5 ? value.toString().slice(0,2)+','+value.toString().slice(2,5) : value
+    function format(value: number) { //add ',' for numbers with 4 and 5 digits. Note: At this point greatest value of job openings has just 5 digits
+        return value?.toString().length === 5 ? value.toString().slice(0,2)+','+value.toString().slice(2,5) 
+            : value?.toString().length === 4 ? value.toString().slice(0,1)+','+value.toString().slice(1,4) : value
     }
 
     function getCareerDetail(careerObj: OccupationSummaryObj) {
@@ -109,7 +110,7 @@ const CompareCareers: FunctionComponent = () => {
                                 <Button type="primary" className="result-detail__footer__button-box__career" block>
                                     View Career Profile
                                 </Button>
-                            </a>  
+                            </a>
                         </div>                  
                         <div>
                             <a href={viewJobsUrl+careerObj.careerDetail?.jobBoardNoc} target="_blank">
