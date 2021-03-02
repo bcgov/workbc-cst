@@ -8,7 +8,7 @@ function Header() {
 		<div className="header">
 			<div className="container">
 				<div className="header__logo">
-					<a href="https://www.workbc.ca">
+					<a href="https://www.workbc.ca" target="_blank">
 						<img className="header__logo--img" src={WorkBCLogo} alt="Work BC" />
 					</a>
 				</div>
