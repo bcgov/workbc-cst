@@ -1,5 +1,5 @@
 import React, {FunctionComponent, useState, useEffect} from 'react'
-import {Button} from 'antd'
+import {Button, Tooltip} from 'antd'
 import { LeftOutlined  } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import {OccupationSummary} from '../client/dataTypes'
@@ -72,6 +72,11 @@ const CareerPreview: FunctionComponent = () => {
         return str.replace( /(<([^>]+)>)/ig, ''); 
     } 
 
+    function getHeaderTitle(careerObj: OccupationSummary) {
+        const nocTitle = careerObj.title + ' (' + ' NOC ' + careerObj.noc + ' )'
+        return {length: nocTitle.length , title: nocTitle.length > 75 ? nocTitle.slice(0,75) + '...' : nocTitle}
+    }
+
     function getCareerDetail(careerObj: OccupationSummary) {
         return (
             <div className="result-detail">
@@ -79,7 +84,20 @@ const CareerPreview: FunctionComponent = () => {
                     Career Preview
                 </div>
 
-                <div className="result-detail__header"><div className="result-detail__header-details">{careerObj.title} <span>(NOC {careerObj.noc})</span></div></div>
+                <div className="result-detail__header">
+                    {getHeaderTitle(careerObj).length > 75 && (
+                        <Tooltip trigger={'hover'} title={(<div>{careerObj.title} (NOC {careerObj.noc})</div>)} >
+                            <div className="result-detail__header-details">
+                                {getHeaderTitle(careerObj).title}
+                            </div>
+                        </Tooltip>
+                    )}
+                    {getHeaderTitle(careerObj).length <= 75 && (
+                        <div className="result-detail__header-details">
+                            {getHeaderTitle(careerObj).title}
+                        </div>
+                    )}
+                </div>
                 <div  className="result-detail__thumbnail__preview">
                     {(careerObj.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.noc)} alt='career profile pic'/>)
                     : (<YouTube  videoId={careerObj.careertrekvideoids[0]} onReady={_onReady} />)}
