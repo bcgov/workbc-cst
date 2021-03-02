@@ -22,3 +22,8 @@ export const filtersPopOverVisible = {
     jobType: false,
     keywords: false
 }
+
+export function format(value: number|string): string {
+    return value?.toString().length === 5 ? value.toString().slice(0,2)+','+value.toString().slice(2,5) 
+        : value?.toString().length === 4 ? value.toString().slice(0,1)+','+value.toString().slice(1,4) : value?.toString()
+}

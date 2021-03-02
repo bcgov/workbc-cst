@@ -1,5 +1,5 @@
 import React, {FunctionComponent, useState, useEffect} from 'react'
-import { Row, Col, Table, Button, Popover, Checkbox, Modal } from 'antd'
+import { Table, Button, Popover, Checkbox, Modal } from 'antd'
 import { CheckboxChangeEvent } from 'antd/lib/checkbox/Checkbox'
 import { DownOutlined  } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
@@ -8,6 +8,7 @@ import { FilterOptionModel, FilterOccupationParams, IndustryTypeModel } from '..
 import { useGetOccupationsList } from '../client/apiService'
 import { defaultFilterParams } from '../state/filterReducer'
 import useWindowSize from '../client/useWindowSize'
+import { format } from '../client/filtersData'
 
 const ResultsTable: FunctionComponent = () => {
     const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc,
@@ -106,11 +107,6 @@ const ResultsTable: FunctionComponent = () => {
         setNameSortVisible(false)
         setJobsSortVisible(false)
         setExtraSelection(undefined)
-    }
-
-    function format(value: string) { //add ',' for numbers with 4 and 5 digits. Note: At this point greatest value of job openings has just 5 digits
-        return value?.toString().length === 5 ? value.toString().slice(0,2)+','+value.toString().slice(2,5) 
-        : value?.toString().length === 4 ? value.toString().slice(0,1)+','+value.toString().slice(1,4) : value
     }
 
     const nameContent = (
