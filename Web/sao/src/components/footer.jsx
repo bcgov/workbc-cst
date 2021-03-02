@@ -162,7 +162,7 @@ function Footer() {
 				<div className="footer-content__copyright">
 					<div className="footer-copyright-link">
 						<div>
-							<span class="footer-copyright-year">Copyright 2021</span>
+							<span className="footer-copyright-year">Copyright 2021</span>
 							<span style={{textDecoration: 'underline'}}>Province of British Columbia. All rights reserved.</span>
 						</div>
 						<div style={{float: 'right'}}>

@@ -81,8 +81,7 @@ async function getOccupationsList(params: FilterOccupationParams): Promise<Occup
 }
 
 export function useGetOccupationsList(params: FilterOccupationParams): OccupationalListResponse {
-  axios.defaults.baseURL = process.env.GATSBY_API_URL!
-  const filterParams = JSON.stringify(params)
+  const filterParams =  axios.defaults.baseURL? JSON.stringify(params) : undefined;
   const {data, isValidating, error} = useSWR<OccupationModel[]>(filterParams, () => getOccupationsList(params))
   return {data, isValidating, isSettled: !!data || !!error}
 }
