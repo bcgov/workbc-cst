@@ -130,28 +130,22 @@ const CompareCareers: FunctionComponent = () => {
     }
 
     return(
-        <div className="container">
+        <div className="container compare-container">
             <div className="header__logo">
                 <a href="https://www.workbc.ca" target="_blank">
                     <img className="header__logo--img" src={WorkBCLogo} alt="Work BC" />
                 </a>
             </div>
 
-            { !!isMobile() && (<Button type="link" onClick={() => setView('results')}>
+            <Button type="link" onClick={() => {setView('results'); setReturnToResults(true)}}>
                 <span><LeftOutlined/></span>
                 Back to search results
-                </Button>)
-            } 
+            </Button>
+            
             <h1>Compare Careers 
                 <span style={{float: 'right'}}>
                     <PrinterFilled style={{color: "#355992", margin: '0 0.5rem'}}/>
                     <MailFilled style={{color: "#355992",  margin: '0 0.5rem'}}/>
-                    {!isMobile() && ( 
-                        <span>
-                            <Divider type="vertical" style={{height: '3.8em', marginTop: '-0.8em'}}/>
-                            <CloseOutlined style={{color: "#355992", margin: '0 0.5rem'}}  onClick={()=> {setView('results');setReturnToResults(true) }}/> 
-                        </span>
-                    )}
                 </span>
             </h1>
             {

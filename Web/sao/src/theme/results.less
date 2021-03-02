@@ -250,6 +250,7 @@
         }
     }
     &--compare{
+        background-color: #fff;
         .flex-display();
         .flex-direction(column);
         .result-detail__thumbnail{
@@ -261,12 +262,22 @@
     }
 }
 
+.compare-container {
+    // background-color: #fff;
+}
+
 .compare-careers{
+    background-color: #f2f2f2;
     &--center{
         .justify-content(center);
     }
+    .ant-col{
+        margin-bottom: 25px;
+        .largeScreen({
+            margin-bottom: inherit;
+        })
+    }
 }
-
 
 .result-body{    
     &__row{
