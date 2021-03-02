@@ -15,6 +15,7 @@ namespace SearchAllOccupationsToolAPI.Models
         [JsonPropertyName("value")]
         public string Value { get; set; }
 
+        [JsonIgnore]
         public Collection<JobOpening> JobOpenings { get; set; }
     }
 }
