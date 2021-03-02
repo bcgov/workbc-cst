@@ -7,6 +7,8 @@ import {useGetOccupationSummary, useGetSystemConfigurations} from '../client/api
 import YouTube from 'react-youtube';
 import useWindowSize from '../client/useWindowSize'
 
+const WorkBCLogo = require('../images/workbc-header-logo.svg')
+
 const CareerPreview: FunctionComponent = () => {
     const {filteredOccupationsList, selectedNoc, isFilterApplied, isSorted, setSelectedNoc, setView} = useFilterContext()
 
@@ -124,6 +126,14 @@ const CareerPreview: FunctionComponent = () => {
         )
     }
     return (<div className="preview-career"> 
+            { !!isMobile() && (
+                <div className="header__logo">
+                    <a href="https://www.workbc.ca">
+                        <img className="header__logo--img" src={WorkBCLogo} alt="Work BC" />
+                    </a>
+                </div>
+            )}
+
             { !!isMobile() && (<Button type="link" onClick={() => setView('results')}>
                 <span><LeftOutlined/></span>
                 Back to search results
