@@ -166,7 +166,7 @@ function Footer() {
 							<span style={{textDecoration: 'underline'}}>Province of British Columbia. All rights reserved.</span>
 						</div>
 						<div style={{float: 'right'}}>
-							<a href="https://www.workbc.ca" target="_blank">
+							<a href="https://www2.gov.bc.ca" target="_blank" rel="noopener">
 								<img className="footer__logo--img" src={BCLogo} alt="Work BC" />
 							</a>
 						</div>					
