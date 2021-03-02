@@ -22,6 +22,8 @@ const CareerPreview: FunctionComponent = () => {
     const {data: CPUrlData, isValidating: isFetchingCPUrl, isSettled: isCPUrlFetched } = useGetSystemConfigurations({name: "CareerProfileBaseUrl"})
     const {data: JOUrlData, isValidating: isFetchingJOUrl, isSettled: isJOUrlFetched } = useGetSystemConfigurations({name: "JobOpeningsBaseUrl"})
     const [width] = useWindowSize()
+
+    const titleLength = 70
     
     function isMobile() {
         return width < 1200
@@ -73,8 +75,16 @@ const CareerPreview: FunctionComponent = () => {
     } 
 
     function getHeaderTitle(careerObj: OccupationSummary) {
-        const nocTitle = careerObj.title + ' (' + ' NOC ' + careerObj.noc + ' )'
-        return {length: nocTitle.length , title: nocTitle.length > 75 ? nocTitle.slice(0,75) + '...' : nocTitle}
+        let nocTitle = careerObj.title 
+        let nocCode =  ' (' + 'NOC' + careerObj.noc + ')'
+        if (nocTitle.length > titleLength) {
+            nocTitle = nocTitle.slice(0,titleLength) + '...'
+            nocCode = ''
+        } else if (nocTitle.length + nocCode.length > titleLength) {
+            nocTitle = nocTitle
+            nocCode = nocCode.slice(0, titleLength-nocTitle.length) + '...'
+        }
+        return {length: nocTitle.length + nocCode?.length , title: nocTitle, code: nocCode}
     }
 
     function getCareerDetail(careerObj: OccupationSummary) {
@@ -85,16 +95,16 @@ const CareerPreview: FunctionComponent = () => {
                 </div>
 
                 <div className="result-detail__header">
-                    {getHeaderTitle(careerObj).length > 75 && (
+                    {getHeaderTitle(careerObj).length > titleLength && (
                         <Tooltip trigger={'hover'} title={(<div>{careerObj.title} (NOC {careerObj.noc})</div>)} >
                             <div className="result-detail__header-details">
-                                {getHeaderTitle(careerObj).title}
+                                <b>{getHeaderTitle(careerObj)?.title}</b> {getHeaderTitle(careerObj)?.code}
                             </div>
                         </Tooltip>
                     )}
-                    {getHeaderTitle(careerObj).length <= 75 && (
+                    {getHeaderTitle(careerObj)?.length <= titleLength && (
                         <div className="result-detail__header-details">
-                            {getHeaderTitle(careerObj).title}
+                            <b>{getHeaderTitle(careerObj)?.title}</b> {getHeaderTitle(careerObj)?.code}
                         </div>
                     )}
                 </div>
