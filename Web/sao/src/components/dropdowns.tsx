@@ -235,7 +235,8 @@ const Dropdowns: FunctionComponent = () => {
                                     value = {userSelection?.region?.value}
                                     onChange = {handleChangeRegion}
                                     showPlaceHolderAsOption={false}
-                                    placeholder={"British Columbia"} />
+                                    placeholder={"British Columbia"} 
+                                    tabIndex={1} />
                             </div>
                         </Col>
                         <Col xs={24} xl={4}> 
@@ -257,7 +258,8 @@ const Dropdowns: FunctionComponent = () => {
                                     value = {userSelection?.education?.value}
                                     onChange = {handleChangeEducation}
                                     showPlaceHolderAsOption={true}
-                                    placeholder={"All"} />
+                                    placeholder={"All"}
+                                    tabIndex={2} />
                             </div>
                         </Col>
                         <Col xs={24} xl={6}> 
@@ -279,7 +281,8 @@ const Dropdowns: FunctionComponent = () => {
                                     value = {userSelection?.occupational_interest?.value}
                                     onChange = {handleChangeOccupationalInterest}
                                     showPlaceHolderAsOption={true}
-                                    placeholder={"All"} />
+                                    placeholder={"All"}
+                                    tabIndex={3} />
                             </div>
                         </Col>
                         <Col xs={24} xl={8}>
@@ -301,7 +304,8 @@ const Dropdowns: FunctionComponent = () => {
                                         treeData={industryDataTree}
                                         onChange={handleChangeIndustry}
                                         value={getIndustryValues()}
-                                        style={{width: '100%'}} />
+                                        style={{width: '100%'}}
+                                        tabIndex={4} />
                             </div>
                         </Col>
                     </Row>
@@ -325,7 +329,8 @@ const Dropdowns: FunctionComponent = () => {
                                     value = {userSelection?.occupational_group?.value}
                                     onChange = {handleChangeOccupationalGroup}
                                     showPlaceHolderAsOption={true}
-                                    placeholder={"All"} />
+                                    placeholder={"All"}
+                                    tabIndex={5} />
                             </div>
                         </Col>
                         <Col xs={24} xl={4}> 
@@ -348,7 +353,8 @@ const Dropdowns: FunctionComponent = () => {
                                     value = {userSelection?.part_time_option?.value}
                                     onChange = {handleChangePartTimeOption}
                                     showPlaceHolderAsOption={true}
-                                    placeholder={"All"} />
+                                    placeholder={"All"} 
+                                    tabIndex={6} />
                             </div>
                         </Col>
                         <Col xs={24} xl={6}> 
@@ -362,7 +368,8 @@ const Dropdowns: FunctionComponent = () => {
                                     value = {userSelection?.annual_salary?.value}
                                     onChange = {handleChangeAnnualSalary}
                                     showPlaceHolderAsOption={true}
-                                    placeholder={"All"} />
+                                    placeholder={"All"} 
+                                    tabIndex={7} />
                             </div>
                         </Col>
                         <Col xs={24} xl={8}>
@@ -379,15 +386,16 @@ const Dropdowns: FunctionComponent = () => {
                                 <Input placeholder="Enter career title, Keyword(s) or NOC"
                                     value= {userSelection?.keyword}
                                     style={{ width: '100%' }}
-                                    onChange={handleChangeKeyWord} />
+                                    onChange={handleChangeKeyWord}
+                                    tabIndex={8} />
                             </div>
                         </Col>
                     </Row>
                     <Row className="sao-filters__filter-buttons">
                         <Col xs={24} xl={{span:8, offset:16}}> 
                             <div className="sao-filters__button-layout">
-                                <div className="sao-filters__button sao-filters__button--apply" onClick = {applyFilters}> Apply </div>
-                                <div className="sao-filters__button sao-filters__button--reset" onClick = {handleReset}> 
+                                <div className="sao-filters__button sao-filters__button--apply" onClick={applyFilters} tabIndex={9}>Apply</div>
+                                <div className="sao-filters__button sao-filters__button--reset" onClick={handleReset} tabIndex={10}> 
                                     Reset
                                     <SyncOutlined /> 
                                 </div>
