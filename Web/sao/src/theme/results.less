@@ -261,9 +261,40 @@
     }
 }
 
-.compare-container {
-    // background-color: #fff;
+.compare-container-header {
+    background-color: white;
+    .header__logo {
+        margin: 0 auto;
+        max-width: 1200px;
+        a {
+            padding-left: 16px;
+            .largeScreen {
+                padding-left: 24px;
+            }
+        }
+    }
+    .back-to-home {
+        background-color: @dark-blue;
+        color: white;   
+        padding: 0.5rem;
+        &-link{
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        a {
+            color: white;
+            :hover {
+                color: white;
+            }
+        }
+    
+        :hover {
+            text-decoration: underline;
+        }
+    }
 }
+
+
 
 .compare-careers{
     background-color: #f2f2f2;

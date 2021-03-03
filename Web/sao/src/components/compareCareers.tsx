@@ -147,48 +147,54 @@ const CompareCareers: FunctionComponent = () => {
         return str.replace( /(<([^>]+)>)/ig, ''); 
     }
 
-    return(
-        <div className="container compare-container">
-            <div className="header__logo">
-                <a href="https://www.workbc.ca" target="_blank">
-                    <img className="header__logo--img" src={WorkBCLogo} alt="Work BC" />
-                </a>
+    return (
+        <div>
+            <div className="compare-container-header">
+                <div className="header__logo">
+                    <a href="https://www.workbc.ca" target="_blank">
+                        <img className="header__logo--img" src={WorkBCLogo} alt="Work BC" />
+                    </a>
+                </div>
+                <div className="back-to-home" >
+                    <div className="back-to-home-link">
+                        <span><LeftOutlined/></span>
+                        <a onClick={() => {setView('results'); setReturnToResults(true)}}> Back to Search Results </a>
+                    </div>
+                </div>
             </div>
 
-            <Button type="link" className="back-to-home" onClick={() => {setView('results'); setReturnToResults(true)}}>
-                <span><LeftOutlined/></span>
-                Back to search results
-            </Button>
             
-            <h1>Compare Careers 
-                <span className="compare-controls" style={{float: 'right'}}>
-                    <PrinterFilled style={{color: "#355992", margin: '0 0.5rem'}}/>
-                    <MailFilled style={{color: "#355992",  margin: '0 0.5rem'}}/>
-                </span>
-            </h1>
-            {
-                !isFetchingPIPath && isPiPathFetched && piPathData &&  profileImagesPath && 
-                !isFetchingCPUrl && isCPUrlFetched && CPUrlData && careerProfileUrl &&
-                !isFetchingJOUrl && isJOUrlFetched && JOUrlData && viewJobsUrl && careerDetail.length > 1 && (
-                    <Row className={careerDetail.length <= 2 ? 'compare-careers compare-careers--center' : "compare-careers"}>
-                        <Col xs={24} xl={8}>
-                            {getCareerDetail(careerDetail[0])}
-                        </Col>
-                        <Col xs={24} xl={8}>
-                            {getCareerDetail(careerDetail[1])}
-                        </Col>
-                        {
-                            !!careerDetail[2] && (
-                                <Col xs={24} xl={8}>
-                                    {getCareerDetail(careerDetail[2])}
-                                </Col>
-                            )
-                        }
-                    </Row>
-                )
-            }
-            <div className="footer-content-print container">
-                WorkBC Career Search Tool <strong>www.workbc.ca/careersearchtool/</strong>
+            <div className="container compare-container">
+                <h1>Compare Careers 
+                    <span className="compare-controls" style={{float: 'right'}}>
+                        <PrinterFilled style={{color: "#355992", margin: '0 0.5rem'}}/>
+                        <MailFilled style={{color: "#355992",  margin: '0 0.5rem'}}/>
+                    </span>
+                </h1>
+                {
+                    !isFetchingPIPath && isPiPathFetched && piPathData &&  profileImagesPath && 
+                    !isFetchingCPUrl && isCPUrlFetched && CPUrlData && careerProfileUrl &&
+                    !isFetchingJOUrl && isJOUrlFetched && JOUrlData && viewJobsUrl && careerDetail.length > 1 && (
+                        <Row className={careerDetail.length <= 2 ? 'compare-careers compare-careers--center' : "compare-careers"}>
+                            <Col xs={24} xl={8}>
+                                {getCareerDetail(careerDetail[0])}
+                            </Col>
+                            <Col xs={24} xl={8}>
+                                {getCareerDetail(careerDetail[1])}
+                            </Col>
+                            {
+                                !!careerDetail[2] && (
+                                    <Col xs={24} xl={8}>
+                                        {getCareerDetail(careerDetail[2])}
+                                    </Col>
+                                )
+                            }
+                        </Row>
+                    )
+                }
+                <div className="footer-content-print container">
+                    WorkBC Career Search Tool <strong>www.workbc.ca/careersearchtool/</strong>
+                </div>
             </div>
         </div>
     )
