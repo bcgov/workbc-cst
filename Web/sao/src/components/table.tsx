@@ -69,7 +69,10 @@ const ResultsTable: FunctionComponent = () => {
     }, [sortOption])
 
     function scrollTableToTop() {
-        document.querySelector(".results-table .ant-table-body").scrollTop = 0
+        const table = document.querySelector(".results-table .ant-table-body")
+        if (table !== null) {
+            table.scrollTop = 0
+        }
     }
 
     function getIndustryParams(params: IndustryTypeModel) {
@@ -152,7 +155,7 @@ const ResultsTable: FunctionComponent = () => {
             title: (<div className="table-header">
                 <div className="table-header__title"> Career Name </div>
                 <Popover placement="bottomRight" title={title} content={nameContent} overlayClassName="sort-options__popover-inner" 
-                className="sort-options__popover"  trigger="click" visible={nameSortVisible} onVisibleChange={handleNameSortVisible}>
+                className="sort-options__popover" trigger="click" visible={nameSortVisible} onVisibleChange={handleNameSortVisible}>
                     <span className="table-header__icon" style={{marginLeft: '15px'}}> <DownSortIcon /></span>
                 </Popover>
             </div>),
@@ -223,6 +226,10 @@ const ResultsTable: FunctionComponent = () => {
         }
     }
 
+    function moreThanOneResult() {
+        return filteredOccupationsList.length > 1
+    }
+    
     function onRow(record: any) {
         return {
             onClick: () => {}
@@ -245,7 +252,7 @@ const ResultsTable: FunctionComponent = () => {
                     dataSource={getDatasource()}
                     rowKey="noc"
                     pagination={false}
-                    scroll={!isMobile() ? { y: 622 } : undefined}
+                    scroll={ moreThanOneResult() ? !isMobile() ? { y: 622 } : undefined : undefined }
                     onRow={onRow}>
                 </Table>}
                 {!!isMobile() && (<Button className="results-table-button" block type="primary" onClick={() => loadMore()}>Load More</Button>)}
