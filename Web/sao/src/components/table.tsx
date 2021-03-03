@@ -50,19 +50,27 @@ const ResultsTable: FunctionComponent = () => {
         let tempList = [...filteredOccupationsList]
         switch(sortOption) {
             case 'A-Z':
-                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title < b.title ? -1 : 1 }))                
+                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title < b.title ? -1 : 1 }))
+                scrollTableToTop()
                 break
             case 'Z-A':
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title > b.title ? -1 : 1 }))                
+                scrollTableToTop()
                 break
             case 'High to Low':
-                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings> b.jobOpenings ? -1 : 1 }))                
+                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings > b.jobOpenings ? -1 : 1 }))                
+                scrollTableToTop()
                 break
             case 'Low to High':
-                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings < b.jobOpenings ? -1 : 1 }))                
+                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings < b.jobOpenings ? -1 : 1 }))
+                scrollTableToTop()
                 break
         }
     }, [sortOption])
+
+    function scrollTableToTop() {
+        document.querySelector(".results-table .ant-table-body").scrollTop = 0
+    }
 
     function getIndustryParams(params: IndustryTypeModel) {
         let industryIds = '-1'
@@ -230,7 +238,7 @@ const ResultsTable: FunctionComponent = () => {
         return filteredOccupationsList.length > 0? filteredOccupationsList.slice(0,size): [{ id: -1, noc: '', title: '', jobOpenings: undefined}]
     }
 
-    return (<div>
+    return (<div className="results-table">
                 {<Table
                     rowClassName={'ant-table-row-light'}
                     columns={columns}
