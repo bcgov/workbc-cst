@@ -1,4 +1,6 @@
 @media print {
+    
+    html, body, .compare-careers{background-color: transparent;}
     body {
     }
     .container{
@@ -229,6 +231,9 @@
             padding: 1rem 0 0;
             &-details{
                 font-family: @font-family;
+                span{
+                    font-family: @font-family-bold;
+                }
             }
 
         }
@@ -286,8 +291,55 @@
         border-top: 6px solid @print-color;
         display: block;
     }
+
+    .footer{
+        padding: 0;
+    }
+    
+    /* Compare Careers */
+    .back-to-home{
+        display: none;
+    }
+    
+    .compare-controls{
+        display: none;
+    }
+    
+    .compare-careers{
+        .ant-col{
+            max-width: 100%;
+            .flex(0 0 100%);
+            padding: 0 16px;
+        }
+        .result-detail{
+            margin-top: 0;
+        }
+    }
+    .compare-container{
+        .header__logo{
+            padding: 1rem 1rem 1rem;
+            margin-left: -16px;
+            margin-right: -16px;
+            border-bottom: 5px solid black;
+            height: 50px;
+            margin-bottom: 2.5rem;
+
+        }
+        h1{
+            border-bottom: 5px solid @grey;
+            padding: 0 1rem 0.25rem;
+            margin-left: -16px;
+            margin-right: -16px;
+            margin-bottom: 0;
+        }
+        .footer-content-print {
+            padding: 0 1rem 0.25rem;
+            margin-left: -16px;
+            margin-right: -16px;
+        }
+    }
+
+
+
 }
 
-.footer{
-    padding: 0;
-}
