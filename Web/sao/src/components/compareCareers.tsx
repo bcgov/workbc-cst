@@ -165,26 +165,28 @@ const CompareCareers: FunctionComponent = () => {
 
             
             <div className="container compare-container">
-                <h1>Compare Careers 
-                    <span className="compare-controls" style={{float: 'right'}}>
-                        <PrinterFilled style={{color: "#355992", margin: '0 0.5rem'}}/>
-                        <MailFilled style={{color: "#355992",  margin: '0 0.5rem'}}/>
-                    </span>
-                </h1>
+                <div className="compare-container__title">
+                    <div> Compare Careers </div>
+                    <div className="compare-container__title__icons">
+                        <div><PrinterFilled style={{color: "#355992", margin: '0 0.5rem'}}/></div>
+                        <div><MailFilled style={{color: "#355992",  margin: '0 0.5rem'}}/></div>
+                    </div>
+                </div>
+                
                 {
                     !isFetchingPIPath && isPiPathFetched && piPathData &&  profileImagesPath && 
                     !isFetchingCPUrl && isCPUrlFetched && CPUrlData && careerProfileUrl &&
                     !isFetchingJOUrl && isJOUrlFetched && JOUrlData && viewJobsUrl && careerDetail.length > 1 && (
                         <Row className={careerDetail.length <= 2 ? 'compare-careers compare-careers--center' : "compare-careers"}>
-                            <Col xs={20} md={16} xl={8}>
+                            <Col xs={24} md={16} xl={8}>
                                 {getCareerDetail(careerDetail[0])}
                             </Col>
-                            <Col xs={20} md={16} xl={8}>
+                            <Col xs={24} md={16} xl={8}>
                                 {getCareerDetail(careerDetail[1])}
                             </Col>
                             {
                                 !!careerDetail[2] && (
-                                    <Col xs={20} md={16} xl={8}>
+                                    <Col xs={24} md={16} xl={8}>
                                         {getCareerDetail(careerDetail[2])}
                                     </Col>
                                 )
