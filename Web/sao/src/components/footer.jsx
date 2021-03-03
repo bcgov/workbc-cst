@@ -161,15 +161,15 @@ function Footer() {
 				</div>
 				<div className="footer-content__copyright">
 					<div className="footer-copyright-link">
-						<div>
-							<span className="footer-copyright-year">Copyright 2021</span>
-							<span style={{textDecoration: 'underline'}}>Province of British Columbia. All rights reserved.</span>
-						</div>
-						<div style={{float: 'right'}}>
+						<div className="footer__logo--container">
 							<a href="https://www2.gov.bc.ca" target="_blank" rel="noopener">
 								<img className="footer__logo--img" src={BCLogo} alt="Work BC" />
 							</a>
 						</div>					
+						<div>
+							<span className="footer-copyright-year">Copyright 2021</span>
+							<a href="https://www2.gov.bc.ca/gov/content/home/copyright" style={{textDecoration: 'underline'}} target="_blank" rel="noopener">Province of British Columbia. All rights reserved.</a>
+						</div>
 					</div>
 				</div>
             </div>
