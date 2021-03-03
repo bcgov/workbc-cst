@@ -1,7 +1,6 @@
 import React, {FunctionComponent, useState, useEffect} from 'react'
 import { Table, Button, Popover, Checkbox, Modal } from 'antd'
 import { CheckboxChangeEvent } from 'antd/lib/checkbox/Checkbox'
-import { DownOutlined  } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import { OccupationModel } from 'client/dataTypes'
 import { FilterOptionModel, FilterOccupationParams, IndustryTypeModel } from '../client/dataTypes'
@@ -122,6 +121,22 @@ const ResultsTable: FunctionComponent = () => {
         </div>
     )
 
+    const DownSortIcon = () => (
+        <span role="img" aria-label="down" className="anticon anticon-down downicon">
+            <svg version="1.1" width="25px" height="16px" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <mask fill="white" id="clip678">
+                    <path d="M 25 3.54782608695652  C 25 3.82093397745572  24.9017783291977 4.05539452495974  24.7053349875931 4.2512077294686  L 13.1978908188586 15.7062801932367  C 13.0014474772539 15.9020933977456  12.7688172043011 16  12.5 16  C 12.2311827956989 16  11.9985525227461 15.9020933977456  11.8021091811414 15.7062801932367  L 0.294665012406948 4.2512077294686  C 0.0982216708023161 4.05539452495974  0 3.82093397745572  0 3.54782608695652  C 0 3.27471819645733  0.0982216708023161 3.0402576489533  0.294665012406948 2.84444444444445  L 2.86910669975186 0.293719806763285  C 3.06555004135649 0.0979066022544277  3.29818031430935 0  3.56699751861042 0  C 3.8358147229115 0  4.06844499586435 0.0979066022544277  4.26488833746898 0.293719806763285  L 12.5 8.5024154589372  L 20.735111662531 0.293719806763285  C 20.9315550041357 0.0979066022544277  21.1641852770885 0  21.4330024813896 0  C 21.7018196856907 0  21.9344499586435 0.0979066022544277  22.1308933002481 0.293719806763285  L 24.7053349875931 2.84444444444445  C 24.9017783291977 3.0402576489533  25 3.27471819645733  25 3.54782608695652  Z " fill-rule="evenodd" />
+                    </mask>
+                </defs>
+                <g>
+                    <path d="M 25 3.54782608695652  C 25 3.82093397745572  24.9017783291977 4.05539452495974  24.7053349875931 4.2512077294686  L 13.1978908188586 15.7062801932367  C 13.0014474772539 15.9020933977456  12.7688172043011 16  12.5 16  C 12.2311827956989 16  11.9985525227461 15.9020933977456  11.8021091811414 15.7062801932367  L 0.294665012406948 4.2512077294686  C 0.0982216708023161 4.05539452495974  0 3.82093397745572  0 3.54782608695652  C 0 3.27471819645733  0.0982216708023161 3.0402576489533  0.294665012406948 2.84444444444445  L 2.86910669975186 0.293719806763285  C 3.06555004135649 0.0979066022544277  3.29818031430935 0  3.56699751861042 0  C 3.8358147229115 0  4.06844499586435 0.0979066022544277  4.26488833746898 0.293719806763285  L 12.5 8.5024154589372  L 20.735111662531 0.293719806763285  C 20.9315550041357 0.0979066022544277  21.1641852770885 0  21.4330024813896 0  C 21.7018196856907 0  21.9344499586435 0.0979066022544277  22.1308933002481 0.293719806763285  L 24.7053349875931 2.84444444444445  C 24.9017783291977 3.0402576489533  25 3.27471819645733  25 3.54782608695652  Z " fill-rule="nonzero" fill="#ffffff" stroke="none" />
+                    <path d="M 25 3.54782608695652  C 25 3.82093397745572  24.9017783291977 4.05539452495974  24.7053349875931 4.2512077294686  L 13.1978908188586 15.7062801932367  C 13.0014474772539 15.9020933977456  12.7688172043011 16  12.5 16  C 12.2311827956989 16  11.9985525227461 15.9020933977456  11.8021091811414 15.7062801932367  L 0.294665012406948 4.2512077294686  C 0.0982216708023161 4.05539452495974  0 3.82093397745572  0 3.54782608695652  C 0 3.27471819645733  0.0982216708023161 3.0402576489533  0.294665012406948 2.84444444444445  L 2.86910669975186 0.293719806763285  C 3.06555004135649 0.0979066022544277  3.29818031430935 0  3.56699751861042 0  C 3.8358147229115 0  4.06844499586435 0.0979066022544277  4.26488833746898 0.293719806763285  L 12.5 8.5024154589372  L 20.735111662531 0.293719806763285  C 20.9315550041357 0.0979066022544277  21.1641852770885 0  21.4330024813896 0  C 21.7018196856907 0  21.9344499586435 0.0979066022544277  22.1308933002481 0.293719806763285  L 24.7053349875931 2.84444444444445  C 24.9017783291977 3.0402576489533  25 3.27471819645733  25 3.54782608695652  Z " stroke-width="2" stroke="#234075" fill="none" mask="url(#clip678)" />
+                </g>
+            </svg>
+        </span>
+      );
+
     const title = (<b> SORT BY: </b>)
 
     const columns = [
@@ -130,7 +145,7 @@ const ResultsTable: FunctionComponent = () => {
                 <div className="table-header__title"> Career Name </div>
                 <Popover placement="bottomRight" title={title} content={nameContent} overlayClassName="sort-options__popover-inner" 
                 className="sort-options__popover"  trigger="click" visible={nameSortVisible} onVisibleChange={handleNameSortVisible}>
-                    <span className="table-header__icon" style={{marginLeft: '25px'}}> <DownOutlined className="downicon"/> </span>
+                    <span className="table-header__icon" style={{marginLeft: '15px'}}> <DownSortIcon /></span>
                 </Popover>
             </div>),
             dataIndex: 'title',
@@ -153,7 +168,7 @@ const ResultsTable: FunctionComponent = () => {
                 <div className="table-header__title"> Job Openings <span>(2019-2029)</span> </div>
                 <Popover placement="bottomRight" title={title} content={jobContent} overlayClassName="sort-options__popover-inner" 
                 className="sort-options__popover" trigger="click" visible={jobsSortVisible} onVisibleChange={handleJobsSortVisible}>
-                    <span className="table-header__icon" style={{marginLeft: '25px'}}> <DownOutlined className="downicon" /> </span>
+                    <span className="table-header__icon" style={{marginLeft: '15px'}}> <DownSortIcon /></span>
                 </Popover>
             </div>),
             width: '25%',
