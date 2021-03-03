@@ -1,4 +1,6 @@
 @media print {
+    
+    html, body, .compare-careers{background-color: transparent;}
     body {
     }
     .container{
@@ -35,7 +37,7 @@
                     color: @print-color;
                     font-family: @font-family-bold;
                     font-size: 2rem;
-                    margin-top: 40px;
+                    margin-top: 2rem;
                 }
                 &--body{
                     display: none;
@@ -45,6 +47,7 @@
     }
 
     .results-wrapper {
+        padding-bottom: 0;
         border-top: 0;
         border-bottom: 0;
         .ant-col{ 
@@ -151,15 +154,19 @@
             > tr{
                 *:nth-child(3){
                     display: none;
+                }
+                td{
+                    border-color: #c2c2c2;
+                    border-width: 1px;
                 }       
             }
         }
-        &-row{
-          
-        } 
         &-cell-scrollbar{
             display:none;
         } 
+        .table-header__icon {
+            display:none;
+        }
     }
 
     .ant-table-container .ant-table-body {
@@ -172,7 +179,8 @@
     }
 
     .ant-table-thead > tr th{
-        background-color: @grey;
+        background: @grey !important;
+        background-color: @grey !important;
         color: @print-color;
     }
     .results-header{
@@ -184,6 +192,10 @@
             display: block;
             font-family: @font-family-bold;
             font-size: 1.5rem;
+            border-bottom: 5px solid @grey;
+            padding: 0 1rem 0.25rem;
+            margin-left: -16px;
+            margin-right: -16px;
         }
         &__text{
             font-size: 0.875rem;
@@ -199,7 +211,10 @@
             display: block;
             font-family: @font-family-bold;
             font-size: 1.5rem;
-            border-bottom: 3px solid @grey;
+            border-bottom: 5px solid @grey;
+            padding: 0 1rem 0.25rem;
+            margin-left: -16px;
+            margin-right: -16px;
         }
         border: none;
         &__header, 
@@ -214,6 +229,12 @@
             font-family: @font-family-bold;
             height: auto;
             padding: 1rem 0 0;
+            &-details{
+                font-family: @font-family;
+                span{
+                    font-family: @font-family-bold;
+                }
+            }
 
         }
         &__body{
@@ -243,6 +264,18 @@
             }
         }    
     }
+    .result-body{
+        &__row{
+            width:70%;
+            border-bottom: 2px solid @grey;
+            &-left{
+                width:40%;
+            }
+            &--last{
+                border-bottom: none;
+            }
+        }
+    }
 
     .results-compare {
         display: none;
@@ -258,5 +291,55 @@
         border-top: 6px solid @print-color;
         display: block;
     }
+
+    .footer{
+        padding: 0;
+    }
+    
+    /* Compare Careers */
+    .back-to-home{
+        display: none;
+    }
+    
+    .compare-controls{
+        display: none;
+    }
+    
+    .compare-careers{
+        .ant-col{
+            max-width: 100%;
+            .flex(0 0 100%);
+            padding: 0 16px;
+        }
+        .result-detail{
+            margin-top: 0;
+        }
+    }
+    .compare-container{
+        .header__logo{
+            padding: 1rem 1rem 1rem;
+            margin-left: -16px;
+            margin-right: -16px;
+            border-bottom: 5px solid black;
+            height: 50px;
+            margin-bottom: 2.5rem;
+
+        }
+        h1{
+            border-bottom: 5px solid @grey;
+            padding: 0 1rem 0.25rem;
+            margin-left: -16px;
+            margin-right: -16px;
+            margin-bottom: 0;
+        }
+        .footer-content-print {
+            padding: 0 1rem 0.25rem;
+            margin-left: -16px;
+            margin-right: -16px;
+        }
+    }
+
+
+
 }
 

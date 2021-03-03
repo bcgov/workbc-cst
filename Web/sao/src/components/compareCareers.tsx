@@ -155,13 +155,13 @@ const CompareCareers: FunctionComponent = () => {
                 </a>
             </div>
 
-            <Button type="link" onClick={() => {setView('results'); setReturnToResults(true)}}>
+            <Button type="link" className="back-to-home" onClick={() => {setView('results'); setReturnToResults(true)}}>
                 <span><LeftOutlined/></span>
                 Back to search results
             </Button>
             
             <h1>Compare Careers 
-                <span style={{float: 'right'}}>
+                <span className="compare-controls" style={{float: 'right'}}>
                     <PrinterFilled style={{color: "#355992", margin: '0 0.5rem'}}/>
                     <MailFilled style={{color: "#355992",  margin: '0 0.5rem'}}/>
                 </span>
@@ -187,6 +187,9 @@ const CompareCareers: FunctionComponent = () => {
                     </Row>
                 )
             }
+            <div className="footer-content-print container">
+                WorkBC Career Search Tool <strong>www.workbc.ca/careersearchtool/</strong>
+            </div>
         </div>
     )
 }
