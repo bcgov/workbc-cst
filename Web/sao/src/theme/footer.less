@@ -44,8 +44,18 @@
     padding: 2rem 0;
     &-copyright-link > div {
         display: inline-block;
+        font-size: 0.925rem;
     }
     &__logo{
+        &--container{
+            float: none;
+            width: 100%;
+            margin-bottom: 35px;
+            .largeScreen({
+                float: right;
+                width: inherit;
+            });
+        }
         &--img{
             height: 44px;
         }
