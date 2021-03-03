@@ -154,6 +154,15 @@ const Dropdowns: FunctionComponent = () => {
         }
     }
 
+    const handleSpacebar = (event: any) => {
+        if (event.keyCode == 13 || event.keyCode == 32) { // space or enter hit
+            applyFilters()
+            event.stopPropagation()
+            event.preventDefault()
+            return
+        }
+    }
+
     const handleChangeKeyWord = (event: any) => {
         setUserSelection({...userSelection, keyword: event.target.value})
     }
@@ -394,7 +403,7 @@ const Dropdowns: FunctionComponent = () => {
                     <Row className="sao-filters__filter-buttons">
                         <Col xs={24} xl={{span:8, offset:16}}> 
                             <div className="sao-filters__button-layout">
-                                <div className="sao-filters__button sao-filters__button--apply" onClick={applyFilters} tabIndex={9}>Apply</div>
+                                <div className="sao-filters__button sao-filters__button--apply" onClick={applyFilters} onKeyDown={handleSpacebar} tabIndex={9}>Apply</div>
                                 <div className="sao-filters__button sao-filters__button--reset" onClick={handleReset} tabIndex={10}> 
                                     Reset
                                     <SyncOutlined /> 
