@@ -1,13 +1,13 @@
 import React, {FunctionComponent, useState, useEffect} from 'react'
-import {Button, Row, Col, Divider} from 'antd'
-import {CloseOutlined, MailFilled , PrinterFilled } from '@ant-design/icons'
+import {Button, Row, Col, Tooltip} from 'antd'
+import { MailFilled , PrinterFilled } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import {OccupationSummaryObj} from '../client/dataTypes'
 import {useGetOccupationSummary, useGetSystemConfigurations} from '../client/apiService'
 import YouTube from 'react-youtube';
 import { LeftOutlined  } from '@ant-design/icons'
 import useWindowSize from '../client/useWindowSize'
-import { format } from '../client/filtersData'
+import { format, getHeaderTitle, titleLength } from '../client/filtersData'
 
 const WorkBCLogo = require('../images/workbc-header-logo.svg')
 
@@ -77,7 +77,25 @@ const CompareCareers: FunctionComponent = () => {
     function getCareerDetail(careerObj: OccupationSummaryObj) {
         return (
             <div className="result-detail result-detail--compare">
-                <div className="result-detail__header"><div className="result-detail__header-details"> {careerObj.careerDetail.title} <span>(NOC {careerObj.nocId})</span></div></div>
+                <div className="result-detail__header">
+                    {getHeaderTitle(careerObj.careerDetail).length > titleLength && !isMobile() && (
+                            <Tooltip trigger={'hover'} title={(<div>{careerObj.careerDetail.title} (NOC {careerObj.careerDetail.noc})</div>)} >
+                                <div className="result-detail__header-details">
+                                    <b>{getHeaderTitle(careerObj.careerDetail)?.title}</b> {getHeaderTitle(careerObj.careerDetail)?.code}
+                                </div>
+                            </Tooltip>
+                        )}
+                    {getHeaderTitle(careerObj.careerDetail)?.length <= titleLength && !isMobile() && (
+                        <div className="result-detail__header-details">
+                            <b>{getHeaderTitle(careerObj.careerDetail)?.title}</b> {getHeaderTitle(careerObj.careerDetail)?.code}
+                        </div>
+                    )}
+                    {!!isMobile() && (
+                        <div className="result-detail__header-details" style={{height: '84px'}}>
+                            <b>{careerObj.careerDetail.title}</b>  (NOC {careerObj.careerDetail.noc})
+                        </div>
+                    )}
+                </div>
                 <div  className="result-detail__thumbnail">
                     {(careerObj.careerDetail?.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.nocId)} alt='career profile pic'/>)
                     : (<YouTube videoId={careerObj.careerDetail?.careertrekvideoids[0]} opts={{height: '315', width: '420'}} onReady={_onReady} />)}

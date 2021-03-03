@@ -6,7 +6,7 @@ import {OccupationSummary} from '../client/dataTypes'
 import {useGetOccupationSummary, useGetSystemConfigurations} from '../client/apiService'
 import YouTube from 'react-youtube';
 import useWindowSize from '../client/useWindowSize'
-import { format } from '../client/filtersData'
+import { format, getHeaderTitle, titleLength} from '../client/filtersData'
 
 const WorkBCLogo = require('../images/workbc-header-logo.svg')
 
@@ -23,7 +23,6 @@ const CareerPreview: FunctionComponent = () => {
     const {data: JOUrlData, isValidating: isFetchingJOUrl, isSettled: isJOUrlFetched } = useGetSystemConfigurations({name: "JobOpeningsBaseUrl"})
     const [width] = useWindowSize()
 
-    const titleLength = 70
     
     function isMobile() {
         return width < 1200
@@ -74,19 +73,6 @@ const CareerPreview: FunctionComponent = () => {
         return str.replace( /(<([^>]+)>)/ig, ''); 
     } 
 
-    function getHeaderTitle(careerObj: OccupationSummary) {
-        let nocTitle = careerObj.title 
-        let nocCode =  ' (' + 'NOC' + careerObj.noc + ')'
-        if (nocTitle.length > titleLength) {
-            nocTitle = nocTitle.slice(0,titleLength) + '...'
-            nocCode = ''
-        } else if (nocTitle.length + nocCode.length > titleLength) {
-            nocTitle = nocTitle
-            nocCode = nocCode.slice(0, titleLength-nocTitle.length) + '...'
-        }
-        return {length: nocTitle.length + nocCode?.length , title: nocTitle, code: nocCode}
-    }
-
     function getCareerDetail(careerObj: OccupationSummary) {
         return (
             <div className="result-detail">
@@ -95,16 +81,21 @@ const CareerPreview: FunctionComponent = () => {
                 </div>
 
                 <div className="result-detail__header">
-                    {getHeaderTitle(careerObj).length > titleLength && (
+                    {getHeaderTitle(careerObj).length > titleLength && !isMobile() && (
                         <Tooltip trigger={'hover'} title={(<div>{careerObj.title} (NOC {careerObj.noc})</div>)} >
                             <div className="result-detail__header-details">
                                 <b>{getHeaderTitle(careerObj)?.title}</b> {getHeaderTitle(careerObj)?.code}
                             </div>
                         </Tooltip>
                     )}
-                    {getHeaderTitle(careerObj)?.length <= titleLength && (
+                    {getHeaderTitle(careerObj)?.length <= titleLength && !isMobile() && (
                         <div className="result-detail__header-details">
                             <b>{getHeaderTitle(careerObj)?.title}</b> {getHeaderTitle(careerObj)?.code}
+                        </div>
+                    )}
+                    {!!isMobile() && (
+                        <div className="result-detail__header-details" style={{height: '84px'}}>
+                            <b>{careerObj.title}</b>  (NOC {careerObj.noc})
                         </div>
                     )}
                 </div>
