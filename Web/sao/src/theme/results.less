@@ -171,8 +171,11 @@
         margin-left: 10px;
     }
 }
+
 .result-detail{
     border: 1px solid @grey;
+    max-width: 400px;
+    margin: 0 auto;
     &__printtitle{
         display: none;
     }
@@ -261,6 +264,29 @@
     }
 }
 
+.compare-container {
+    &__title {
+        padding: 2rem 0;
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        max-width: 1200px;
+        justify-content: space-between;
+
+        div {
+            font-size: 26px;
+        }
+
+        &__icons {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-left: auto;
+            justify-content: flex-end;
+        }
+    }
+}
+
 .compare-container-header {
     background-color: white;
     .header__logo {
@@ -300,6 +326,14 @@
     background-color: #f2f2f2;
     &--center{
         .justify-content(center);
+    }
+    >.ant-col{
+        margin-left:auto;
+        margin-right: auto;
+        .largeScreen({
+            margin-right:0;
+            margin-left:0;
+        });
     }
     .ant-col{
         margin-bottom: 25px;
