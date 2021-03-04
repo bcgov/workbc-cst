@@ -8,6 +8,7 @@ import YouTube from 'react-youtube';
 import { LeftOutlined  } from '@ant-design/icons'
 import useWindowSize from '../client/useWindowSize'
 import { format, getHeaderTitle, titleLength } from '../client/filtersData'
+import MediaLinks from './mediaLinks'
 
 const WorkBCLogo = require('../images/workbc-header-logo.svg')
 
@@ -198,6 +199,7 @@ const CompareCareers: FunctionComponent = () => {
                     WorkBC Career Search Tool <strong>www.workbc.ca/careersearchtool/</strong>
                 </div>
             </div>
+            <MediaLinks />
         </div>
     )
 }
