@@ -250,15 +250,18 @@
             display: flex;
             justify-content: space-around;
 
+            &__career {
+                border: 2px solid @light-blue;
+            }
             &__career:hover {
+                border-color: @dark-blue;
                 background-color: @dark-blue;
             }
 
             &__jobs {
                 color: @light-blue !important;
                 background-color: #fff;
-                border-color: @light-blue !important;
-                border-width: 2px;
+                border: 2px solid @light-blue;
             }
 
             &__jobs:hover {
