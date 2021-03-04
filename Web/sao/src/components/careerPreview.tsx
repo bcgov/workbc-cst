@@ -118,14 +118,14 @@ const CareerPreview: FunctionComponent = () => {
                 <div className="result-detail__footer">                            
                     <div className="result-detail__footer__button-box">
                        <div style={{marginRight: '10px'}}>
-                            <a href={careerProfileUrl+careerObj.noc} target="_blank"> 
+                            <a href={careerProfileUrl+careerObj.noc} target="_blank" rel="noreferrer"> 
                                 <Button type="primary" className="result-detail__footer__button-box__career" block>
                                     View Career Profile
                                 </Button>
                             </a>  
                         </div>                  
                         <div>
-                            <a href={viewJobsUrl+careerObj.jobBoardNoc} target="_blank">
+                            <a href={viewJobsUrl+careerObj.jobBoardNoc} target="_blank" rel="noreferrer">
                                 <Button className="result-detail__footer__button-box__jobs" block>
                                     Find Jobs
                                 </Button>
@@ -139,7 +139,7 @@ const CareerPreview: FunctionComponent = () => {
     return (<div className="preview-career"> 
             { !!isMobile() && (
                 <div className="header__logo">
-                    <a href="https://www.workbc.ca" target="_blank">
+                    <a href="https://www.workbc.ca" target="_blank" rel="noreferrer">
                         <img className="header__logo--img" src={WorkBCLogo} alt="Work BC" />
                     </a>
                 </div>
