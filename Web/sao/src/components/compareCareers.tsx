@@ -80,7 +80,7 @@ const CompareCareers: FunctionComponent = () => {
             <div className="result-detail result-detail--compare">
                 <div className="result-detail__header">
                     {getHeaderTitle(careerObj.careerDetail).length > titleLength && !isMobile() && (
-                            <Tooltip trigger={'hover'} title={(<div>{careerObj.careerDetail.title} (NOC {careerObj.careerDetail.noc})</div>)} >
+                            <Tooltip trigger={'hover'} overlayClassName="result-detail__header-tooltip" title={(<div>{careerObj.careerDetail.title} (NOC {careerObj.careerDetail.noc})</div>)} >
                                 <div className="result-detail__header-details">
                                     <b>{getHeaderTitle(careerObj.careerDetail)?.title}</b> {getHeaderTitle(careerObj.careerDetail)?.code}
                                 </div>
