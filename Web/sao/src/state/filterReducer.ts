@@ -84,7 +84,7 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
             return ({...state, returnToResults: action.payload})
             
         case 'set-sort-option':
-            return ({...state, isSorted: true, sortOption: action.payload})
+            return ({...state, isSorted: true, isFilterApplied: false, sortOption: action.payload})
 
         case 'apply-filter': 
             return ({...state, isSorted: false, sortOption: 'High to Low', isFilterApplied: true})

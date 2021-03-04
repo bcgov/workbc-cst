@@ -10,7 +10,7 @@ import useWindowSize from '../client/useWindowSize'
 import { format } from '../client/filtersData'
 
 const ResultsTable: FunctionComponent = () => {
-    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc,
+    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc, isSorted, isFilterApplied,
         setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs, setView } = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
@@ -65,6 +65,10 @@ const ResultsTable: FunctionComponent = () => {
                 break
         }
     }, [sortOption])
+
+    useEffect(() => {
+        if (!isSorted && isFilterApplied) setSelectedNoc(filteredOccupationsList[0]?.noc)
+    }, [filteredOccupationsList])
 
     function scrollTableToTop() {
         const table = document.querySelector(".results-table .ant-table-body")
@@ -253,7 +257,12 @@ const ResultsTable: FunctionComponent = () => {
                     scroll={ moreThanOneResult() ? !isMobile() ? { y: 622 } : undefined : undefined }
                     onRow={onRow}>
                 </Table>}
-                {!!isMobile() && (<Button className="results-table-button" block type="primary" onClick={() => loadMore()}>Load More</Button>)}
+                {!!isMobile() && (
+                    <div>
+                        <div style={{textAlign: 'center', marginTop: '1rem'}}> Showing <b> {listSize} </b> of <b> {filteredOccupationsList.length} </b> results </div>
+                        <Button className="results-table-button" block type="primary" onClick={() => loadMore()}>Load More</Button>
+                    </div>
+                )}
         </div>)
 }
 

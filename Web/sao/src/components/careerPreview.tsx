@@ -11,7 +11,7 @@ import { format, getHeaderTitle, titleLength} from '../client/filtersData'
 const WorkBCLogo = require('../images/workbc-header-logo.svg')
 
 const CareerPreview: FunctionComponent = () => {
-    const {filteredOccupationsList, selectedNoc, isFilterApplied, isSorted, setSelectedNoc, setView} = useFilterContext()
+    const {filteredOccupationsList, selectedNoc, setView} = useFilterContext()
 
     const [careerDetail, setCareerDetail] = useState<OccupationSummary>()
     const [profileImagesPath, setProfileImagesPath] = useState<string>()
@@ -30,11 +30,6 @@ const CareerPreview: FunctionComponent = () => {
 
     const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(selectedNoc)
     
-    useEffect(() => {
-        if(!isSorted) setSelectedNoc(filteredOccupationsList[0]?.noc)
-    }, [isFilterApplied, isSorted, filteredOccupationsList])
-
-
     useEffect(() => {
         if(occupationSummary) setCareerDetail(occupationSummary[0])
         }, [selectedNoc, isFetchingSummary, isSummaryFetched])
