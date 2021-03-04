@@ -101,7 +101,7 @@ export function useGetOccupationSummary(code: string): OccupationSummaryResponse
   return {data, isValidating, isSettled: !!data || !!error}
 }
 
-async function getSystemConfigurations(params: GetSystemConfigurationParams): Promise<GetSystemConfigurationResponse> {
+async function getSystemConfigurations(params: GetSystemConfigurationParams | undefined): Promise<GetSystemConfigurationResponse> {
   try {
     const { name } = params
     const response: AxiosResponse<GetSystemConfigurationResponse> = await axios.get(apiURLs.system.configurations, { params: { SettingName: name } })
@@ -112,7 +112,7 @@ async function getSystemConfigurations(params: GetSystemConfigurationParams): Pr
 }
 
 export function useGetSystemConfigurations(params: GetSystemConfigurationParams): UseGetSystemConfigurationResponse {
-  const { name } = params
+  const { name } = axios.defaults.baseURL? params : {name: undefined}
   const { data, isValidating, error } = useSWR<GetSystemConfigurationResponse>(name, () => getSystemConfigurations(params!),
     {
       refreshInterval: 0,
