@@ -68,13 +68,13 @@ function MediaLinks() {
                     <div className="footer-content__copyright">
                         <div className="footer-copyright-link">
                             <div className="footer__logo--container">
-                                <a href="https://www2.gov.bc.ca" target="_blank" rel="noopener">
+                                <a href="https://www2.gov.bc.ca" target="_blank" rel="noreferrer">
                                     <img className="footer__logo--img" src={BCLogo} alt="Work BC" />
                                 </a>
                             </div>					
                             <div>
                                 <span className="footer-copyright-year">Copyright 2021</span>
-                                <a href="https://www2.gov.bc.ca/gov/content/home/copyright" style={{textDecoration: 'underline'}} target="_blank" rel="noopener">Province of British Columbia. All rights reserved.</a>
+                                <a href="https://www2.gov.bc.ca/gov/content/home/copyright" style={{textDecoration: 'underline'}} target="_blank" rel="noreferrer">Province of British Columbia. All rights reserved.</a>
                             </div>
                         </div>
                     </div>

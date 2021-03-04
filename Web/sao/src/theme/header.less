@@ -17,6 +17,13 @@
     }
     &__hero{
         width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: right 20% top;
+        .largeScreen ({
+            background-position: center top;
+        });
+        
         > .container{
             position: relative;
             height: 440px;
@@ -29,6 +36,23 @@
                 color: @dark-blue;
                 font-family: @font-family-bold;
                 font-size: 3.0rem;
+
+                .desktop {
+                    display: none;
+                    .largeScreen ({
+                        display: block;
+                    })
+                }
+                .mobile {
+                    display: block;
+                    position: relative;
+                    margin-top: -60%;
+                    line-height: 1.2em;
+                    font-size: 2.85rem;
+                    .largeScreen ({
+                        display: none;
+                    })
+                }
             }
             &--body{
                 color: @text-color;

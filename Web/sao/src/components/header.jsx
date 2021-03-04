@@ -15,15 +15,12 @@ function Header() {
 			</div>
 			{/* Header Hero Image */}
 			<div className="header__hero" style={{
-				backgroundImage: "url(" + HeroImage + ")",
-				backgroundPosition: 'top',
-				backgroundSize: 'cover',
-				backgroundRepeat: 'no-repeat'
-			}}>
+				backgroundImage: "url(" + HeroImage + ")"}}>
 				<div className="container">
 					<div className="header__hero-text">
 						<div className="header__hero-text--header">
-							Career Search Tool
+							<span className="desktop">Career Search Tool</span>
+							<span className="mobile">Career<br />Search Tool</span>
 						</div>
 						<div className="header__hero-text--body">
 							What kinds of careers suit you best?<br />
