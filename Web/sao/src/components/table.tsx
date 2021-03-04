@@ -19,7 +19,7 @@ const ResultsTable: FunctionComponent = () => {
     const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
 
     const [extraSelection, setExtraSelection] = useState<string>()
-    const [listSize, setListSize] = useState(0)
+    const [listSize, setListSize] = useState(filteredOccupationsList.length < 10 ? filteredOccupationsList.length : 10)
     const [width] = useWindowSize()
     
     function isMobile() {
@@ -27,8 +27,8 @@ const ResultsTable: FunctionComponent = () => {
     }
 
     useEffect(() => {
-        setListSize(isMobile()? 10: 500)
-    }, [width])
+        if(!isSorted) setListSize(isMobile() ? (filteredOccupationsList.length < 10 ? filteredOccupationsList.length : 10): filteredOccupationsList.length)
+    }, [width, isReset, filteredOccupationsList])
 
     useEffect(() => {
         if (!!filterOption && !isReset) {
@@ -67,8 +67,10 @@ const ResultsTable: FunctionComponent = () => {
     }, [sortOption])
 
     useEffect(() => {
-        if (!isSorted && isFilterApplied) setSelectedNoc(filteredOccupationsList[0]?.noc)
-    }, [filteredOccupationsList])
+        if (!isSorted && isFilterApplied) {
+            setSelectedNoc(filteredOccupationsList[0]?.noc)
+        }
+    }, [isFilterApplied, filteredOccupationsList])
 
     function scrollTableToTop() {
         const table = document.querySelector(".results-table .ant-table-body")
@@ -239,7 +241,7 @@ const ResultsTable: FunctionComponent = () => {
     }
 
     function loadMore() {
-        setListSize(listSize + 10)
+        listSize + 10 < filteredOccupationsList.length ? setListSize(listSize + 10) : setListSize(filteredOccupationsList.length)
     }
 
     function getDatasource() {
@@ -260,7 +262,7 @@ const ResultsTable: FunctionComponent = () => {
                 {!!isMobile() && (
                     <div>
                         <div style={{textAlign: 'center', marginTop: '1rem'}}> Showing <b> {listSize} </b> of <b> {filteredOccupationsList.length} </b> results </div>
-                        <Button className="results-table-button" block type="primary" onClick={() => loadMore()}>Load More</Button>
+                        <Button disabled={listSize === filteredOccupationsList.length} className="results-table-button" block type="primary" onClick={() => loadMore()}>Load More</Button>
                     </div>
                 )}
         </div>)
