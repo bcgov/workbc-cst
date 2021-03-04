@@ -392,7 +392,7 @@ const Dropdowns: FunctionComponent = () => {
                                         <QuestionCircleFilled onClick={()=> setPopOverVisible({...popOvervisible, 'keywords': true})} /> 
                                     </Popover> 
                                 </label>
-                                <Input placeholder="Enter career title, Keyword(s) or NOC"
+                                <Input placeholder="Enter job title, keyword(s) or NOC"
                                     value= {userSelection?.keyword}
                                     style={{ width: '100%' }}
                                     onChange={handleChangeKeyWord}
