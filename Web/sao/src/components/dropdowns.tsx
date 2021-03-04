@@ -305,7 +305,7 @@ const Dropdowns: FunctionComponent = () => {
                                             <QuestionCircleFilled onClick={() => setPopOverVisible({...popOvervisible, 'industry': true})} />
                                     </Popover>
                                 </label>
-                                    <TreeSelect allowClear
+                                    <TreeSelect
                                         placeholder="All"
                                         showArrow={true}
                                         className="sao-filters__select"
