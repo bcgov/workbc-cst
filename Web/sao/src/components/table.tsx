@@ -50,20 +50,18 @@ const ResultsTable: FunctionComponent = () => {
         let tempList = [...filteredOccupationsList]
         switch(sortOption) {
             case 'A-Z':
-                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title < b.title ? -1 : 1 }))
-                scrollTableToTop()
+                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title < b.title ? -1 : 1 }))               
                 break
             case 'Z-A':
-                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title > b.title ? -1 : 1 }))                
-                scrollTableToTop()
+                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title > b.title ? -1 : 1 }))               
+                
                 break
             case 'High to Low':
-                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings > b.jobOpenings ? -1 : 1 }))                
-                scrollTableToTop()
+                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings > b.jobOpenings ? -1 : 1 }))               
+               
                 break
             case 'Low to High':
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings < b.jobOpenings ? -1 : 1 }))
-                scrollTableToTop()
                 break
         }
     }, [sortOption])
@@ -121,14 +119,14 @@ const ResultsTable: FunctionComponent = () => {
 
     const nameContent = (
         <div className="sort-options">
-            <a onClick={()=> {hide();setSortOption('A-Z')}}> A - Z </a>
-            <a onClick={()=> {hide();setSortOption('Z-A')}}> Z - A </a>
+            <a onClick={()=> {hide();setSortOption('A-Z'); scrollTableToTop()}}> A - Z </a>
+            <a onClick={()=> {hide();setSortOption('Z-A'); scrollTableToTop()}}> Z - A </a>
         </div>
     )
     const jobContent = (
         <div className="sort-options">
-            <a onClick={() => {hide();setSortOption('High to Low')}}> High to Low </a>
-            <a onClick={() => {hide();setSortOption('Low to High')}}> Low to High </a>
+            <a onClick={() => {hide();setSortOption('High to Low'); scrollTableToTop()}}> High to Low </a>
+            <a onClick={() => {hide();setSortOption('Low to High'); scrollTableToTop()}}> Low to High </a>
         </div>
     )
 
