@@ -88,7 +88,7 @@ const CareerPreview: FunctionComponent = () => {
                         </div>
                     )}
                     {!!isMobile() && (
-                        <div className="result-detail__header-details" style={{height: '84px'}}>
+                        <div className="result-detail__header-details">
                             <b>{careerObj.title}</b>  (NOC {careerObj.noc})
                         </div>
                     )}
