@@ -69,28 +69,28 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
         return ({...state, filteredOccupationsList: action.payload, selectedNoc: !!state.selectedNoc? state.selectedNoc : action.payload[0]?.noc})
         
         case 'set-selected-noc':
-            return ({...state, selectedNoc: action.payload})
+            return ({...state, selectedNoc: action.payload, isReset: false})
 
         case 'set-filter-options': 
            return ({...state, filterOption: {...state.filterOption, ...action.payload}, isReset: false})
 
         case 'set-view': 
-            return ({...state, view: action.payload})
+            return ({...state, view: action.payload, isReset: false})
 
         case 'set-checked-nocs':
-            return ({...state, checkedNocs: action.payload})
+            return ({...state, checkedNocs: action.payload, isReset: false})
 
         case 'set-return-to-results': 
-            return ({...state, returnToResults: action.payload})
+            return ({...state, returnToResults: action.payload, isReset: false})
             
         case 'set-sort-option':
-            return ({...state, isSorted: true, isFilterApplied: false, sortOption: action.payload})
+            return ({...state, isSorted: true, isFilterApplied: false, sortOption: action.payload, isReset: false})
 
         case 'apply-filter': 
-            return ({...state, isSorted: false, sortOption: 'High to Low', isFilterApplied: true})
+            return ({...state, isSorted: false, sortOption: 'High to Low', isFilterApplied: true, isReset: false})
 
         case 'reset': 
-            return ({...state, ...defaultFilterState, isReset: !state.isReset})
+            return ({...state, ...defaultFilterState, isReset: true})
         
         default: 
             return state

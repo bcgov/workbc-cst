@@ -23,7 +23,6 @@ const CareerPreview: FunctionComponent = () => {
     const {data: JOUrlData, isValidating: isFetchingJOUrl, isSettled: isJOUrlFetched } = useGetSystemConfigurations({name: "JobOpeningsBaseUrl"})
     const [width] = useWindowSize()
 
-    
     function isMobile() {
         return width < 1200
     }
