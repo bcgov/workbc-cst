@@ -76,7 +76,10 @@ const CareerPreview: FunctionComponent = () => {
 
                 <div className="result-detail__header">
                     {getHeaderTitle(careerObj).length > titleLength && !isMobile() && (
-                        <Tooltip trigger={'hover'} title={(<div>{careerObj.title} (NOC {careerObj.noc})</div>)} >
+                        <Tooltip trigger={'hover'} 
+                                overlayClassName="result-detail__header-tooltip" 
+                                title={(<div>{careerObj.title} (NOC {careerObj.noc})</div>)} 
+                                placement="bottom">
                             <div className="result-detail__header-details">
                                 <b>{getHeaderTitle(careerObj)?.title}</b> {getHeaderTitle(careerObj)?.code}
                             </div>
@@ -88,7 +91,7 @@ const CareerPreview: FunctionComponent = () => {
                         </div>
                     )}
                     {!!isMobile() && (
-                        <div className="result-detail__header-details" style={{height: '84px'}}>
+                        <div className="result-detail__header-details">
                             <b>{careerObj.title}</b>  (NOC {careerObj.noc})
                         </div>
                     )}

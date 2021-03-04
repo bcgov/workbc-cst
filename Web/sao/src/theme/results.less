@@ -212,6 +212,20 @@
         &--noc{
             font-family: @font-family;
         }
+        &-tooltip {
+            font-size: 0.7rem;
+            max-width: 20rem;
+            .ant-tooltip-inner{
+                color: black;
+                background-color: white;
+            }            
+            .ant-tooltip-arrow{
+                display: none;
+            }
+            .ant-tooltip-content {
+                border: 1px inset;
+            }
+        }
     }
     &__thumbnail{
         margin: 0 auto;
