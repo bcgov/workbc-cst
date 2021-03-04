@@ -70,17 +70,18 @@
             &:enabled{
                 background: @yellow;
                 color: white;
-                border: none;
+                border: 2px solid @yellow;
             }
             &:enabled:hover{
                 background: @light-blue;
+                border-color: @light-blue;
             }
         }
         &__clear {
             margin-right: 8px;
             &:enabled {
                 color: @light-blue;
-                border-color: @light-blue;
+                border: 2px solid @light-blue;
             }
             &:enabled:hover{
                 background: @grey;
@@ -99,6 +100,11 @@
         .anticon-printer{
             margin-right: 0.5rem;
         }
+    }
+}
+.results-table {
+    .ant-table-cell-scrollbar {
+        box-shadow: none;
     }
 }
 
@@ -244,15 +250,18 @@
             display: flex;
             justify-content: space-around;
 
+            &__career {
+                border: 2px solid @light-blue;
+            }
             &__career:hover {
+                border-color: @dark-blue;
                 background-color: @dark-blue;
             }
 
             &__jobs {
                 color: @light-blue !important;
                 background-color: #fff;
-                border-color: @light-blue !important;
-                border-width: 2px;
+                border: 2px solid @light-blue;
             }
 
             &__jobs:hover {

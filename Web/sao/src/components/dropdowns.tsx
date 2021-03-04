@@ -50,12 +50,12 @@ const Dropdowns: FunctionComponent = () => {
             case 'OccupationalInterest':
                 return (<div> 
                     <p>Groups careers based on 6 broad personality types. You can take a quiz to find your interests.</p>
-                    <p>Learn more on <a className="filter-popover-link" href="https://www.workbc.ca/" target="_blank">WorkBC.ca.</a></p>
+                    <p>Learn more on <a className="filter-popover-link" href="https://www.workbc.ca/" target="_blank" rel="noreferrer">WorkBC.ca.</a></p>
                 </div>)
             case 'Industry':
                 return (<div>
                     <p>Careers based on an association to an industry</p>
-                    <p>Learn more on <a className="filter-popover-link" href="https://www.workbc.ca/" target="_blank">WorkBC.ca.</a></p>
+                    <p>Learn more on <a className="filter-popover-link" href="https://www.workbc.ca/" target="_blank" rel="noreferrer">WorkBC.ca.</a></p>
                 </div>)
             case 'OccupationalCategory': 
                 return (<div>
