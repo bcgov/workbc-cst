@@ -46,12 +46,22 @@
         }
     }
     .compare-buttons{
-        width: 85%;
+        width: 75%;
+
+        .extraSmallScreen({
+            width: 78%;
+        });
+        .smallScreen({
+            width: 85%;
+        });
         .largeScreen({
             width: auto;
         });
         button{
-            width: calc(50% - 4px);
+            width: 100%;      
+            .extraSmallScreen({
+                width: calc(50% - 4px);
+            });
             .largeScreen({
                 width: auto;
             })
