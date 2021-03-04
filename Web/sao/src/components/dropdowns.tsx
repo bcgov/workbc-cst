@@ -405,7 +405,7 @@ const Dropdowns: FunctionComponent = () => {
                             <div className="sao-filters__button-layout">
                                 <div className="sao-filters__button sao-filters__button--apply" onClick={applyFilters} onKeyDown={handleSpacebar} tabIndex={9}>Apply</div>
                                 <div className="sao-filters__button sao-filters__button--reset" onClick={handleReset} tabIndex={10}> 
-                                    Reset
+                                    Clear All
                                     <SyncOutlined /> 
                                 </div>
                             </div>
