@@ -13,8 +13,8 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="116"
-  DTS:VersionGUID="{94EC4CFD-CE48-4955-9855-9F8AF060B6A3}">
+  DTS:VersionBuild="117"
+  DTS:VersionGUID="{3A5D3017-8ED6-4C3E-8B25-3295C27737B4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -969,8 +969,8 @@ ORDER BY NOC.NOCCode</property>
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT CONCAT('#', n.NOCCode) AS NOCCode, EnglishTitle 
 FROM EDM_NOCJobTitles  NJT
-INNER JOIN EDM_NOC N
-ON N.NOC_ID = NJT.NOC_ID</property>
+INNER JOIN EDM_NOC N ON N.NOC_ID = NJT.NOC_ID
+WHERE N.NOCYear = 2011</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."

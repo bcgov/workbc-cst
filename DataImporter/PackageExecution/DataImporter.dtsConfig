@@ -1,1 +1,21 @@
-<?xml version="1.0"?><DTSConfiguration><DTSConfigurationHeading><DTSConfigurationFileInfo GeneratedBy="IDIR\wieinze" GeneratedFromPackageName="Package" GeneratedFromPackageID="{CD65F675-A625-454E-A0F5-61E126D2BB98}" GeneratedDate="1/26/2021 3:53:00 PM"/></DTSConfigurationHeading><Configuration ConfiguredType="Property" Path="\Package.Connections[SearchAllOccupationsTool Database].Properties[InitialCatalog]" ValueType="String"><ConfiguredValue>SearchAllOccupationsTool</ConfiguredValue></Configuration><Configuration ConfiguredType="Property" Path="\Package.Connections[SearchAllOccupationsTool Database].Properties[ServerName]" ValueType="String"><ConfiguredValue>theoden</ConfiguredValue></Configuration><Configuration ConfiguredType="Property" Path="\Package.Connections[WorkBC Enterprise Database].Properties[InitialCatalog]" ValueType="String"><ConfiguredValue>LMO20192029_WorkBCEnterprise</ConfiguredValue></Configuration><Configuration ConfiguredType="Property" Path="\Package.Connections[WorkBC Enterprise Database].Properties[ServerName]" ValueType="String"><ConfiguredValue>theoden</ConfiguredValue></Configuration><Configuration ConfiguredType="Property" Path="\Package.Variables[User::WorkingDirectory].Properties[Value]" ValueType="String"><ConfiguredValue>C:\Projects\WorkBC SAO\DataImporter\</ConfiguredValue></Configuration></DTSConfiguration>
+<?xml version="1.0"?>
+<DTSConfiguration>
+  <DTSConfigurationHeading>
+    <DTSConfigurationFileInfo GeneratedBy="IDIR\wieinze" GeneratedFromPackageName="Package" GeneratedFromPackageID="{CD65F675-A625-454E-A0F5-61E126D2BB98}" GeneratedDate="1/26/2021 3:53:00 PM"/>
+  </DTSConfigurationHeading>
+  <Configuration ConfiguredType="Property" Path="\Package.Connections[SearchAllOccupationsTool Database].Properties[InitialCatalog]" ValueType="String">
+    <ConfiguredValue>SearchAllOccupationsTool</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Connections[SearchAllOccupationsTool Database].Properties[ServerName]" ValueType="String">
+    <ConfiguredValue>theoden</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Connections[WorkBC Enterprise Database].Properties[InitialCatalog]" ValueType="String">
+    <ConfiguredValue>LMO20192029_WorkBCEnterprise</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Connections[WorkBC Enterprise Database].Properties[ServerName]" ValueType="String">
+    <ConfiguredValue>theoden</ConfiguredValue>
+  </Configuration>
+  <Configuration ConfiguredType="Property" Path="\Package.Variables[User::WorkingDirectory].Properties[Value]" ValueType="String">
+    <ConfiguredValue>C:\Projects\WorkBC SAO\DataImporter\</ConfiguredValue>
+  </Configuration>
+</DTSConfiguration>

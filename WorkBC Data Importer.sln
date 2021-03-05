@@ -7,6 +7,7 @@ Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "DataImporter", "DataImporte
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1AAA1744-874C-479E-A81C-57924D019749}"
 	ProjectSection(SolutionItems) = preProject
+		DataImporter\PackageExecution\DataImporter.dtsConfig = DataImporter\PackageExecution\DataImporter.dtsConfig
 		DataImporter\PackageExecution\ExecuteDataImport.bat = DataImporter\PackageExecution\ExecuteDataImport.bat
 		DataImporter\PackageExecution\README.txt = DataImporter\PackageExecution\README.txt
 	EndProjectSection
