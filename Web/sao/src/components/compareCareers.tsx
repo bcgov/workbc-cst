@@ -102,7 +102,7 @@ const CompareCareers: FunctionComponent = () => {
                 </div>
                 <div  className="result-detail__thumbnail">
                     {(careerObj.careerDetail?.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.nocId)} alt='career profile pic'/>)
-                    : (<YouTube videoId={careerObj.careerDetail?.careertrekvideoids[0]} opts={{height: '315', width: '420'}} onReady={_onReady} />)}
+                    : (<YouTube videoId={careerObj.careerDetail?.careertrekvideoids[0]} opts={{height: '315', width: '420', playerVars: {rel: 0}}} onReady={_onReady} />)}
                 </div>
                 <div className="result-detail__body result-body">
                     <div className="result-body__row">
@@ -150,7 +150,7 @@ const CompareCareers: FunctionComponent = () => {
             str = str.toString();
         return str.replace( /(<([^>]+)>)/ig, ''); 
     }
-    
+
     function handlePrintEvent() {
         print();
     }
@@ -206,9 +206,6 @@ const CompareCareers: FunctionComponent = () => {
                         </Row>
                     )
                 }
-                <div className="footer-content-print container">
-                    WorkBC Career Search Tool <strong>www.workbc.ca/careersearchtool/</strong>
-                </div>
             </div>
             <MediaLinks />
         </div>

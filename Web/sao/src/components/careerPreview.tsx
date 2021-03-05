@@ -99,7 +99,7 @@ const CareerPreview: FunctionComponent = () => {
                 </div>
                 <div  className="result-detail__thumbnail__preview">
                     {(careerObj.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.noc)} alt='career profile pic'/>)
-                    : (<YouTube  videoId={careerObj.careertrekvideoids[0]} onReady={_onReady} />)}
+                : (<YouTube  videoId={careerObj.careertrekvideoids[0]} onReady={_onReady} opts={{playerVars: {rel: 0}}}/>)}
                 </div>
                 <div className="result-detail__body result-body">
                     <div className="result-body__row">
