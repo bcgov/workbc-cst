@@ -25,21 +25,19 @@ export const filtersPopOverVisible = {
     keywords: false
 }
 
-export function format(value: number|string): string {
-    return value?.toString().length === 5 ? value.toString().slice(0,2)+','+value.toString().slice(2,5) 
-        : value?.toString().length === 4 ? value.toString().slice(0,1)+','+value.toString().slice(1,4) : value?.toString()
+export function format(value: number): string {
+    return value?.toLocaleString("en-ca")
 }
-
 
 export function getHeaderTitle(careerObj: OccupationSummary) {
     let nocTitle = careerObj.title 
     let nocCode =  ' (' + 'NOC ' + careerObj.noc + ')'
     if (nocTitle.length > titleLength) {
-        nocTitle = nocTitle.slice(0,titleLength) + '...'
+        nocTitle = nocTitle.slice(0, titleLength) + '...'
         nocCode = ''
     } else if (nocTitle.length + nocCode.length > titleLength) {
         nocTitle = nocTitle
-        nocCode = nocCode.slice(0, titleLength-nocTitle.length) + '...'
+        nocCode = nocCode.slice(0, titleLength - nocTitle.length) + '...'
     }
     return {length: nocTitle.length + nocCode?.length , title: nocTitle, code: nocCode}
 }
