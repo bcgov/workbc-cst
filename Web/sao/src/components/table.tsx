@@ -187,6 +187,7 @@ const ResultsTable: FunctionComponent = () => {
                 </Popover>
             </div>),
             width: '25%',
+            className: 'jobOpenings',
             dataIndex: 'jobOpenings',
             defaultSortOrder: 'descend',
             render: (text, record) => {
