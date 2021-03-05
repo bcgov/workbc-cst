@@ -70,7 +70,7 @@ const ResultsTable: FunctionComponent = () => {
         if (!isSorted && isFilterApplied && !selectedNoc) {
             setSelectedNoc(filteredOccupationsList[0]?.noc)
         }
-    }, [isFilterApplied, filteredOccupationsList])
+    }, [isFilterApplied, selectedNoc, filteredOccupationsList])
 
     function scrollTableToTop() {
         const table = document.querySelector(".results-table .ant-table-body")
