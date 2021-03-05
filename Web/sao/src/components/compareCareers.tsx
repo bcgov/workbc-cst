@@ -150,6 +150,14 @@ const CompareCareers: FunctionComponent = () => {
             str = str.toString();
         return str.replace( /(<([^>]+)>)/ig, ''); 
     }
+    
+    function handlePrintEvent() {
+        print();
+    }
+
+    function handleEmailEvent() {
+        console.log(' Email profile ')
+    }
 
     return (
         <div>
@@ -172,8 +180,8 @@ const CompareCareers: FunctionComponent = () => {
                 <div className="compare-container__title">
                     <div> Compare Careers </div>
                     <div className="compare-container__title__icons">
-                        <div><PrinterFilled style={{color: "#355992", margin: '0 0.5rem'}}/></div>
-                        <div><MailFilled style={{color: "#355992",  margin: '0 0.5rem'}}/></div>
+                        <div><PrinterFilled onClick={handlePrintEvent} style={{color: "#355992", margin: '0 0.5rem'}}/></div>
+                        <div><MailFilled onClick={handleEmailEvent} style={{color: "#355992",  margin: '0 0.5rem'}}/></div>
                     </div>
                 </div>
                 
