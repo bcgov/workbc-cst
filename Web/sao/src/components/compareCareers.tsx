@@ -178,7 +178,7 @@ const CompareCareers: FunctionComponent = () => {
             
             <div className="container compare-container">
                 <div className="compare-container__title">
-                    <div> Compare Careers </div>
+                    <div>Compare Careers</div>
                     <div className="compare-container__title__icons">
                         <div><PrinterFilled onClick={handlePrintEvent} style={{color: "#355992", margin: '0 0.5rem'}}/></div>
                         <div><MailFilled onClick={handleEmailEvent} style={{color: "#355992",  margin: '0 0.5rem'}}/></div>

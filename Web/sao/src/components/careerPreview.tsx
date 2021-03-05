@@ -7,11 +7,12 @@ import {useGetOccupationSummary, useGetSystemConfigurations} from '../client/api
 import YouTube from 'react-youtube';
 import useWindowSize from '../client/useWindowSize'
 import { format, getHeaderTitle, titleLength} from '../client/filtersData'
+import MediaLinks from './mediaLinks'
 
 const WorkBCLogo = require('../images/workbc-header-logo.svg')
 
 const CareerPreview: FunctionComponent = () => {
-    const {filteredOccupationsList, selectedNoc, setView} = useFilterContext()
+    const {filteredOccupationsList, selectedNoc, setView, setReturnToResults} = useFilterContext()
 
     const [careerDetail, setCareerDetail] = useState<OccupationSummary>()
     const [profileImagesPath, setProfileImagesPath] = useState<string>()
@@ -146,12 +147,20 @@ const CareerPreview: FunctionComponent = () => {
                     </a>
                 </div>
             )}
-
-            { !!isMobile() && (<Button type="link" onClick={() => setView('results')}>
-                <span><LeftOutlined/></span>
-                Back to search results
-                </Button>)} 
+            { !!isMobile() && (<div className="back-to-home" >
+                <div className="back-to-home-link">
+                    <span><LeftOutlined/></span>
+                    <a onClick={() => {setView('results'); setReturnToResults(true);}}> Back to Search Results </a>
+                </div>
+            </div>)} 
+            { !!isMobile() && (
+                <div className="preview-career__header">
+                    <div>Career Preview</div>
+                </div>
+            )}
             { !!careerDetail && filteredOccupationsList.length > 0 && getCareerDetail(careerDetail)} 
+            { !!isMobile() && (<div className="preview-career-endcap"> </div>)} 
+            { !!isMobile() && (<MediaLinks />)} 
         </div>)
 }
 
