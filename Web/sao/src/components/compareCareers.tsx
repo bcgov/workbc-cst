@@ -150,7 +150,7 @@ const CompareCareers: FunctionComponent = () => {
             str = str.toString();
         return str.replace( /(<([^>]+)>)/ig, ''); 
     }
-    
+
     function handlePrintEvent() {
         print();
     }
@@ -206,9 +206,6 @@ const CompareCareers: FunctionComponent = () => {
                         </Row>
                     )
                 }
-                <div className="footer-content-print container">
-                    WorkBC Career Search Tool <strong>www.workbc.ca/careersearchtool/</strong>
-                </div>
             </div>
             <MediaLinks />
         </div>
