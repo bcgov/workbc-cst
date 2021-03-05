@@ -67,7 +67,7 @@ const ResultsTable: FunctionComponent = () => {
     }, [sortOption])
 
     useEffect(() => {
-        if (!isSorted && isFilterApplied) {
+        if (!isSorted && isFilterApplied && !selectedNoc) {
             setSelectedNoc(filteredOccupationsList[0]?.noc)
         }
     }, [isFilterApplied, filteredOccupationsList])

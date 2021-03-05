@@ -69,7 +69,7 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
         return ({...state, filteredOccupationsList: action.payload, selectedNoc: !!state.selectedNoc? state.selectedNoc : action.payload[0]?.noc})
         
         case 'set-selected-noc':
-            return ({...state, selectedNoc: action.payload, isReset: false})
+            return ({...state, selectedNoc: action.payload, isFilterApplied: false, isReset: false})
 
         case 'set-filter-options': 
            return ({...state, filterOption: {...state.filterOption, ...action.payload}, isReset: false})
@@ -87,7 +87,7 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
             return ({...state, isSorted: true, isFilterApplied: false, sortOption: action.payload, isReset: false})
 
         case 'apply-filter': 
-            return ({...state, isSorted: false, sortOption: 'High to Low', isFilterApplied: true, isReset: false})
+            return ({...state, isSorted: false, sortOption: 'High to Low', isFilterApplied: true, isReset: false, selectedNoc: undefined})
 
         case 'reset': 
             return ({...state, ...defaultFilterState, isReset: true})
