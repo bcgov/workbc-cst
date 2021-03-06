@@ -1,5 +1,10 @@
 @media print {
-    
+    .header__hero-text--header .mobile{
+        display:none;
+    }
+    .header__hero-text--header .desktop{
+        display:block;
+    }
     html, body, .compare-careers{background-color: transparent;}
     body {
     }
@@ -50,6 +55,7 @@
         padding-bottom: 0;
         border-top: 0;
         border-bottom: 0;
+        margin-bottom: 0;
         .ant-col{ 
             width: 100%;
             .flex(0 0 100%);
@@ -69,7 +75,7 @@
 
     .sao-filters {
         background: white;
-        padding: 0 0 1rem;
+        padding: 0 0 2rem;
         &__help {
             display: none;
         }
@@ -111,7 +117,7 @@
                 display: none;
             }
             .ant-select {
-                width: 35% !important;
+                width: 100% !important;
                 .ant-select-selector {
                     background: transparent;
                     border: none;
@@ -138,6 +144,10 @@
         }
     }
     .ant-table{
+        td.jobOpenings{
+            text-align: left;            
+        }
+
         &-thead{
             > tr{
                 *:nth-child(3){
@@ -206,7 +216,8 @@
         }
     }
     .result-detail{
-        margin-top: 1rem;
+        margin: 1rem 0 0;
+        max-width: none;
         &__printtitle{
             display: block;
             font-family: @font-family-bold;
@@ -274,7 +285,18 @@
             &--last{
                 border-bottom: none;
             }
+            &-right{
+                text-align: left;
+            }
         }
+
+    }
+    .results-table-mobile-controls{
+        display:none;
+    }
+
+    .ant-select-selection-item{
+        text-overflow:unset;
     }
 
     .results-compare {
@@ -294,6 +316,7 @@
 
     .footer{
         padding: 0;
+        margin-top: 2rem;
     }
     
     /* Compare Careers */
@@ -304,6 +327,7 @@
     .compare-controls{
         display: none;
     }
+
     
     .compare-careers{
         .ant-col{
@@ -315,17 +339,19 @@
             margin-top: 0;
         }
     }
-    .compare-container{
+    .compare-container, .compare-container-header{
         .header__logo{
+            max-width: none;
             padding: 1rem 1rem 1rem;
             margin-left: -16px;
             margin-right: -16px;
             border-bottom: 5px solid black;
             height: 50px;
             margin-bottom: 2.5rem;
+            margin: 0 0 2.5rem;
 
         }
-        h1{
+        h1, .h1{
             border-bottom: 5px solid @grey;
             padding: 0 1rem 0.25rem;
             margin-left: -16px;
@@ -339,7 +365,17 @@
         }
     }
 
-
+    .compare-container__title{
+        border-bottom: 5px solid @grey;
+        padding: 0 1rem 0.25rem;
+        margin-left: -16px;
+        margin-right: -16px;
+        margin-bottom: 0;
+        max-width: none;
+    }
+    .compare-container__title__icons{
+        display:none;
+    }
 
 }
 

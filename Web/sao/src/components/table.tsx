@@ -261,7 +261,7 @@ const ResultsTable: FunctionComponent = () => {
                     onRow={onRow}>
                 </Table>}
                 {!!isMobile() && (
-                    <div>
+                    <div className="results-table-mobile-controls">
                         <div style={{textAlign: 'center', marginTop: '1rem'}}> Showing <b> {listSize} </b> of <b> {filteredOccupationsList.length} </b> results </div>
                         <Button disabled={listSize === filteredOccupationsList.length} className="results-table-button" block type="primary" onClick={() => loadMore()}>Load More</Button>
                     </div>
