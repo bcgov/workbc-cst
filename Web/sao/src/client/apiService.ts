@@ -66,7 +66,7 @@ async function getIndustryData(filterUrl: string): Promise<IndustryModel[]> {
 }
 
 export function useGetIndustryData(filterType: FilterType) : IndustryDataResponse {
-  const filterUrl = getFilterUrl(filterType); // Fetches the right url to be used in API call
+  const filterUrl = axios.defaults.baseURL? getFilterUrl(filterType): undefined; // Fetches the right url to be used in API call
     const {data, isValidating, error } = useSWR<IndustryModel[]>(filterUrl, () => getIndustryData(filterUrl), {})
   return {data, isValidating, isSettled: !!data || !!error}
 }

@@ -21,10 +21,6 @@ const Dropdowns: FunctionComponent = () => {
 
     const [popOvervisible, setPopOverVisible] = useState(filtersPopOverVisible)
 
-    function getIndustryValues() {
-        return  userSelection.industry.id
-    }
-
     useEffect(()=> {
         if(!!filterOption) {
             setUserSelection(filterOption)
@@ -311,9 +307,9 @@ const Dropdowns: FunctionComponent = () => {
                                         showArrow={true}
                                         className="sao-filters__select"
                                         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-                                        treeData={industryDataTree}
+                                        treeData={isSettled? industryDataTree: undefined}
                                         onChange={handleChangeIndustry}
-                                        value={getIndustryValues()}
+                                        value={userSelection?.industry?.id}
                                         style={{width: '100%'}}
                                         tabIndex={4} />
                             </div>
