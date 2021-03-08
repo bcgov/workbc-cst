@@ -1,4 +1,3 @@
-using System;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,29 +22,14 @@ namespace SearchAllOccupationsToolAPI
         public void ConfigureServices(IServiceCollection services)
         {
 //            var connectionString = Configuration.GetConnectionString("Database");
-            //services.AddDbContext<EducationLevelContext>(op => op.UseSqlServer(connectionString));
-            if (Convert.ToBoolean(Configuration["UseSQL"]))
-            {
-                var connectionString = Configuration.GetConnectionString("Database");
-                services.AddDbContext<GeographicAreasContext>(op => op.UseSqlServer(connectionString));
-                services.AddDbContext<EducationLevelContext>(op => op.UseSqlServer(connectionString));
-                services.AddDbContext<OccupationalGroupContext>(op => op.UseSqlServer(connectionString));
-                services.AddDbContext<OccupationalInterestContext>(op => op.UseSqlServer(connectionString));
-                services.AddDbContext<IndustryContext>(op => op.UseSqlServer(connectionString));
-                services.AddDbContext<FullOrPartTimeContext>(op => op.UseSqlServer(connectionString));
-                services.AddDbContext<OccupationContext>(op => op.UseSqlServer(connectionString));
-            }
-            else
-            {
-                var inMemoryDbName = "SaoInMemoryDb";
-                services.AddDbContext<GeographicAreasContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
-                services.AddDbContext<EducationLevelContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
-                services.AddDbContext<OccupationalGroupContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
-                services.AddDbContext<OccupationalInterestContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
-                services.AddDbContext<IndustryContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
-                services.AddDbContext<FullOrPartTimeContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
-                services.AddDbContext<OccupationContext>(opt => opt.UseInMemoryDatabase(inMemoryDbName));
-            }
+            var connectionString = Configuration.GetConnectionString("Database");
+            services.AddDbContext<GeographicAreasContext>(op => op.UseSqlServer(connectionString));
+            services.AddDbContext<EducationLevelContext>(op => op.UseSqlServer(connectionString));
+            services.AddDbContext<OccupationalGroupContext>(op => op.UseSqlServer(connectionString));
+            services.AddDbContext<OccupationalInterestContext>(op => op.UseSqlServer(connectionString));
+            services.AddDbContext<IndustryContext>(op => op.UseSqlServer(connectionString));
+            services.AddDbContext<FullOrPartTimeContext>(op => op.UseSqlServer(connectionString));
+            services.AddDbContext<OccupationContext>(op => op.UseSqlServer(connectionString));
 
             services.AddCors(options =>
             {

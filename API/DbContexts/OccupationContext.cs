@@ -17,11 +17,5 @@ namespace SearchAllOccupationsToolAPI.DbContexts
             : base(options)
         {
         }
-
-        public bool IsSQLServer
-        {
-            get => Database.IsSqlServer();
-            set { return; }
-        }
     }
 }

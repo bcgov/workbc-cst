@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using SearchAllOccupationsToolAPI.DbContexts;
 using SearchAllOccupationsToolAPI.DbContexts.Interfaces;
 using SearchAllOccupationsToolAPI.Models;
 using SearchAllOccupationsToolAPI.Repositories.Interfaces;
@@ -19,12 +18,9 @@ namespace SearchAllOccupationsToolAPI.Repositories
 
         public List<OccupationalInterest> GetOccupationalInterests()
         {
-            if (_context.IsSQLServer)
-                return _context.OccupationalInterests
-                    .AsNoTracking()
-                    .ToList();
-
-            return ContextHelper.GetPlaceHolderData<OccupationalInterest>("SampleJsonFiles/occupationinterests.json");
+            return _context.OccupationalInterests
+                .AsNoTracking()
+                .ToList();
         }
     }
 }
