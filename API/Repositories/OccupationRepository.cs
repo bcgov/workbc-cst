@@ -149,8 +149,8 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 })
                 .ToList();
 
-            foreach (var occupation in nocList)
-                occupation.Description = GetDescription(occupation.Description);
+            //foreach (var occupation in nocList)
+            //    occupation.Description = GetDescription(occupation.Description);
 
             return nocList;
         }
