@@ -166,6 +166,7 @@ const Dropdowns: FunctionComponent = () => {
     function handleReset() {
         try {
             resetOptions()
+            document.getElementById('reset-filters').blur()
         } catch (error) {
             console.log(error)
         }
@@ -176,6 +177,7 @@ const Dropdowns: FunctionComponent = () => {
         filterApplied()
         setCheckedNocs([])
         setSelectedNoc(undefined)
+        document.getElementById('apply-filters').blur()
         document.getElementById('middle').scrollIntoView()
     }
 
@@ -400,8 +402,8 @@ const Dropdowns: FunctionComponent = () => {
                     <Row className="sao-filters__filter-buttons">
                         <Col xs={24} xl={{span:8, offset:16}}> 
                             <div className="sao-filters__button-layout">
-                                <div className="sao-filters__button sao-filters__button--apply" onClick={applyFilters} onKeyDown={handleSpacebar} tabIndex={9}>Apply</div>
-                                <div className="sao-filters__button sao-filters__button--reset" onClick={handleReset} tabIndex={10}> 
+                                <div className="sao-filters__button sao-filters__button--apply" id='apply-filters' onClick={applyFilters} onKeyDown={handleSpacebar} tabIndex={9}>Apply</div>
+                                <div className="sao-filters__button sao-filters__button--reset" id='reset-filters' onClick={handleReset} tabIndex={10}> 
                                     Clear All
                                     <SyncOutlined /> 
                                 </div>
