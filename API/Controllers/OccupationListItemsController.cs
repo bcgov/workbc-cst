@@ -15,9 +15,9 @@ namespace SearchAllOccupationsToolAPI.Controllers
     {
         private readonly IOccupationRepository _repository;
 
-        public OccupationListItemsController(OccupationContext context, GeographicAreasContext geographicAreasContext)
+        public OccupationListItemsController(OccupationContext context, GeographicAreasContext geographicAreasContext, IndustryContext industryContext)
         {
-            _repository = new OccupationRepository(context, geographicAreasContext);
+            _repository = new OccupationRepository(context, geographicAreasContext, industryContext);
         }
 
         // GET: api/OccupationListItems

@@ -8,13 +8,13 @@
   DTS:Description="SSIS Package to Import Data into WorkBC SAO"
   DTS:DTSID="{CD65F675-A625-454E-A0F5-61E126D2BB98}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LastModifiedProductVersion="15.0.2000.128"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="117"
-  DTS:VersionGUID="{3A5D3017-8ED6-4C3E-8B25-3295C27737B4}">
+  DTS:VersionBuild="119"
+  DTS:VersionGUID="{0F91F05A-531E-43BA-B321-D7CAEBD1CB13}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4259,13 +4259,13 @@ ORDER BY NOC.NOCCode, CPCTV.CareerTrekVideoPosition</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[LOWER](#{Package\Insert Dependencies\Unique Sort.Outputs[Sort Output].Columns[Parent Industry]}) != "all industries"</property>
+                      name="Expression">[LOWER](#{Package\Insert Dependencies\Unique Sort.Outputs[Sort Output].Columns[Parent Industry]}) != ""</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">LOWER([Parent Industry]) != "all industries"</property>
+                      name="FriendlyExpression">LOWER([Parent Industry]) != ""</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -7935,13 +7935,13 @@ where [refTable].[Value] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[LOWER](#{Package\Insert SubDependencies\Sort Ind and Sub.Outputs[Sort Output].Columns[Industry]}) != "all industries"</property>
+                      name="Expression">[LOWER](#{Package\Insert SubDependencies\Sort Ind and Sub.Outputs[Sort Output].Columns[Industry]}) != ""</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">LOWER(Industry) != "all industries"</property>
+                      name="FriendlyExpression">LOWER(Industry) != ""</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -10704,7 +10704,7 @@ where [refTable].[Value] = ?</property>
           Id="Package\Insert Dependencies\Industry Destination"
           TopLeft="14.5,247.5" />
         <NodeLayout
-          Size="135,42"
+          Size="132,42"
           Id="Package\Insert Dependencies\Remove All"
           TopLeft="14,161" />
         <NodeLayout
@@ -10747,7 +10747,7 @@ where [refTable].[Value] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Insert Dependencies.Paths[Sort Output3]"
-          TopLeft="83.5,125">
+          TopLeft="82.75,125">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10769,13 +10769,13 @@ where [refTable].[Value] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Insert Dependencies.Paths[Industry Name]"
-          TopLeft="81.5,203">
+          TopLeft="80,203">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="21,44.5"
+              EndConnector="22.5,44.5"
               Start="0,0"
-              End="21,37">
+              End="22.5,37">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -10786,20 +10786,20 @@ where [refTable].[Value] = ?</property>
                     Point2="0,22.25"
                     Point3="4,22.25" />
                   <mssgle:LineSegment
-                    End="17,22.25" />
+                    End="18.5,22.25" />
                   <mssgle:CubicBezierSegment
-                    Point1="17,22.25"
-                    Point2="21,22.25"
-                    Point3="21,26.25" />
+                    Point1="18.5,22.25"
+                    Point2="22.5,22.25"
+                    Point3="22.5,26.25" />
                   <mssgle:LineSegment
-                    End="21,37" />
+                    End="22.5,37" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-22.89794921875,27.25,66.7958984375,11.609375"
+              BoundingBox="-22.14794921875,27.25,66.7958984375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -10808,8 +10808,8 @@ where [refTable].[Value] = ?</property>
           ParentId="Package\Insert Dependencies"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="201,321"
-          Size="201,364"
+          PanelSize="201,344"
+          Size="201,388"
           Id="f41122fc-586b-45c7-9516-367d05dc6c73"
           TopLeft="55.75,170">
           <GroupLayout.ChildrenIds>

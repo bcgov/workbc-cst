@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using SearchAllOccupationsToolAPI.DbContexts;
 using SearchAllOccupationsToolAPI.DbContexts.Interfaces;
 using SearchAllOccupationsToolAPI.Filters;
 using SearchAllOccupationsToolAPI.Models;
@@ -14,11 +13,13 @@ namespace SearchAllOccupationsToolAPI.Repositories
     {
         private readonly IOccupationContext _context;
         private readonly GeographicAreasRepository _geographicAreasRepository;
+        private readonly IndustryRepository _industryRepository;
 
-        public OccupationRepository(IOccupationContext context, IGeographicAreasContext geographicAreasContext)
+        public OccupationRepository(IOccupationContext context, IGeographicAreasContext geographicAreasContext, IIndustryContext industryContext)
         {
             _context = context;
             _geographicAreasRepository = new GeographicAreasRepository(geographicAreasContext);
+            _industryRepository = new IndustryRepository(industryContext);
         }
 
         public Task<List<OccupationListItem>> GetOccupationsAsync(OccupationSearchFilter filter)
@@ -26,6 +27,10 @@ namespace SearchAllOccupationsToolAPI.Repositories
             // Always force BC if we have no geographic filter set - and look it up if the UI passes "1"
             if (!filter.GeographicAreaId.HasValue || filter.GeographicAreaId < 0 || filter.GeographicAreaId == 1)
                 filter.GeographicAreaId = _geographicAreasRepository.GetBritishColumbiaId();
+
+            // If we want the 'all' option, or we have no Industry filters set, force the 'All' option.
+            if (!filter.IndustryIds.Any() || filter.IndustryIds.FirstOrDefault() < 0 || filter.IndustryIds.FirstOrDefault() == 1)
+                filter.IndustryIds = new List<int> {_industryRepository.GetAllIndustriesId() };
 
             var occupations = _context.JobOpenings
                 .Include(no => no.Noc)
@@ -124,13 +129,8 @@ namespace SearchAllOccupationsToolAPI.Repositories
             if (!nocIds.Any())
                 return new List<Occupation>();
 
-            if (!_context.IsSQLServer)
-            {
-                var occupations = ContextHelper.GetPlaceHolderData<Occupation>("SampleJsonFiles/occupations.json");
-                return occupations.Where(n => nocIds.Contains(n.NOC)).ToList();
-            }
-
             var bcGeographicAreaId = _geographicAreasRepository.GetBritishColumbiaId();
+            var allIndustriesId = _industryRepository.GetAllIndustriesId();
 
             var nocList = _context.NOCs
                 .Where(n => nocIds.Take(3).Contains(n.NocCode))
@@ -144,8 +144,14 @@ namespace SearchAllOccupationsToolAPI.Repositories
                     Education = o.EducationLevel,
                     Description = o.JobOverviewSummary,
                     Income = o.MedianSalary.HasValue ? o.MedianSalary.Value.ToString("C0") : string.Empty,
-                    JobOpenings = o.JobOpenings.Where(jo => jo.GeographicArea.Id == bcGeographicAreaId).Sum(jo => jo.JobOpenings),  // Only want the Sum of the BC values for total
-                    CareerTrekVideoIds = o.NOCVideos.OrderBy(nv => nv.CareerTrekVideoPosition).Select(nv => nv.CareerTrekVideoID).ToList()
+                    JobOpenings = o.JobOpenings
+                        .Where(jo => jo.GeographicArea.Id == bcGeographicAreaId)
+                        .Where(jo => jo.Industry.Id == allIndustriesId)
+                        .Sum(jo => jo.JobOpenings),  // Only want the Sum of the BC values for total
+                    CareerTrekVideoIds = o.NOCVideos
+                        .OrderBy(nv => nv.CareerTrekVideoPosition)
+                        .Select(nv => nv.CareerTrekVideoID)
+                        .ToList()
                 })
                 .ToList();
 

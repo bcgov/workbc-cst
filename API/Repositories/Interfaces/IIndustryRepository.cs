@@ -6,5 +6,6 @@ namespace SearchAllOccupationsToolAPI.Repositories.Interfaces
     public interface IIndustryRepository
     {
         List<Industry> GetIndustries();
+        int GetAllIndustriesId();
     }
 }
