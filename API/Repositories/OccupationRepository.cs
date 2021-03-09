@@ -32,9 +32,11 @@ namespace SearchAllOccupationsToolAPI.Repositories
             if (!filter.IndustryIds.Any() || filter.IndustryIds.FirstOrDefault() < 0 || filter.IndustryIds.FirstOrDefault() == 1)
                 filter.IndustryIds = new List<int> {_industryRepository.GetAllIndustriesId() };
 
+            if (filter.SubIndustryIds.Any() && filter.SubIndustryIds.FirstOrDefault() > 0)
+                filter.IndustryIds = new List<int>();
+
             var occupations = _context.JobOpenings
                 .Include(no => no.Noc)
-//                .ThenInclude(jo => jo.GeographicArea) // We always filter on Geo
                 .AsNoTracking()
                 .AsQueryable();
 
@@ -50,45 +52,14 @@ namespace SearchAllOccupationsToolAPI.Repositories
             if (filter.FullTimeOrPartTimeId > 0)
                 occupations = occupations.Where(o => o.Noc.FullOrPartTime.Id == filter.FullTimeOrPartTimeId);
 
-            if (filter.AnnualSalaryId > 0)
-            {
-                var salaryChoice = (AnnualSalaryValues)filter.AnnualSalaryId;
-
-                switch (salaryChoice)
-                {
-                    case AnnualSalaryValues.LessThan20:
-                        occupations = occupations.Where(o => o.Noc.MedianSalary < 20000);
-                        break;
-                    case AnnualSalaryValues.Between20And40:
-                        occupations = occupations.Where(o => o.Noc.MedianSalary >= 20000 && o.Noc.MedianSalary < 40000);
-                        break;
-                    case AnnualSalaryValues.Between40And60:
-                        occupations = occupations.Where(o => o.Noc.MedianSalary >= 40000 && o.Noc.MedianSalary < 60000);
-                        break;
-                    case AnnualSalaryValues.Between60And80:
-                        occupations = occupations.Where(o => o.Noc.MedianSalary >= 60000 && o.Noc.MedianSalary < 80000);
-                        break;
-                    case AnnualSalaryValues.Between80And100:
-                        occupations = occupations.Where(o => o.Noc.MedianSalary >= 80000 && o.Noc.MedianSalary < 100000);
-                        break;
-                    case AnnualSalaryValues.Between100And120:
-                        occupations = occupations.Where(o => o.Noc.MedianSalary >= 100000 && o.Noc.MedianSalary < 120000);
-                        break;
-                    case AnnualSalaryValues.Between120And140:
-                        occupations = occupations.Where(o => o.Noc.MedianSalary >= 120000 && o.Noc.MedianSalary < 140000);
-                        break;
-                    case AnnualSalaryValues.Over140:
-                        occupations = occupations.Where(o => o.Noc.MedianSalary >= 140000);
-                        break;
-                }
-            }
+            if (filter.AnnualSalaryId > 0) 
+                occupations = FilterAnnualSalary(filter, occupations);
 
             if (filter.GeographicAreaId > 0)
             {
                 occupations = occupations
                     .Include(no => no.GeographicArea);;
                 occupations = occupations.Where(o => o.GeographicArea.Id == filter.GeographicAreaId);
-                // NOCOccupationGroup also has a Geographic Area. Do we filter?
             }
 
             if (filter.IndustryIds.Any())
@@ -159,6 +130,43 @@ namespace SearchAllOccupationsToolAPI.Repositories
             //    occupation.Description = GetDescription(occupation.Description);
 
             return nocList;
+        }
+        
+        private static IQueryable<JobOpening> FilterAnnualSalary(OccupationSearchFilter filter, IQueryable<JobOpening> occupations)
+        {
+            if (filter.AnnualSalaryId == null)
+                return occupations;
+
+            var salaryChoice = (AnnualSalaryValues)filter.AnnualSalaryId;
+            switch (salaryChoice)
+            {
+                case AnnualSalaryValues.LessThan20:
+                    occupations = occupations.Where(o => o.Noc.MedianSalary < 20000);
+                    break;
+                case AnnualSalaryValues.Between20And40:
+                    occupations = occupations.Where(o => o.Noc.MedianSalary >= 20000 && o.Noc.MedianSalary < 40000);
+                    break;
+                case AnnualSalaryValues.Between40And60:
+                    occupations = occupations.Where(o => o.Noc.MedianSalary >= 40000 && o.Noc.MedianSalary < 60000);
+                    break;
+                case AnnualSalaryValues.Between60And80:
+                    occupations = occupations.Where(o => o.Noc.MedianSalary >= 60000 && o.Noc.MedianSalary < 80000);
+                    break;
+                case AnnualSalaryValues.Between80And100:
+                    occupations = occupations.Where(o => o.Noc.MedianSalary >= 80000 && o.Noc.MedianSalary < 100000);
+                    break;
+                case AnnualSalaryValues.Between100And120:
+                    occupations = occupations.Where(o => o.Noc.MedianSalary >= 100000 && o.Noc.MedianSalary < 120000);
+                    break;
+                case AnnualSalaryValues.Between120And140:
+                    occupations = occupations.Where(o => o.Noc.MedianSalary >= 120000 && o.Noc.MedianSalary < 140000);
+                    break;
+                case AnnualSalaryValues.Over140:
+                    occupations = occupations.Where(o => o.Noc.MedianSalary >= 140000);
+                    break;
+            }
+
+            return occupations;
         }
 
         private string GetDescription(string summary, int chopLength = 250)
