@@ -91,7 +91,7 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
             return ({...state, isSorted: false, sortOption: 'High to Low', isFilterApplied: true, isReset: false, selectedNoc: undefined})
 
         case 'reset': 
-            return ({...state, ...defaultFilterState, isReset: true})
+            return ({...state, ...defaultFilterState, isReset: !state.isReset})
         
         default: 
             return state
