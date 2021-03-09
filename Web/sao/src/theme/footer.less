@@ -12,7 +12,7 @@
     //Card or Column Element for tools and resources
     &-card{
         border-right: 2px solid #7d8fa6;
-        padding: 0 2rem 1rem 2rem;
+        padding: 0 1.5rem 1rem 1.5rem;
         height: 100%;
         &__body{
             color:white;
@@ -21,9 +21,14 @@
         }
         &__header {
            color: white;
-           height: 5rem;
-           padding: 0 1.5rem 4rem 1.5rem;
+           height: 2rem;
+           padding: 0 1.5rem 1rem 1.5rem;
+           .largeScreen({          
+                height: 3.75rem;
+                padding: 0 1.5rem 3rem 1.5rem;
+            });
            line-height: 1.5rem;
+           font-size: 1.25rem;
         }
         &--last{
             border:none;
@@ -33,7 +38,12 @@
         }
 
         &__icon {
-            height: 100px;
+            fill: #71829e;
+            fill-opacity: 1;
+            height: 50px;
+            .largeScreen({
+                height: 100px;
+            })
         }
     }
 }
