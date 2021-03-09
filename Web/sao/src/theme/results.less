@@ -398,8 +398,10 @@
         &-link{
             margin: 0 auto;
             max-width: 1200px;
-            padding: 0 24px;
-
+            padding: 0 8px;
+            .largeScreen({
+                padding: 0 24px;
+            });
             .anticon {
                 font-size: 0.7rem;
                 vertical-align: -0.05em;
