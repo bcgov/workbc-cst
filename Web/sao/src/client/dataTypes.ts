@@ -124,3 +124,8 @@ export interface IndustryData {
     key: string,
     children: IndustryData[]
 }
+
+export interface Text {
+    display_text: string, 
+    remaining_text: string
+}

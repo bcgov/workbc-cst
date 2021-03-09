@@ -6,7 +6,7 @@ import {OccupationSummary} from '../client/dataTypes'
 import {useGetOccupationSummary, useGetSystemConfigurations} from '../client/apiService'
 import YouTube from 'react-youtube';
 import useWindowSize from '../client/useWindowSize'
-import { format, getHeaderTitle, titleLength} from '../client/filtersData'
+import { format, getHeaderTitle, titleLength, removeTags} from '../client/filtersData'
 import MediaLinks from './mediaLinks'
 
 const WorkBCLogo = require('../images/workbc-header-logo.svg')
@@ -60,14 +60,6 @@ const CareerPreview: FunctionComponent = () => {
         event.target.pauseVideo();
     }
 
-    function removeTags(str) { 
-        if ((str===null) || (str==='')) 
-            return false; 
-        else
-            str = str.toString();
-        return str.replace( /(<([^>]+)>)/ig, ''); 
-    } 
-
     function getCareerDetail(careerObj: OccupationSummary) {
         return (
             <div className="result-detail">
@@ -77,14 +69,19 @@ const CareerPreview: FunctionComponent = () => {
 
                 <div className="result-detail__header">
                     {getHeaderTitle(careerObj).length > titleLength && !isMobile() && (
-                        <Tooltip trigger={'hover'} 
+                        <div>
+                            <Tooltip trigger={'hover'} 
                                 overlayClassName="result-detail__header-tooltip" 
                                 title={(<div>{careerObj.title} (NOC {careerObj.noc})</div>)} 
                                 placement="bottom">
-                            <div className="result-detail__header-details">
-                                <b>{getHeaderTitle(careerObj)?.title}</b> {getHeaderTitle(careerObj)?.code}
+                                <div className="result-detail__header-details result-detail__header-details-ellipsis">
+                                    <b>{getHeaderTitle(careerObj)?.title}</b> {getHeaderTitle(careerObj)?.code}
+                                </div>
+                            </Tooltip>
+                            <div className="result-detail__header-details-print">
+                                <b>{careerObj.title}</b>  (NOC {careerObj.noc})
                             </div>
-                        </Tooltip>
+                        </div>
                     )}
                     {getHeaderTitle(careerObj)?.length <= titleLength && !isMobile() && (
                         <div className="result-detail__header-details">
@@ -115,7 +112,17 @@ const CareerPreview: FunctionComponent = () => {
                         <div className="result-body__row-right"><b>{format(careerObj.jobOpenings)}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
-                        <div className="result-body__row-ellipsis">{removeTags(careerObj.description)}</div>
+                        <div>
+                            {removeTags(careerObj.description).display_text}
+                            {
+                                removeTags(careerObj.description).remaining_text.length > 0  && (
+                                    <span className="result-body__row-ellipsis">...</span>
+                                )
+                            }
+                            <span className="result-body__row-description">
+                                {removeTags(careerObj.description).remaining_text}
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div className="result-detail__footer">                            

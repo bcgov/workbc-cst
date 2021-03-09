@@ -241,9 +241,15 @@
             height: auto;
             padding: 1rem 0 0;
             &-details{
-                font-family: @font-family;
-                span{
-                    font-family: @font-family-bold;
+                &-ellipsis {
+                    display: none;
+                }
+                &-print {
+                    display: block;
+                    font-family: @font-family;
+                    span{
+                        font-family: @font-family-bold;
+                    }
                 }
             }
 
@@ -287,6 +293,12 @@
             }
             &-right{
                 text-align: left;
+            }
+            &-description{
+                display: inline-block;
+            }
+            &-ellipsis{
+                display: none;
             }
         }
 

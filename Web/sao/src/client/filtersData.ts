@@ -1,4 +1,4 @@
-import {IndustryModel, IndustryData, FilterTypeModel, OccupationSummary} from './dataTypes'
+import {IndustryModel, IndustryData, FilterTypeModel, OccupationSummary, Text} from './dataTypes'
 
 export const titleLength = 70
 
@@ -40,4 +40,13 @@ export function getHeaderTitle(careerObj: OccupationSummary) {
         nocCode = nocCode.slice(0, titleLength - nocTitle.length) + '...'
     }
     return {length: nocTitle.length + nocCode?.length , title: nocTitle, code: nocCode}
+}
+
+export function removeTags(str) : Text { 
+    if ((str===null) || (str==='')) 
+        return str.toString(); 
+    else
+        str = str.toString().replace( /(<([^>]+)>)/ig, '');
+
+    return {display_text: str.slice(0, 250), remaining_text: str.slice(250, str.length)}
 }

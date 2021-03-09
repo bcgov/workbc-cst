@@ -7,7 +7,7 @@ import {useGetOccupationSummary, useGetSystemConfigurations} from '../client/api
 import YouTube from 'react-youtube';
 import { LeftOutlined  } from '@ant-design/icons'
 import useWindowSize from '../client/useWindowSize'
-import { format, getHeaderTitle, titleLength } from '../client/filtersData'
+import { format, getHeaderTitle, titleLength, removeTags } from '../client/filtersData'
 import MediaLinks from './mediaLinks'
 
 const WorkBCLogo = require('../images/workbc-header-logo.svg')
@@ -80,14 +80,19 @@ const CompareCareers: FunctionComponent = () => {
             <div className="result-detail result-detail--compare">
                 <div className="result-detail__header">
                     {getHeaderTitle(careerObj.careerDetail).length > titleLength && !isMobile() && (
-                            <Tooltip trigger={'hover'} 
+                            <div>
+                                <Tooltip trigger={'hover'} 
                                     overlayClassName="result-detail__header-tooltip" 
                                     title={(<div>{careerObj.careerDetail.title} (NOC {careerObj.careerDetail.noc})</div>)} 
                                     placement="bottom">
-                                <div className="result-detail__header-details">
-                                    <b>{getHeaderTitle(careerObj.careerDetail)?.title}</b> {getHeaderTitle(careerObj.careerDetail)?.code}
+                                    <div className="result-detail__header-details result-detail__header-details-ellipsis">
+                                        <b>{getHeaderTitle(careerObj.careerDetail)?.title}</b> {getHeaderTitle(careerObj.careerDetail)?.code}
+                                    </div>
+                                </Tooltip>
+                                <div className="result-detail__header-details-print">
+                                    <b>{careerObj.careerDetail?.title}</b>  (NOC {careerObj.careerDetail?.noc})
                                 </div>
-                            </Tooltip>
+                            </div>
                         )}
                     {getHeaderTitle(careerObj.careerDetail)?.length <= titleLength && !isMobile() && (
                         <div className="result-detail__header-details">
@@ -118,7 +123,15 @@ const CompareCareers: FunctionComponent = () => {
                         <div className="result-body__row-right"><b>{format(careerObj.careerDetail?.jobOpenings)}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
-                        <div className="result-body__row-ellipsis">{removeTags(careerObj.careerDetail?.description)}</div>
+                        <div>{removeTags(careerObj.careerDetail?.description).display_text}</div>
+                        {
+                            removeTags(careerObj.careerDetail?.description).remaining_text.length > 0  && (
+                                <span>...</span>
+                            )
+                        }
+                        <span className="result-body__row-description">
+                            {removeTags(careerObj.careerDetail?.description).remaining_text}
+                        </span>                   
                     </div>
                 </div>
                 <div className="result-detail__footer">                            
@@ -141,14 +154,6 @@ const CompareCareers: FunctionComponent = () => {
                 </div>
             </div>
         )
-    }
-
-    function removeTags(str) { 
-        if ((str===null) || (str==='')) 
-            return false; 
-        else
-            str = str.toString();
-        return str.replace( /(<([^>]+)>)/ig, ''); 
     }
 
     function handlePrintEvent() {
