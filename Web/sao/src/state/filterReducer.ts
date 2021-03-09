@@ -4,11 +4,11 @@ export const defaultFilterOption = {
     region: {id: 1, value: 'British Columbia'}, 
     education: {id: -1, value: 'All'}, 
     occupational_interest: {id: -1, value: 'All'}, 
-    industry: {id: 'All', value: 'All'}, 
+    industry: {id: '-1', value: 'All'}, 
     occupational_group: {id: -1, value: 'All'}, 
     part_time_option: {id: -1, value: 'All'}, 
     annual_salary: {id: -1, value: 'All'},
-    keyword: ""
+    keyword: ''
 }
 
 export const defaultFilterParams = {
@@ -18,7 +18,8 @@ export const defaultFilterParams = {
     IndustryId : -1,
     OccupationalGroupId : -1, 
     FullTimeOrPartTimeId : -1,
-    AnnualSalaryId : -1
+    AnnualSalaryId : -1,
+    Keywords: ''
 }
 
 export interface FilterState {

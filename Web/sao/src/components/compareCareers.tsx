@@ -155,8 +155,20 @@ const CompareCareers: FunctionComponent = () => {
         print();
     }
 
+    function _getCareers() {
+        console.log(`first : ${checkedNocs[0].toString()} , second: ${checkedNocs[1].toString()} and third: ${checkedNocs[2].toString()} ` )
+        return 'compare=' + checkedNocs.map(noc => noc.toString()).join()
+    }
+
     function handleEmailEvent() {
-        console.log(' Email profile ')
+        let link_to_sao = 'The compared careers are available on WorkBC at :' +  window.location.href + _getCareers()
+        let message_text = 'Get all the details you need about the careers, from job duties and wages to projected demand in your region. '
+        
+        let link = "mailto:"
+        + "&subject=" + encodeURIComponent("Search all occupations")
+        + "&body=" + encodeURIComponent(link_to_sao + '\n' + message_text);
+
+        window.location.href = link;
     }
 
     return (
