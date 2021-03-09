@@ -118,7 +118,7 @@ const CompareCareers: FunctionComponent = () => {
                         <div className="result-body__row-right"><b>{format(careerObj.careerDetail?.jobOpenings)}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
-                        <div>{removeTags(careerObj.careerDetail?.description)}</div>
+                        <div className="result-body__row-ellipsis">{removeTags(careerObj.careerDetail?.description)}</div>
                     </div>
                 </div>
                 <div className="result-detail__footer">                            
@@ -156,7 +156,6 @@ const CompareCareers: FunctionComponent = () => {
     }
 
     function _getCareers() {
-        console.log(`first : ${checkedNocs[0].toString()} , second: ${checkedNocs[1].toString()} and third: ${checkedNocs[2].toString()} ` )
         return 'compare=' + checkedNocs.map(noc => noc.toString()).join()
     }
 
