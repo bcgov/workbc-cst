@@ -7,7 +7,7 @@ import CareerPreview from './careerPreview'
 import useWindowSize from '../client/useWindowSize'
 
 const results: FunctionComponent = () => {
-    const { filteredOccupationsList, selectedNoc, checkedNocs, setView, setCheckedNocs } = useFilterContext()
+    const { filterOption, filteredOccupationsList, selectedNoc, checkedNocs, setView, setCheckedNocs } = useFilterContext()
     const [width] = useWindowSize()
 
     function isMobile() {
@@ -18,8 +18,27 @@ const results: FunctionComponent = () => {
         print();
     }
 
+    function _getParams() : string {
+       return   'search=' + 'GeographicAreaId='  + filterOption.region.id.toString() + ',' +
+                'EducationLevelId=' + filterOption.education.id.toString() + ',' +
+                'OccupationalInterestId=' + filterOption.occupational_interest.id.toString() + ',' +
+                'IndustryId=' + filterOption.industry.id.toString() + ',' +
+                'OccupationalGroupId=' + filterOption.occupational_group.id.toString() + ',' +
+                'FullTimeOrPartTimeId=' + filterOption.part_time_option.id.toString() + ',' +
+                'AnnualSalaryId=' + filterOption.annual_salary.id.toString() + ',' +
+                'Keywords=' + filterOption.keyword + ',' +
+                'SelectedNoc=' + selectedNoc
+    }
+
     function handleEmailEvent() {
-        console.log(' Email profile ')
+        let link_to_sao = 'The search results are available on WorkBC at :' +  window.location.href + _getParams()
+        let message_text = 'Get all the details you need about the careers, from job duties and wages to projected demand in your region. '
+        
+        let link = "mailto:"
+        + "&subject=" + encodeURIComponent("Search all occupations")
+        + "&body=" + encodeURIComponent(link_to_sao + '\n' + message_text);
+
+        window.location.href = link;
     }
 
     return (

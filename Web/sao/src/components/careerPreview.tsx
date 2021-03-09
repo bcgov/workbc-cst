@@ -115,7 +115,7 @@ const CareerPreview: FunctionComponent = () => {
                         <div className="result-body__row-right"><b>{format(careerObj.jobOpenings)}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
-                        <div>{removeTags(careerObj.description)}</div>
+                        <div className="result-body__row-ellipsis">{removeTags(careerObj.description)}</div>
                     </div>
                 </div>
                 <div className="result-detail__footer">                            

@@ -12,7 +12,7 @@ const SAOTool:FunctionComponent = () => {
   const {view} = useFilterContext()
 
   return (
-      <div>
+    <div>
         <Helmet title={'WorkBC - Career Search Tool'}></Helmet>
         {view === 'results'? <Dropdowns /> : view === 'careerPreview' ? <CareerPreview /> : <CompareCareers />}
       </div>

@@ -118,7 +118,7 @@ const CompareCareers: FunctionComponent = () => {
                         <div className="result-body__row-right"><b>{format(careerObj.careerDetail?.jobOpenings)}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
-                        <div>{removeTags(careerObj.careerDetail?.description)}</div>
+                        <div className="result-body__row-ellipsis">{removeTags(careerObj.careerDetail?.description)}</div>
                     </div>
                 </div>
                 <div className="result-detail__footer">                            
@@ -155,8 +155,19 @@ const CompareCareers: FunctionComponent = () => {
         print();
     }
 
+    function _getCareers() {
+        return 'compare=' + checkedNocs.map(noc => noc.toString()).join()
+    }
+
     function handleEmailEvent() {
-        console.log(' Email profile ')
+        let link_to_sao = 'The compared careers are available on WorkBC at :' +  window.location.href + _getCareers()
+        let message_text = 'Get all the details you need about the careers, from job duties and wages to projected demand in your region. '
+        
+        let link = "mailto:"
+        + "&subject=" + encodeURIComponent("Search all occupations")
+        + "&body=" + encodeURIComponent(link_to_sao + '\n' + message_text);
+
+        window.location.href = link;
     }
 
     return (
