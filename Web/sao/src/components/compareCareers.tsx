@@ -123,15 +123,17 @@ const CompareCareers: FunctionComponent = () => {
                         <div className="result-body__row-right"><b>{format(careerObj.careerDetail?.jobOpenings)}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
-                        <div>{removeTags(careerObj.careerDetail?.description).display_text}</div>
-                        {
-                            removeTags(careerObj.careerDetail?.description).remaining_text.length > 0  && (
-                                <span>...</span>
-                            )
-                        }
-                        <span className="result-body__row-description">
-                            {removeTags(careerObj.careerDetail?.description).remaining_text}
-                        </span>                   
+                       <div>
+                            {removeTags(careerObj.careerDetail?.description).display_text}
+                            {
+                                removeTags(careerObj.careerDetail?.description).remaining_text.length > 0  && (
+                                    <span className="result-body__row-ellipsis">...</span>
+                                )
+                            }
+                            <span className="result-body__row-description">
+                                {removeTags(careerObj.careerDetail?.description).remaining_text}
+                            </span>  
+                        </div>                 
                     </div>
                 </div>
                 <div className="result-detail__footer">                            
