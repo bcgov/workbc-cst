@@ -1,5 +1,5 @@
 import React, { FunctionComponent, Key, useEffect, useState } from 'react'
-import { Input, Row, Col, Button, TreeSelect, Popover} from 'antd'
+import { Input, Row, Col, TreeSelect, Popover} from 'antd'
 import { SyncOutlined, QuestionCircleFilled, CheckCircleFilled } from '@ant-design/icons'
 import SelectFilterType from './wbSelectFilterType'
 import { FilterType, FilterOptionModel, IndustryData } from '../client/dataTypes'
@@ -165,6 +165,7 @@ const Dropdowns: FunctionComponent = () => {
 
     function handleReset() {
         try {
+            setUserSelection(defaultFilterOption)
             resetOptions()
             document.getElementById('reset-filters').blur()
         } catch (error) {
