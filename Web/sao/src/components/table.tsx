@@ -136,7 +136,8 @@ const ResultsTable: FunctionComponent = () => {
         </div>
     )
 
-    const DownSortIcon = () => (
+    const DownSortIcon: FunctionComponent = () => { 
+        return (
         <span role="img" aria-label="down" className="anticon anticon-down downicon">
             <svg version="1.1" width="25px" height="16px" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -150,7 +151,7 @@ const ResultsTable: FunctionComponent = () => {
                 </g>
             </svg>
         </span>
-      );
+      )};
 
     const title = (<b> SORT BY: </b>)
 
