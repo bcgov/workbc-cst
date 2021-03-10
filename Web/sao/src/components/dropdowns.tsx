@@ -174,10 +174,8 @@ const Dropdowns: FunctionComponent = () => {
     }
 
     function applyFilters() {
-        setFilterOption(userSelection)
         filterApplied()
-        setCheckedNocs([])
-        setSelectedNoc(undefined)
+        setFilterOption(userSelection)
         document.getElementById('apply-filters').blur()
         document.getElementById('middle').scrollIntoView()
     }

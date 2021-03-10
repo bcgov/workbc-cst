@@ -70,7 +70,9 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
         state.sortOption === 'Low to High'? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings < b.jobOpenings ? -1 : 1 }):
         state.sortOption === 'A-Z'? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.title < b.title ? -1 : 1 }): 
         state.sortOption === 'Z-A'? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.title > b.title ? -1 : 1 }): action.payload    
-        return ({...state, filteredOccupationsList: action.payload, selectedNoc: !!state.selectedNoc? state.selectedNoc : action.payload[0]?.noc})
+        /* selectedNoc will be updated to first item is 'High to Low' sorted list of filtered Occupational List on intial load 
+         and on every 'apply' action and selcted Noc will be retained on sorting */
+        return ({...state, filteredOccupationsList: action.payload, selectedNoc: !!state.isFilterApplied? action.payload[0]?.noc : (!!state.selectedNoc? state.selectedNoc : action.payload[0]?.noc)})
         
         case 'set-list-size': 
             return ({...state, listSize: action.payload})
@@ -94,7 +96,7 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
             return ({...state, isSorted: true, isFilterApplied: false, sortOption: action.payload, isReset: false})
 
         case 'apply-filter': 
-            return ({...state, isSorted: false, sortOption: 'High to Low', isFilterApplied: true, isReset: false, selectedNoc: undefined})
+            return ({...state, isSorted: false, sortOption: 'High to Low', isFilterApplied: true, isReset: false, selectedNoc: undefined, checkedNocs: []})
 
         case 'reset': 
             return ({...state, ...defaultFilterState, isReset: !state.isReset})
