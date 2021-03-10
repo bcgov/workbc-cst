@@ -27,7 +27,7 @@ const ResultsTable: FunctionComponent = () => {
     }
 
     useEffect(() => {
-        if(!isSorted) setListSize(isMobile() ? (filteredOccupationsList.length < 10 ? filteredOccupationsList.length : 10): filteredOccupationsList.length)
+        setListSize(isMobile() ? (filteredOccupationsList.length < 10 ? filteredOccupationsList.length : 10): filteredOccupationsList.length)
     }, [width, isReset, filteredOccupationsList])
 
     useEffect(() => {
