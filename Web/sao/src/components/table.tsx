@@ -10,8 +10,8 @@ import useWindowSize from '../client/useWindowSize'
 import { format } from '../client/filtersData'
 
 const ResultsTable: FunctionComponent = () => {
-    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc, isSorted, isFilterApplied,
-        setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs, setView } = useFilterContext()
+    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc, isSorted, isFilterApplied, listSize,
+        setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs, setView, setListSize } = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const [nameSortVisible, setNameSortVisible] = useState<boolean>(false)
@@ -19,7 +19,6 @@ const ResultsTable: FunctionComponent = () => {
     const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
 
     const [extraSelection, setExtraSelection] = useState<string>()
-    const [listSize, setListSize] = useState(filteredOccupationsList.length < 10 ? filteredOccupationsList.length : 10)
     const [width] = useWindowSize()
     
     function isMobile() {
@@ -27,7 +26,9 @@ const ResultsTable: FunctionComponent = () => {
     }
 
     useEffect(() => {
-        setListSize(isMobile() ? (filteredOccupationsList.length < 10 ? filteredOccupationsList.length : 10): filteredOccupationsList.length)
+        if(listSize === 0) {
+            setListSize(isMobile() ? (filteredOccupationsList.length < 10 ? filteredOccupationsList.length : 10): filteredOccupationsList.length)
+        }
     }, [width, isReset, filteredOccupationsList])
 
     useEffect(() => {
@@ -53,12 +54,10 @@ const ResultsTable: FunctionComponent = () => {
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title < b.title ? -1 : 1 }))               
                 break
             case 'Z-A':
-                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title > b.title ? -1 : 1 }))               
-                
+                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title > b.title ? -1 : 1 }))
                 break
             case 'High to Low':
-                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings > b.jobOpenings ? -1 : 1 }))               
-               
+                setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings > b.jobOpenings ? -1 : 1 }))
                 break
             case 'Low to High':
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings < b.jobOpenings ? -1 : 1 }))
