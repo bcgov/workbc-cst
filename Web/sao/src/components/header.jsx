@@ -1,8 +1,17 @@
-import React from 'react';
+import React , {useState, useEffect} from 'react';
 import WorkBCLogo from '../images/workbc-header-logo.svg'
-import HeroImage from '../images/hero-image.png'
+import {useGetSystemConfigurations} from '../client/apiService'
 
 function Header() {
+	const [backgroundImagesPath, setBackgroundImagesPath] = useState('')
+	const {data: bgPathData, isValidating: isFetchingBgPath, isSettled: isBgPathFetched } = useGetSystemConfigurations({name: "BackgroundImagesPath"})
+	
+	useEffect(() => {
+        if(!isFetchingBgPath && isBgPathFetched && bgPathData) {
+            setBackgroundImagesPath(bgPathData.value)
+        }
+    }, [isFetchingBgPath, isBgPathFetched])
+
 	return (
 		<>
 		<div className="header">
@@ -15,7 +24,7 @@ function Header() {
 			</div>
 			{/* Header Hero Image */}
 			<div className="header__hero" style={{
-				backgroundImage: "url(" + HeroImage + ")"}}>
+				backgroundImage: "url(" +  backgroundImagesPath + "hero-image.png" + ")"}}>
 				<div className="container">
 					<div className="header__hero-text">
 						<div className="header__hero-text--header">
