@@ -12,8 +12,7 @@ export interface FilterState {
     checkedNocs: string[],
     isSorted: boolean,
     sortOption: string,
-    returnToResults: boolean,
-    listSize: number,
+    returnToResults: boolean
 }
 export interface FilterContextProps extends FilterState {
     setFilterOption: (filterOptions: FilterOptionModel) => void,
@@ -24,8 +23,7 @@ export interface FilterContextProps extends FilterState {
     resetOptions: () => void,
     setCheckedNocs: (value: string[]) => void,
     setSortOption: (value: string) => void,
-    setReturnToResults: (value: boolean) => void,
-    setListSize: (value: number) => void
+    setReturnToResults: (value: boolean) => void
 }
 
 const FilterContext = createContext<FilterContextProps>({
@@ -39,7 +37,6 @@ const FilterContext = createContext<FilterContextProps>({
     isSorted: false,
     returnToResults: false,
     sortOption: 'High to Low',
-    listSize: 0,
     setFilterOption: () => {},
     filterApplied: () => {},
     resetOptions: () => {},
@@ -48,15 +45,14 @@ const FilterContext = createContext<FilterContextProps>({
     setView: () => {},
     setCheckedNocs: () =>{},
     setSortOption: () => {},
-    setReturnToResults: () => {},
-    setListSize: () => {}
+    setReturnToResults: () => {}
 })
 
 FilterContext.displayName = 'FilterContext'
 
 const FilterContextProvider: FunctionComponent = ({children}) => {
-    const [{filterOption, filteredOccupationsList, selectedNoc, view, isFilterApplied, isReset, listSize,
-         checkedNocs, isSorted, sortOption, returnToResults}, dispatch] = useReducer(reducer, defaultFilterState)
+    const [{filterOption, filteredOccupationsList, selectedNoc, view, isFilterApplied, isReset, checkedNocs, isSorted, sortOption, returnToResults}, 
+        dispatch] = useReducer(reducer, defaultFilterState)
 
     async function setFilterOption(filterOptions: FilterOptionModel) {
         try {
@@ -122,14 +118,6 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
         }
     }
 
-    async function setListSize(value: number) {
-        try {
-            dispatch({type: 'set-list-size', payload: value})
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
     return (
         <FilterContext.Provider 
             value = {{ 
@@ -143,7 +131,6 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
                 isSorted,
                 sortOption,
                 returnToResults,
-                listSize,
                 setSelectedNoc,
                 setFilterOption,
                 filterApplied, 
@@ -152,8 +139,7 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
                 setFilteredOccupationsList, 
                 setSortOption,
                 setCheckedNocs, 
-                setReturnToResults,
-                setListSize }}> 
+                setReturnToResults }}> 
             {children}
         </FilterContext.Provider>
     )
