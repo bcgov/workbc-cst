@@ -10,8 +10,8 @@ import useWindowSize from '../client/useWindowSize'
 import { format } from '../client/filtersData'
 
 const ResultsTable: FunctionComponent = () => {
-    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc, isSorted, isFilterApplied,
-        setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs, setView } = useFilterContext()
+    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc, isSorted, isFilterApplied, listSize,
+        setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs, setView, setListSize } = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const [nameSortVisible, setNameSortVisible] = useState<boolean>(false)
@@ -19,7 +19,6 @@ const ResultsTable: FunctionComponent = () => {
     const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
 
     const [extraSelection, setExtraSelection] = useState<string>()
-    const [listSize, setListSize] = useState(filteredOccupationsList.length < 10 ? filteredOccupationsList.length : 10)
     const [width] = useWindowSize()
     
     function isMobile() {
@@ -27,8 +26,8 @@ const ResultsTable: FunctionComponent = () => {
     }
 
     useEffect(() => {
-        setListSize(isMobile() ? (filteredOccupationsList.length < 10 ? filteredOccupationsList.length : 10): filteredOccupationsList.length)
-    }, [width, isReset, filteredOccupationsList])
+        setListSize(filteredOccupationsList.length < 10 ? filteredOccupationsList.length : listSize > 10 ? listSize : 10)
+    }, [filteredOccupationsList])
 
     useEffect(() => {
         if (!!filterOption && !isReset) {
@@ -246,25 +245,42 @@ const ResultsTable: FunctionComponent = () => {
         listSize + 10 < filteredOccupationsList.length ? setListSize(listSize + 10) : setListSize(filteredOccupationsList.length)
     }
 
-    function getDatasource() {
+    function getMobileDatasource() {
         let size = listSize < filteredOccupationsList.length ? listSize : filteredOccupationsList.length
         return filteredOccupationsList.length > 0? filteredOccupationsList.slice(0,size): [{ id: -1, noc: '', title: '', jobOpenings: undefined}]
     }
 
+    function getTableDatasource() {
+        return filteredOccupationsList.length > 0? filteredOccupationsList: [{ id: -1, noc: '', title: '', jobOpenings: undefined}]
+    }
+
     return (<div className="results-table">
-                {<Table
-                    rowClassName={'ant-table-row-light'}
-                    columns={columns}
-                    dataSource={getDatasource()}
-                    rowKey="noc"
-                    pagination={false}
-                    scroll={ moreThanOneResult() ? !isMobile() ? { y: 622 } : undefined : undefined }
-                    onRow={onRow}>
-                </Table>}
+                {!isMobile() && (
+                    <Table
+                        rowClassName={'ant-table-row-light'}
+                        columns={columns}
+                        dataSource={getTableDatasource()}
+                        rowKey="noc"
+                        pagination={false}
+                        scroll={ moreThanOneResult() ? !isMobile() ? { y: 622 } : undefined : undefined }
+                        onRow={onRow}>
+                    </Table>
+                )}
                 {!!isMobile() && (
-                    <div className="results-table-mobile-controls">
-                        <div style={{textAlign: 'center', marginTop: '1rem'}}> Showing <b> {listSize} </b> of <b> {filteredOccupationsList.length} </b> results </div>
-                        <Button disabled={listSize === filteredOccupationsList.length} className="results-table-button" block type="primary" onClick={() => loadMore()}>Load More</Button>
+                    <div>
+                        <Table
+                            rowClassName={'ant-table-row-light'}
+                            columns={columns}
+                            dataSource={getMobileDatasource()}
+                            rowKey="noc"
+                            pagination={false}
+                            scroll={ moreThanOneResult() ? !isMobile() ? { y: 622 } : undefined : undefined }
+                            onRow={onRow}>
+                        </Table>
+                        <div className="results-table-mobile-controls">
+                            <div style={{textAlign: 'center', marginTop: '1rem'}}> Showing <b> {listSize} </b> of <b> {filteredOccupationsList.length} </b> results </div>
+                            <Button disabled={listSize === filteredOccupationsList.length} className="results-table-button" block type="primary" onClick={() => loadMore()}>Load More</Button>
+                        </div>
                     </div>
                 )}
         </div>)

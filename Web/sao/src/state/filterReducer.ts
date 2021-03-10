@@ -25,6 +25,7 @@ export const defaultFilterParams = {
 export interface FilterState {
     filterOption?: FilterOptionModel,
     filteredOccupationsList? : OccupationModel[],
+    listSize: number,
     selectedNoc: string,
     view: string,
     isFilterApplied: boolean,
@@ -38,6 +39,7 @@ export interface FilterState {
 export const defaultFilterState: FilterState = Object.freeze({
     filterOption: defaultFilterOption,
     filteredOccupationsList: [],
+    listSize: 0,
     selectedNoc: undefined,
     view: 'results',
     isFilterApplied: false,
@@ -50,6 +52,7 @@ export const defaultFilterState: FilterState = Object.freeze({
 
 export type FilterAction = 
 {type: 'set-filtered-occupation-list', payload: OccupationModel[] | undefined } |
+{type: 'set-list-size', payload: number} |
 {type: 'set-selected-noc', payload: string} |
 {type: 'set-filter-options', payload: FilterOptionModel} |
 {type: 'set-view', payload: string} |
@@ -68,6 +71,9 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
         state.sortOption === 'A-Z'? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.title < b.title ? -1 : 1 }): 
         state.sortOption === 'Z-A'? action.payload.sort((a: OccupationModel, b: OccupationModel ) => {return a.title > b.title ? -1 : 1 }): action.payload    
         return ({...state, filteredOccupationsList: action.payload, selectedNoc: !!state.selectedNoc? state.selectedNoc : action.payload[0]?.noc})
+        
+        case 'set-list-size': 
+            return ({...state, listSize: action.payload})
         
         case 'set-selected-noc':
             return ({...state, selectedNoc: action.payload, isFilterApplied: false, isReset: false})

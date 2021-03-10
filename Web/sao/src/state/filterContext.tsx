@@ -4,7 +4,8 @@ import { defaultFilterState, reducer, defaultFilterOption } from './filterReduce
 
 export interface FilterState {
     filterOption? : FilterOptionModel
-    filteredOccupationsList? : OccupationModel[] 
+    filteredOccupationsList? : OccupationModel[],
+    listSize: number, 
     selectedNoc : string,
     view: string,
     isFilterApplied: boolean,
@@ -17,6 +18,7 @@ export interface FilterState {
 export interface FilterContextProps extends FilterState {
     setFilterOption: (filterOptions: FilterOptionModel) => void,
     setFilteredOccupationsList: (occupationsList: OccupationModel[]) => void,
+    setListSize: (value: number) => void,
     setSelectedNoc: (nocId: string) => void,
     setView: (value: string) => void,
     filterApplied: () => void,
@@ -29,6 +31,7 @@ export interface FilterContextProps extends FilterState {
 const FilterContext = createContext<FilterContextProps>({
     filterOption: defaultFilterOption,
     filteredOccupationsList: [],
+    listSize: 0,
     selectedNoc: undefined,
     view: 'results',
     isFilterApplied: true,
@@ -41,6 +44,7 @@ const FilterContext = createContext<FilterContextProps>({
     filterApplied: () => {},
     resetOptions: () => {},
     setFilteredOccupationsList: () => {},
+    setListSize: () => {},
     setSelectedNoc: () => {},
     setView: () => {},
     setCheckedNocs: () =>{},
@@ -51,8 +55,8 @@ const FilterContext = createContext<FilterContextProps>({
 FilterContext.displayName = 'FilterContext'
 
 const FilterContextProvider: FunctionComponent = ({children}) => {
-    const [{filterOption, filteredOccupationsList, selectedNoc, view, isFilterApplied, isReset, checkedNocs, isSorted, sortOption, returnToResults}, 
-        dispatch] = useReducer(reducer, defaultFilterState)
+    const [{filterOption, filteredOccupationsList, listSize, selectedNoc, view, isFilterApplied, isReset, checkedNocs, isSorted,
+         sortOption, returnToResults}, dispatch] = useReducer(reducer, defaultFilterState)
 
     async function setFilterOption(filterOptions: FilterOptionModel) {
         try {
@@ -66,6 +70,14 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
         try {
             dispatch({ type: 'set-filtered-occupation-list', payload: occupationList})
         } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async function setListSize(size: number) {
+        try {
+            dispatch({type: 'set-list-size', payload: size})
+        } catch(error) {
             console.log(error)
         }
     }
@@ -123,6 +135,7 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
             value = {{ 
                 filterOption,
                 filteredOccupationsList, 
+                listSize,
                 selectedNoc,
                 view,
                 isFilterApplied,
@@ -137,6 +150,7 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
                 resetOptions, 
                 setView,
                 setFilteredOccupationsList, 
+                setListSize,
                 setSortOption,
                 setCheckedNocs, 
                 setReturnToResults }}> 
