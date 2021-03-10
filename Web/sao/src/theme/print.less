@@ -5,6 +5,9 @@
     .header__hero-text--header .desktop{
         display:block;
     }
+    .desktop {
+        padding-bottom: 2rem
+    }
     html, body, .compare-careers{background-color: transparent;}
     body {
     }
@@ -174,8 +177,13 @@
         &-cell-scrollbar{
             display:none;
         } 
-        .table-header__icon {
-            display:none;
+        .table-header{
+            &__icon {
+                display:none;
+            }
+            &__title {
+                font-size: 1.2rem;
+            }
         }
     }
 
@@ -216,9 +224,10 @@
         }
     }
     .result-detail{
-        margin: 1rem 0 0;
+        margin: 1rem 0 0 0;
         max-width: none;
         &__printtitle{
+            margin-top: 3rem;
             display: block;
             font-family: @font-family-bold;
             font-size: 1.5rem;
@@ -377,7 +386,7 @@
         }
     }
 
-    .compare-container__title{
+    .compare-container__title {
         border-bottom: 5px solid @grey;
         padding: 0 1rem 0.25rem;
         margin-left: -16px;
@@ -385,9 +394,12 @@
         margin-bottom: 0;
         max-width: none;
     }
-    .compare-container__title__icons{
+    .compare-container__title__icons {
         display:none;
     }
 
+    .preview-career__header-icons {
+        display: none;
+    }
 }
 
