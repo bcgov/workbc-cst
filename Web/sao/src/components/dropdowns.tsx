@@ -215,7 +215,7 @@ const Dropdowns: FunctionComponent = () => {
             <div className="sao-filters-header">
                 <div className="container">
                     <Row><Col span={24}>
-                        <div className="sao-filters-header__content">Find a career that's right for you</div>
+                        <div className="sao-filters-header__content"><span>Find a career that's right for you.</span></div>
                     </Col></Row>
                 </div>
             </div>
