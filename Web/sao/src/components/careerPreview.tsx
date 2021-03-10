@@ -1,6 +1,6 @@
 import React, {FunctionComponent, useState, useEffect} from 'react'
 import {Button, Tooltip} from 'antd'
-import { LeftOutlined  } from '@ant-design/icons'
+import { LeftOutlined, PrinterFilled, MailFilled  } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import {OccupationSummary} from '../client/dataTypes'
 import {useGetOccupationSummary, useGetSystemConfigurations} from '../client/apiService'
@@ -59,6 +59,26 @@ const CareerPreview: FunctionComponent = () => {
     function _onReady(event) {
         event.target.pauseVideo();
     }
+
+    function handlePrintEvent() {
+        print();
+    }
+
+    function _getCareer() {
+        return 'preview=' + selectedNoc
+    }
+
+    function handleEmailEvent() {
+        let link_to_sao = 'The selected career is available on WorkBC at :' +  window.location.href + _getCareer()
+        let message_text = 'Get all the details you need about the career, from job duties and wages to projected demand in your region. '
+        
+        let link = "mailto:"
+        + "&subject=" + encodeURIComponent("Search all occupations")
+        + "&body=" + encodeURIComponent(link_to_sao + '\n' + message_text);
+
+        window.location.href = link;
+    }
+
 
     function getCareerDetail(careerObj: OccupationSummary) {
         return (
@@ -163,6 +183,10 @@ const CareerPreview: FunctionComponent = () => {
             { !!isMobile() && (
                 <div className="preview-career__header">
                     <div>Career Preview</div>
+                    <div className="preview-career__header-icons">
+                        <div><PrinterFilled onClick={handlePrintEvent} style={{color: "#355992", margin: '0 0.5rem'}}/></div>
+                        <div><MailFilled onClick={handleEmailEvent} style={{color: "#355992",  margin: '0 0.5rem'}}/></div>
+                    </div>
                 </div>
             )}
             { !!careerDetail && filteredOccupationsList.length > 0 && getCareerDetail(careerDetail)} 

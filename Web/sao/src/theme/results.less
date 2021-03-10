@@ -317,9 +317,19 @@
         margin: 0;
         padding: 20px 10px;
         padding-bottom: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         div {
             font-size: 26px;
             color: @primary-color;
+        }
+        &-icons {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-left: auto;
+            justify-content: flex-end;
         }
     }
     .back-to-home {
