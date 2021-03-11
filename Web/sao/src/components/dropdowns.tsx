@@ -14,8 +14,10 @@ import Footer from './footer'
 const Dropdowns: FunctionComponent = () => {
     const { data: industryData, isValidating, isSettled } = useGetIndustryData(FilterType.industry)
     const [industryDataTree, setIndustryDataTree] = useState<IndustryData[]>()
+    
+    const [openNodes, setOpenNodes] = useState([])
 
-    const {filterOption, returnToResults, isReset, setFilterOption, filterApplied, resetOptions, setSelectedNoc, setCheckedNocs} = useFilterContext()
+    const {filterOption, returnToResults, isReset, setFilterOption, filterApplied, resetOptions} = useFilterContext()
 
     const [userSelection, setUserSelection] = useState<FilterOptionModel>(defaultFilterOption)
 
@@ -118,6 +120,14 @@ const Dropdowns: FunctionComponent = () => {
         } else {
             setUserSelection({...userSelection, industry: {id: 'All', value: 'All'}})
         }
+    }
+
+    function handleOpenDropdown() {
+        setOpenNodes([])
+    }
+
+    function handleExpandNode(keys) {
+        setOpenNodes([...openNodes, ...keys])
     }
 
     function handleChangeOccupationalGroup(value: Key, options: any) {
@@ -310,6 +320,9 @@ const Dropdowns: FunctionComponent = () => {
                                         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
                                         treeData={isSettled? industryDataTree: undefined}
                                         onChange={handleChangeIndustry}
+                                        onDropdownVisibleChange	= {handleOpenDropdown}
+                                        treeExpandedKeys={openNodes}
+                                        onTreeExpand = {handleExpandNode}
                                         value={userSelection?.industry?.id}
                                         style={{width: '100%'}}
                                         tabIndex={4} />
