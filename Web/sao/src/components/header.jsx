@@ -8,7 +8,7 @@ function Header() {
 	
 	useEffect(() => {
         if(!isFetchingBgPath && isBgPathFetched) {
-            setBackgroundImagesPath(bgPathData.value)
+            setBackgroundImagesPath(bgPathData?.value)
         }
     }, [isFetchingBgPath, isBgPathFetched])
 
