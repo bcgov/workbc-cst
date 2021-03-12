@@ -19,24 +19,24 @@ const results: FunctionComponent = () => {
     }
 
     function _getParams() : string {
-       return   'search=' + 'GeographicAreaId='  + filterOption.region.id.toString() + ',' +
-                'EducationLevelId=' + filterOption.education.id.toString() + ',' +
-                'OccupationalInterestId=' + filterOption.occupational_interest.id.toString() + ',' +
-                'IndustryId=' + filterOption.industry.id.toString() + ',' +
-                'OccupationalGroupId=' + filterOption.occupational_group.id.toString() + ',' +
-                'FullTimeOrPartTimeId=' + filterOption.part_time_option.id.toString() + ',' +
-                'AnnualSalaryId=' + filterOption.annual_salary.id.toString() + ',' +
-                'Keywords=' + filterOption.keyword + ',' +
-                'SelectedNoc=' + selectedNoc
+       return   'search?' + 'region='  + filterOption.region.id.toString() + ':' + filterOption.region.value + '#' +
+                'education=' + filterOption.education.id.toString() + ':' + filterOption.education.value + '#' +
+                'occupational_interest=' + filterOption.occupational_interest.id.toString() + ':' + filterOption.occupational_interest.value + '#' +
+                'industry=' + filterOption.industry.id.toString() + ':' + filterOption.industry.value + '#' +
+                'occupational_group=' + filterOption.occupational_group.id.toString() + ':' + filterOption.occupational_group.value + '#' +
+                'part_time_option=' + filterOption.part_time_option.id.toString() + ':' + filterOption.part_time_option.value + '#' +
+                'annual_salary=' + filterOption.annual_salary.id.toString() + ':' + filterOption.annual_salary.value + '#' +
+                'Keywords=' + filterOption.keyword + '#' +
+                'selectedNoc=' + selectedNoc
     }
 
     function handleEmailEvent() {
-        let link_to_sao = 'The search results are available on WorkBC at :' +  window.location.href + _getParams()
-        let message_text = 'Get all the details you need about the careers, from job duties and wages to projected demand in your region. '
+        let link_to_sao = 'The search results are available on WorkBC at :' +  window.location.href + encodeURIComponent(_getParams())
+        let message_text = ' Get all the details you need about the careers, from job duties and wages to projected demand in your region. '
         
         let link = "mailto:"
         + "&subject=" + encodeURIComponent("Search all occupations")
-        + "&body=" + encodeURIComponent(link_to_sao + '\n' + message_text);
+        + "&body=" + encodeURIComponent(link_to_sao) + '\n' + message_text;
 
         window.location.href = link;
     }

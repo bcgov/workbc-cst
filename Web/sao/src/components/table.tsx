@@ -10,7 +10,7 @@ import useWindowSize from '../client/useWindowSize'
 import { format } from '../client/filtersData'
 
 const ResultsTable: FunctionComponent = () => {
-    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc, isSorted, isFilterApplied, listSize,
+    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc, listSize,
         setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs, setView, setListSize } = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
@@ -255,6 +255,7 @@ const ResultsTable: FunctionComponent = () => {
                         columns={columns}
                         dataSource={getTableDatasource()}
                         rowKey="noc"
+                        loading = {!!isValidating && !isSettled}
                         pagination={false}
                         scroll={ moreThanOneResult() ? !isMobile() ? { y: 622 } : undefined : undefined }
                         onRow={onRow}>

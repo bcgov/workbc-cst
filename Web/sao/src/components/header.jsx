@@ -7,7 +7,7 @@ function Header() {
 	const {data: bgPathData, isValidating: isFetchingBgPath, isSettled: isBgPathFetched } = useGetSystemConfigurations({name: "BackgroundImagesPath"})
 	
 	useEffect(() => {
-        if(!isFetchingBgPath && isBgPathFetched && bgPathData) {
+        if(!isFetchingBgPath && isBgPathFetched) {
             setBackgroundImagesPath(bgPathData.value)
         }
     }, [isFetchingBgPath, isBgPathFetched])
