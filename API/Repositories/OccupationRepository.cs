@@ -114,7 +114,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
                     Title = o.Description,
                     Education = o.EducationLevel,
                     Description = o.JobOverviewSummary,
-                    Income = o.MedianSalary.HasValue ? o.MedianSalary.Value.ToString("C0") : string.Empty,
+                    Income = o.MedianSalary.HasValue && o.MedianSalary.Value > 0 ? o.MedianSalary.Value.ToString("C0") : "Data Not Available",
                     JobOpenings = o.JobOpenings
                         .Where(jo => jo.GeographicArea.Id == bcGeographicAreaId)
                         .Where(jo => jo.Industry.Id == allIndustriesId)
