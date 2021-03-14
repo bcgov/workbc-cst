@@ -46,10 +46,12 @@
         }
     }
     .compare-buttons{
-        width: 75%;
+        width: 100%;
+        order: 1;
 
         .extraSmallScreen({
             width: 78%;
+            order: 0;
         });
         .smallScreen({
             width: 85%;
@@ -58,8 +60,10 @@
             width: auto;
         });
         button{
-            width: 100%;
+            width: calc(50% - 4px);
             border-width: 2px;
+            padding: 0;
+            
             .extraSmallScreen({
                 width: calc(50% - 4px);
             });
@@ -92,14 +96,20 @@
     
     //Print Email Icons 
     .print-email-buttons{
-        padding: 0;
-        margin: auto;
+        order: 0;
+        width: 100%;
+        .extraSmallScreen({
+            order: 1;
+            width: auto;
+        });
         .largeScreen({
             padding: 0 8px;   
         });
         text-align: right;
-        .anticon-printer{
-            margin-right: 0.5rem;
+        .anticon-printer{            
+            .extraSmallScreen({
+                margin-right: 0.5rem;
+            });
         }
     }
 }
