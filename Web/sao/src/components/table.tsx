@@ -158,7 +158,7 @@ const ResultsTable: FunctionComponent = () => {
                 </Popover>
             </div>),
             dataIndex: 'title',
-            width:'60%',
+            className: 'table-col-1',
             render: (text, record: OccupationModel) => {
                 if (filteredOccupationsList.length > 0 ) {
                     return (
@@ -180,8 +180,7 @@ const ResultsTable: FunctionComponent = () => {
                     <span className="table-header__icon" style={{marginLeft: '15px'}}> <DownSortIcon /></span>
                 </Popover>
             </div>),
-            width: '25%',
-            className: 'jobOpenings',
+            className: 'jobOpenings table-col-2',
             dataIndex: 'jobOpenings',
             defaultSortOrder: 'descend',
             render: (text, record) => {
@@ -191,7 +190,7 @@ const ResultsTable: FunctionComponent = () => {
         {
             title: 'Compare Careers',
             dataIndex: 'compare',
-            width: '15%',
+            className: 'table-col-3',
             render: (text, record: OccupationModel) => {
                 if (filteredOccupationsList && filteredOccupationsList.length > 1) {
                     return (<div>
@@ -270,6 +269,7 @@ const ResultsTable: FunctionComponent = () => {
                             rowKey="noc"
                             pagination={false}
                             scroll={ moreThanOneResult() ? !isMobile() ? { y: 622 } : undefined : undefined }
+                            tableLayout='fixed'
                             onRow={onRow}>
                         </Table>
                         <div className="results-table-mobile-controls">
