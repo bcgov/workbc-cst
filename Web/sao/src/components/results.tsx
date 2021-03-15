@@ -6,6 +6,8 @@ import ResultsTable from './table'
 import CareerPreview from './careerPreview'
 import useWindowSize from '../client/useWindowSize'
 
+const lightBulb = require("../images/lightbulb.svg") as string;
+
 const results: FunctionComponent = () => {
     const { filterOption, filteredOccupationsList, selectedNoc, checkedNocs, setView, setCheckedNocs } = useFilterContext()
     const [width] = useWindowSize()
@@ -59,7 +61,9 @@ const results: FunctionComponent = () => {
                         <Col className="compare-description" xs={24} xl={9}>
                         {filteredOccupationsList.length > 1 && (
                             <div className="compare-description__flexbox">
-                                <BulbOutlined className="compare-description__flexbox__icon"/>
+                                <span role="img" aria-label="bulb" className="anticon anticon-bulb compare-description__flexbox__icon">
+                                    <img src={lightBulb} alt="Bulb Icon" className="compare-description__flexbox__icon" />
+                                </span>
                                 <div style={{fontSize: '14px', paddingLeft: '16px'}}><b>Compare up to 3 careers </b> by selecting the checkboxes and clicking on the Compare Careers button.</div>                                  
                             </div>
                         )}
