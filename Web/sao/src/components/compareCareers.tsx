@@ -163,11 +163,11 @@ const CompareCareers: FunctionComponent = () => {
     }
 
     function _getCareers() {
-        return '?compare?' + checkedNocs.map(noc => noc.toString()).join()
+        return '?compare?' + encodeURIComponent(checkedNocs.map(noc => noc.toString()).join())
     }
 
     function handleEmailEvent() {
-        let link_to_sao = 'The compared careers are available on WorkBC at :' +  window.location.href + encodeURIComponent(_getCareers())
+        let link_to_sao = 'The compared careers are available on WorkBC at :' +  window.location.href + _getCareers()
         let message_text = 'Get all the details you need about the careers, from job duties and wages to projected demand in your region. '
         
         let link = "mailto:"

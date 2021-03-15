@@ -19,19 +19,19 @@ const results: FunctionComponent = () => {
     }
 
     function _getParams() : string {
-       return   '?results?' + 'region='  + filterOption.region.id.toString() + ':' + filterOption.region.value + '#' +
-                'education=' + filterOption.education.id.toString() + ':' + filterOption.education.value + '#' +
-                'occupational_interest=' + filterOption.occupational_interest.id.toString() + ':' + filterOption.occupational_interest.value + '#' +
-                'industry=' + filterOption.industry.id.toString() + ':' + filterOption.industry.value + '#' +
-                'occupational_group=' + filterOption.occupational_group.id.toString() + ':' + filterOption.occupational_group.value + '#' +
-                'part_time_option=' + filterOption.part_time_option.id.toString() + ':' + filterOption.part_time_option.value + '#' +
-                'annual_salary=' + filterOption.annual_salary.id.toString() + ':' + filterOption.annual_salary.value + '#' +
-                'Keywords=' + filterOption.keyword + '#' +
-                'selectedNoc=' + selectedNoc
+       return   '?results?' + 'region='  + encodeURIComponent(filterOption.region.id.toString()+ ':' + filterOption.region.value) + '&' +
+                'education=' + encodeURIComponent(filterOption.education.id.toString() + ':' + filterOption.education.value) + '&' +
+                'occupational_interest=' + encodeURIComponent(filterOption.occupational_interest.id.toString() + ':' + filterOption.occupational_interest.value) + '&' +
+                'industry=' + encodeURIComponent(filterOption.industry.id.toString() + ':' + filterOption.industry.value) + '&' +
+                'occupational_group=' + encodeURIComponent(filterOption.occupational_group.id.toString() + ':' + filterOption.occupational_group.value) + '&' +
+                'part_time_option=' + encodeURIComponent(filterOption.part_time_option.id.toString() + ':' + filterOption.part_time_option.value) + '&' +
+                'annual_salary=' + encodeURIComponent(filterOption.annual_salary.id.toString() + ':' + filterOption.annual_salary.value) + '&' +
+                'Keywords=' + encodeURIComponent(filterOption.keyword) + '&' +
+                'selectedNoc=' + encodeURIComponent(selectedNoc)
     }
 
     function handleEmailEvent() {
-        let link_to_sao = 'The search results are available on WorkBC at :' +  window.location.href + encodeURIComponent(_getParams())
+        let link_to_sao = 'The search results are available on WorkBC at :' +  window.location.href + _getParams()
         let message_text = ' Get all the details you need about the careers, from job duties and wages to projected demand in your region. '
         
         let link = "mailto:"

@@ -35,6 +35,12 @@ export interface FilterOptionModel {
     keyword?: string
 }
 
+export interface URLObject {
+    filterOptions?: FilterOptionModel,
+    selectedNoc? : string,
+    checkedNocs?: string[]
+}
+
 export interface OccupationalListResponse {
     data: OccupationModel[] | undefined
     isValidating: boolean,
