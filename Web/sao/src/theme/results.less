@@ -118,6 +118,7 @@
     }
 }
 
+.print-email-buttons, 
 .with-hover {
     svg {
         fill: @dark-blue;
@@ -125,6 +126,36 @@
     
     svg :hover {
         fill: @light-blue;
+    }
+}
+
+.popover-buttons {
+    svg{
+        fill: @dark-blue;
+    }
+    svg:hover{
+        fill: @light-blue;
+    }
+    &__popover{
+        cursor: pointer;
+        &-inner{
+            max-width: 273px;
+            .ant-popover{
+                &-content{
+                    -webkit-box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.27); 
+                    box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.27);
+                    font-size: 0.9325rem;
+                }
+            }
+        }
+    }
+    .anticon-printer {
+        display: inline-block;
+        margin-right: 16px !important;
+    }
+    .anticon-mail {
+        display: inline-block;
+        margin-right: 4px !important;
     }
 }
 
