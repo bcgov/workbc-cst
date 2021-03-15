@@ -1,30 +1,38 @@
 import React, { useEffect, FunctionComponent } from 'react';
 import Helmet from 'react-helmet';
 import { navigate } from "gatsby";
-import {useFilterContext} from '../state/filterContext'
-
 const NotFoundPage: FunctionComponent = () => {
-    const {filterOption, setFilterOption, setSelectedNoc, setRedirect} = useFilterContext()
-
     useEffect(() => {
       let initialValue = typeof window !== 'undefined' ? window.location.href : ''
-      navigate("/"); // redirecting to home page
-      _setContext(decodeURIComponent(initialValue))
+      let decodedInitialValue = decodeURIComponent(initialValue)
+      const view = decodedInitialValue.split('?')[1]
+      const context = _setContext(decodedInitialValue, view)
+        if (view === 'results') {
+          let filterOptions = JSON.stringify(context.filterOptions)
+          let selectedNoc = context.selectedNoc
+          navigate(`/?view=${view}&options=${filterOptions}&noc=${selectedNoc}`) // redirecting to home page
+        } else if (view === 'careerPreview') {
+          let selectedNoc = context.selectedNoc
+          navigate(`/?view=${view}&noc=${selectedNoc}`) // redirecting to home page
+        } else {
+          let nocs=context.nocs
+          navigate(`/?view=${view}&nocs=${nocs}`) // redirecting to home page
+        }
     }, []);
 
-    useEffect(() => {
-    }, [filterOption])
-
-    function _setContext(value: string) {
-      console.log(`url data : ${value}`)
-      const stateData = value?.split('?')[1]?.split('#')
-      const stateObj = _getStateObject(stateData)
-      const filterOptions = _getFilterOptions(stateObj)
-      const selectedNoc = stateObj['selectedNoc']
-      setFilterOption(filterOptions)
-      setSelectedNoc(selectedNoc)
-      setRedirect(true)
-      return {filterOptions: filterOptions, selectedNoc: selectedNoc}
+    function _setContext(value: string, view: string) {
+      if (view === 'results') {
+        const stateData = value?.split('?')[2]?.split('#')
+        const stateObj = _getStateObject(stateData)
+        const filterOptions = _getFilterOptions(stateObj)
+        const selectedNoc = stateObj['selectedNoc']
+        return {filterOptions: filterOptions, selectedNoc: selectedNoc, view: view}
+      } else if (view ==='careerPreview') {
+        return {selectedNoc: value?.split('?')[2], view: view}
+      } else {
+        return {nocs: value?.split('?')[2], view: view}
+      }
+      return {}
     }
 
     function _getStateObject(StateData: string[]): object {

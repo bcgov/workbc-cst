@@ -7,6 +7,7 @@ import { useFilterContext } from '../state/filterContext'
 import { useGetIndustryData } from '../client/apiService'
 import {modifyIndustryData, filtersPopOverVisible} from '../client/filtersData'
 import { defaultFilterOption } from '../state/filterReducer'
+import { navigate } from "gatsby";
 import Results from './results'
 import Header from './header'
 import Footer from './footer'
@@ -17,11 +18,24 @@ const Dropdowns: FunctionComponent = () => {
     
     const [openNodes, setOpenNodes] = useState([])
 
-    const {filterOption, returnToResults, isReset, setFilterOption, filterApplied, resetOptions} = useFilterContext()
+    const {filterOption, returnToResults, isReset, redirect, setFilterOption, filterApplied, resetOptions, setSelectedNoc} = useFilterContext()
 
     const [userSelection, setUserSelection] = useState<FilterOptionModel>(defaultFilterOption)
 
     const [popOvervisible, setPopOverVisible] = useState(filtersPopOverVisible)
+
+    useEffect(() => {
+        let initialValue = typeof window !== 'undefined' ? window.location.href : ''
+        let queryParams = decodeURIComponent(initialValue)?.split('?')[1]
+        let view = queryParams?.split('&')[0]?.split('=')[1]
+        if(queryParams && view === 'results') {
+            let options = JSON.parse(queryParams.split('&')[1]?.split('=')[1])
+            let selectedNoc = queryParams.split('&')[2]?.split('=')[1]
+            navigate('/')
+            setFilterOption(options)
+            setSelectedNoc(selectedNoc)
+        }
+    }, []);
 
     useEffect(()=> {
         if(!!filterOption) {

@@ -12,7 +12,7 @@ import MediaLinks from './mediaLinks'
 const WorkBCLogo = require('../images/workbc-header-logo.svg')
 
 const CareerPreview: FunctionComponent = () => {
-    const {filteredOccupationsList, selectedNoc, setView, setReturnToResults} = useFilterContext()
+    const {filteredOccupationsList, selectedNoc, setSelectedNoc, setView, setReturnToResults} = useFilterContext()
 
     const [careerDetail, setCareerDetail] = useState<OccupationSummary>()
     const [profileImagesPath, setProfileImagesPath] = useState<string>()
@@ -29,7 +29,7 @@ const CareerPreview: FunctionComponent = () => {
     }
 
     const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(selectedNoc)
-    
+
     useEffect(() => {
         if(occupationSummary) setCareerDetail(occupationSummary[0])
         }, [selectedNoc, isFetchingSummary, isSummaryFetched])
@@ -65,11 +65,11 @@ const CareerPreview: FunctionComponent = () => {
     }
 
     function _getCareer() {
-        return 'preview=' + selectedNoc
+        return '?careerPreview?' + selectedNoc
     }
 
     function handleEmailEvent() {
-        let link_to_sao = 'The selected career is available on WorkBC at :' +  window.location.href + _getCareer()
+        let link_to_sao = 'The selected career is available on WorkBC at :' +  window.location.href + encodeURIComponent(_getCareer())
         let message_text = 'Get all the details you need about the career, from job duties and wages to projected demand in your region. '
         
         let link = "mailto:"
@@ -116,7 +116,7 @@ const CareerPreview: FunctionComponent = () => {
                 </div>
                 <div  className="result-detail__thumbnail__preview">
                     {(careerObj.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.noc)} alt='career profile pic'/>)
-                : (<YouTube  videoId={careerObj.careertrekvideoids[0]} onReady={_onReady} opts={{playerVars: {rel: 0}}}/>)}
+                : (<YouTube videoId={careerObj.careertrekvideoids[0]} onReady={_onReady} opts={{playerVars: {rel: 0}}}/>)}
                 </div>
                 <div className="result-detail__body result-body">
                     <div className="result-body__row">

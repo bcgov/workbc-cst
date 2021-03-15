@@ -19,7 +19,7 @@ const results: FunctionComponent = () => {
     }
 
     function _getParams() : string {
-       return   'search?' + 'region='  + filterOption.region.id.toString() + ':' + filterOption.region.value + '#' +
+       return   '?results?' + 'region='  + filterOption.region.id.toString() + ':' + filterOption.region.value + '#' +
                 'education=' + filterOption.education.id.toString() + ':' + filterOption.education.value + '#' +
                 'occupational_interest=' + filterOption.occupational_interest.id.toString() + ':' + filterOption.occupational_interest.value + '#' +
                 'industry=' + filterOption.industry.id.toString() + ':' + filterOption.industry.value + '#' +
