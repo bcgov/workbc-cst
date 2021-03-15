@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from 'react'
 import { Row, Col, Button } from 'antd'
-import { MailFilled , PrinterFilled, BulbOutlined } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import ResultsTable from './table'
 import CareerPreview from './careerPreview'
 import useWindowSize from '../client/useWindowSize'
+
+import { MailIcon, PrinterIcon } from './customIcons'
 
 const lightBulb = require("../images/lightbulb.svg") as string;
 
@@ -77,8 +78,12 @@ const results: FunctionComponent = () => {
                         )}
                         </Col>
                         <Col className="print-email-buttons" xl={8}>
-                            <PrinterFilled onClick={handlePrintEvent} style={{fontSize: '32px', color: "#355992", paddingRight: '16px'}}/>
-                            <MailFilled onClick={handleEmailEvent} style={{fontSize: '32px', color: "#355992"}}/>
+                            <span role="img" onClick={handlePrintEvent} aria-label="printer" tabindex="-1" class="anticon anticon-printer with-hover" style={{fontSize: '32px', color: "#355992", paddingRight: '16px'}}>
+                                <PrinterIcon />
+                            </span>
+                            <span role="img" onClick={handleEmailEvent} aria-label="mail" tabindex="-1" class="anticon anticon-mail with-hover" style={{fontSize: '32px', color: "#355992", paddingRight: '4px'}}>
+                                <MailIcon />
+                            </span>
                         </Col>
                     </Row>
                     <Row>

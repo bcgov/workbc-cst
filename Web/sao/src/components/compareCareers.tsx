@@ -1,6 +1,5 @@
 import React, {FunctionComponent, useState, useEffect} from 'react'
 import {Button, Row, Col, Tooltip} from 'antd'
-import { MailFilled , PrinterFilled } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import {OccupationSummaryObj} from '../client/dataTypes'
 import {useGetOccupationSummary, useGetSystemConfigurations} from '../client/apiService'
@@ -9,6 +8,7 @@ import { LeftOutlined  } from '@ant-design/icons'
 import useWindowSize from '../client/useWindowSize'
 import { format, getHeaderTitle, titleLength, removeTags } from '../client/filtersData'
 import MediaLinks from './mediaLinks'
+import { MailIcon, PrinterIcon } from './customIcons'
 
 const WorkBCLogo = require('../images/workbc-header-logo.svg')
 
@@ -198,8 +198,16 @@ const CompareCareers: FunctionComponent = () => {
                 <div className="compare-container__title">
                     <div>Compare Careers</div>
                     <div className="compare-container__title__icons">
-                        <div><PrinterFilled onClick={handlePrintEvent} style={{color: "#355992", margin: '0 0.5rem'}}/></div>
-                        <div><MailFilled onClick={handleEmailEvent} style={{color: "#355992",  margin: '0 0.5rem'}}/></div>
+                        <div>
+                            <span role="img" onClick={handlePrintEvent} aria-label="printer" tabindex="-1" class="anticon anticon-printer with-hover" style={{fontSize: '32px', color: "#355992", margin: '0 0.5rem'}}>
+                                <PrinterIcon />
+                            </span>
+                        </div>
+                        <div>
+                            <span role="img" onClick={handleEmailEvent} aria-label="mail" tabindex="-1" class="anticon anticon-mail with-hover" style={{fontSize: '32px', color: "#355992", margin: '0 0.5rem'}}>
+                                <MailIcon />
+                            </span>
+                        </div>
                     </div>
                 </div>
                 

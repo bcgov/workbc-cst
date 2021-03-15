@@ -107,6 +107,7 @@
             padding: 0 8px;   
         });
         text-align: right;
+        
         .anticon-printer{
             margin-bottom: 0.5rem;            
             .extraSmallScreen({
@@ -116,6 +117,17 @@
         }
     }
 }
+
+.with-hover {
+    svg {
+        fill: @dark-blue;
+    }
+    
+    svg :hover {
+        fill: @light-blue;
+    }
+}
+
 .results-table {
     .ant-table-cell-scrollbar {
         box-shadow: none;
@@ -196,7 +208,7 @@
 }
 
 .anticon :hover {
-    color:  @light-blue;
+    color: @light-blue;
 }
 
 .preview-career,
