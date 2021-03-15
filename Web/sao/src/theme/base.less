@@ -91,13 +91,22 @@ body, .ant-table, .ant-select{
 
 .table-col{
     &-1{
-        width: 60%;
+        width: 35%;
+        .largeScreen({
+            width: 60%;
+        });
     }
     &-2{
-        width: 30%;
+        width: 45%;
+        .largeScreen({
+            width: 30%;
+        });
     }
     &-3{
-        width: 15%;
+        width: 20%;
+        .largeScreen({
+            width: 15%;
+        });
     }
 }
 .ant-table-measure-row{
