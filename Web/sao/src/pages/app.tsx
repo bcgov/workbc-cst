@@ -18,16 +18,16 @@ const SAOTool:FunctionComponent = () => {
         const decodedURL = decodeURIComponent(initialValue)
         let view = decodedURL?.split('?')[1]
         let queryParams = decodedURL?.split('?')[2]
-        if(!!queryParams) {
+        if(!!queryParams && !!view) {
           const context = parseURL(queryParams, view)
           setView(view)
           if (view === 'results') {
             setFilterOption(context?.filterOptions)
             setSelectedNoc(context?.selectedNoc)
           } else if (view === 'careerPreview') {
-            setSelectedNoc(context.selectedNoc)
+            setSelectedNoc(context?.selectedNoc)
           } else {
-            setCheckedNocs(context.checkedNocs)
+            setCheckedNocs(context?.checkedNocs)
           }
           navigate('/')
         }

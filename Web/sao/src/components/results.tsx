@@ -60,12 +60,25 @@ const results: FunctionComponent = () => {
                     </Row>
                     <Row className="results-compare">
                         <Col className="compare-description" xs={24} xl={9}>
+                        {!!isMobile() && filteredOccupationsList.length > 1 && (
+                            <div className="compare-description__flexbox">
+                                <span role="img" aria-label="bulb" className="anticon anticon-bulb compare-description__flexbox__icon">
+                                    <img src={lightBulb} alt="Bulb Icon" className="compare-description__flexbox__icon" />
+                                </span>
+                                <div style={{fontSize: '14px', paddingLeft: '16px'}}>                                   
+                                    Select a career below to find out more information.
+                                </div>                                  
+                            </div>
+                        )}
                         {filteredOccupationsList.length > 1 && (
                             <div className="compare-description__flexbox">
                                 <span role="img" aria-label="bulb" className="anticon anticon-bulb compare-description__flexbox__icon">
                                     <img src={lightBulb} alt="Bulb Icon" className="compare-description__flexbox__icon" />
                                 </span>
-                                <div style={{fontSize: '14px', paddingLeft: '16px'}}><b>Compare up to 3 careers </b> by selecting the checkboxes and clicking on the Compare Careers button.</div>                                  
+                                <div style={{fontSize: '14px', paddingLeft: '16px'}}>
+                                    <b>Compare up to 3 careers </b>
+                                    by selecting the checkboxes and clicking on the Compare Careers button.
+                                </div>                                  
                             </div>
                         )}
                         </Col>

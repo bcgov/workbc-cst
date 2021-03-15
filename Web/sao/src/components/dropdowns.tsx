@@ -24,19 +24,6 @@ const Dropdowns: FunctionComponent = () => {
 
     const [popOvervisible, setPopOverVisible] = useState(filtersPopOverVisible)
 
-    useEffect(() => {
-        let initialValue = typeof window !== 'undefined' ? window.location.href : ''
-        let queryParams = decodeURIComponent(initialValue)?.split('?')[1]
-        let view = queryParams?.split('&')[0]?.split('=')[1]
-        if(queryParams && view === 'results') {
-            let options = JSON.parse(queryParams.split('&')[1]?.split('=')[1])
-            let selectedNoc = queryParams.split('&')[2]?.split('=')[1]
-            navigate('/')
-            setFilterOption(options)
-            setSelectedNoc(selectedNoc)
-        }
-    }, []);
-
     useEffect(()=> {
         if(!!filterOption) {
             setUserSelection(filterOption)
