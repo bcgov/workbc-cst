@@ -193,7 +193,7 @@ const CompareCareers: FunctionComponent = () => {
                 </div>
             </div>
 
-            
+            <div className="compare-container__title compare-container__title--printonly print-only">Career Search Tool</div>
             <div className="container compare-container">
                 <div className="compare-container__title">
                     <div>Compare Careers</div>
