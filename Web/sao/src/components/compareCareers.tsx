@@ -1,5 +1,5 @@
 import React, {FunctionComponent, useState, useEffect} from 'react'
-import {Button, Row, Col, Tooltip} from 'antd'
+import {Button, Row, Col, Tooltip, Popover} from 'antd'
 import { useFilterContext } from '../state/filterContext'
 import {OccupationSummaryObj} from '../client/dataTypes'
 import {useGetOccupationSummary, useGetSystemConfigurations} from '../client/apiService'
@@ -197,17 +197,22 @@ const CompareCareers: FunctionComponent = () => {
             <div className="container compare-container">
                 <div className="compare-container__title">
                     <div>Compare Careers</div>
-                    <div className="compare-container__title__icons">
-                        <div>
-                            <span role="img" onClick={handlePrintEvent} aria-label="printer" tabindex="-1" class="anticon anticon-printer with-hover" style={{fontSize: '32px', color: "#355992", margin: '0 0.5rem'}}>
-                                <PrinterIcon />
+                    <div className="compare-container__title__icons popover-buttons">
+                        <Popover placement="bottomRight" content={"Print Results"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
+                            <span>
+                                <span role="img" onClick={handlePrintEvent} aria-label="printer" tabindex="-1" class="anticon anticon-printer" style={{fontSize: '32px', color: "#355992"}}>
+                                    <PrinterIcon />
+                                </span>
                             </span>
-                        </div>
-                        <div>
-                            <span role="img" onClick={handleEmailEvent} aria-label="mail" tabindex="-1" class="anticon anticon-mail with-hover" style={{fontSize: '32px', color: "#355992", margin: '0 0.5rem'}}>
-                                <MailIcon />
+                        </Popover>                                   
+
+                        <Popover placement="bottomRight" content={"Email Results"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
+                            <span>
+                                <span role="img" onClick={handleEmailEvent} aria-label="mail" tabindex="-1" class="anticon anticon-mail" style={{fontSize: '32px', color: "#355992"}}>
+                                    <MailIcon />
+                                </span>
                             </span>
-                        </div>
+                        </Popover>                                   
                     </div>
                 </div>
                 

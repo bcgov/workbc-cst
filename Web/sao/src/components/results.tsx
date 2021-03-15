@@ -1,10 +1,9 @@
 import React, { FunctionComponent } from 'react'
-import { Row, Col, Button } from 'antd'
+import { Row, Col, Button, Popover } from 'antd'
 import { useFilterContext } from '../state/filterContext'
 import ResultsTable from './table'
 import CareerPreview from './careerPreview'
 import useWindowSize from '../client/useWindowSize'
-
 import { MailIcon, PrinterIcon } from './customIcons'
 
 const lightBulb = require("../images/lightbulb.svg") as string;
@@ -61,13 +60,11 @@ const results: FunctionComponent = () => {
                     <Row className="results-compare">
                         <Col className="compare-description" xs={24} xl={9}>
                         {!!isMobile() && filteredOccupationsList.length > 1 && (
-                            <div className="compare-description__flexbox">
+                            <div className="compare-description__flexbox" style={{marginBottom: '16px'}}>
                                 <span role="img" aria-label="bulb" className="anticon anticon-bulb compare-description__flexbox__icon">
                                     <img src={lightBulb} alt="Bulb Icon" className="compare-description__flexbox__icon" />
                                 </span>
-                                <div style={{fontSize: '14px', paddingLeft: '16px'}}>                                   
-                                    Select a career below to find out more information.
-                                </div>                                  
+                                <div style={{fontSize: '14px', paddingLeft: '16px'}}>Select a career below to find out more information.</div>                                  
                             </div>
                         )}
                         {filteredOccupationsList.length > 1 && (
@@ -90,13 +87,22 @@ const results: FunctionComponent = () => {
                             </div>
                         )}
                         </Col>
-                        <Col className="print-email-buttons" xl={8}>
-                            <span role="img" onClick={handlePrintEvent} aria-label="printer" tabindex="-1" class="anticon anticon-printer with-hover" style={{fontSize: '32px', color: "#355992", paddingRight: '16px'}}>
-                                <PrinterIcon />
-                            </span>
-                            <span role="img" onClick={handleEmailEvent} aria-label="mail" tabindex="-1" class="anticon anticon-mail with-hover" style={{fontSize: '32px', color: "#355992", paddingRight: '4px'}}>
-                                <MailIcon />
-                            </span>
+                        <Col className="print-email-buttons popover-buttons" xl={8}>
+                            <Popover placement="bottomRight" content={"Print Results"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
+                                <span>
+                                    <span role="img" onClick={handlePrintEvent} aria-label="printer" tabindex="-1" class="anticon anticon-printer" style={{fontSize: '32px', color: "#355992"}}>
+                                        <PrinterIcon />
+                                    </span>
+                                </span>
+                            </Popover>                                   
+
+                            <Popover placement="bottomRight" content={"Email Results"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
+                                <span>
+                                    <span role="img" onClick={handleEmailEvent} aria-label="mail" tabindex="-1" class="anticon anticon-mail" style={{fontSize: '32px', color: "#355992"}}>
+                                        <MailIcon />
+                                    </span>
+                                </span>
+                            </Popover>                                   
                         </Col>
                     </Row>
                     <Row>

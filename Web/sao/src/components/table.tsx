@@ -268,7 +268,7 @@ const ResultsTable: FunctionComponent = () => {
                             dataSource={getMobileDatasource()}
                             rowKey="noc"
                             pagination={false}
-                            scroll={ moreThanOneResult() ? !isMobile() ? { y: 622 } : undefined : undefined }
+                            scroll={ moreThanOneResult() ? !isMobile() ? { y: 622 } : { x: 420 } : undefined }
                             tableLayout='fixed'
                             onRow={onRow}>
                         </Table>

@@ -1,5 +1,5 @@
 import React, {FunctionComponent, useState, useEffect} from 'react'
-import {Button, Tooltip} from 'antd'
+import {Button, Tooltip, Popover} from 'antd'
 import { LeftOutlined } from '@ant-design/icons'
 import { useFilterContext } from '../state/filterContext'
 import { OccupationSummary } from '../client/dataTypes'
@@ -184,17 +184,22 @@ const CareerPreview: FunctionComponent = () => {
             { !!isMobile() && (
                 <div className="preview-career__header">
                     <div>Career Preview</div>
-                    <div className="preview-career__header-icons">
-                        <div>
-                            <span role="img" onClick={handlePrintEvent} aria-label="printer" tabindex="-1" class="anticon anticon-printer with-hover" style={{fontSize: '32px', color: "#355992", margin: '0 0.5rem'}}>
-                                <PrinterIcon />
+                    <div className="preview-career__header-icons popover-buttons">
+                        <Popover placement="bottomRight" content={"Print Results"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
+                            <span>
+                                <span role="img" onClick={handlePrintEvent} aria-label="printer" tabindex="-1" class="anticon anticon-printer" style={{fontSize: '32px', color: "#355992"}}>
+                                    <PrinterIcon />
+                                </span>
                             </span>
-                        </div>
-                        <div>
-                            <span role="img" onClick={handleEmailEvent} aria-label="mail" tabindex="-1" class="anticon anticon-mail with-hover" style={{fontSize: '32px', color: "#355992", margin: '0 0.5rem'}}>
-                                <MailIcon />
+                        </Popover>                                   
+
+                        <Popover placement="bottomRight" content={"Email Results"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
+                            <span>
+                                <span role="img" onClick={handleEmailEvent} aria-label="mail" tabindex="-1" class="anticon anticon-mail" style={{fontSize: '32px', color: "#355992"}}>
+                                    <MailIcon />
+                                </span>
                             </span>
-                        </div>
+                        </Popover>                                   
                     </div>
                 </div>
             )}
