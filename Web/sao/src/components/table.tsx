@@ -11,7 +11,7 @@ import { format } from '../client/filtersData'
 
 const ResultsTable: FunctionComponent = () => {
     const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc, listSize,
-        setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs, setView, setListSize } = useFilterContext()
+        setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs, setView, setListSize, setFetchingOccupationList } = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const [nameSortVisible, setNameSortVisible] = useState<boolean>(false)
@@ -42,6 +42,9 @@ const ResultsTable: FunctionComponent = () => {
     useEffect(() => {
         if (!isValidating && isSettled && !!occupationsList && occupationsList.length >= 0) {
             setFilteredOccupationsList(occupationsList)
+            setFetchingOccupationList(false)
+        } else {
+            setFetchingOccupationList(true)
         }
     }, [occupationsList, isSettled, isValidating])
 

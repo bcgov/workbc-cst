@@ -9,7 +9,7 @@ import { MailIcon, PrinterIcon } from './customIcons'
 const lightBulb = require("../images/lightbulb.svg") as string;
 
 const results: FunctionComponent = () => {
-    const { filterOption, listSize, filteredOccupationsList, selectedNoc, checkedNocs, setView, setCheckedNocs } = useFilterContext()
+    const { filterOption, listSize, filteredOccupationsList, selectedNoc, checkedNocs, isFecthingOccupationList, setView, setCheckedNocs } = useFilterContext()
     const [width] = useWindowSize()
 
     function isMobile() {
@@ -51,12 +51,12 @@ const results: FunctionComponent = () => {
                                 Search Results
                             </div>
                             <div className="results-header__text">
-                               { !isMobile() && (
+                               { !isMobile() && !isFecthingOccupationList && (
                                    <span>
                                        Displaying <span className="highlighted-text"> {filteredOccupationsList?.length} results </span>
                                    </span>
                                )}
-                               { !!isMobile() && (
+                               { !!isMobile() && !isFecthingOccupationList && (
                                    <span>
                                        Displaying <span className="highlighted-text"> {listSize} of {filteredOccupationsList?.length} results </span>
                                    </span>
