@@ -7,7 +7,6 @@ import { useFilterContext } from '../state/filterContext'
 import { useGetIndustryData } from '../client/apiService'
 import {modifyIndustryData, filtersPopOverVisible} from '../client/filtersData'
 import { defaultFilterOption } from '../state/filterReducer'
-import { navigate } from "gatsby";
 import Results from './results'
 import Header from './header'
 import Footer from './footer'
@@ -124,7 +123,7 @@ const Dropdowns: FunctionComponent = () => {
     }
 
     function handleOpenDropdown() {
-        setOpenNodes([])
+        setOpenNodes(!!userSelection.industry.id.split(':')[1] ? [userSelection.industry.id.split(':')[0]]: [])
     }
 
     function handleExpandNode(keys) {
