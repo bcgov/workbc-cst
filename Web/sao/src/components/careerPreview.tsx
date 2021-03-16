@@ -183,7 +183,7 @@ const CareerPreview: FunctionComponent = () => {
             </div>)} 
             { !!isMobile() && (
                 <div className="preview-career__header">
-                    <div>Career Preview</div>
+                    <div><span className="no-print">Career Preview</span><span className="print-only">Career Search Tool</span></div>
                     <div className="preview-career__header-icons popover-buttons">
                         <Popover placement="bottomRight" content={"Print Results"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
                             <span>
