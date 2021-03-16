@@ -9,7 +9,7 @@ function modifyIndustry(data: FilterTypeModel, id: number) {
 export function modifyIndustryData(industriesData: IndustryModel[]): IndustryData[] {
    let modifiedIndustryData = [{title: 'All', value: '-1', key: '-1', children: []}]
     industriesData.forEach(industry => {
-    const children = industry.subIndustries.map(item => modifyIndustry(item, industry.id))
+        const children = industry.subIndustries.map(item => modifyIndustry(item, industry.id))
         modifiedIndustryData.push({title: industry.value, value: industry.id.toString(), key: industry.id.toString(), children: children})
     })
     return modifiedIndustryData
