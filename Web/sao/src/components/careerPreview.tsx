@@ -72,12 +72,10 @@ const CareerPreview: FunctionComponent = () => {
     }
 
     function handleEmailEvent() {
-        let link_to_sao = 'The selected career is available on WorkBC at :' +  window.location.href + _getCareer()
-        let message_text = 'Get all the details you need about the career, from job duties and wages to projected demand in your region. '
-        
+        let link_to_sao = 'The selected career is available on WorkBC at: \n' +  window.location.href + _getCareer()
         let link = "mailto:"
         + "&subject=" + encodeURIComponent("Search all occupations")
-        + "&body=" + encodeURIComponent(link_to_sao + '\n' + message_text);
+        + "&body=" + encodeURIComponent(link_to_sao);
 
         window.location.href = link;
     }
