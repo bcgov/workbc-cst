@@ -26,6 +26,7 @@ function _getFilterOptions(filterObj : object): object {
                                             {id: -1, value: 'All'}
 
   filterOptions['industry'] = filterObj['industry'] ? 
+                                !!filterObj['industry'].split(':')[2] ? {id: filterObj['industry'].split(':')[0] + ':' + filterObj['industry'].split(':')[1], value: filterObj['industry'].split(':')[2]} :
                                 {id: filterObj['industry'].split(':')[0], value: filterObj['industry'].split(':')[1]} :
                                 {id: '-1', value: 'All'}
 

@@ -9,7 +9,7 @@ import { MailIcon, PrinterIcon } from './customIcons'
 const lightBulb = require("../images/lightbulb.svg") as string;
 
 const results: FunctionComponent = () => {
-    const { filterOption, filteredOccupationsList, selectedNoc, checkedNocs, setView, setCheckedNocs } = useFilterContext()
+    const { filterOption, listSize, filteredOccupationsList, selectedNoc, checkedNocs, setView, setCheckedNocs } = useFilterContext()
     const [width] = useWindowSize()
 
     function isMobile() {
@@ -28,17 +28,15 @@ const results: FunctionComponent = () => {
                 'occupational_group=' + encodeURIComponent(filterOption.occupational_group.id.toString() + ':' + filterOption.occupational_group.value) + '&' +
                 'part_time_option=' + encodeURIComponent(filterOption.part_time_option.id.toString() + ':' + filterOption.part_time_option.value) + '&' +
                 'annual_salary=' + encodeURIComponent(filterOption.annual_salary.id.toString() + ':' + filterOption.annual_salary.value) + '&' +
-                'Keywords=' + encodeURIComponent(filterOption.keyword) + '&' +
+                'keyword=' + encodeURIComponent(filterOption.keyword) + '&' +
                 'selectedNoc=' + encodeURIComponent(selectedNoc)
     }
 
     function handleEmailEvent() {
-        let link_to_sao = 'The search results are available on WorkBC at :' +  window.location.href + _getParams()
-        let message_text = ' Get all the details you need about the careers, from job duties and wages to projected demand in your region. '
-        
+        let link_to_sao = 'The search results are available on WorkBC at: \n' +  window.location.href + _getParams()
         let link = "mailto:"
         + "&subject=" + encodeURIComponent("Search all occupations")
-        + "&body=" + encodeURIComponent(link_to_sao) + '\n' + message_text;
+        + "&body=" + encodeURIComponent(link_to_sao)
 
         window.location.href = link;
     }
@@ -53,7 +51,16 @@ const results: FunctionComponent = () => {
                                 Search Results
                             </div>
                             <div className="results-header__text">
-                                Displaying <span className="highlighted-text"> {filteredOccupationsList?.length} results </span>
+                               { !isMobile() && (
+                                   <span>
+                                       Displaying <span className="highlighted-text"> {filteredOccupationsList?.length} results </span>
+                                   </span>
+                               )}
+                               { !!isMobile() && (
+                                   <span>
+                                       Displaying <span className="highlighted-text"> {listSize} of {filteredOccupationsList?.length} results </span>
+                                   </span>
+                               )}
                             </div>
                         </Col>
                     </Row>

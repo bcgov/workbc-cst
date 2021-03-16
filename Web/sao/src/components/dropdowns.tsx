@@ -18,7 +18,7 @@ const Dropdowns: FunctionComponent = () => {
     
     const [openNodes, setOpenNodes] = useState([])
 
-    const {filterOption, returnToResults, isReset, redirect, setFilterOption, filterApplied, resetOptions, setSelectedNoc} = useFilterContext()
+    const {filterOption, returnToResults, isReset, setFilterOption, filterApplied, resetOptions} = useFilterContext()
 
     const [userSelection, setUserSelection] = useState<FilterOptionModel>(defaultFilterOption)
 

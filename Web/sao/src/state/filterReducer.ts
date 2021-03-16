@@ -33,8 +33,7 @@ export interface FilterState {
     checkedNocs: string[],
     isSorted: boolean,
     sortOption: string,
-    returnToResults: boolean,
-    redirect: boolean
+    returnToResults: boolean
 }
 
 export const defaultFilterState: FilterState = Object.freeze({
@@ -48,8 +47,7 @@ export const defaultFilterState: FilterState = Object.freeze({
     checkedNocs: [],
     isSorted: false,
     sortOption: 'High to Low',
-    returnToResults: false,
-    redirect: false
+    returnToResults: false
 })
 
 export type FilterAction = 
@@ -62,7 +60,6 @@ export type FilterAction =
 {type: 'set-checked-nocs', payload: string[]} |
 {type: 'set-return-to-results', payload: boolean} |
 {type: 'set-sort-option', payload: string} |
-{type: 'set-redirect', payload: boolean} |
 {type: 'apply-filter'} |
 {type: 'reset'}
 
@@ -97,10 +94,7 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
             
         case 'set-sort-option':
             return ({...state, isSorted: true, isFilterApplied: false, sortOption: action.payload, isReset: false})
-
-        case 'set-redirect':
-            return ({...state, redirect: action.payload})
-
+        
         case 'apply-filter': 
             return ({...state, isSorted: false, sortOption: 'High to Low', isFilterApplied: true, isReset: false, selectedNoc: undefined, checkedNocs: []})
 
