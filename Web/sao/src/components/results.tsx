@@ -28,7 +28,7 @@ const results: FunctionComponent = () => {
                 'occupational_group=' + encodeURIComponent(filterOption.occupational_group.id.toString() + ':' + filterOption.occupational_group.value) + '&' +
                 'part_time_option=' + encodeURIComponent(filterOption.part_time_option.id.toString() + ':' + filterOption.part_time_option.value) + '&' +
                 'annual_salary=' + encodeURIComponent(filterOption.annual_salary.id.toString() + ':' + filterOption.annual_salary.value) + '&' +
-                'Keywords=' + encodeURIComponent(filterOption.keyword) + '&' +
+                'keyword=' + encodeURIComponent(filterOption.keyword) + '&' +
                 'selectedNoc=' + encodeURIComponent(selectedNoc)
     }
 
