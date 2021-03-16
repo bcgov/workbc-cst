@@ -94,6 +94,7 @@
                 padding: 0;
                 width: auto !important;
                 min-width: 320px;
+                margin-top: 8px;
             }
         }
         &__row{
@@ -108,6 +109,7 @@
         }
         &__label {
             width: 35%;
+            height: 32px;
             display: inline-block;
             font-family: @font-family-bold;
         }
@@ -226,6 +228,8 @@
     .result-detail{
         margin: 1rem 0 0 0;
         max-width: none;
+        page-break-inside: avoid;
+        
         &__printtitle{
             margin-top: 3rem;
             display: block;
@@ -330,6 +334,7 @@
         display: none;
     }
     .footer-content-print {
+        margin-top: 2rem;
         padding-top: 5px;
         border-top: 6px solid @print-color;
         display: block;
@@ -410,6 +415,12 @@
     }
     .print-only{
         display:block;
+    }
+    .preview-career-endcap {
+        display: none;
+    }
+    .ant-popover {
+        display: none;
     }
 }
 
