@@ -97,7 +97,7 @@ const results: FunctionComponent = () => {
                         <Col className="print-email-buttons popover-buttons" xl={8}>
                             <Popover placement="bottomRight" content={"Print Results"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
                                 <span>
-                                    <span role="img" onClick={handlePrintEvent} aria-label="printer" tabindex="-1" class="anticon anticon-printer" style={{fontSize: '32px', color: "#355992"}}>
+                                    <span role="img" onClick={handlePrintEvent} aria-label="printer" tabIndex={-1} className="anticon anticon-printer" style={{fontSize: '32px', color: "#355992"}}>
                                         <PrinterIcon />
                                     </span>
                                 </span>
@@ -105,7 +105,7 @@ const results: FunctionComponent = () => {
 
                             <Popover placement="bottomRight" content={"Email Results"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
                                 <span>
-                                    <span role="img" onClick={handleEmailEvent} aria-label="mail" tabindex="-1" class="anticon anticon-mail" style={{fontSize: '32px', color: "#355992"}}>
+                                    <span role="img" onClick={handleEmailEvent} aria-label="mail" tabIndex={-1} className="anticon anticon-mail" style={{fontSize: '32px', color: "#355992"}}>
                                         <MailIcon />
                                     </span>
                                 </span>
