@@ -13,7 +13,7 @@ import { MailIcon, PrinterIcon } from './customIcons'
 const WorkBCLogo = require('../images/workbc-header-logo.svg')
 
 const CareerPreview: FunctionComponent = () => {
-    const {filteredOccupationsList, selectedNoc, setSelectedNoc, setView, setReturnToResults} = useFilterContext()
+    const {filteredOccupationsList, selectedNoc, setView, setReturnToResults} = useFilterContext()
 
     const [careerDetail, setCareerDetail] = useState<OccupationSummary>()
     const [profileImagesPath, setProfileImagesPath] = useState<string>()
@@ -32,7 +32,9 @@ const CareerPreview: FunctionComponent = () => {
     const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(selectedNoc)
 
     useEffect(() => {
-        if(occupationSummary) setCareerDetail(occupationSummary[0])
+        if(occupationSummary) {
+            setCareerDetail(occupationSummary[0])
+        }
         }, [selectedNoc, isFetchingSummary, isSummaryFetched])
 
     useEffect(() => {
@@ -87,9 +89,8 @@ const CareerPreview: FunctionComponent = () => {
                 <div className="result-detail__printtitle">
                     Career Preview
                 </div>
-
                 <div className="result-detail__header">
-                    {getHeaderTitle(careerObj).length > titleLength && !isMobile() && (
+                    {!isMobile() && getHeaderTitle(careerObj).length > titleLength &&  (
                         <div>
                             <Tooltip trigger={'hover'} 
                                 overlayClassName="result-detail__header-tooltip" 
@@ -104,7 +105,7 @@ const CareerPreview: FunctionComponent = () => {
                             </div>
                         </div>
                     )}
-                    {getHeaderTitle(careerObj)?.length <= titleLength && !isMobile() && (
+                    {!isMobile() && getHeaderTitle(careerObj)?.length <= titleLength  && (
                         <div className="result-detail__header-details">
                             <b>{getHeaderTitle(careerObj)?.title}</b> {getHeaderTitle(careerObj)?.code}
                         </div>
@@ -167,6 +168,7 @@ const CareerPreview: FunctionComponent = () => {
             </div>
         )
     }
+    
     return (<div className="preview-career"> 
             { !!isMobile() && (
                 <div className="header__logo">
@@ -203,9 +205,11 @@ const CareerPreview: FunctionComponent = () => {
                     </div>
                 </div>
             )}
-            { !!careerDetail && filteredOccupationsList.length > 0 && getCareerDetail(careerDetail)} 
-            { !!isMobile() && (<div className="preview-career-endcap"> </div>)} 
-            { !!isMobile() && (<MediaLinks />)} 
+           
+            {!isMobile() && !!careerDetail && filteredOccupationsList.length > 0 && getCareerDetail(careerDetail)} 
+            {!!isMobile() && !!careerDetail && getCareerDetail(careerDetail)}
+            {!!isMobile() && (<div className="preview-career-endcap"> </div>)} 
+            {!!isMobile() && (<MediaLinks />)} 
         </div>)
 }
 
