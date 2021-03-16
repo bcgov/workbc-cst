@@ -250,9 +250,12 @@
         &__header{
             background-color: white;
             color: @print-color;
-            font-family: @font-family-bold;
+            font-family: @font-family;
             height: auto;
             padding: 1rem 0 0;
+            b {
+                font-family: @font-family-bold;
+            }
             &-details{
                 &-ellipsis {
                     display: none;
@@ -404,6 +407,9 @@
             margin: 0;
             font-size: 38px;
             margin-bottom: 1.5rem;
+        }
+        div {
+            font-family: @font-family-bold;            
         }
     }
     .compare-container__title__icons {
