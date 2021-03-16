@@ -36,7 +36,9 @@ const SAOTool:FunctionComponent = () => {
 
   return (
     <div>
-        <Helmet title={'WorkBC - Career Search Tool'}></Helmet>
+        <Helmet title={'WorkBC - Career Search Tool'}>
+          <script src="analytics.js" type="text/javascript" />
+        </Helmet>
         {view === 'results'? <Dropdowns /> : view === 'careerPreview' ? <CareerPreview /> : <CompareCareers />}
       </div>
     )
