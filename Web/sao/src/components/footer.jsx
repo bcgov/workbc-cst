@@ -47,7 +47,7 @@ function Footer() {
 								<i className="tools-resources-card__icon--compass">{compass}</i>
 							</div>
 							<a className="tools-resources-card__link" href="https://www.workbc.ca/careercompass" target="_blank" rel="noreferrer">
-								<h3 className="tools-resources-card__header" style={{padding: '0 2rem 4rem 2rem'}}>Career Compass</h3>
+								<h3 className="tools-resources-card__header compass">Career Compass</h3>
 							</a>
 							<div className="tools-resources-card__body">
 								Explore your career direction. Take one or more of our three career
