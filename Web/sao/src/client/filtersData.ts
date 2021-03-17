@@ -1,6 +1,6 @@
 import {IndustryModel, IndustryData, FilterTypeModel, OccupationSummary, Text} from './dataTypes'
 
-export const titleLength = 70
+export const titleLength = 67
 
 function modifyIndustry(data: FilterTypeModel, id: number) {
     return {title: data.value, value: id+':'+data.id, key: id+':'+data.id}
