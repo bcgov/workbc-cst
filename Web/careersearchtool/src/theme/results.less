@@ -262,14 +262,18 @@
     &__body, 
     &__thumbnail, 
     &__footer{
-        padding: 0 1rem;
+        padding: 0 0.9rem;
     }
     &__header{
         font-size: 1rem;
         background-color: @light-blue;
         color: white;
-        padding: 0 1rem;
+        padding: 0 0.9rem;
         height: 64px;
+        line-height: 1.2rem;
+        .largeScreen({
+            line-height: 1.4rem;
+        });
         .flex-display();
         .align-items(center);
         &--noc{
