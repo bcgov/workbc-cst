@@ -161,7 +161,7 @@ const Dropdowns: FunctionComponent = () => {
     }
 
     const handleSpacebar = (event: any) => {
-        if (event.keyCode == 13 || event.keyCode == 32) { // space or enter hit
+        if (event.keyCode == 13 || event.keyCode == 32) { // enter or space hit
             applyFilters()
             event.stopPropagation()
             event.preventDefault()
@@ -180,6 +180,15 @@ const Dropdowns: FunctionComponent = () => {
             document.getElementById('reset-filters').blur()
         } catch (error) {
             console.log(error)
+        }
+    }
+
+    const handleResetKey = (event: any) => {
+        if (event.keyCode == 13) { // enter hit
+            handleReset()
+            event.stopPropagation()
+            event.preventDefault()
+            return
         }
     }
 
@@ -415,7 +424,7 @@ const Dropdowns: FunctionComponent = () => {
                         <Col xs={24} xl={{span:8, offset:16}}> 
                             <div className="sao-filters__button-layout">
                                 <div className="sao-filters__button sao-filters__button--apply" id='apply-filters' onClick={applyFilters} onKeyDown={handleSpacebar} tabIndex={9}>Apply</div>
-                                <div className="sao-filters__button sao-filters__button--reset" id='reset-filters' onClick={handleReset} tabIndex={10}> 
+                                <div className="sao-filters__button sao-filters__button--reset" id='reset-filters' onClick={handleReset} onKeyDown={handleResetKey} tabIndex={10}> 
                                     Clear All
                                     <SyncOutlined /> 
                                 </div>
