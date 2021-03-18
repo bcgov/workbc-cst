@@ -147,6 +147,28 @@
             padding-top: 1rem;
         });
     }
+    .ant-select-focused .ant-select-selector,
+    .ant-select-selector:focus,
+    .ant-select-selector:active,
+    .ant-select-open .ant-select-selector {
+        border-color: black !important;
+    }
+
+    .ant-select-selector, 
+    .ant-input {
+        border-color: @select-grey !important;
+    }
+    
+    .ant-input:focus {
+        box-shadow: 0 0 0 1px #000;
+    }
+}
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled),
+.ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+    color: white !important;
+    background-color: @light-blue !important;
+    font-weight: 400 !important;
 }
 
 .results-background {
