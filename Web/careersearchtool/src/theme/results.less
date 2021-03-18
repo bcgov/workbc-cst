@@ -268,11 +268,15 @@
         font-size: 1rem;
         background-color: @light-blue;
         color: white;
-        padding: 0 0.9rem;
-        height: 64px;
-        line-height: 1.2rem;
-        .largeScreen({
+        padding: 0.45rem 0.9rem;
+        line-height: 1.3rem;
+        height: auto;
+        min-height: 64px;
+        .mediumScreen({
+            padding: 0 0.9rem;
             line-height: 1.4rem;
+            height: 64px;
+            min-height: inherit;
         });
         .flex-display();
         .align-items(center);
