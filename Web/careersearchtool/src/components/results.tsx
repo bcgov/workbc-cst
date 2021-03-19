@@ -9,7 +9,7 @@ import { MailIcon, PrinterIcon } from './customIcons'
 const lightBulb = require("../images/lightbulb.svg") as string;
 
 const results: FunctionComponent = () => {
-    const { filterOption, listSize, filteredOccupationsList, selectedNoc, checkedNocs, isFecthingOccupationList, setView, setCheckedNocs } = useFilterContext()
+    const { filterOption, listSize, filteredOccupationsList, selectedNoc, checkedNocs, isFetchingOccupationList: isFetchingOccupationList, setView, setCheckedNocs } = useFilterContext()
     const [width] = useWindowSize()
 
     function isMobile() {
@@ -35,7 +35,7 @@ const results: FunctionComponent = () => {
     function handleEmailEvent() {
         let link_to_sao = 'The search results are available on WorkBC at: \n' +  window.location.href + _getParams()
         let link = "mailto:"
-        + "&subject=" + encodeURIComponent("Search all occupations")
+        + "&subject=" + encodeURIComponent("Career Search Tool")
         + "&body=" + encodeURIComponent(link_to_sao)
 
         window.location.href = link;
@@ -51,14 +51,14 @@ const results: FunctionComponent = () => {
                                 Search Results
                             </div>
                             <div className="results-header__text">
-                               { !isMobile() && !isFecthingOccupationList && (
+                               { !isMobile() && !isFetchingOccupationList && (
                                    <span>
-                                       Displaying <span className="highlighted-text"> {filteredOccupationsList?.length} results </span>
+                                       Displaying <span className="highlighted-text"> {filteredOccupationsList?.length} results</span>.
                                    </span>
                                )}
-                               { !!isMobile() && !isFecthingOccupationList && (
+                               { !!isMobile() && !isFetchingOccupationList && (
                                    <span>
-                                       Displaying <span className="highlighted-text"> {listSize} of {filteredOccupationsList?.length} results </span>
+                                       Displaying <span className="highlighted-text"> {listSize} of {filteredOccupationsList?.length} results</span>.
                                    </span>
                                )}
                             </div>

@@ -34,7 +34,7 @@ export interface FilterState {
     isSorted: boolean,
     sortOption: string,
     returnToResults: boolean,
-    isFecthingOccupationList: boolean
+    isFetchingOccupationList: boolean
 }
 
 export const defaultFilterState: FilterState = Object.freeze({
@@ -49,7 +49,7 @@ export const defaultFilterState: FilterState = Object.freeze({
     isSorted: false,
     sortOption: 'High to Low',
     returnToResults: false,
-    isFecthingOccupationList: true
+    isFetchingOccupationList: true
 })
 
 export type FilterAction = 
@@ -102,7 +102,7 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
             return ({...state, isSorted: false, sortOption: 'High to Low', isFilterApplied: true, isReset: false, selectedNoc: undefined, checkedNocs: []})
 
         case 'set-is-fetching-results':
-            return ({...state, isFecthingOccupationList: action.payload})
+            return ({...state, isFetchingOccupationList: action.payload})
 
         case 'reset': 
             return ({...state, ...defaultFilterState, isReset: !state.isReset})
