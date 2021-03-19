@@ -113,9 +113,14 @@
             width: 75%;
             text-align: center;
             padding: 9px 0;
+            margin-right: 2px;
         }
         &--apply:hover{
             background: @dark-blue;
+        }
+        &--apply:focus{
+            outline: 1px solid black;
+            box-shadow: 0 0 0 1pt black;
         }
 
         &--reset{
@@ -133,6 +138,10 @@
         }
         &--reset:hover {
             color: @dark-blue;
+        }
+        &--reset:focus{
+            outline: 1px solid black;
+            box-shadow: 0 0 0 1pt black;
         }
     }
     &__label{
