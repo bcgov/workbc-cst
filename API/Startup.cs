@@ -38,6 +38,7 @@ namespace SearchAllOccupationsToolAPI
                     {
                         builder.WithOrigins(Configuration["CORSOrigins"]);
                     });
+                options.AddPolicy("AllowOrigin", x => x.AllowAnyOrigin());
             });
 
             services.AddControllers()
@@ -69,7 +70,7 @@ namespace SearchAllOccupationsToolAPI
 
             app.UseRouting();
 
-            app.UseCors();
+            app.UseCors(c => c.AllowAnyOrigin());
 
             app.UseAuthorization();
 
