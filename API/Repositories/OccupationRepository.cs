@@ -80,7 +80,11 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 occupations = occupations.Where(o => o.Noc.OccupationInterests.Any(og => og.OccupationalInterest.Id == filter.OccupationalInterestId));
 
             if (filter.OccupationalGroupId > 0)
-                occupations = occupations.Where(o => o.Noc.OccupationalGroups.Any(og => og.OccupationalGroup.Id == filter.OccupationalGroupId));
+            {
+                occupations = occupations.Where(o => o.Noc.OccupationalGroups
+                    .Any(og => og.OccupationalGroup.Id == filter.OccupationalGroupId 
+                               && og.GeographicArea.Id == filter.GeographicAreaId));
+            }
 
             return occupations
                 .GroupBy(o => new { NocCode = o.Noc.NocCode, NocDescription = o.Noc.Description, NocId = o.Noc.Id })
