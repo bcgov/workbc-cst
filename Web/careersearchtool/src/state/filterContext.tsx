@@ -14,7 +14,7 @@ export interface FilterState {
     isSorted: boolean,
     sortOption: string,
     returnToResults: boolean,
-    isFecthingOccupationList: boolean,
+    isFetchingOccupationList: boolean,
 }
 export interface FilterContextProps extends FilterState {
     setFilterOption: (filterOptions: FilterOptionModel) => void,
@@ -42,7 +42,7 @@ const FilterContext = createContext<FilterContextProps>({
     isSorted: false,
     returnToResults: false,
     sortOption: 'High to Low',
-    isFecthingOccupationList: true,
+    isFetchingOccupationList: true,
     setFilterOption: () => {},
     filterApplied: () => {},
     resetOptions: () => {},
@@ -60,7 +60,7 @@ FilterContext.displayName = 'FilterContext'
 
 const FilterContextProvider: FunctionComponent = ({children}) => {
     const [{filterOption, filteredOccupationsList, listSize, selectedNoc, view, isFilterApplied, isReset, checkedNocs, isSorted,
-         sortOption, returnToResults, isFecthingOccupationList}, dispatch] = useReducer(reducer, defaultFilterState)
+         sortOption, returnToResults, isFetchingOccupationList: isFetchingOccupationList}, dispatch] = useReducer(reducer, defaultFilterState)
 
     async function setFilterOption(filterOptions: FilterOptionModel) {
         try {
@@ -156,7 +156,7 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
                 isSorted,
                 sortOption,
                 returnToResults,
-                isFecthingOccupationList,
+                isFetchingOccupationList: isFetchingOccupationList,
                 setSelectedNoc,
                 setFilterOption,
                 filterApplied, 
