@@ -127,7 +127,7 @@ const Dropdowns: FunctionComponent = () => {
     }
 
     function handleExpandNode(keys) {
-        setOpenNodes([...openNodes, ...keys])
+        setOpenNodes(keys)
     }
 
     function handleChangeOccupationalGroup(value: Key, options: any) {
@@ -367,14 +367,14 @@ const Dropdowns: FunctionComponent = () => {
                                 <label className="sao-filters__label">Job Type 
                                     <Popover placement="top" overlayClassName="sao-filters__popover-inner" 
                                         className="sao-filters__popover" 
-                                        content={getPopOver('JobType')} 
+                                        content={getPopOver('JobType')}
                                         trigger="click" 
                                         visible={popOvervisible.jobType}>  
                                             <QuestionCircleFilled onClick = {() => setPopOverVisible({...popOvervisible, 'jobType': true})}/> 
                                     </Popover> 
                                 </label>
 
-                                <SelectFilterType  
+                                <SelectFilterType
                                     filterType={FilterType.part_time_option}
                                     style={{ width: '100%' }}
                                     showArrow={true}
@@ -382,7 +382,7 @@ const Dropdowns: FunctionComponent = () => {
                                     value = {userSelection?.part_time_option?.value}
                                     onChange = {handleChangePartTimeOption}
                                     showPlaceHolderAsOption={true}
-                                    placeholder={"All"} 
+                                    placeholder={"All"}
                                     tabIndex={6} />
                             </div>
                         </Col>
