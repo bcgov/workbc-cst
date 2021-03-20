@@ -10,7 +10,7 @@ import useWindowSize from '../client/useWindowSize'
 import { format } from '../client/filtersData'
 
 const ResultsTable: FunctionComponent = () => {
-    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc, listSize,
+    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc, listSize, isFetchingOccupationList,
         setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs, setView, setListSize, setFetchingOccupationList } = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
@@ -171,7 +171,7 @@ const ResultsTable: FunctionComponent = () => {
                         </a> 
                     </span>)
                 } else {
-                    return (<h4>Your search returned no results.</h4>)
+                    return ((!!isFetchingOccupationList ? <h4> Loading ..... </h4> : <h4>Your search returned no results.</h4>))
                 }
             },
         },
