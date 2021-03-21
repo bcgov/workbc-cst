@@ -38,6 +38,12 @@ const CareerPreview: FunctionComponent = () => {
         }, [selectedNoc, isFetchingSummary, isSummaryFetched])
 
     useEffect(() => {
+        if (!!isMobile()) {
+            document.getElementById('header__logo').scrollIntoView()
+        }
+    }, [])
+
+    useEffect(() => {
         if(!isFetchingPIPath && isPiPathFetched && piPathData) {
             setProfileImagesPath(piPathData.value)
         }
@@ -169,7 +175,7 @@ const CareerPreview: FunctionComponent = () => {
     
     return (<div className="preview-career"> 
             { !!isMobile() && (
-                <div className="header__logo">
+                <div className="header__logo" id="header__logo">
                     <a href="https://www.workbc.ca" target="_blank" rel="noreferrer">
                         <img className="header__logo--img" src={WorkBCLogo} alt="Work BC" />
                     </a>

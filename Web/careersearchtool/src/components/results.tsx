@@ -9,7 +9,8 @@ import { MailIcon, PrinterIcon } from './customIcons'
 const lightBulb = require("../images/lightbulb.svg") as string;
 
 const results: FunctionComponent = () => {
-    const { filterOption, listSize, filteredOccupationsList, selectedNoc, checkedNocs, isFetchingOccupationList: isFetchingOccupationList, setView, setCheckedNocs } = useFilterContext()
+    const { filterOption, listSize, filteredOccupationsList, selectedNoc, checkedNocs, 
+        isFetchingOccupationList, setScrollPosition, setView, setCheckedNocs } = useFilterContext()
     const [width] = useWindowSize()
 
     function isMobile() {
@@ -34,11 +35,14 @@ const results: FunctionComponent = () => {
 
     function handleEmailEvent() {
         let link_to_sao = 'The search results are available on WorkBC at: \n' +  window.location.href + _getParams()
-        let link = "mailto:"
-        + "&subject=" + encodeURIComponent("Career Search Tool")
-        + "&body=" + encodeURIComponent(link_to_sao)
-
+        let link = "mailto:''?bcc=''&subject=" + encodeURIComponent('Career Search Tool') + "&body=" + encodeURIComponent(link_to_sao)
         window.location.href = link;
+    }
+
+    function handleCompareCareers() {    
+        const tableBody = document.querySelector(".results-table .ant-table-body")
+        !!tableBody? setScrollPosition( tableBody.scrollTop) : setScrollPosition(0)
+        setView('compareCareers')
     }
 
     return (
@@ -89,8 +93,8 @@ const results: FunctionComponent = () => {
                         <Col className="compare-buttons" xl={7}>
                         {filteredOccupationsList.length > 1 && (
                             <div>
-                                <Button className="compare-buttons__clear" disabled={checkedNocs.length < 1} onClick={() => setCheckedNocs([])} > Clear Compare</Button>
-                                <Button type="primary" className="compare-buttons__compare" disabled={checkedNocs.length < 2} onClick={() => setView('compareCareers')}> Compare Careers</Button>
+                                <Button className="compare-buttons__clear" disabled={checkedNocs.length < 1} onClick={() => {setCheckedNocs([]); setScrollPosition(0)}} > Clear Compare</Button>
+                                <Button type="primary" className="compare-buttons__compare" disabled={checkedNocs.length < 2} onClick={handleCompareCareers}> Compare Careers</Button>
                             </div>
                         )}
                         </Col>

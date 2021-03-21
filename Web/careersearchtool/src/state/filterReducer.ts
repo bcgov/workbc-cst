@@ -25,6 +25,7 @@ export const defaultFilterParams = {
 export interface FilterState {
     filterOption?: FilterOptionModel,
     filteredOccupationsList? : OccupationModel[],
+    scrollPosition: number,
     listSize: number,
     selectedNoc: string,
     view: string,
@@ -40,6 +41,7 @@ export interface FilterState {
 export const defaultFilterState: FilterState = Object.freeze({
     filterOption: defaultFilterOption,
     filteredOccupationsList: [],
+    scrollPosition: 0,
     listSize: 0,
     selectedNoc: undefined,
     view: 'results',
@@ -54,6 +56,7 @@ export const defaultFilterState: FilterState = Object.freeze({
 
 export type FilterAction = 
 {type: 'set-filtered-occupation-list', payload: OccupationModel[] | undefined } |
+{type: 'set-scroll-position', payload: number} |
 {type: 'set-list-size', payload: number} |
 {type: 'set-selected-noc', payload: string} |
 {type: 'set-filter-options', payload: FilterOptionModel} |
@@ -77,6 +80,9 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
          and on every 'apply' action and selcted Noc will be retained on sorting */
         return ({...state, filteredOccupationsList: action.payload, selectedNoc: !!state.isFilterApplied? action.payload[0]?.noc : (!!state.selectedNoc? state.selectedNoc : action.payload[0]?.noc)})
         
+        case 'set-scroll-position':
+            return ({...state, scrollPosition: action.payload})
+            
         case 'set-list-size': 
             return ({...state, listSize: action.payload})
         

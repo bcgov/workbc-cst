@@ -10,7 +10,7 @@ import useWindowSize from '../client/useWindowSize'
 import { format } from '../client/filtersData'
 
 const ResultsTable: FunctionComponent = () => {
-    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc, listSize, isFetchingOccupationList,
+    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc, listSize, isFetchingOccupationList, scrollPosition,
         setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs, setView, setListSize, setFetchingOccupationList } = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
@@ -24,6 +24,13 @@ const ResultsTable: FunctionComponent = () => {
     function isMobile() {
         return width < 1200
     }
+
+    useEffect(() => {
+        const table = document.querySelector(".results-table .ant-table-body")
+        if (table !== null) {
+            table.scrollTop = scrollPosition
+        }
+    },[scrollPosition])
 
     useEffect(() => {
         setListSize(filteredOccupationsList.length < 10 ? filteredOccupationsList.length : listSize > 10 ? listSize : 10)
@@ -54,14 +61,15 @@ const ResultsTable: FunctionComponent = () => {
             case 'A-Z':
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title < b.title ? -1 : 1 }))               
                 break
+
             case 'Z-A':
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title > b.title ? -1 : 1 }))               
-                
                 break
+
             case 'High to Low':
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings > b.jobOpenings ? -1 : 1 }))               
-               
                 break
+
             case 'Low to High':
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings < b.jobOpenings ? -1 : 1 }))
                 break
