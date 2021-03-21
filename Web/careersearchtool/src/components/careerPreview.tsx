@@ -86,6 +86,28 @@ const CareerPreview: FunctionComponent = () => {
         window.location.href = link;
     }
 
+    function findJobsClickAnalytic(url, noc){
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+            "click_type": "find_jobs",
+            "source": "preview",
+            "text": noc,
+            "url": url+noc
+            }
+      });
+    }
+
+    function youtubeAnalytics(noc, videoid){
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+                "click_type": "youtube_play",
+                "source": "search",
+                "text": noc,
+                "url": "https://www.youtube.com/watch?v="+ videoid
+            }
+        });
+    }
+
 
     function getCareerDetail(careerObj: OccupationSummary) {
         return (
@@ -122,7 +144,7 @@ const CareerPreview: FunctionComponent = () => {
                 </div>
                 <div  className="result-detail__thumbnail__preview">
                     {(careerObj.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.noc)} alt='career profile pic'/>)
-                : (<YouTube videoId={careerObj.careertrekvideoids[0]} onReady={_onReady} opts={{playerVars: {rel: 0}}}/>)}
+                : (<YouTube videoId={careerObj.careertrekvideoids[0]} onPlay={() => youtubeAnalytics(careerObj.noc, careerObj.careertrekvideoids[0])} onReady={_onReady} opts={{playerVars: {rel: 0}}}/>)}
                 </div>
                 <div className="result-detail__body result-body">
                     <div className="result-body__row">
@@ -161,7 +183,7 @@ const CareerPreview: FunctionComponent = () => {
                             </a>  
                         </div>                  
                         <div>
-                            <a href={viewJobsUrl+careerObj.jobBoardNoc} target="_blank" rel="noreferrer">
+                            <a href={viewJobsUrl+careerObj.jobBoardNoc} onClick={() => findJobsClickAnalytic(viewJobsUrl, careerObj.jobBoardNoc)} target="_blank" rel="noreferrer">
                                 <Button className="result-detail__footer__button-box__jobs" block>
                                     Find Jobs
                                 </Button>

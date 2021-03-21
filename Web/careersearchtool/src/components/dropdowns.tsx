@@ -17,7 +17,7 @@ const Dropdowns: FunctionComponent = () => {
     
     const [openNodes, setOpenNodes] = useState([])
 
-    const {filterOption, returnToResults, isReset, setFilterOption, filterApplied, resetOptions} = useFilterContext()
+    const {filterOption, returnToResults, isReset, filteredOccupationsList,  setFilterOption, filterApplied, resetOptions} = useFilterContext()
 
     const [userSelection, setUserSelection] = useState<FilterOptionModel>(defaultFilterOption)
 
@@ -28,6 +28,11 @@ const Dropdowns: FunctionComponent = () => {
             setUserSelection(filterOption)
         }
     }, [filterOption, isReset])
+
+    //Onload analytics
+    useEffect(() => {
+       
+    }, []);
 
     useEffect(() => {
         if (returnToResults)  document.getElementById('middle').scrollIntoView()
@@ -181,6 +186,22 @@ const Dropdowns: FunctionComponent = () => {
         } catch (error) {
             console.log(error)
         }
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/find_career/jsonschema/1-0-0",
+            "data": {
+                "action": "reset",
+                "count": filteredOccupationsList?.length,
+                "filters": {
+                "region": userSelection.region.value,
+                "education": userSelection.education.value,
+                "occupational_interest": userSelection.occupational_interest.value,
+                "industry": userSelection.industry.value,
+                "occupational_category": userSelection.occupational_group.value,
+                "job_type": userSelection.part_time_option.value,
+                "annual_salary": userSelection.annual_salary.value,
+                "keyword": userSelection.keyword
+                }
+            }
+        });
     }
 
     const handleResetKey = (event: any) => {
@@ -189,7 +210,7 @@ const Dropdowns: FunctionComponent = () => {
             event.stopPropagation()
             event.preventDefault()
             return
-        }
+        }      
     }
 
     function applyFilters() {
@@ -197,6 +218,34 @@ const Dropdowns: FunctionComponent = () => {
         setFilterOption(userSelection)
         document.getElementById('apply-filters').blur()
         document.getElementById('middle').scrollIntoView()
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/find_career/jsonschema/1-0-0",
+            "data": {
+                "action": "apply",
+                "count": filteredOccupationsList?.length,
+                "filters": {
+                "region": userSelection.region.value,
+                "education": userSelection.education.value,
+                "occupational_interest": userSelection.occupational_interest.value,
+                "industry": userSelection.industry.value,
+                "occupational_category": userSelection.occupational_group.value,
+                "job_type": userSelection.part_time_option.value,
+                "annual_salary": userSelection.annual_salary.value,
+                "keyword": userSelection.keyword
+                }
+            }
+        });
+    }
+
+    //Click popover analytics event
+    function popoverClickAnalytics(text){
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+                "click_type": "tooltip_open",
+                "source": "search",
+                "text": text 
+            }
+        });
+        console.log(text);
     }
 
     function handleHide(filtername: string) {
@@ -249,8 +298,10 @@ const Dropdowns: FunctionComponent = () => {
                                             className="sao-filters__popover" 
                                             content={getPopOver('Region')} 
                                             trigger="click" 
+                                            onClick={() => popoverClickAnalytics("Region")}
                                             visible={popOvervisible.region}>  
                                             <QuestionCircleFilled onClick={() => setPopOverVisible({...popOvervisible, 'region': true})}/> 
+
                                     </Popover>                                   
                                 </label>
                                 <SelectFilterType  
@@ -272,6 +323,7 @@ const Dropdowns: FunctionComponent = () => {
                                         className="sao-filters__popover" 
                                         content={getPopOver('Education')} 
                                         trigger="click" 
+                                        onClick={() => popoverClickAnalytics("Education")}
                                         visible={popOvervisible.education}>  
                                         <QuestionCircleFilled onClick={() => setPopOverVisible({...popOvervisible, 'education': true})} />
                                     </Popover>
@@ -295,6 +347,7 @@ const Dropdowns: FunctionComponent = () => {
                                         className="sao-filters__popover" 
                                         content={getPopOver('OccupationalInterest')} 
                                         trigger="click" 
+                                        onClick={() => popoverClickAnalytics("Occupational Interest")}
                                         visible={popOvervisible.occupationalInterest}> 
                                         <QuestionCircleFilled onClick={() => setPopOverVisible({...popOvervisible, 'occupationalInterest': true})} />
                                     </Popover>
@@ -318,6 +371,7 @@ const Dropdowns: FunctionComponent = () => {
                                         className="sao-filters__popover" 
                                         content={getPopOver('Industry')} 
                                         trigger="click" 
+                                        onClick={() => popoverClickAnalytics("Industry")}
                                         visible={popOvervisible.industry}>  
                                             <QuestionCircleFilled onClick={() => setPopOverVisible({...popOvervisible, 'industry': true})} />
                                     </Popover>
@@ -346,6 +400,7 @@ const Dropdowns: FunctionComponent = () => {
                                         className="sao-filters__popover" 
                                         content={getPopOver('OccupationalCategory')} 
                                         trigger="click" 
+                                        onClick={() => popoverClickAnalytics("Occupational Category")}
                                         visible={popOvervisible.occupationalCategory}>  
                                             <QuestionCircleFilled onClick={() => setPopOverVisible({...popOvervisible, 'occupationalCategory': true})}/> 
                                         </Popover> 
@@ -369,6 +424,7 @@ const Dropdowns: FunctionComponent = () => {
                                         className="sao-filters__popover" 
                                         content={getPopOver('JobType')}
                                         trigger="click" 
+                                        onClick={() => popoverClickAnalytics("Job Type")}
                                         visible={popOvervisible.jobType}>  
                                             <QuestionCircleFilled onClick = {() => setPopOverVisible({...popOvervisible, 'jobType': true})}/> 
                                     </Popover> 
@@ -408,6 +464,7 @@ const Dropdowns: FunctionComponent = () => {
                                         className="sao-filters__popover" 
                                         content={getPopOver('Keywords')} 
                                         trigger="click" 
+                                        onClick={() => popoverClickAnalytics("Keyword")}
                                         visible={popOvervisible.keywords}>  
                                         <QuestionCircleFilled onClick={()=> setPopOverVisible({...popOvervisible, 'keywords': true})} /> 
                                     </Popover> 

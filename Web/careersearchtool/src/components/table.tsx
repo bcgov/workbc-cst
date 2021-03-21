@@ -56,7 +56,8 @@ const ResultsTable: FunctionComponent = () => {
     }, [occupationsList, isSettled, isValidating])
 
     useEffect(() => {
-        let tempList = [...filteredOccupationsList]
+        let tempList = [...filteredOccupationsList]      
+
         switch(sortOption) {
             case 'A-Z':
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title < b.title ? -1 : 1 }))               
@@ -127,16 +128,26 @@ const ResultsTable: FunctionComponent = () => {
         setExtraSelection(undefined)
     }
 
+    function sortClickAnalytics(text){
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+                "click_type": "sort",
+                "source": "search",
+                "text": text
+            }
+        });
+    }
+
     const nameContent = (
         <div className="sort-options">
-            <a onClick={()=> {hide();setSortOption('A-Z'); scrollTableToTop()}}> A - Z </a>
-            <a onClick={()=> {hide();setSortOption('Z-A'); scrollTableToTop()}}> Z - A </a>
+            <a onClick={()=> {hide();setSortOption('A-Z'); scrollTableToTop();  sortClickAnalytics('A-Z')}}> A - Z </a>
+            <a onClick={()=> {hide();setSortOption('Z-A'); scrollTableToTop();  sortClickAnalytics('Z-A')}}> Z - A </a>
         </div>
     )
     const jobContent = (
         <div className="sort-options">
-            <a onClick={() => {hide();setSortOption('High to Low'); scrollTableToTop()}}> High to Low </a>
-            <a onClick={() => {hide();setSortOption('Low to High'); scrollTableToTop()}}> Low to High </a>
+            <a onClick={() => {hide();setSortOption('High to Low'); scrollTableToTop(); sortClickAnalytics('High to Low')}}> High to Low </a>
+            <a onClick={() => {hide();setSortOption('Low to High'); scrollTableToTop(); sortClickAnalytics('Low to High')}}> Low to High </a>
         </div>
     )
 
@@ -227,6 +238,13 @@ const ResultsTable: FunctionComponent = () => {
     }
 
     function handleSelectedNoc(record: any) {
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+                "click_type": "preview",
+                "source": "search",
+                "text": record.noc 
+            }
+        });
         setSelectedNoc(record.noc)
         if(isMobile()) {
             setView('careerPreview')

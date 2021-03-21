@@ -74,6 +74,17 @@ const CompareCareers: FunctionComponent = () => {
     function _onReady(event) {
         event.target.pauseVideo();
     }
+    
+    function findJobsClickAnalytic(url, noc){
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+            "click_type": "find_jobs",
+            "source": "compare",
+            "text": noc,
+            "url": url+noc
+            }
+      });
+    }
 
     function getCareerDetail(careerObj: OccupationSummaryObj) {
         return (
@@ -146,7 +157,7 @@ const CompareCareers: FunctionComponent = () => {
                             </a>
                         </div>                  
                         <div>
-                            <a href={viewJobsUrl+careerObj.careerDetail?.jobBoardNoc} target="_blank" rel="noreferrer">
+                            <a href={viewJobsUrl+careerObj.careerDetail?.jobBoardNoc} onClick={() => findJobsClickAnalytic(viewJobsUrl, careerObj.jobBoardNoc)} target="_blank" rel="noreferrer">
                                 <Button  className="result-detail__footer__button-box__jobs" block>
                                     Find Jobs
                                 </Button>

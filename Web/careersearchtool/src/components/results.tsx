@@ -18,6 +18,12 @@ const results: FunctionComponent = () => {
     }
 
     function handlePrintEvent() {
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+                "click_type": "print",
+                "source": "search"
+            }
+        });
         print();
     }
 
@@ -43,6 +49,29 @@ const results: FunctionComponent = () => {
         const tableBody = document.querySelector(".results-table .ant-table-body")
         !!tableBody? setScrollPosition( tableBody.scrollTop) : setScrollPosition(0)
         setView('compareCareers')
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/compare_careers/jsonschema/1-0-0",
+            "data": {
+                "action": "compare",
+                "noc_1": checkedNocs[0],
+                "noc_2": checkedNocs[1],
+                "noc_3": checkedNocs[2] === 'undefined' ? null :  checkedNocs[2]
+            }
+        });
+
+        
+    }
+
+    function handleClear() {    
+        setCheckedNocs([]); 
+        setScrollPosition(0);
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/compare_careers/jsonschema/1-0-0",
+            "data": {
+                "action": "clear",
+                "noc_1": checkedNocs[0],
+                "noc_2": checkedNocs[1] === 'undefined' ? null :  checkedNocs[1],
+                "noc_3": checkedNocs[2] === 'undefined' ? null :  checkedNocs[2]
+            }
+        });
     }
 
     return (
@@ -93,7 +122,7 @@ const results: FunctionComponent = () => {
                         <Col className="compare-buttons" xl={7}>
                         {filteredOccupationsList.length > 1 && (
                             <div>
-                                <Button className="compare-buttons__clear" disabled={checkedNocs.length < 1} onClick={() => {setCheckedNocs([]); setScrollPosition(0)}} > Clear Compare</Button>
+                                <Button className="compare-buttons__clear" disabled={checkedNocs.length < 1} onClick={handleClear} > Clear Compare</Button>
                                 <Button type="primary" className="compare-buttons__compare" disabled={checkedNocs.length < 2} onClick={handleCompareCareers}> Compare Careers</Button>
                             </div>
                         )}
