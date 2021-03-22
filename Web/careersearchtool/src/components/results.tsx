@@ -41,7 +41,7 @@ const results: FunctionComponent = () => {
 
     function handleEmailEvent() {
         let link_to_sao = 'The search results are available on WorkBC at: \n' +  window.location.href + _getParams()
-        let link = `mailto:''?bcc=''&subject=${encodeURIComponent('Career Search Tool')}&body=${encodeURIComponent(link_to_sao)}`
+        let link = `mailto:?bcc=&subject=${encodeURIComponent('Career Search Tool')}&body=${encodeURIComponent(link_to_sao)}`
         window.location.href = link;
     }
 

@@ -79,14 +79,11 @@ const CareerPreview: FunctionComponent = () => {
 
     function handleEmailEvent() {
         let link_to_sao = 'The selected career is available on WorkBC at: \n' +  window.location.href + _getCareer()
-        let link = "mailto:''?" + "bcc=''"
-        + "&subject=" + encodeURIComponent("Career Search Tool")
-        + "&body=" + encodeURIComponent(link_to_sao);
-
+        let link = `mailto:?bcc=&subject=${encodeURIComponent('Career Search Tool')}&body=${encodeURIComponent(link_to_sao)}`
         window.location.href = link;
     }
 
-    function findJobsClickAnalytic(url, noc){
+    function findJobsClickAnalytic(url, noc) {
         window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
             "data": {
             "click_type": "find_jobs",
