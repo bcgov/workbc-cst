@@ -45,6 +45,8 @@ const CareerPreview: FunctionComponent = () => {
     useEffect(() => {
         if (!!isMobile()) {
             document.getElementById('header__logo').scrollIntoView()
+        } else {
+            setView('results')
         }
     }, [])
 
