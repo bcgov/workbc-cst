@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useState, useEffect } from 'react'
 import { Row, Col, Button, Popover } from 'antd'
 import { useFilterContext } from '../state/filterContext'
 import ResultsTable from './table'
@@ -12,6 +12,11 @@ const results: FunctionComponent = () => {
     const { filterOption, listSize, filteredOccupationsList, selectedNoc, checkedNocs, 
         isFetchingOccupationList, setScrollPosition, setView, setCheckedNocs } = useFilterContext()
     const [width] = useWindowSize()
+    const [emailParams, setEmailParams] = useState('')
+
+    useEffect(() => {
+        setEmailParams(_getParams())
+    },[])
 
     function isMobile() {
         return width < 1200
@@ -40,8 +45,8 @@ const results: FunctionComponent = () => {
     }
 
     function handleEmailEvent() {
-        let link_to_sao = 'The search results are available on WorkBC at: \n' +  window.location.href + _getParams()
-        let link = `mailto:?bcc=&subject=${encodeURIComponent('Career Search Tool')}&body=${encodeURIComponent(link_to_sao)}`
+        let link_to_sao = 'The search results are available on WorkBC at: \n' +  window.location.href + emailParams
+        let link = `mailto:?subject=${encodeURIComponent('Career Search Tool')}&body=${encodeURIComponent(link_to_sao)}`
         window.location.href = link;
     }
 

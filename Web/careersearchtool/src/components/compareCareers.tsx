@@ -24,11 +24,16 @@ const CompareCareers: FunctionComponent = () => {
     const {data: CPUrlData, isValidating: isFetchingCPUrl, isSettled: isCPUrlFetched } = useGetSystemConfigurations({name: "CareerProfileBaseUrl"})
     const {data: JOUrlData, isValidating: isFetchingJOUrl, isSettled: isJOUrlFetched } = useGetSystemConfigurations({name: "JobOpeningsBaseUrl"})
     const [width] = useWindowSize()
+    const [emailParams, setEmailParams] = useState('')
 
     function isMobile() {
         return width < 1200
     }
     
+    useEffect(() => {
+        setEmailParams(_getCareers())
+    },[])
+
     useEffect(() => {
         if(!isFetchingPIPath && isPiPathFetched && piPathData) {
             setProfileImagesPath(piPathData.value)
@@ -178,8 +183,8 @@ const CompareCareers: FunctionComponent = () => {
     }
 
     function handleEmailEvent() {
-        let link_to_sao = 'The compared careers are available on WorkBC at: \n' +  window.location.href + _getCareers()
-        let link = `mailto:?bcc=&subject=${encodeURIComponent('Career Search Tool')}&body=${encodeURIComponent(link_to_sao)}`
+        let link_to_sao = 'The compared careers are available on WorkBC at: \n' +  window.location.href + emailParams
+        let link = `mailto:?subject=${encodeURIComponent('Career Search Tool')}&body=${encodeURIComponent(link_to_sao)}`
 
         window.location.href = link;
     }

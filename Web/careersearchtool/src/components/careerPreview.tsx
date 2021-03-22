@@ -24,12 +24,17 @@ const CareerPreview: FunctionComponent = () => {
     const {data: CPUrlData, isValidating: isFetchingCPUrl, isSettled: isCPUrlFetched } = useGetSystemConfigurations({name: "CareerProfileBaseUrl"})
     const {data: JOUrlData, isValidating: isFetchingJOUrl, isSettled: isJOUrlFetched } = useGetSystemConfigurations({name: "JobOpeningsBaseUrl"})
     const [width] = useWindowSize()
+    const[emailParams, setEmailParams] = useState('')
 
     function isMobile() {
         return width < 1200
     }
 
     const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(selectedNoc)
+
+    useEffect(() => {
+        setEmailParams(_getCareer())
+    },[])
 
     useEffect(() => {
         if(occupationSummary) {
@@ -78,8 +83,8 @@ const CareerPreview: FunctionComponent = () => {
     }
 
     function handleEmailEvent() {
-        let link_to_sao = 'The selected career is available on WorkBC at: \n' +  window.location.href + _getCareer()
-        let link = `mailto:?bcc=&subject=${encodeURIComponent('Career Search Tool')}&body=${encodeURIComponent(link_to_sao)}`
+        let link_to_sao = 'The selected career is available on WorkBC at: \n' +  window.location.href + emailParams
+        let link = `mailto:?subject=${encodeURIComponent('Career Search Tool')}&body=${encodeURIComponent(link_to_sao)}`
         window.location.href = link;
     }
 
@@ -94,7 +99,7 @@ const CareerPreview: FunctionComponent = () => {
       });
     }
 
-    function youtubeAnalytics(noc, videoid){
+    function youtubeAnalytics(noc, videoid) {
         window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
             "data": {
                 "click_type": "youtube_play",
