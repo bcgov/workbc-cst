@@ -16,7 +16,7 @@ const results: FunctionComponent = () => {
 
     useEffect(() => {
         setEmailParams(_getParams())
-    },[filterOption])
+    },[filterOption, selectedNoc])
 
     function isMobile() {
         return width < 1200
