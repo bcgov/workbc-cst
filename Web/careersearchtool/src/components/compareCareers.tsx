@@ -168,9 +168,7 @@ const CompareCareers: FunctionComponent = () => {
 
     function handleEmailEvent() {
         let link_to_sao = 'The compared careers are available on WorkBC at: \n' +  window.location.href + _getCareers()
-        let link = "mailto:"
-        + "&subject=" + encodeURIComponent("Career Search Tool")
-        + "&body=" + encodeURIComponent(link_to_sao);
+        let link = `mailto:''?bcc=''&subject=${encodeURIComponent('Career Search Tool')}&body=${encodeURIComponent(link_to_sao)}`
 
         window.location.href = link;
     }
