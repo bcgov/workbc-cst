@@ -29,11 +29,6 @@ const Dropdowns: FunctionComponent = () => {
         }
     }, [filterOption, isReset])
 
-    //Onload analytics
-    useEffect(() => {
-       
-    }, []);
-
     useEffect(() => {
         if (returnToResults)  document.getElementById('middle').scrollIntoView()
     }, [returnToResults])
@@ -43,6 +38,13 @@ const Dropdowns: FunctionComponent = () => {
             setIndustryDataTree(modifyIndustryData(industryData))
         }
     }, [industryData, isValidating, isSettled])
+
+    useEffect(() => {
+        let scroll = document.getElementsByClassName('ant-select-tree-list-scrollbar')[0]
+        if (!!scroll) {
+          scroll.style.display = 'block'
+        }
+    },[industryDataTree])
 
     function getHoverContent(filtername: string) {
         switch (filtername)  {
@@ -127,7 +129,11 @@ const Dropdowns: FunctionComponent = () => {
         }
     }
 
-    function handleOpenDropdown() {
+    function handleOpenDropdown(event) {
+        let scroll = document.getElementsByClassName('ant-select-tree-list-scrollbar')[0]
+        if (event && !!scroll) {
+            scroll.style.display = 'block'
+        }
         setOpenNodes(!!userSelection.industry.id.split(':')[1] ? [userSelection.industry.id.split(':')[0]]: [])
     }
 
