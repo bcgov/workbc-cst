@@ -384,6 +384,7 @@ const Dropdowns: FunctionComponent = () => {
                                 </label>
                                     <TreeSelect
                                         placeholder="All"
+                                        defaultValue={'All'}
                                         showArrow={true}
                                         className="sao-filters__select"
                                         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
