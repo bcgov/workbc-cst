@@ -32,19 +32,12 @@ const Dropdowns: FunctionComponent = () => {
     useEffect(() => {
         if (returnToResults)  document.getElementById('middle').scrollIntoView()
     }, [returnToResults])
-
+    
     useEffect(() => {
         if(!isValidating && isSettled && !!industryData && industryData.length > 0) {
             setIndustryDataTree(modifyIndustryData(industryData))
         }
     }, [industryData, isValidating, isSettled])
-
-    useEffect(() => {
-        let scroll = document.getElementsByClassName('ant-select-tree-list-scrollbar')[0]
-        if (!!scroll) {
-          scroll.style.display = 'block'
-        }
-    },[industryDataTree])
 
     function getHoverContent(filtername: string) {
         switch (filtername)  {
@@ -139,6 +132,13 @@ const Dropdowns: FunctionComponent = () => {
 
     function handleExpandNode(keys) {
         setOpenNodes(keys)
+    }
+
+    function handleFocus() {
+        let scroll = document.getElementsByClassName('ant-select-tree-list-scrollbar')[0]
+        if (!!scroll && industryDataTree.length > 0) {
+          scroll.style.display = 'block'
+        }
     }
 
     function handleChangeOccupationalGroup(value: Key, options: any) {
@@ -392,6 +392,7 @@ const Dropdowns: FunctionComponent = () => {
                                         onDropdownVisibleChange	= {handleOpenDropdown}
                                         treeExpandedKeys={openNodes}
                                         onTreeExpand = {handleExpandNode}
+                                        onFocus = {handleFocus}
                                         value={userSelection?.industry?.id}
                                         style={{width: '100%'}}
                                         tabIndex={4} />
