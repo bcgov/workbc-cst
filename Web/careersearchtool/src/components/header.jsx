@@ -10,7 +10,7 @@ function Header() {
         if(!isFetchingBgPath && isBgPathFetched) {
             setBackgroundImagesPath(bgPathData?.value)
         }
-    }, [isFetchingBgPath, isBgPathFetched])
+    }, [bgPathData, isFetchingBgPath, isBgPathFetched])
 
 	return (
 		<>
@@ -24,7 +24,7 @@ function Header() {
 			</div>
 			{/* Header Hero Image */}
 			<div className="header__hero" style={{
-				backgroundImage: "url(" +  backgroundImagesPath + "hero-image.png" + ")"}}>
+				backgroundImage: `url(${backgroundImagesPath}hero-image.png)`}}>
 				<div className="container">
 					<div className="header__hero-text">
 						<div className="header__hero-text--header">
