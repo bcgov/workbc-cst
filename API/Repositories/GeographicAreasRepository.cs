@@ -26,7 +26,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
         public int GetBritishColumbiaId()
         {
             var areas = GetGeographicAreas();
-            return areas.FirstOrDefault(g => g.Value.ToLower() == "british columbia")?.Id ?? 0;
+            return areas.FirstOrDefault(g => g.Value.ToLower() == "british columbia" || g.Value.ToLower() == "all")?.Id ?? 0;
         }
     }
 }

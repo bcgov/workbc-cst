@@ -13,12 +13,10 @@ namespace SearchAllOccupationsToolAPI.Controllers
     [ApiController]
     public class GeographicAreasController : ApiControllerBase
     {
-        private readonly IGeographicAreasContext _context;
         private readonly IGeographicAreasRepository _repository;
 
         public GeographicAreasController(GeographicAreasContext context)
         {
-            _context = context;
             _repository = new GeographicAreasRepository(context);
         }
 

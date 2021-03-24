@@ -1,7 +1,7 @@
 import { FilterOptionModel, OccupationModel } from "../client/dataTypes";
 
 export const defaultFilterOption = {
-    region: {id: 1, value: 'British Columbia'}, 
+    region: {id: 1, value: 'All'}, 
     education: {id: -1, value: 'All'}, 
     occupational_interest: {id: -1, value: 'All'}, 
     industry: {id: 'All', value: 'All'}, 
