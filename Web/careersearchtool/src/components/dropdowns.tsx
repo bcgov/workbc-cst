@@ -30,7 +30,6 @@ const Dropdowns: FunctionComponent = () => {
         return width < 1200
     }
 
-
     useEffect(()=> {
         if(!!filterOption) {
             setUserSelection(filterOption)
@@ -62,14 +61,24 @@ const Dropdowns: FunctionComponent = () => {
         switch (filtername)  {
             case 'OccupationalInterest':
                 return (<div> 
-                    <p>Careers based on six interest types</p>
+                    <p>Careers based on  
+                        <a href="https://www.workbc.ca/Labour-Market-Industry/Skills-for-the-Future-Workforce.aspx#characteristics">
+                             <span style={{textDecoration: 'underline'}}> six interest types</span>
+                        </a>.
+                    </p>
                 </div>)
             case 'OccupationalCategory': 
                 return (<div>
                     <p> Quick links to popular career groupings. </p>
                 </div>)
             case 'Keywords':
-                return (<div> The <b>National Occupational Classifications System (NOC) </b> classifies all occupations in Canada.</div>)
+                return (<div> 
+                    The 
+                    <a href="https://noc.esdc.gc.ca//Home/Welcome/79735a894dfc4ef199b03ff2a587cb1a?GoCTemplateCulture=en-CA">
+                        <b style={{textDecoration: 'underline'}}> National Occupational Classifications System (NOC) </b>
+                    </a>
+                    classifies all occupations in Canada.
+                </div>)
         }
     }
 
