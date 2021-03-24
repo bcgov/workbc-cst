@@ -11,7 +11,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
     {
         private readonly IIndustryContext _context;
         
-        private const string AllIndustriesTitle = "all industries";
+        private const string AllIndustriesTitle = "all";
 
         public IndustryRepository(IIndustryContext dbContext)
         {
