@@ -43,7 +43,6 @@ const Dropdowns: FunctionComponent = () => {
     useEffect(() => {
         var checkExist = setInterval(function() {
             if (document.getElementsByClassName('preview-career')[0] && showCareerPreview) {
-               console.log("Exists!");
                document.getElementsByClassName('preview-career')[0].scrollIntoView()
                clearInterval(checkExist);
             }
