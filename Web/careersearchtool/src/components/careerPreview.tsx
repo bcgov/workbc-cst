@@ -218,7 +218,7 @@ const CareerPreview: FunctionComponent = () => {
                 <div className="preview-career__header">
                     <div><span className="no-print">Career Preview</span><span className="print-only">Career Search Tool</span></div>
                     <div className="preview-career__header-icons popover-buttons">
-                        <Popover placement="bottomRight" content={"Print Results"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
+                        <Popover placement="bottomRight" content={"Print"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
                             <span>
                                 <span role="img" onClick={handlePrintEvent} aria-label="printer" tabIndex={-1} className="anticon anticon-printer" style={{fontSize: '32px', color: "#355992"}}>
                                     <PrinterIcon />
@@ -226,7 +226,7 @@ const CareerPreview: FunctionComponent = () => {
                             </span>
                         </Popover>                                   
 
-                        <Popover placement="bottomRight" content={"Email Results"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
+                        <Popover placement="bottomRight" content={"Email"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
                             <span>
                                 <span role="img" onClick={handleEmailEvent} aria-label="mail" tabIndex={-1} className="anticon anticon-mail" style={{fontSize: '32px', color: "#355992"}}>
                                     <MailIcon />
