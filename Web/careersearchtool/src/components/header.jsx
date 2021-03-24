@@ -32,9 +32,7 @@ function Header() {
 							<span className="mobile">Career<br />Search Tool</span>
 						</div>
 						<div className="header__hero-text--body">
-							What kinds of careers suit you best?<br />
-							Search career opportunities that fit your<br />
-							personality and goals.
+							Explore career opportunities that fit your interests and goals.
 						</div>
 					</div>
 				</div>
