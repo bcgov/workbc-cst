@@ -13,7 +13,7 @@ import { MailIcon, PrinterIcon } from './customIcons'
 const WorkBCLogo = require('../images/workbc-header-logo.svg')
 
 const CareerPreview: FunctionComponent = () => {
-    const {filteredOccupationsList, selectedNoc, setView, setReturnToResults} = useFilterContext()
+    const {filteredOccupationsList, selectedNoc, setShowCareerPreview, setView, setReturnToResults} = useFilterContext()
 
     const [careerDetail, setCareerDetail] = useState<OccupationSummary>()
     const [profileImagesPath, setProfileImagesPath] = useState<string>()
@@ -47,6 +47,7 @@ const CareerPreview: FunctionComponent = () => {
             document.getElementById('header__logo').scrollIntoView()
         } else {
             setView('results')
+            setShowCareerPreview(true)
         }
     }, [])
 

@@ -16,6 +16,7 @@ export interface FilterState {
     sortOption: string,
     returnToResults: boolean,
     isFetchingOccupationList: boolean,
+    showCareerPreview: boolean
 }
 export interface FilterContextProps extends FilterState {
     setFilterOption: (filterOptions: FilterOptionModel) => void,
@@ -29,7 +30,8 @@ export interface FilterContextProps extends FilterState {
     setCheckedNocs: (value: string[]) => void,
     setSortOption: (value: string) => void,
     setReturnToResults: (value: boolean) => void,
-    setFetchingOccupationList: (value: boolean) => void
+    setFetchingOccupationList: (value: boolean) => void,
+    setShowCareerPreview: (value: boolean) => void
 }
 
 const FilterContext = createContext<FilterContextProps>({
@@ -46,6 +48,7 @@ const FilterContext = createContext<FilterContextProps>({
     returnToResults: false,
     sortOption: 'High to Low',
     isFetchingOccupationList: true,
+    showCareerPreview: false,
     setFilterOption: () => {},
     filterApplied: () => {},
     resetOptions: () => {},
@@ -57,14 +60,15 @@ const FilterContext = createContext<FilterContextProps>({
     setCheckedNocs: () =>{},
     setSortOption: () => {},
     setReturnToResults: () => {},
-    setFetchingOccupationList: () => {}
+    setFetchingOccupationList: () => {},
+    setShowCareerPreview: () => {}
 })
 
 FilterContext.displayName = 'FilterContext'
 
 const FilterContextProvider: FunctionComponent = ({children}) => {
     const [{filterOption, filteredOccupationsList, scrollPosition, listSize, selectedNoc, view, isFilterApplied, isReset, checkedNocs, 
-        isSorted, sortOption, returnToResults, isFetchingOccupationList: isFetchingOccupationList}, dispatch] = useReducer(reducer, defaultFilterState)
+        isSorted, sortOption, returnToResults, isFetchingOccupationList: isFetchingOccupationList, showCareerPreview}, dispatch] = useReducer(reducer, defaultFilterState)
 
     async function setFilterOption(filterOptions: FilterOptionModel) {
         try {
@@ -154,6 +158,14 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
         }
     }
 
+    async function setShowCareerPreview(value: boolean) {
+        try {
+            dispatch({type: 'set-show-career-preview', payload: value})
+        } catch(error) {
+            console.log(error)
+        }
+    }
+
     return (
         <FilterContext.Provider 
             value = {{ 
@@ -170,6 +182,7 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
                 sortOption,
                 returnToResults,
                 isFetchingOccupationList: isFetchingOccupationList,
+                showCareerPreview,
                 setSelectedNoc,
                 setFilterOption,
                 filterApplied, 
@@ -181,7 +194,8 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
                 setSortOption,
                 setCheckedNocs, 
                 setReturnToResults, 
-                setFetchingOccupationList}}> 
+                setFetchingOccupationList,
+                setShowCareerPreview}}> 
             {children}
         </FilterContext.Provider>
     )

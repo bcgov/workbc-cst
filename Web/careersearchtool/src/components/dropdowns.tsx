@@ -17,7 +17,8 @@ const Dropdowns: FunctionComponent = () => {
     
     const [openNodes, setOpenNodes] = useState([])
 
-    const {filterOption, returnToResults, isReset, filteredOccupationsList,  setFilterOption, filterApplied, resetOptions} = useFilterContext()
+    const {filterOption, returnToResults, isReset, filteredOccupationsList, showCareerPreview,
+         setFilterOption, filterApplied, resetOptions} = useFilterContext()
 
     const [userSelection, setUserSelection] = useState<FilterOptionModel>(defaultFilterOption)
 
@@ -38,6 +39,16 @@ const Dropdowns: FunctionComponent = () => {
             setIndustryDataTree(modifyIndustryData(industryData))
         }
     }, [industryData, isValidating, isSettled])
+
+    useEffect(() => {
+        var checkExist = setInterval(function() {
+            if (document.getElementsByClassName('preview-career')[0] && showCareerPreview) {
+               console.log("Exists!");
+               document.getElementsByClassName('preview-career')[0].scrollIntoView()
+               clearInterval(checkExist);
+            }
+         }, 100); // check every 100ms
+    },[]) 
 
     function getHoverContent(filtername: string) {
         switch (filtername)  {
@@ -307,7 +318,6 @@ const Dropdowns: FunctionComponent = () => {
                                             onClick={() => popoverClickAnalytics("Region")}
                                             visible={popOvervisible.region}>  
                                             <QuestionCircleFilled onClick={() => setPopOverVisible({...popOvervisible, 'region': true})}/> 
-
                                     </Popover>                                   
                                 </label>
                                 <SelectFilterType  
