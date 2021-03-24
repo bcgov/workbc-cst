@@ -32,6 +32,9 @@ const CompareCareers: FunctionComponent = () => {
     
     useEffect(() => {
         setEmailParams(_getCareers())
+        if(!!isMobile()){
+            document.getElementById('header__logo').scrollIntoView()
+        }
     },[])
 
     useEffect(() => {
@@ -192,7 +195,7 @@ const CompareCareers: FunctionComponent = () => {
     return (
         <div>
             <div className="compare-container-header">
-                <div className="header__logo">
+                <div className="header__logo" id="header__logo">
                     <a href="https://www.workbc.ca" target="_blank" rel="noreferrer">
                         <img className="header__logo--img" src={WorkBCLogo} alt="Work BC" />
                     </a>
