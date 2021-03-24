@@ -115,7 +115,9 @@ const results: FunctionComponent = () => {
                                 <span role="img" aria-label="bulb" className="anticon anticon-bulb compare-description__flexbox__icon">
                                     <img src={lightBulb} alt="Bulb Icon" className="compare-description__flexbox__icon" />
                                 </span>
-                                <div style={{fontSize: '14px', paddingLeft: '16px'}}>Select a career below to find out more information.</div>                                  
+                                <div style={{fontSize: '14px', paddingLeft: '16px'}}>
+                                    Choose a career name from the table below to <b>preview information.</b>
+                                </div>                                  
                             </div>
                         )}
                         {filteredOccupationsList.length > 1 && (
