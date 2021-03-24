@@ -15,7 +15,7 @@ function _getFilterOptions(filterObj : object): object {
 
   filterOptions['region'] = filterObj['region'] ?
                               {id: parseInt(filterObj['region'].split(':')[0]), value: filterObj['region'].split(':')[1]} :
-                              {id: 1, value: 'British Columbia'}
+                              {id: 1, value: 'All'}
 
   filterOptions['education'] = filterObj['education'] ? 
                                 {id: parseInt(filterObj['education'].split(':')[0]), value: filterObj['education'].split(':')[1]} :
