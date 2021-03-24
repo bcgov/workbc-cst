@@ -180,7 +180,7 @@ const ResultsTable: FunctionComponent = () => {
     const columns = [
         {
             title: (<div className="table-header">
-                <div className="table-header__title"> Career Name </div>
+                <div className="table-header__title"> Career name </div>
                 <Popover placement="bottomRight" title={title} content={nameContent} overlayClassName="sort-options__popover-inner" 
                 className="sort-options__popover" trigger="click" visible={nameSortVisible} onVisibleChange={handleNameSortVisible}>
                     <span className="table-header__icon" style={{marginLeft: '15px'}}> <DownSortIcon /></span>
@@ -203,7 +203,7 @@ const ResultsTable: FunctionComponent = () => {
         },
         {
             title: (<div className="table-header"> 
-                <div className="table-header__title"> Job Openings <span>(2019-2029)</span> </div>
+                <div className="table-header__title"> Job openings <span>(2019-2029)</span> </div>
                 <Popover placement="bottomRight" title={title} content={jobContent} overlayClassName="sort-options__popover-inner" 
                 className="sort-options__popover" trigger="click" visible={jobsSortVisible} onVisibleChange={handleJobsSortVisible}>
                     <span className="table-header__icon" style={{marginLeft: '15px'}}> <DownSortIcon /></span>
@@ -217,7 +217,7 @@ const ResultsTable: FunctionComponent = () => {
             }
         },
         {
-            title: 'Compare Careers',
+            title: 'Compare careers',
             dataIndex: 'compare',
             className: 'table-col-3',
             render: (text, record: OccupationModel) => {
