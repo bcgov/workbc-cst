@@ -49,8 +49,7 @@ function MediaLinks() {
                         <a target="_blank" rel="noreferrer" href="https://www.workbc.ca/browsers"> Browsers</a> |
                         <a target="_blank" rel="noreferrer" href="https://www.workbc.ca/Contact-Us.aspx"> Contact Us</a> |
                         <a target="_blank" rel="noreferrer" href="http://www2.gov.bc.ca/gov/content/home/disclaimer"> Disclaimer</a> |
-                        <a target="_blank" rel="noreferrer" href="http://www2.gov.bc.ca/gov/content/home/privacy"> Privacy</a> |
-                        <a target="_blank" rel="noreferrer" href="https://www.workbc.ca/Resources-for/Resources-for-Counsellors-Teachers-Parents.aspx">  Resources for Teachers & Parents </a>
+                        <a target="_blank" rel="noreferrer" href="http://www2.gov.bc.ca/gov/content/home/privacy"> Privacy</a>
                     </div>
                     <div className="footer-content__social-icons">
                         <FooterIcons />
