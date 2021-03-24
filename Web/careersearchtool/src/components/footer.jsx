@@ -50,8 +50,7 @@ function Footer() {
 								<h3 className="tools-resources-card__header compass">Career Compass</h3>
 							</a>
 							<div className="tools-resources-card__body">
-								Explore your career direction. Take one or more of our three career
-								quizzes –  and find careers that fit you.
+								Explore careers that fit you by taking one or more of three quizzes.
 							</div>
 						</div>
 					</Col>
@@ -64,8 +63,7 @@ function Footer() {
 								<h3 className="tools-resources-card__header">Career Trek Videos</h3>
 							</a>
 							<div className="tools-resources-card__body">
-								Discover the career of your dreams with 147 videos highlighting
-								careers throughout B.C. Watch career videos now!
+								Discover the career of your dreams with engaging videos highlighting careers throughout B.C. 
 							</div>
 						</div>
 					</Col>
@@ -87,9 +85,11 @@ function Footer() {
 							<div className="tools-resources-card__icon">
 								<i className="tools-resources-card__icon--throttle">{throttle}</i>
 							</div>	
-							<a className="tools-resources-card__link" href="https://www.workbc.ca/Labour-Market-Industry/High-Opportunity-Occupations.aspx" target="_blank" rel="noreferrer"><h3 className="tools-resources-card__header">High Opportunity Occupations</h3></a>
+							<a className="tools-resources-card__link" href="https://www.workbc.ca/Labour-Market-Industry/High-Opportunity-Occupations.aspx" target="_blank" rel="noreferrer">
+								<h3 className="tools-resources-card__header">High Opportunity Occupations</h3>
+							</a>
 							<div className="tools-resources-card__body">
-								Discover occupations in B.C. that are expected to offer the best opportunities over the next 10 years.
+								Discover occupations in B.C. that are expected to offer the best opportunities.
 							</div>
 						</div>
 					</Col>
