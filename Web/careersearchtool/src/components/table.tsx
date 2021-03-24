@@ -10,8 +10,9 @@ import useWindowSize from '../client/useWindowSize'
 import { format } from '../client/filtersData'
 
 const ResultsTable: FunctionComponent = () => {
-    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc, listSize, isFetchingOccupationList, scrollPosition,
-        setSortOption, setSelectedNoc, setFilteredOccupationsList, setCheckedNocs, setView, setListSize, setFetchingOccupationList } = useFilterContext()
+    const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc, windowScroll,
+        listSize, isFetchingOccupationList, scrollPosition, setSortOption, setSelectedNoc, setWindowScroll,
+        setFilteredOccupationsList, setCheckedNocs, setView, setListSize, setFetchingOccupationList } = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const [nameSortVisible, setNameSortVisible] = useState<boolean>(false)
@@ -33,8 +34,14 @@ const ResultsTable: FunctionComponent = () => {
     },[scrollPosition])
 
     useEffect(() => {
-        setListSize(filteredOccupationsList.length < 10 ? filteredOccupationsList.length : listSize > 10 ? listSize : 10)
+        setListSize(filteredOccupationsList.length < 10 ? filteredOccupationsList.length : listSize > 10 ? listSize : 10)        
     }, [filteredOccupationsList])
+
+    useEffect(() => {
+        if(!!isMobile() && listSize > 0 && windowScroll > 0) {
+            window.scrollBy({top: windowScroll})
+        }
+    },[listSize])
 
     useEffect(() => {
         if (!!filterOption && !isReset) {
@@ -248,6 +255,7 @@ const ResultsTable: FunctionComponent = () => {
         setSelectedNoc(record.noc)
         if(isMobile()) {
             setView('careerPreview')
+            setWindowScroll(window.scrollY)
         } else {
             setView('results')
         }

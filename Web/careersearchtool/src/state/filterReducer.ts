@@ -36,7 +36,8 @@ export interface FilterState {
     sortOption: string,
     returnToResults: boolean,
     isFetchingOccupationList: boolean,
-    showCareerPreview: boolean
+    showCareerPreview: boolean,
+    windowScroll: number
 }
 
 export const defaultFilterState: FilterState = Object.freeze({
@@ -53,7 +54,8 @@ export const defaultFilterState: FilterState = Object.freeze({
     sortOption: 'High to Low',
     returnToResults: false,
     isFetchingOccupationList: true,
-    showCareerPreview: false
+    showCareerPreview: false,
+    windowScroll: 0
 })
 
 export type FilterAction = 
@@ -69,6 +71,7 @@ export type FilterAction =
 {type: 'set-sort-option', payload: string} |
 {type: 'set-is-fetching-results', payload: boolean} |
 {type: 'set-show-career-preview', payload: boolean} |
+{type: 'set-window-scroll', payload: number} |
 {type: 'apply-filter'} |
 {type: 'reset'}
 
@@ -115,6 +118,9 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
 
         case 'reset': 
             return ({...state, ...defaultFilterState, isReset: !state.isReset})
+
+        case 'set-window-scroll':
+            return ({...state, windowScroll: action.payload})
 
         case 'set-show-career-preview':
             return ({...state, showCareerPreview: action.payload})

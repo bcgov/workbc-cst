@@ -7,6 +7,7 @@ import { useFilterContext } from '../state/filterContext'
 import { useGetIndustryData } from '../client/apiService'
 import {modifyIndustryData, filtersPopOverVisible} from '../client/filtersData'
 import { defaultFilterOption } from '../state/filterReducer'
+import useWindowSize from '../client/useWindowSize'
 import Results from './results'
 import Header from './header'
 import Footer from './footer'
@@ -23,6 +24,12 @@ const Dropdowns: FunctionComponent = () => {
     const [userSelection, setUserSelection] = useState<FilterOptionModel>(defaultFilterOption)
 
     const [popOvervisible, setPopOverVisible] = useState(filtersPopOverVisible)
+    const [width] = useWindowSize()
+
+    function isMobile() {
+        return width < 1200
+    }
+
 
     useEffect(()=> {
         if(!!filterOption) {
@@ -31,7 +38,7 @@ const Dropdowns: FunctionComponent = () => {
     }, [filterOption, isReset])
 
     useEffect(() => {
-        if (returnToResults)  document.getElementById('middle').scrollIntoView()
+        if (returnToResults && !isMobile())  document.getElementById('middle').scrollIntoView()
     }, [returnToResults])
     
     useEffect(() => {
@@ -41,12 +48,14 @@ const Dropdowns: FunctionComponent = () => {
     }, [industryData, isValidating, isSettled])
 
     useEffect(() => {
+      if(!isMobile()) {
         var checkExist = setInterval(function() {
             if (document.getElementsByClassName('preview-career')[0] && showCareerPreview) {
                document.getElementsByClassName('preview-career')[0].scrollIntoView()
                clearInterval(checkExist);
             }
          }, 100); // check every 100ms
+      }
     },[]) 
 
     function getHoverContent(filtername: string) {

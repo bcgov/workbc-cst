@@ -16,7 +16,8 @@ export interface FilterState {
     sortOption: string,
     returnToResults: boolean,
     isFetchingOccupationList: boolean,
-    showCareerPreview: boolean
+    showCareerPreview: boolean,
+    windowScroll: number
 }
 export interface FilterContextProps extends FilterState {
     setFilterOption: (filterOptions: FilterOptionModel) => void,
@@ -31,7 +32,8 @@ export interface FilterContextProps extends FilterState {
     setSortOption: (value: string) => void,
     setReturnToResults: (value: boolean) => void,
     setFetchingOccupationList: (value: boolean) => void,
-    setShowCareerPreview: (value: boolean) => void
+    setShowCareerPreview: (value: boolean) => void,
+    setWindowScroll: (value: number) => void
 }
 
 const FilterContext = createContext<FilterContextProps>({
@@ -49,6 +51,7 @@ const FilterContext = createContext<FilterContextProps>({
     sortOption: 'High to Low',
     isFetchingOccupationList: true,
     showCareerPreview: false,
+    windowScroll: 0,
     setFilterOption: () => {},
     filterApplied: () => {},
     resetOptions: () => {},
@@ -61,14 +64,15 @@ const FilterContext = createContext<FilterContextProps>({
     setSortOption: () => {},
     setReturnToResults: () => {},
     setFetchingOccupationList: () => {},
-    setShowCareerPreview: () => {}
+    setShowCareerPreview: () => {},
+    setWindowScroll: () => {}
 })
 
 FilterContext.displayName = 'FilterContext'
 
 const FilterContextProvider: FunctionComponent = ({children}) => {
     const [{filterOption, filteredOccupationsList, scrollPosition, listSize, selectedNoc, view, isFilterApplied, isReset, checkedNocs, 
-        isSorted, sortOption, returnToResults, isFetchingOccupationList: isFetchingOccupationList, showCareerPreview}, dispatch] = useReducer(reducer, defaultFilterState)
+        isSorted, sortOption, returnToResults, isFetchingOccupationList: isFetchingOccupationList, showCareerPreview, windowScroll}, dispatch] = useReducer(reducer, defaultFilterState)
 
     async function setFilterOption(filterOptions: FilterOptionModel) {
         try {
@@ -166,6 +170,14 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
         }
     }
 
+    async function setWindowScroll(value: number) {
+        try {
+            dispatch({type: 'set-window-scroll', payload: value})
+        } catch(error) {
+            console.log(error)
+        }
+    }
+
     return (
         <FilterContext.Provider 
             value = {{ 
@@ -183,6 +195,7 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
                 returnToResults,
                 isFetchingOccupationList: isFetchingOccupationList,
                 showCareerPreview,
+                windowScroll,
                 setSelectedNoc,
                 setFilterOption,
                 filterApplied, 
@@ -195,7 +208,8 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
                 setCheckedNocs, 
                 setReturnToResults, 
                 setFetchingOccupationList,
-                setShowCareerPreview}}> 
+                setShowCareerPreview,
+                setWindowScroll}}> 
             {children}
         </FilterContext.Provider>
     )
