@@ -45,8 +45,9 @@ const results: FunctionComponent = () => {
     }
 
     function handleEmailEvent() {
-        let link_to_sao = 'The search results are available on WorkBC at: \n' +  window.location.href + emailParams
-        let link = `mailto:?subject=${encodeURIComponent('Career Search Tool')}&body=${encodeURIComponent(link_to_sao)}`
+        let link_to_sao = 'View the list of careers that match your search criteria: ' +  window.location.href + emailParams + '\nWorkBC’s Career Search Tool helps you learn about career options in B.C.'
+        let link = `mailto:?subject=${encodeURIComponent('WorkBC’s Career Search Tool – Search Results')}
+        &body=${encodeURIComponent(link_to_sao)}`
         window.location.href = link;
     }
 

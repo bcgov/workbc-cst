@@ -86,8 +86,8 @@ const CareerPreview: FunctionComponent = () => {
     }
 
     function handleEmailEvent() {
-        let link_to_sao = 'The selected career is available on WorkBC at: \n' +  window.location.href + emailParams
-        let link = `mailto:?subject=${encodeURIComponent('Career Search Tool')}&body=${encodeURIComponent(link_to_sao)}`
+        let link_to_sao = 'Access your previewed career:  ' +  window.location.href + emailParams + '\nWorkBC’s Career Search Tool helps you learn about career options in B.C.'
+        let link = `mailto:?subject=${encodeURIComponent('WorkBC’s Career Search Tool – Career Preview')}&body=${encodeURIComponent(link_to_sao)}`
         window.location.href = link;
     }
 

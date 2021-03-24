@@ -186,8 +186,9 @@ const CompareCareers: FunctionComponent = () => {
     }
 
     function handleEmailEvent() {
-        let link_to_sao = 'The compared careers are available on WorkBC at: \n' +  window.location.href + emailParams
-        let link = `mailto:?subject=${encodeURIComponent('Career Search Tool')}&body=${encodeURIComponent(link_to_sao)}`
+        let link_to_sao = 'View your compared careers: ' +  window.location.href + emailParams + '\nWorkBC’s Career Search Tool helps you learn about career options in B.C.'
+        let link = `mailto:?subject=${encodeURIComponent('WorkBC’s Career Search Tool – Compare Careers')}
+        &body=${encodeURIComponent(link_to_sao)}`
 
         window.location.href = link;
     }
@@ -213,7 +214,7 @@ const CompareCareers: FunctionComponent = () => {
                 <div className="compare-container__title">
                     <div>Compare Careers</div>
                     <div className="compare-container__title__icons popover-buttons">
-                        <Popover placement="bottomRight" content={"Print Results"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
+                        <Popover placement="bottomRight" content={"Print"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
                             <span>
                                 <span role="img" onClick={handlePrintEvent} aria-label="printer" tabIndex={-1} className="anticon anticon-printer" style={{fontSize: '32px', color: "#355992"}}>
                                     <PrinterIcon />
@@ -221,7 +222,7 @@ const CompareCareers: FunctionComponent = () => {
                             </span>
                         </Popover>                                   
 
-                        <Popover placement="bottomRight" content={"Email Results"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
+                        <Popover placement="bottomRight" content={"Email"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
                             <span>
                                 <span role="img" onClick={handleEmailEvent} aria-label="mail" tabIndex={-1} className="anticon anticon-mail" style={{fontSize: '32px', color: "#355992"}}>
                                     <MailIcon />
