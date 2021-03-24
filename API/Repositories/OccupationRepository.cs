@@ -95,6 +95,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
                     Title = o.Key.NocDescription,
                     JobOpenings = o.Sum(jo => jo.JobOpenings)
                 })
+                .OrderBy(o => o.NOC)
                 .ToListAsync();
         }
 
