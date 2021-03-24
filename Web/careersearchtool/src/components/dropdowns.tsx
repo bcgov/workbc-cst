@@ -506,7 +506,9 @@ const Dropdowns: FunctionComponent = () => {
                     <Row className="sao-filters__filter-buttons">
                         <Col xs={24} xl={{span:8, offset:16}}> 
                             <div className="sao-filters__button-layout">
-                                <div className="sao-filters__button sao-filters__button--apply" id='apply-filters' onClick={applyFilters} onKeyDown={handleSpacebar} tabIndex={9}>Apply</div>
+                                <div className="sao-filters__button sao-filters__button--apply" id='apply-filters' onClick={applyFilters} onKeyDown={handleSpacebar} tabIndex={9}>
+                                    Apply Filter(s)
+                                </div>
                                 <div className="sao-filters__button sao-filters__button--reset" id='reset-filters' onClick={handleReset} onKeyDown={handleResetKey} tabIndex={10}> 
                                     Clear All
                                     <SyncOutlined /> 
