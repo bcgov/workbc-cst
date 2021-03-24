@@ -60,29 +60,16 @@ const Dropdowns: FunctionComponent = () => {
 
     function getHoverContent(filtername: string) {
         switch (filtername)  {
-            case 'Region': 
-                return (<div> Careers based on 10-year job openings (2019-2029) within a region </div>)
-            case 'Education': 
-                return (<div> Careers based on educational requirements that you have or want to achieve </div>)
             case 'OccupationalInterest':
                 return (<div> 
-                    <p>Groups careers based on 6 broad personality types. You can take a quiz to find your interests.</p>
-                    <p>Learn more on <a className="filter-popover-link" href="https://www.workbc.ca/" target="_blank" rel="noreferrer">WorkBC.ca.</a></p>
-                </div>)
-            case 'Industry':
-                return (<div>
-                    <p>Careers based on an association to an industry</p>
-                    <p>Learn more on <a className="filter-popover-link" href="https://www.workbc.ca/" target="_blank" rel="noreferrer">WorkBC.ca.</a></p>
+                    <p>Careers based on six interest types</p>
                 </div>)
             case 'OccupationalCategory': 
                 return (<div>
-                    <p> Quick links to selected groupings of careers </p>
-                    <p> High oppurtunity occupations are those expected to have higher demand within B.C.</p>
+                    <p> Quick links to popular career groupings. </p>
                 </div>)
-            case 'JobType':
-                return (<div> Careers with a high or low share of part-time workers</div>)
             case 'Keywords':
-                return (<div> The <b>National Occupational Classifications System (NOC) </b> classifies all occupations in Canada</div>)
+                return (<div> The <b>National Occupational Classifications System (NOC) </b> classifies all occupations in Canada.</div>)
         }
     }
 
@@ -318,16 +305,7 @@ const Dropdowns: FunctionComponent = () => {
                     <Row className="sao-filters__row">
                         <Col xs={24} xl={6}>
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label"> Region 
-                                    <Popover placement="top" overlayClassName="sao-filters__popover-inner" 
-                                            className="sao-filters__popover" 
-                                            content={getPopOver('Region')} 
-                                            trigger="click" 
-                                            onClick={() => popoverClickAnalytics("Region")}
-                                            visible={popOvervisible.region}>  
-                                            <QuestionCircleFilled onClick={() => setPopOverVisible({...popOvervisible, 'region': true})}/> 
-                                    </Popover>                                   
-                                </label>
+                                <label className="sao-filters__label"> Region </label>
                                 <SelectFilterType  
                                     filterType={FilterType.region}
                                     showArrow={true}
@@ -342,16 +320,7 @@ const Dropdowns: FunctionComponent = () => {
                         </Col>
                         <Col xs={24} xl={4}> 
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label">Education 
-                                    <Popover placement="top" overlayClassName="sao-filters__popover-inner" 
-                                        className="sao-filters__popover" 
-                                        content={getPopOver('Education')} 
-                                        trigger="click" 
-                                        onClick={() => popoverClickAnalytics("Education")}
-                                        visible={popOvervisible.education}>  
-                                        <QuestionCircleFilled onClick={() => setPopOverVisible({...popOvervisible, 'education': true})} />
-                                    </Popover>
-                                </label>
+                                <label className="sao-filters__label">Education </label>
                                 <SelectFilterType  
                                     filterType={FilterType.education}
                                     showArrow={true}
@@ -390,16 +359,7 @@ const Dropdowns: FunctionComponent = () => {
                         </Col>
                         <Col xs={24} xl={8}>
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label"> Industry 
-                                    <Popover placement="top" overlayClassName="sao-filters__popover-inner" 
-                                        className="sao-filters__popover" 
-                                        content={getPopOver('Industry')} 
-                                        trigger="click" 
-                                        onClick={() => popoverClickAnalytics("Industry")}
-                                        visible={popOvervisible.industry}>  
-                                            <QuestionCircleFilled onClick={() => setPopOverVisible({...popOvervisible, 'industry': true})} />
-                                    </Popover>
-                                </label>
+                                <label className="sao-filters__label"> Industry </label>
                                     <TreeSelect
                                         placeholder="All"
                                         defaultValue={'All'}
@@ -445,16 +405,7 @@ const Dropdowns: FunctionComponent = () => {
                         </Col>
                         <Col xs={24} xl={4}> 
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label">Part-time/full-time
-                                    <Popover placement="top" overlayClassName="sao-filters__popover-inner" 
-                                        className="sao-filters__popover" 
-                                        content={getPopOver('JobType')}
-                                        trigger="click" 
-                                        onClick={() => popoverClickAnalytics("Job Type")}
-                                        visible={popOvervisible.jobType}>  
-                                            <QuestionCircleFilled onClick = {() => setPopOverVisible({...popOvervisible, 'jobType': true})}/> 
-                                    </Popover> 
-                                </label>
+                                <label className="sao-filters__label">Part-time/full-time </label>
 
                                 <SelectFilterType
                                     filterType={FilterType.part_time_option}
