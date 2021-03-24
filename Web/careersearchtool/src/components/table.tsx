@@ -197,7 +197,17 @@ const ResultsTable: FunctionComponent = () => {
                         </a> 
                     </span>)
                 } else {
-                    return ((!!isFetchingOccupationList ? <h4> Loading ..... </h4> : <h4>Your search returned no results.</h4>))
+                    return ((!!isFetchingOccupationList ? <h4> Loading ..... </h4> : 
+                        <div>
+                            <h4>Your search returned no results.</h4>
+                            <p>Suggestions: </p>
+                            <ul>
+                                <li>Ensure words are spelled correctly.</li>
+                                <li>Replace abbreviations with complete words.</li>
+                                <li>Try removing filters to broaden your search.</li>
+                            </ul>
+                        </div>
+                    ))
                 }
             },
         },
