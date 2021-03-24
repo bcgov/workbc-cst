@@ -123,7 +123,7 @@ const results: FunctionComponent = () => {
                                     <img src={lightBulb} alt="Bulb Icon" className="compare-description__flexbox__icon" />
                                 </span>
                                 <div style={{fontSize: '14px', paddingLeft: '16px'}}>
-                                    <b>Compare up to 3 careers </b>
+                                    <b>Compare up to three careers </b>
                                     by selecting the checkboxes and clicking on the Compare Careers button.
                                 </div>                                  
                             </div>
@@ -138,7 +138,7 @@ const results: FunctionComponent = () => {
                         )}
                         </Col>
                         <Col className="print-email-buttons popover-buttons" xl={8}>
-                            <Popover placement="bottomRight" content={"Print Results"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
+                            <Popover placement="bottomRight" content={"Print"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
                                 <span>
                                     <span role="img" onClick={handlePrintEvent} aria-label="printer" tabIndex={-1} className="anticon anticon-printer" style={{fontSize: '32px', color: "#355992"}}>
                                         <PrinterIcon />
@@ -146,7 +146,7 @@ const results: FunctionComponent = () => {
                                 </span>
                             </Popover>                                   
 
-                            <Popover placement="bottomRight" content={"Email Results"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
+                            <Popover placement="bottomRight" content={"Email"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
                                 <span>
                                     <span role="img" onClick={handleEmailEvent} aria-label="mail" tabIndex={-1} className="anticon anticon-mail" style={{fontSize: '32px', color: "#355992"}}>
                                         <MailIcon />
