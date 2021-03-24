@@ -92,12 +92,12 @@ const results: FunctionComponent = () => {
                             <div className="results-header__text">
                                { !isMobile() && !isFetchingOccupationList && filteredOccupationsList?.length !== 1 &&(
                                    <span>
-                                       Displaying <span className="highlighted-text"> {filteredOccupationsList?.length} results</span>.
+                                       Displaying {filteredOccupationsList?.length} results
                                    </span>
                                )}
                                { !isMobile() && !isFetchingOccupationList && filteredOccupationsList?.length === 1 &&(
                                    <span>
-                                       Displaying <span className="highlighted-text"> {filteredOccupationsList?.length} result</span>.
+                                       Displaying {filteredOccupationsList?.length} result
                                    </span>
                                )}
                                { !!isMobile() && !isFetchingOccupationList && (
