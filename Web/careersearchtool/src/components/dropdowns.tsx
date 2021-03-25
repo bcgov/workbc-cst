@@ -37,7 +37,7 @@ const Dropdowns: FunctionComponent = () => {
     }, [filterOption, isReset])
 
     useEffect(() => {
-        if (returnToResults && !isMobile())  document.getElementById('middle').scrollIntoView()
+        if (returnToResults)  document.getElementById('middle').scrollIntoView()
     }, [returnToResults])
     
     useEffect(() => {
