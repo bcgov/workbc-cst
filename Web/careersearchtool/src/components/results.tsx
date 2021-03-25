@@ -90,14 +90,19 @@ const results: FunctionComponent = () => {
                                 Search Results
                             </div>
                             <div className="results-header__text">
-                               { !isMobile() && !isFetchingOccupationList && filteredOccupationsList?.length !== 1 &&(
+                               { !isMobile() && !isFetchingOccupationList && filteredOccupationsList?.length !== 1 && (
                                    <span>
-                                       Displaying {filteredOccupationsList?.length} results
+                                       Displaying {filteredOccupationsList?.length} results.
                                    </span>
                                )}
-                               { !isMobile() && !isFetchingOccupationList && filteredOccupationsList?.length === 1 &&(
+                               { !isMobile() && !isFetchingOccupationList && filteredOccupationsList?.length === 1 && (
                                    <span>
-                                       Displaying {filteredOccupationsList?.length} result
+                                       Displaying {filteredOccupationsList?.length} result.
+                                   </span>
+                               )}
+                               { !!isMobile() && !isFetchingOccupationList && filteredOccupationsList.length === 1 && (
+                                   <span>
+                                       Displaying <span className="highlighted-text"> {listSize} of {filteredOccupationsList?.length} result</span>.
                                    </span>
                                )}
                                { !!isMobile() && !isFetchingOccupationList && (
