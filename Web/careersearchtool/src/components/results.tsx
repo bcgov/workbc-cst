@@ -62,9 +62,7 @@ const results: FunctionComponent = () => {
                 "noc_2": checkedNocs[1],
                 "noc_3": checkedNocs[2] === 'undefined' ? null :  checkedNocs[2]
             }
-        });
-
-        
+        });        
     }
 
     function handleClear() {    
