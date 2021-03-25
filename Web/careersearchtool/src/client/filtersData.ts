@@ -42,11 +42,6 @@ export function getHeaderTitle(careerObj: OccupationSummary) {
     return {length: nocTitle.length + nocCode?.length , title: nocTitle, code: nocCode}
 }
 
-export function removeTags(str) : Text { 
-    if ((str===null) || (str==='')) 
-        return str.toString(); 
-    else
-        str = str.toString().replace( /(<([^>]+)>)/ig, '');
-
-    return {display_text: str.slice(0, 250), remaining_text: str.slice(250, str.length)}
+export function removeTags(str) : Text {
+   return {display_text: str.slice(0, 250), remaining_text: str.slice(250, str.length)}
 }

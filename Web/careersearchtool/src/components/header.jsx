@@ -32,7 +32,7 @@ function Header() {
 							<span className="mobile">Career<br />Search Tool</span>
 						</div>
 						<div className="header__hero-text--body">
-							Explore career opportunities that fit your interests and goals.
+							Explore career opportunities that fit <br/> your interests and goals.
 						</div>
 					</div>
 				</div>
