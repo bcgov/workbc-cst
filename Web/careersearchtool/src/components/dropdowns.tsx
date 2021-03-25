@@ -55,8 +55,32 @@ const Dropdowns: FunctionComponent = () => {
             }
          }, 100); // check every 100ms
       }
+
     },[]) 
 
+    useEffect (() => {
+        (async() => {
+            //await the initial load of the analytics snowplow variable and call the load event
+            while(typeof window.snowplow === 'undefined') 
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/find_career/jsonschema/1-0-0",
+                "data": {
+                "action": "load",
+                "count": 500,
+                "filters": {
+                    "region": "British Columbia",
+                    "education": "All",
+                    "occupational_interest": "All",
+                    "industry": "All",
+                    "occupational_category": "All",
+                    "job_type": "All",
+                    "annual_salary": "All",
+                    "keyword": null
+                }
+                }
+            });//end of snowplow
+        })();
+    }, [])
     function getHoverContent(filtername: string) {
         switch (filtername)  {
             case 'OccupationalInterest':
@@ -215,7 +239,7 @@ const Dropdowns: FunctionComponent = () => {
                 "region": userSelection.region.value,
                 "education": userSelection.education.value,
                 "occupational_interest": userSelection.occupational_interest.value,
-                "industry": userSelection.industry.value,
+                "industry": userSelection.industry.value.length ? userSelection.industry.value[0] : userSelection.industry.value, 
                 "occupational_category": userSelection.occupational_group.value,
                 "job_type": userSelection.part_time_option.value,
                 "annual_salary": userSelection.annual_salary.value,
@@ -247,7 +271,7 @@ const Dropdowns: FunctionComponent = () => {
                 "region": userSelection.region.value,
                 "education": userSelection.education.value,
                 "occupational_interest": userSelection.occupational_interest.value,
-                "industry": userSelection.industry.value,
+                "industry": userSelection.industry.value.length ? userSelection.industry.value[0] : userSelection.industry.value, 
                 "occupational_category": userSelection.occupational_group.value,
                 "job_type": userSelection.part_time_option.value,
                 "annual_salary": userSelection.annual_salary.value,
