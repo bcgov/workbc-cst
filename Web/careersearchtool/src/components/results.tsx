@@ -130,7 +130,7 @@ const results: FunctionComponent = () => {
                                 </span>
                                 <div style={{fontSize: '14px', paddingLeft: '16px'}}>
                                     <b>Compare up to three careers </b>
-                                    by selecting the checkboxes in the table below and clicking on the Compare Careers button.
+                                    by selecting the checkboxes in the table below and clicking on the <i>Compare Careers</i> button.
                                 </div>                                  
                             </div>
                         )}
