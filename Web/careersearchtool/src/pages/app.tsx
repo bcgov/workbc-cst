@@ -1,4 +1,5 @@
 import React, {FunctionComponent, useEffect} from "react"
+import Helmet from 'react-helmet';
 import 'antd/dist/antd.css'
 import Dropdowns from '../components/dropdowns'
 import CompareCareers from "../components/compareCareers"
@@ -6,7 +7,6 @@ import CareerPreview from "../components/careerPreview"
 import {parseURL} from '../client/urlService'
 import { useFilterContext } from '../state/filterContext'
 import '../theme/index.less'
-import Helmet from 'react-helmet';
 import { navigate } from "gatsby";
 
 const SAOTool:FunctionComponent = () => {
