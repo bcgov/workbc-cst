@@ -18,14 +18,12 @@ namespace SearchAllOccupationsToolAPI.Repositories
 
         public List<FullOrPartTime> GetFullOrPartTimes()
         {
-            var fullOrPartTimes = _context.FullOrPartTimes.AsNoTracking().ToList();
-            
-            foreach (var item in fullOrPartTimes) 
-                item.Value = item.GetNameForApi();
-
-            return fullOrPartTimes
-                .OrderBy(f => f.Value)
+            var fullOrPartTimes = _context.FullOrPartTimes
+                .AsNoTracking()
+                .OrderByDescending(f => f.Value)
                 .ToList();
+
+            return fullOrPartTimes;
         }
     }
 }

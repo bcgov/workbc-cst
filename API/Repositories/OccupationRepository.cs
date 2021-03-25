@@ -58,7 +58,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
             if (filter.GeographicAreaId > 0)
             {
                 occupations = occupations
-                    .Include(no => no.GeographicArea);;
+                    .Include(no => no.GeographicArea);
                 occupations = occupations.Where(o => o.GeographicArea.Id == filter.GeographicAreaId);
             }
 

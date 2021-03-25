@@ -314,7 +314,7 @@ const Dropdowns: FunctionComponent = () => {
                     <Row className="sao-filters__row">
                         <Col xs={24} xl={6}>
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label"> Region </label>
+                                <label className="sao-filters__label">Region</label>
                                 <SelectFilterType  
                                     filterType={FilterType.region}
                                     showArrow={true}
@@ -327,9 +327,9 @@ const Dropdowns: FunctionComponent = () => {
                                     tabIndex={1} />
                             </div>
                         </Col>
-                        <Col xs={24} xl={4}> 
+                        <Col xs={24} xl={5}> 
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label">Education </label>
+                                <label className="sao-filters__label">Education</label>
                                 <SelectFilterType  
                                     filterType={FilterType.education}
                                     showArrow={true}
@@ -342,9 +342,9 @@ const Dropdowns: FunctionComponent = () => {
                                     tabIndex={2} />
                             </div>
                         </Col>
-                        <Col xs={24} xl={6}> 
+                        <Col xs={24} xl={5}> 
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label"> Occupational interest 
+                                <label className="sao-filters__label">Occupational interest 
                                     <Popover placement="top" overlayClassName="sao-filters__popover-inner"
                                         className="sao-filters__popover" 
                                         content={getPopOver('OccupationalInterest')} 
@@ -368,7 +368,7 @@ const Dropdowns: FunctionComponent = () => {
                         </Col>
                         <Col xs={24} xl={8}>
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label"> Industry </label>
+                                <label className="sao-filters__label">Industry</label>
                                     <TreeSelect
                                         placeholder="All"
                                         defaultValue={'All'}
@@ -390,7 +390,7 @@ const Dropdowns: FunctionComponent = () => {
                     <Row className="sao-filters__row">
                         <Col xs={24} xl={6}>
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label"> Occupational category 
+                                <label className="sao-filters__label">Occupational category 
                                     <Popover placement="top" overlayClassName="sao-filters__popover-inner" 
                                         className="sao-filters__popover" 
                                         content={getPopOver('OccupationalCategory')} 
@@ -412,9 +412,9 @@ const Dropdowns: FunctionComponent = () => {
                                     tabIndex={5} />
                             </div>
                         </Col>
-                        <Col xs={24} xl={4}> 
+                        <Col xs={24} xl={5}> 
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label">Part-time/full-time </label>
+                                <label className="sao-filters__label">Part-time/full-time</label>
 
                                 <SelectFilterType
                                     filterType={FilterType.part_time_option}
@@ -428,7 +428,7 @@ const Dropdowns: FunctionComponent = () => {
                                     tabIndex={6} />
                             </div>
                         </Col>
-                        <Col xs={24} xl={6}> 
+                        <Col xs={24} xl={5}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Salary</label>
                                 <SelectFilterType  
