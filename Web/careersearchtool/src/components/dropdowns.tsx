@@ -18,7 +18,7 @@ const Dropdowns: FunctionComponent = () => {
     
     const [openNodes, setOpenNodes] = useState([])
 
-    const {filterOption, returnToResults, isReset, filteredOccupationsList, showCareerPreview,
+    const {filterOption, returnToResults, isReset, filteredOccupationsList, showCareerPreview, windowScroll,
          setFilterOption, filterApplied, resetOptions} = useFilterContext()
 
     const [userSelection, setUserSelection] = useState<FilterOptionModel>(defaultFilterOption)
@@ -37,7 +37,7 @@ const Dropdowns: FunctionComponent = () => {
     }, [filterOption, isReset])
 
     useEffect(() => {
-        if (returnToResults)  document.getElementById('middle').scrollIntoView()
+        if (returnToResults && windowScroll === 0) document.getElementById('middle').scrollIntoView()
     }, [returnToResults])
     
     useEffect(() => {

@@ -41,7 +41,7 @@ const ResultsTable: FunctionComponent = () => {
         if(!!isMobile() && listSize > 0 && windowScroll > 0) {
             window.scrollBy({top: windowScroll})
         }
-    },[listSize])
+    },[])
 
     useEffect(() => {
         if (!!filterOption && !isReset) {
