@@ -37,6 +37,7 @@ const SAOTool:FunctionComponent = () => {
   return (
     <div>
         <Helmet title={'WorkBC - Career Search Tool'}>
+          <script src="https://www.youtube.com/iframe_api" type="text/javascript" />
           <script src="analytics.js" type="text/javascript" />
         </Helmet>
         {view === 'results'? <Dropdowns /> : view === 'careerPreview' ? <CareerPreview /> : <CompareCareers />}
