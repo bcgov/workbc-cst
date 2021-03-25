@@ -84,6 +84,8 @@ const CompareCareers: FunctionComponent = () => {
     }
     
     function findJobsClickAnalytic(url, noc){
+        console.log(url)
+        console.log(noc)
         window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
             "data": {
             "click_type": "find_jobs",
@@ -165,7 +167,7 @@ const CompareCareers: FunctionComponent = () => {
                             </a>
                         </div>                  
                         <div>
-                            <a href={viewJobsUrl+careerObj.careerDetail?.jobBoardNoc} onClick={() => findJobsClickAnalytic(viewJobsUrl, careerObj.jobBoardNoc)} target="_blank" rel="noreferrer">
+                            <a href={viewJobsUrl+careerObj.careerDetail?.jobBoardNoc} onClick={() => findJobsClickAnalytic(viewJobsUrl, careerObj.nocId)} target="_blank" rel="noreferrer">
                                 <Button  className="result-detail__footer__button-box__jobs" block>
                                     Find Jobs
                                 </Button>
@@ -179,6 +181,12 @@ const CompareCareers: FunctionComponent = () => {
 
     function handlePrintEvent() {
         print();
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+                "click_type": "print",
+                "source": "compare"
+            }
+        });
     }
 
     function _getCareers() {
@@ -191,6 +199,12 @@ const CompareCareers: FunctionComponent = () => {
         &body=${encodeURIComponent(link_to_sao)}`
 
         window.location.href = link;
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+                "click_type": "email",
+                "source": "compare"
+            }
+        });
     }
 
     return (

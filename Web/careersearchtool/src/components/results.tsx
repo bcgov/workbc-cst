@@ -49,6 +49,12 @@ const results: FunctionComponent = () => {
         let link = `mailto:?subject=${encodeURIComponent('WorkBC’s Career Search Tool – Search Results')}
         &body=${encodeURIComponent(link_to_sao)}`
         window.location.href = link;
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+                "click_type": "email",
+                "source": "search"
+            }
+        });
     }
 
     function handleCompareCareers() {    
