@@ -86,7 +86,7 @@ const Dropdowns: FunctionComponent = () => {
             case 'OccupationalInterest':
                 return (<div> 
                     <p>Careers based on  
-                        <a href="https://www.workbc.ca/Labour-Market-Industry/Skills-for-the-Future-Workforce.aspx#characteristics">
+                        <a href="https://www.workbc.ca/Labour-Market-Industry/Skills-for-the-Future-Workforce.aspx#characteristics" target="_blank">
                              <span style={{textDecoration: 'underline'}}> six interest types</span>
                         </a>.
                     </p>
