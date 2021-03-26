@@ -84,25 +84,11 @@ const Dropdowns: FunctionComponent = () => {
     function getHoverContent(filtername: string) {
         switch (filtername)  {
             case 'OccupationalInterest':
-                return (<div> 
-                    <p> Careers based on  
-                        <a href="https://www.workbc.ca/Labour-Market-Industry/Skills-for-the-Future-Workforce.aspx#characteristics"
-                            target="_blank" style={{textDecoration: 'underline'}}> six interest types
-                        </a>.
-                    </p>
-                </div>)
+                return (<div>Careers based on <a href="https://www.workbc.ca/Labour-Market-Industry/Skills-for-the-Future-Workforce.aspx#characteristics" className="filter-popover-link" target="_blank" rel="noreferrer">six interest types</a>.</div>)
             case 'OccupationalCategory': 
-                return (<div>
-                    <p> Quick links to popular career groupings. </p>
-                </div>)
+                return (<div>Quick links to popular career groupings.</div>)
             case 'Keywords':
-                return (<div> 
-                    The 
-                    <a href="https://noc.esdc.gc.ca//Home/Welcome/79735a894dfc4ef199b03ff2a587cb1a?GoCTemplateCulture=en-CA" target="_blank">
-                        <b style={{textDecoration: 'underline'}}> National Occupational Classification System (NOC) </b>
-                    </a>
-                    classifies all occupations in Canada.
-                </div>)
+                return (<div>The <a href="https://noc.esdc.gc.ca/Home/Welcome/79735a894dfc4ef199b03ff2a587cb1a?GoCTemplateCulture=en-CA" className="filter-popover-link" target="_blank" rel="noreferrer"><strong>National Occupational Classification System (NOC)</strong></a> classifies all occupations in Canada.</div>)
         }
     }
 
