@@ -225,7 +225,6 @@ const Dropdowns: FunctionComponent = () => {
 
     function handleReset() {
         try {
-            setUserSelection(defaultFilterOption)
             resetOptions()
             document.getElementById('reset-filters').blur()
         } catch (error) {

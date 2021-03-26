@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useEffect} from "react"
+import React, {FunctionComponent, useEffect, useState} from "react"
 import Helmet from 'react-helmet';
 import 'antd/dist/antd.css'
 import Dropdowns from '../components/dropdowns'
@@ -10,10 +10,16 @@ import '../theme/index.less'
 import { navigate } from "gatsby";
 
 const SAOTool:FunctionComponent = () => {
-  const {view, setView, setFilterOption, setCheckedNocs, setSelectedNoc} = useFilterContext()
+  const { view, setView, setFilterOption, setCheckedNocs, setSelectedNoc} = useFilterContext()
+
+  const [currentView, setCurrentView] = useState<string>('results')
 
   useEffect(() => {
-    let initialValue = typeof window !== 'undefined' ? window.location.href : ''
+    setCurrentView(view)
+  },[view])
+
+  useEffect(() => {
+    let initialValue = typeof window !== 'undefined' ? window.location.href : undefined
       if(initialValue) {
         const decodedURL = decodeURIComponent(initialValue)
         let view = decodedURL?.split('?')[1]
@@ -40,7 +46,7 @@ const SAOTool:FunctionComponent = () => {
           <script src="https://www.youtube.com/iframe_api" type="text/javascript" />
           <script src="analytics.js" type="text/javascript" />
         </Helmet>
-        {view === 'results'? <Dropdowns /> : view === 'careerPreview' ? <CareerPreview /> : <CompareCareers />}
+        {currentView === 'results'? <Dropdowns /> : currentView === 'careerPreview' ? <CareerPreview /> : <CompareCareers />}
       </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, {FunctionComponent, createContext, useReducer, useContext} from 'react'
+import React, {FunctionComponent, createContext, useReducer, useContext, useState} from 'react'
 import {FilterOptionModel, OccupationModel} from '../client/dataTypes'
 import { defaultFilterState, reducer, defaultFilterOption } from './filterReducer'
 
@@ -71,111 +71,116 @@ const FilterContext = createContext<FilterContextProps>({
 FilterContext.displayName = 'FilterContext'
 
 const FilterContextProvider: FunctionComponent = ({children}) => {
-    const [{filterOption, filteredOccupationsList, scrollPosition, listSize, selectedNoc, view, isFilterApplied, isReset, checkedNocs, 
-        isSorted, sortOption, returnToResults, isFetchingOccupationList: isFetchingOccupationList, showCareerPreview, windowScroll}, dispatch] = useReducer(reducer, defaultFilterState)
+    const [{filteredOccupationsList}, dispatch] = useReducer(reducer, defaultFilterState)
 
-    async function setFilterOption(filterOptions: FilterOptionModel) {
-        try {
-            dispatch({ type: 'set-filter-options', payload: filterOptions})
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    const [view, _setView] = useState('results')
+    const [isReset, _setReset] = useState(true)
+    const [isSorted, _setIsSorted] = useState(true)
+    const [isFilterApplied, _setIsFilterApplied] = useState(false)
+    const [showCareerPreview, _setShowCareerPreview] = useState(false)
+    const [returnToResults, _setReturnToResults] = useState(false)
+    const [isFetchingOccupationList, _setIsFetchingOccupationList] = useState(false)
+    const [windowScroll, _SetWindowScroll] = useState(0) //window scroll
+    const [scrollPosition, _setScrollPosition] = useState(0) //table scroll
+    const [sortOption, _setSortOption] = useState('High to Low')
+    const [selectedNoc, _setSelectedNoc] = useState<string>(undefined)
+    const [checkedNocs, _setCheckedNocs] = useState([])
+    const [listSize, _setListSize] = useState(0)
+    const [filterOption, _setFilterOption] = useState<FilterOptionModel>(defaultFilterOption)
 
     async function setFilteredOccupationsList(occupationList: OccupationModel[]) {
         try {
+            occupationList = sortOption === 'High to Low'? occupationList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings > b.jobOpenings ? -1 : 1 }):
+            sortOption === 'Low to High'? occupationList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings < b.jobOpenings ? -1 : 1 }):
+            sortOption === 'A-Z'? occupationList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title < b.title ? -1 : 1 }): 
+            sortOption === 'Z-A'? occupationList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title > b.title ? -1 : 1 }): occupationList  
+            /* selectedNoc will be updated to first item is 'High to Low' sorted list of filtered Occupational List on intial load 
+             and on every 'apply' action and selcted Noc will be retained on sorting */
+             _setSelectedNoc(!!isFilterApplied? occupationList[0]?.noc : (!!selectedNoc? selectedNoc : occupationList[0]?.noc))
+            
             dispatch({ type: 'set-filtered-occupation-list', payload: occupationList})
         } catch (error) {
             console.log(error)
         }
     }
 
-    async function setListSize(size: number) {
-        try {
-            dispatch({type: 'set-list-size', payload: size})
-        } catch(error) {
-            console.log(error)
-        }
+    function setFilterOption(_filterOption: FilterOptionModel) {
+        _setReset(false)
+        _setFilterOption({...filterOption, ..._filterOption})
     }
 
-     async function setSelectedNoc(nocId: string) {
-         try {
-            dispatch({ type: 'set-selected-noc', payload: nocId})
-         } catch(error) {
-             console.log(error)
-         }
+    function setFetchingOccupationList(value: boolean) {
+        _setIsFetchingOccupationList(value)
+    }
+
+    function setListSize(size: number) {
+       _setListSize(size)
+    }
+
+    function setSelectedNoc(nocId: string) {
+            _setIsFilterApplied(false)
+            _setReset(false)
+            _setSelectedNoc(nocId)
      }
 
-     async function setView(value: string) {
+     function setView(value: string) {
          try {
-            dispatch({ type: 'set-view', payload: value})
+            _setReset(false)
+            _setView(value)
          } catch (error) {
              console.log(error)
          }
      }
 
-    async function setSortOption(value: string) {
-        try {
-            dispatch({type: 'set-sort-option', payload: value})
-        } catch (error) {
-            console.log(error)
-        }
+    function setSortOption(value: string) {
+        _setIsFilterApplied(false)
+        _setReset(false)
+        _setSortOption(value)
+        _setIsSorted(true)
     }
 
-    async function filterApplied() {
-        dispatch({type: 'apply-filter'})
+    function filterApplied() {
+        _setReset(false)
+        _setSortOption('High to Low')
+        _setSelectedNoc(undefined)
+        _setCheckedNocs([])
+        _setIsFilterApplied(true)
     }
 
-    async function resetOptions() {
-        dispatch({type: 'reset'})
+    function resetOptions() {
+        _setReset(!isReset)
+        _setIsFilterApplied(false)
+        _setSortOption('High to Low')
+        _setIsSorted(true)
+        _setListSize(0)
+        _setCheckedNocs([])
+        _setSelectedNoc(undefined)
+        _setScrollPosition(0)
+        _SetWindowScroll(0)
+        _setIsFetchingOccupationList(true)
+        _setFilterOption(defaultFilterOption)
     }
 
-    async function setCheckedNocs(value: string[]) {
-        try {
-            dispatch({type: 'set-checked-nocs', payload: value})
-        } catch (error) {
-            console.log(error)
-        }
+    function setCheckedNocs(value: string[]) {
+        _setReset(false)
+        _setCheckedNocs(value)
     }
 
-    async function setReturnToResults(value: boolean) {
-        try {
-            dispatch({type: 'set-return-to-results', payload: value})
-        } catch (error) {
-            console.log(error)
-        }
+    function setReturnToResults(value: boolean) {
+        _setReset(false)
+        _setReturnToResults(value)
     }
 
-    async function setFetchingOccupationList(value: boolean) {
-        try {
-            dispatch({type: 'set-is-fetching-results', payload: value})
-        } catch (error) {
-            console.log(error)
-        }
+    function setScrollPosition(value: number) {
+        _setScrollPosition(value)
     }
 
-    async function setScrollPosition(value: number) {
-        try {
-            dispatch({type: 'set-scroll-position', payload: value})
-        } catch (error) {
-            console.log(error)
-        }
+    function setShowCareerPreview(value: boolean) {
+        _setShowCareerPreview(value)
     }
 
-    async function setShowCareerPreview(value: boolean) {
-        try {
-            dispatch({type: 'set-show-career-preview', payload: value})
-        } catch(error) {
-            console.log(error)
-        }
-    }
-
-    async function setWindowScroll(value: number) {
-        try {
-            dispatch({type: 'set-window-scroll', payload: value})
-        } catch(error) {
-            console.log(error)
-        }
+    function setWindowScroll(value: number) {
+        _SetWindowScroll(value)
     }
 
     return (

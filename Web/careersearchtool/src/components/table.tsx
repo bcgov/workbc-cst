@@ -67,18 +67,22 @@ const ResultsTable: FunctionComponent = () => {
 
         switch(sortOption) {
             case 'A-Z':
+                setSortOption('A-Z')
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title < b.title ? -1 : 1 }))               
                 break
 
             case 'Z-A':
+                setSortOption('Z-A')
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title > b.title ? -1 : 1 }))               
                 break
 
             case 'High to Low':
+                setSortOption('High to Low')
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings > b.jobOpenings ? -1 : 1 }))               
                 break
 
             case 'Low to High':
+                setSortOption('Low to High')
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings < b.jobOpenings ? -1 : 1 }))
                 break
         }
