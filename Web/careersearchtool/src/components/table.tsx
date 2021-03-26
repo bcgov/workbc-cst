@@ -303,8 +303,7 @@ const ResultsTable: FunctionComponent = () => {
                     <Table
                         rowClassName={'ant-table-row-light'}
                         columns={columns}
-                        locale={{emptyText: 'No Data Here and There'}}
-                        dataSource={[]}
+                        dataSource={getTableDatasource()}
                         rowKey="noc"
                         loading = {!!isValidating && !isSettled}
                         pagination={false}
