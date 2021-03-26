@@ -13,8 +13,8 @@
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="121"
-  DTS:VersionGUID="{15AD91F3-1D45-44BB-A6DE-1A63931891DB}">
+  DTS:VersionBuild="122"
+  DTS:VersionGUID="{04CBB6E6-D7B1-4D7E-AD05-9A84438649AC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -357,6 +357,23 @@
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Cleanup NoC Titles"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5830d448-b840-4cdc-a6a9-644a422812bd}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cleanup NoC Titles"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8F59D8A3-5FD7-478A-A018-AE743E090100}"
+          SQLTask:SqlStatementSource="UPDATE NOC &#xA;SET [Description] = 'Maîtres d''hôtel and hosts/hostesses'&#xA;WHERE NOCCode = 6511&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Cleanup Occ Interest Blanks (temp)"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -9749,6 +9766,14 @@ where [refTable].[Value] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 8"
       DTS:To="Package\Cleanup Occ Interest Blanks (temp)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{A45855E3-F74E-421D-A761-7D9AEDE43B14}"
+      DTS:From="Package\Cleanup Occ Interest Blanks (temp)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Cleanup NoC Titles" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -10064,6 +10089,44 @@ where [refTable].[Value] = ?</property>
                     Point3="115,24.5" />
                   <mssgle:LineSegment
                     End="115,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Cleanup NoC Titles"
+          TopLeft="402,667" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="405.5,631">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83.5,36"
+              Start="0,0"
+              End="83.5,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="4,18" />
+                  <mssgle:LineSegment
+                    End="79.5,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="79.5,18"
+                    Point2="83.5,18"
+                    Point3="83.5,22" />
+                  <mssgle:LineSegment
+                    End="83.5,28.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
