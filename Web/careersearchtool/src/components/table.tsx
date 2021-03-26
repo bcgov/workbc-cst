@@ -303,7 +303,8 @@ const ResultsTable: FunctionComponent = () => {
                     <Table
                         rowClassName={'ant-table-row-light'}
                         columns={columns}
-                        dataSource={getTableDatasource()}
+                        locale={{emptyText: 'No Data Here and There'}}
+                        dataSource={[]}
                         rowKey="noc"
                         loading = {!!isValidating && !isSettled}
                         pagination={false}
@@ -324,7 +325,7 @@ const ResultsTable: FunctionComponent = () => {
                             onRow={onRow}>
                         </Table>
                         <div className="results-table-mobile-controls">
-                            <div style={{textAlign: 'center', marginTop: '1rem'}}> Showing <b> {listSize} </b> of <b> {filteredOccupationsList.length} </b> results </div>
+                            <div style={{textAlign: 'center', marginTop: '1rem'}}> Displaying <b> {listSize} </b> of <b> {filteredOccupationsList.length} </b> results </div>
                             <Button disabled={listSize === filteredOccupationsList.length} className="results-table-button" block type="primary" onClick={() => loadMore()}>
                                 Show More Results
                             </Button>

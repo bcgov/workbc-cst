@@ -98,7 +98,7 @@ const Dropdowns: FunctionComponent = () => {
             case 'Keywords':
                 return (<div> 
                     The 
-                    <a href="https://noc.esdc.gc.ca//Home/Welcome/79735a894dfc4ef199b03ff2a587cb1a?GoCTemplateCulture=en-CA">
+                    <a href="https://noc.esdc.gc.ca//Home/Welcome/79735a894dfc4ef199b03ff2a587cb1a?GoCTemplateCulture=en-CA" target="_blank">
                         <b style={{textDecoration: 'underline'}}> National Occupational Classification System (NOC) </b>
                     </a>
                     classifies all occupations in Canada.
