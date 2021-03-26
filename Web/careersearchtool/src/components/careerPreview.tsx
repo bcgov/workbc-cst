@@ -86,7 +86,7 @@ const CareerPreview: FunctionComponent = () => {
     }
 
     function handleEmailEvent() {
-        let link_to_sao = 'Access your previewed career:  ' +  window.location.href + emailParams + '\nWorkBC’s Career Search Tool helps you learn about career options in B.C.'
+        let link_to_sao = 'Access your previewed career:  ' +  window.location.href + emailParams + '\n\nWorkBC’s Career Search Tool helps you learn about career options in B.C.'
         let link = `mailto:?subject=${encodeURIComponent('WorkBC’s Career Search Tool – Career Preview')}&body=${encodeURIComponent(link_to_sao)}`
         window.location.href = link;
     }
@@ -149,7 +149,7 @@ const CareerPreview: FunctionComponent = () => {
                 </div>
                 <div  className="result-detail__thumbnail__preview">
                     {(careerObj.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.noc)} alt='career profile pic'/>)
-                : (<YouTube videoId={careerObj.careertrekvideoids[0]} onPlay={() => youtubeAnalytics(careerObj.noc, careerObj.careertrekvideoids[0])} onReady={_onReady} opts={{playerVars: {rel: 0}}}/>)}
+                : (<YouTube videoId={careerObj.careertrekvideoids[0]} onReady={_onReady} opts={{playerVars: {rel: 0}}}/>)}
                 </div>
                 <div className="result-detail__body result-body">
                     <div className="result-body__row">
