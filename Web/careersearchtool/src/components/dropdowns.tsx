@@ -34,7 +34,7 @@ const Dropdowns: FunctionComponent = () => {
         if(!!filterOption) {
             setUserSelection(filterOption)
         }
-    }, [filterOption, isReset])
+    }, [filterOption])
 
     useEffect(() => {
         if (returnToResults && windowScroll === 0) document.getElementById('middle').scrollIntoView()

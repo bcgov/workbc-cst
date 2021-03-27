@@ -33,41 +33,38 @@ const CareerPreview: FunctionComponent = () => {
     const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(selectedNoc)
 
     useEffect(() => {
-        setEmailParams(_getCareer())
-    },[])
-
-    useEffect(() => {
         if(occupationSummary) {
             setCareerDetail(occupationSummary[0])
         }
-        }, [selectedNoc, isFetchingSummary, isSummaryFetched])
+    }, [selectedNoc, isFetchingSummary, isSummaryFetched])
 
     useEffect(() => {
-        if (!!isMobile()) {
+        if (isMobile()) {
+            setEmailParams(_getCareer())
             document.getElementById('header__logo').scrollIntoView()
         } else {
             setView('results')
             setShowCareerPreview(true)
         }
-    }, [])
+    }, [isMobile()])
 
     useEffect(() => {
         if(!isFetchingPIPath && isPiPathFetched && piPathData) {
             setProfileImagesPath(piPathData.value)
         }
-    }, [isFetchingPIPath, isPiPathFetched])
+    }, [isFetchingPIPath, isPiPathFetched, piPathData])
 
     useEffect(() => {
         if(!isFetchingCPUrl && isCPUrlFetched && CPUrlData) {
             setCareerProfileUrl(CPUrlData.value)
         }
-    }, [isFetchingCPUrl, isCPUrlFetched])
+    }, [isFetchingCPUrl, isCPUrlFetched, CPUrlData])
 
     useEffect(() => {
         if(!isFetchingJOUrl && isJOUrlFetched && JOUrlData) {
             setViewJobsUrl(JOUrlData.value)
         }
-    }, [isFetchingJOUrl, isJOUrlFetched])
+    }, [isFetchingJOUrl, isJOUrlFetched, JOUrlData])
     
     function getProfileImageName(noc: string):string {
         return noc + "-NOC-" + "profile.png"
@@ -141,7 +138,7 @@ const CareerPreview: FunctionComponent = () => {
                             <b>{getHeaderTitle(careerObj)?.title}</b> {getHeaderTitle(careerObj)?.code}
                         </div>
                     )}
-                    {!!isMobile() && (
+                    {isMobile() && (
                         <div className="result-detail__header-details">
                             <b>{careerObj.title}</b>  (NOC {careerObj.noc})
                         </div>

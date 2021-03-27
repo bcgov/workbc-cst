@@ -124,12 +124,8 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
      }
 
      function setView(value: string) {
-         try {
-            _setReset(false)
-            _setView(value)
-         } catch (error) {
-             console.log(error)
-         }
+        _setReset(false)
+        _setView(value)
      }
 
     function setSortOption(value: string) {

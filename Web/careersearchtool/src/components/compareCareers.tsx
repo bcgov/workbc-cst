@@ -55,7 +55,7 @@ const CompareCareers: FunctionComponent = () => {
         }
     }, [isFetchingJOUrl, isJOUrlFetched])
 
-    checkedNocs.map(noc => {
+    checkedNocs.forEach(noc => {
         const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(noc)
         useEffect(() => {
             if(!isFetchingSummary && isSummaryFetched && occupationSummary) {

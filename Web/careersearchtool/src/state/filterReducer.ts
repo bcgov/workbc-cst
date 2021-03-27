@@ -63,12 +63,6 @@ export function reducer(state: FilterState = defaultFilterState , action: Filter
     switch(action.type) {        
         case 'set-filtered-occupation-list': //sorts table results from high to low job openings and displays preview of career with max openings
             return ({...state, filteredOccupationsList: action.payload})
-
-        case 'set-filter-options': 
-           return ({...state, filterOption: {...state.filterOption, ...action.payload}})
-
-        case 'reset': 
-            return ({...state, ...defaultFilterState})
         
         default: 
             return state

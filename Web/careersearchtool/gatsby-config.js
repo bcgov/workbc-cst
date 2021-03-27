@@ -2,8 +2,8 @@ const lessToJson = require('less-to-json');
 
 module.exports = {
   siteMetadata: {
-    title: `career Search Tool`,
-    description: `Auto-completed indexed searchable, viewable and comparable, the Work BC Career Search Tool is yours for the perusing. `,
+    title: `WorkBC Career Search Tool`,
+    description: `Explore career opportunities that fit your interests and goals by using filters. `,
     siteUrl: 'http://localhost:8000/'
   },
   plugins: [
