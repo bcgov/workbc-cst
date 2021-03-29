@@ -324,10 +324,14 @@ const ResultsTable: FunctionComponent = () => {
                             onRow={onRow}>
                         </Table>
                         <div className="results-table-mobile-controls">
-                            <div style={{textAlign: 'center', marginTop: '1rem'}}> Displaying <b> {listSize} </b> of <b> {filteredOccupationsList.length} </b> results </div>
-                            <Button disabled={listSize === filteredOccupationsList.length} className="results-table-button" block type="primary" onClick={() => loadMore()}>
-                                Show More Results
-                            </Button>
+                            { filteredOccupationsList.length > 1 && 
+                               <div>
+                                    <div style={{textAlign: 'center', marginTop: '1rem'}}> Displaying <b> {listSize} </b> of <b> {filteredOccupationsList.length} </b> results. </div>
+                                    <Button disabled={listSize === filteredOccupationsList.length} className="results-table-button" block type="primary" onClick={() => loadMore()}>
+                                        Show More Results
+                                    </Button>
+                                </div>
+                            }
                         </div>
                     </div>
                 )}
