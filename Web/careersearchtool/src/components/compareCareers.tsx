@@ -84,8 +84,6 @@ const CompareCareers: FunctionComponent = () => {
     }
     
     function findJobsClickAnalytic(url, noc){
-        console.log(url)
-        console.log(noc)
         window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
             "data": {
             "click_type": "find_jobs",
