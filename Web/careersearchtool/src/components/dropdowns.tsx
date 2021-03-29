@@ -13,13 +13,14 @@ import Header from './header'
 import Footer from './footer'
 
 const Dropdowns: FunctionComponent = () => {
+    var onload = false;
     const { data: industryData, isValidating, isSettled } = useGetIndustryData(FilterType.industry)
     const [industryDataTree, setIndustryDataTree] = useState<IndustryData[]>()
     
     const [openNodes, setOpenNodes] = useState([])
 
-    const {filterOption, returnToResults, isReset, filteredOccupationsList, showCareerPreview, windowScroll,
-         setFilterOption, filterApplied, resetOptions} = useFilterContext()
+    const {filterOption, returnToResults, isFilterApplied, filteredOccupationsList, showCareerPreview, windowScroll,
+         setFilterOption, filterApplied, resetOptions, isFetchingOccupationList} = useFilterContext()
 
     const [userSelection, setUserSelection] = useState<FilterOptionModel>(defaultFilterOption)
 
@@ -35,6 +36,45 @@ const Dropdowns: FunctionComponent = () => {
             setUserSelection(filterOption)
         }
     }, [filterOption])
+
+
+    useEffect(()=> {
+        if (onload){
+            window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/find_career/jsonschema/1-0-0",
+                "data": {
+                "action": "load",
+                "count": 500,
+                "filters": {
+                    "region": "British Columbia",
+                    "education": "All",
+                    "occupational_interest": "All",
+                    "industry": "All",
+                    "occupational_category": "All",
+                    "job_type": "All",
+                    "annual_salary": "All",
+                    "keyword": null
+                }
+                }
+            });//end of snowplow
+        }else if(isFilterApplied){
+            window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/find_career/jsonschema/1-0-0",
+                "data": {
+                    "action": "apply",
+                    "count": filteredOccupationsList.length,
+                    "filters": {
+                    "region": userSelection.region.value,
+                    "education": userSelection.education.value,
+                    "occupational_interest": userSelection.occupational_interest.value,
+                    "industry": userSelection.industry.value.length ? userSelection.industry.value[0] : userSelection.industry.value, 
+                    "occupational_category": userSelection.occupational_group.value,
+                    "job_type": userSelection.part_time_option.value,
+                    "annual_salary": userSelection.annual_salary.value,
+                    "keyword": userSelection.keyword
+                    }
+                }
+            });
+        }     
+    }, [filteredOccupationsList]);
 
     useEffect(() => {
         if (returnToResults && windowScroll === 0) document.getElementById('middle').scrollIntoView()
@@ -58,29 +98,6 @@ const Dropdowns: FunctionComponent = () => {
 
     },[]) 
 
-    useEffect (() => {
-        (async() => {
-            //await the initial load of the analytics snowplow variable and call the load event
-            while(typeof window.snowplow === 'undefined') 
-                await new Promise(resolve => setTimeout(resolve, 1000));
-            window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/find_career/jsonschema/1-0-0",
-                "data": {
-                "action": "load",
-                "count": 500,
-                "filters": {
-                    "region": "British Columbia",
-                    "education": "All",
-                    "occupational_interest": "All",
-                    "industry": "All",
-                    "occupational_category": "All",
-                    "job_type": "All",
-                    "annual_salary": "All",
-                    "keyword": null
-                }
-                }
-            });//end of snowplow
-        })();
-    }, [])
     function getHoverContent(filtername: string) {
         let link ="";
         switch (filtername)  {
@@ -213,60 +230,45 @@ const Dropdowns: FunctionComponent = () => {
     }
 
     function handleReset() {
-        try {
-            resetOptions()
-            document.getElementById('reset-filters').blur()
-        } catch (error) {
-            console.log(error)
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/find_career/jsonschema/1-0-0",
+        "data": {
+            "action": "reset",
+            "count": filteredOccupationsList.length,
+            "filters": {
+                "region": userSelection.region.value,
+                "education": userSelection.education.value,
+                "occupational_interest": userSelection.occupational_interest.value,
+                "industry": userSelection.industry.value.length ? userSelection.industry.value[0] : userSelection.industry.value, 
+                "occupational_category": userSelection.occupational_group.value,
+                "job_type": userSelection.part_time_option.value,
+                "annual_salary": userSelection.annual_salary.value,
+                "keyword": userSelection.keyword
+            }
         }
-        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/find_career/jsonschema/1-0-0",
-            "data": {
-                "action": "reset",
-                "count": filteredOccupationsList?.length,
-                "filters": {
-                "region": userSelection.region.value,
-                "education": userSelection.education.value,
-                "occupational_interest": userSelection.occupational_interest.value,
-                "industry": userSelection.industry.value.length ? userSelection.industry.value[0] : userSelection.industry.value, 
-                "occupational_category": userSelection.occupational_group.value,
-                "job_type": userSelection.part_time_option.value,
-                "annual_salary": userSelection.annual_salary.value,
-                "keyword": userSelection.keyword
-                }
-            }
-        });
+    });
+    try {
+        resetOptions()
+        document.getElementById('reset-filters').blur()
+    } catch (error) {
+        console.log(error)
     }
+}
 
-    const handleResetKey = (event: any) => {
-        if (event.keyCode == 13) { // enter hit
-            handleReset()
-            event.stopPropagation()
-            event.preventDefault()
-            return
-        }      
-    }
+const handleResetKey = (event: any) => {
+    if (event.keyCode == 13) { // enter hit
+        handleReset()
+        event.stopPropagation()
+        event.preventDefault()
+        return
+    }      
+}
 
-    function applyFilters() {
-        filterApplied()
-        setFilterOption(userSelection)
-        document.getElementById('apply-filters').blur()
+function applyFilters() {
+    filterApplied()
+    setFilterOption(userSelection)
+    document.getElementById('apply-filters').blur()
         document.getElementById('middle').scrollIntoView()
-        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/find_career/jsonschema/1-0-0",
-            "data": {
-                "action": "apply",
-                "count": filteredOccupationsList?.length,
-                "filters": {
-                "region": userSelection.region.value,
-                "education": userSelection.education.value,
-                "occupational_interest": userSelection.occupational_interest.value,
-                "industry": userSelection.industry.value.length ? userSelection.industry.value[0] : userSelection.industry.value, 
-                "occupational_category": userSelection.occupational_group.value,
-                "job_type": userSelection.part_time_option.value,
-                "annual_salary": userSelection.annual_salary.value,
-                "keyword": userSelection.keyword
-                }
-            }
-        });
+        
     }
 
     //Click popover analytics event
