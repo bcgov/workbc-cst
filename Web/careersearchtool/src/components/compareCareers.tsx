@@ -105,6 +105,17 @@ const CompareCareers: FunctionComponent = () => {
       });
     }
 
+    function youtubeAnalytics(noc, videoid) {
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+                "click_type": "youtube_play",
+                "source": "compare",
+                "text": noc,
+                "url": "https://www.youtube.com/watch?v="+ videoid
+            }
+        });
+    }
+
     function getCareerDetail(careerObj: OccupationSummaryObj) {
         return (
             <div className="result-detail result-detail--compare">
@@ -137,7 +148,7 @@ const CompareCareers: FunctionComponent = () => {
                 </div>
                 <div  className="result-detail__thumbnail">
                     {(careerObj.careerDetail?.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.nocId)} alt='career profile pic'/>)
-                    : (<YouTube videoId={careerObj.careerDetail?.careertrekvideoids[0]} opts={{height: '315', width: '420', playerVars: {rel: 0}}} onReady={_onReady} />)}
+                    : (<YouTube videoId={careerObj.careerDetail?.careertrekvideoids[0]} onPlay={() => youtubeAnalytics(careerObj.careerDetail.noc, careerObj.careerDetail?.careertrekvideoids[0])} opts={{height: '315', width: '420', playerVars: {rel: 0}}} onReady={_onReady} />)}
                 </div>
                 <div className="result-detail__body result-body">
                     <div className="result-body__row">
@@ -215,6 +226,8 @@ const CompareCareers: FunctionComponent = () => {
             }
         });
     }
+
+
 
     return (
         <div>
