@@ -82,13 +82,16 @@ const Dropdowns: FunctionComponent = () => {
         })();
     }, [])
     function getHoverContent(filtername: string) {
+        let link ="";
         switch (filtername)  {
             case 'OccupationalInterest':
-                return (<div>Careers based on <a href="https://www.workbc.ca/Labour-Market-Industry/Skills-for-the-Future-Workforce.aspx#characteristics" className="filter-popover-link" target="_blank" rel="noreferrer">six interest types</a>.</div>)
+                link = 'https://www.workbc.ca/Labour-Market-Industry/Skills-for-the-Future-Workforce.aspx#characteristic';
+                return (<div>Careers based on <a onClick={() =>popoverClickAnalytics(link, 'Occupational Interest')} href="https://www.workbc.ca/Labour-Market-Industry/Skills-for-the-Future-Workforce.aspx#characteristics" className="filter-popover-link" target="_blank" rel="noreferrer">six interest types</a>.</div>)
             case 'OccupationalCategory': 
                 return (<div>Quick links to popular career groupings.</div>)
             case 'Keywords':
-                return (<div>The <a href="https://noc.esdc.gc.ca/Home/Welcome/79735a894dfc4ef199b03ff2a587cb1a?GoCTemplateCulture=en-CA" className="filter-popover-link" target="_blank" rel="noreferrer"><strong>National Occupational Classification System (NOC)</strong></a> classifies all occupations in Canada.</div>)
+                link = 'https://noc.esdc.gc.ca/Home/Welcome/79735a894dfc4ef199b03ff2a587cb1a?GoCTemplateCulture=en-CA';
+                return (<div>The <a onClick={() =>popoverClickAnalytics(link, 'Keywords')} href="https://noc.esdc.gc.ca/Home/Welcome/79735a894dfc4ef199b03ff2a587cb1a?GoCTemplateCulture=en-CA" className="filter-popover-link" target="_blank" rel="noreferrer"><strong>National Occupational Classification System (NOC)</strong></a> classifies all occupations in Canada.</div>)
         }
     }
 
@@ -267,15 +270,28 @@ const Dropdowns: FunctionComponent = () => {
     }
 
     //Click popover analytics event
-    function popoverClickAnalytics(text){
+    function popoverClickAnalytics(text, link){
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+                "click_type": "tooltip_click",
+                "source": "search",
+                "text": text, 
+                "url": link
+            }
+        });
+    }
+
+    //Click popover analytics event
+    function popoverOpenAnalytics(text){
         window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
             "data": {
                 "click_type": "tooltip_open",
                 "source": "search",
-                "text": text 
+                "text": text,
             }
         });
     }
+
 
     function handleHide(filtername: string) {
         console.log(filtername)
@@ -357,7 +373,7 @@ const Dropdowns: FunctionComponent = () => {
                                         className="sao-filters__popover" 
                                         content={getPopOver('OccupationalInterest')} 
                                         trigger="click" 
-                                        onClick={() => popoverClickAnalytics("Occupational Interest")}
+                                        onClick={() => popoverOpenAnalytics("Occupational Interest")}
                                         visible={popOvervisible.occupationalInterest}> 
                                         <QuestionCircleFilled onClick={() => setPopOverVisible({...popOvervisible, 'occupationalInterest': true})} />
                                     </Popover>
@@ -403,7 +419,7 @@ const Dropdowns: FunctionComponent = () => {
                                         className="sao-filters__popover" 
                                         content={getPopOver('OccupationalCategory')} 
                                         trigger="click" 
-                                        onClick={() => popoverClickAnalytics("Occupational Category")}
+                                        onClick={() => popoverOpenAnalytics("Occupational Category")}
                                         visible={popOvervisible.occupationalCategory}>  
                                             <QuestionCircleFilled onClick={() => setPopOverVisible({...popOvervisible, 'occupationalCategory': true})}/> 
                                         </Popover> 
@@ -458,7 +474,7 @@ const Dropdowns: FunctionComponent = () => {
                                         className="sao-filters__popover" 
                                         content={getPopOver('Keywords')} 
                                         trigger="click" 
-                                        onClick={() => popoverClickAnalytics("Keyword")}
+                                        onClick={() => popoverOpenAnalytics("Keyword")}
                                         visible={popOvervisible.keywords}>  
                                         <QuestionCircleFilled onClick={()=> setPopOverVisible({...popOvervisible, 'keywords': true})} /> 
                                     </Popover> 
