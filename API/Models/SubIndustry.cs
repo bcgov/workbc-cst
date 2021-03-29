@@ -1,8 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace SearchAllOccupationsToolAPI.Models
 {
+    [Serializable]
+    [Table("SubIndustry")]
     public class SubIndustry
     {
         [JsonPropertyName("id")]
@@ -13,5 +16,8 @@ namespace SearchAllOccupationsToolAPI.Models
 
         [JsonIgnore]
         public virtual Industry Industry { get; set; }
+
+        [JsonIgnore]
+        public int SortOrder { get; set; }
     }
 }

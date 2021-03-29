@@ -1,6 +1,4 @@
-USE [SearchAllOccupationsTool]
-GO
-/****** Object:  Table [dbo].[CommonJobTitle]    Script Date: 2/22/2021 2:14:26 PM ******/
+/****** Object:  Table [dbo].[CommonJobTitle]    Script Date: 3/29/2021 11:24:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -8,10 +6,10 @@ GO
 CREATE TABLE [dbo].[CommonJobTitle](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[JobTitle] [nvarchar](max) NULL,
-	[NOCId] [int] NULL
+	[NOCId] [int] NOT NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[EducationLevel]    Script Date: 2/22/2021 2:14:26 PM ******/
+/****** Object:  Table [dbo].[EducationLevel]    Script Date: 3/29/2021 11:24:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -25,7 +23,7 @@ CREATE TABLE [dbo].[EducationLevel](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[FullOrPartTime]    Script Date: 2/22/2021 2:14:26 PM ******/
+/****** Object:  Table [dbo].[FullOrPartTime]    Script Date: 3/29/2021 11:24:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -39,7 +37,7 @@ CREATE TABLE [dbo].[FullOrPartTime](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[GeographicArea]    Script Date: 2/22/2021 2:14:26 PM ******/
+/****** Object:  Table [dbo].[GeographicArea]    Script Date: 3/29/2021 11:24:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -53,7 +51,7 @@ CREATE TABLE [dbo].[GeographicArea](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Industry]    Script Date: 2/22/2021 2:14:26 PM ******/
+/****** Object:  Table [dbo].[Industry]    Script Date: 3/29/2021 11:24:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -61,20 +59,21 @@ GO
 CREATE TABLE [dbo].[Industry](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Value] [varchar](255) NULL,
+	[SortOrder] [int] NOT NULL,
  CONSTRAINT [PK_Industry] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[JobOpening]    Script Date: 2/22/2021 2:14:26 PM ******/
+/****** Object:  Table [dbo].[JobOpening]    Script Date: 3/29/2021 11:24:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[JobOpening](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[NOCId] [int] NULL,
+	[NOCId] [int] NOT NULL,
 	[GeographicAreaId] [int] NULL,
 	[JobOpenings] [int] NULL,
 	[IndustryId] [int] NULL,
@@ -85,7 +84,7 @@ CREATE TABLE [dbo].[JobOpening](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[NOC]    Script Date: 2/22/2021 2:14:26 PM ******/
+/****** Object:  Table [dbo].[NOC]    Script Date: 3/29/2021 11:24:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -105,7 +104,7 @@ CREATE TABLE [dbo].[NOC](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[NOCOccupationGroup]    Script Date: 2/22/2021 2:14:26 PM ******/
+/****** Object:  Table [dbo].[NOCOccupationGroup]    Script Date: 3/29/2021 11:24:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -121,7 +120,7 @@ CREATE TABLE [dbo].[NOCOccupationGroup](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[NOCOccupationInterest]    Script Date: 2/22/2021 2:14:26 PM ******/
+/****** Object:  Table [dbo].[NOCOccupationInterest]    Script Date: 3/29/2021 11:24:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -137,7 +136,7 @@ CREATE TABLE [dbo].[NOCOccupationInterest](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[NOCVideos]    Script Date: 2/22/2021 2:14:26 PM ******/
+/****** Object:  Table [dbo].[NOCVideos]    Script Date: 3/29/2021 11:24:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -153,7 +152,7 @@ CREATE TABLE [dbo].[NOCVideos](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OccupationalInterest]    Script Date: 2/22/2021 2:14:26 PM ******/
+/****** Object:  Table [dbo].[OccupationalInterest]    Script Date: 3/29/2021 11:24:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -167,7 +166,7 @@ CREATE TABLE [dbo].[OccupationalInterest](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OccupationGroup]    Script Date: 2/22/2021 2:14:26 PM ******/
+/****** Object:  Table [dbo].[OccupationGroup]    Script Date: 3/29/2021 11:24:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -181,7 +180,7 @@ CREATE TABLE [dbo].[OccupationGroup](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[OccupationInterestOption]    Script Date: 2/22/2021 2:14:26 PM ******/
+/****** Object:  Table [dbo].[OccupationInterestOption]    Script Date: 3/29/2021 11:24:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -195,7 +194,7 @@ CREATE TABLE [dbo].[OccupationInterestOption](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SubIndustry]    Script Date: 2/22/2021 2:14:26 PM ******/
+/****** Object:  Table [dbo].[SubIndustry]    Script Date: 3/29/2021 11:24:19 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -204,11 +203,16 @@ CREATE TABLE [dbo].[SubIndustry](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Value] [varchar](255) NOT NULL,
 	[IndustryId] [int] NOT NULL,
+	[SortOrder] [int] NOT NULL,
  CONSTRAINT [PK_SubIndustry] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Industry] ADD  CONSTRAINT [DF_Industry_SortOrder]  DEFAULT ((0)) FOR [SortOrder]
+GO
+ALTER TABLE [dbo].[SubIndustry] ADD  CONSTRAINT [DF_SubIndustry_SortOrder]  DEFAULT ((0)) FOR [SortOrder]
 GO
 ALTER TABLE [dbo].[CommonJobTitle]  WITH CHECK ADD  CONSTRAINT [FK_CommonJobTitle_NOC] FOREIGN KEY([NOCId])
 REFERENCES [dbo].[NOC] ([Id])
