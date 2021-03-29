@@ -99,6 +99,17 @@ const CareerPreview: FunctionComponent = () => {
       });
     }
 
+    function jobProfileClickAnalytic(url, noc) {
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+            "click_type": "job_profile",
+            "source": "preview",
+            "text": noc,
+            "url": url+noc
+            }
+      });
+    }
+
     function youtubeAnalytics(noc, videoid) {
         window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
             "data": {
@@ -146,7 +157,7 @@ const CareerPreview: FunctionComponent = () => {
                 </div>
                 <div  className="result-detail__thumbnail__preview">
                     {(careerObj.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.noc)} alt='career profile pic'/>)
-                : (<YouTube videoId={careerObj.careertrekvideoids[0]} onReady={_onReady} opts={{playerVars: {rel: 0}}}/>)}
+                : (<YouTube videoId={careerObj.careertrekvideoids[0]} onPlay={() => youtubeAnalytics(careerObj.noc, careerObj.careertrekvideoids[0])} onReady={_onReady} opts={{playerVars: {rel: 0}}}/>)}
                 </div>
                 <div className="result-detail__body result-body">
                     <div className="result-body__row">
@@ -178,7 +189,7 @@ const CareerPreview: FunctionComponent = () => {
                 <div className="result-detail__footer">                            
                     <div className="result-detail__footer__button-box">
                        <div style={{marginRight: '10px'}}>
-                            <a href={careerProfileUrl+careerObj.noc} target="_blank" rel="noreferrer"> 
+                            <a href={careerProfileUrl+careerObj.noc}  onClick={() => jobProfileClickAnalytic(careerProfileUrl, careerObj.noc)} target="_blank" rel="noreferrer"> 
                                 <Button type="primary" className="result-detail__footer__button-box__career" block>
                                     View Career Profile
                                 </Button>

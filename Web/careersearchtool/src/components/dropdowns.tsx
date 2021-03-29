@@ -275,7 +275,6 @@ const Dropdowns: FunctionComponent = () => {
                 "text": text 
             }
         });
-        console.log(text);
     }
 
     function handleHide(filtername: string) {

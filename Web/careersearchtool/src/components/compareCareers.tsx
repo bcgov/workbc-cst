@@ -82,10 +82,19 @@ const CompareCareers: FunctionComponent = () => {
     function _onReady(event) {
         event.target.pauseVideo();
     }
+
+    function jobProfileClickAnalytic(url, noc) {
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+            "click_type": "job_profile",
+            "source": "preview",
+            "text": noc,
+            "url": url+noc
+            }
+      });
+    }[]
     
     function findJobsClickAnalytic(url, noc){
-        console.log(url)
-        console.log(noc)
         window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
             "data": {
             "click_type": "find_jobs",
@@ -94,6 +103,17 @@ const CompareCareers: FunctionComponent = () => {
             "url": url+noc
             }
       });
+    }
+
+    function youtubeAnalytics(noc, videoid) {
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+                "click_type": "youtube_play",
+                "source": "compare",
+                "text": noc,
+                "url": "https://www.youtube.com/watch?v="+ videoid
+            }
+        });
     }
 
     function getCareerDetail(careerObj: OccupationSummaryObj) {
@@ -128,7 +148,7 @@ const CompareCareers: FunctionComponent = () => {
                 </div>
                 <div  className="result-detail__thumbnail">
                     {(careerObj.careerDetail?.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.nocId)} alt='career profile pic'/>)
-                    : (<YouTube videoId={careerObj.careerDetail?.careertrekvideoids[0]} opts={{height: '315', width: '420', playerVars: {rel: 0}}} onReady={_onReady} />)}
+                    : (<YouTube videoId={careerObj.careerDetail?.careertrekvideoids[0]} onPlay={() => youtubeAnalytics(careerObj.careerDetail.noc, careerObj.careerDetail?.careertrekvideoids[0])} opts={{height: '315', width: '420', playerVars: {rel: 0}}} onReady={_onReady} />)}
                 </div>
                 <div className="result-detail__body result-body">
                     <div className="result-body__row">
@@ -160,7 +180,7 @@ const CompareCareers: FunctionComponent = () => {
                 <div className="result-detail__footer">                            
                     <div className="result-detail__footer__button-box">
                        <div style={{marginRight: '10px'}}>
-                            <a href={careerProfileUrl+careerObj.careerDetail?.noc} target="_blank" rel="noreferrer"> 
+                            <a href={careerProfileUrl+careerObj.careerDetail?.noc}  onClick={() => jobProfileClickAnalytic(careerProfileUrl, careerObj.careerDetail?.noc)} target="_blank" rel="noreferrer"> 
                                 <Button type="primary" className="result-detail__footer__button-box__career" block>
                                     View Career Profile
                                 </Button>
@@ -206,6 +226,8 @@ const CompareCareers: FunctionComponent = () => {
             }
         });
     }
+
+
 
     return (
         <div>
