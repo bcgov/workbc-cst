@@ -24,13 +24,22 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 .AsNoTracking()
                 .Include(i => i.SubIndustries)
                 .Where(i => i.Value.ToLower() != AllIndustriesTitle)
-                .OrderBy(i => i.Value)
+                .OrderBy(i => i.SortOrder)
+                .ThenBy(i => i.Value)
                 .ToList();
 
             // Don't return any single sub-category categories
             foreach (var industry in industries.Where(industry => industry.SubIndustries.Count == 1))
                 industry.SubIndustries.Clear();
 
+            foreach (var industry in industries) { 
+                var sorted = industry.SubIndustries
+                    .OrderBy(si => si.SortOrder)
+                    .ThenBy(si => si.Value);
+
+                industry.SubIndustries = sorted.ToList();
+
+            }
             return industries;
         }
 
