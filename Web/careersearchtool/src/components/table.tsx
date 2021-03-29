@@ -233,7 +233,7 @@ const ResultsTable: FunctionComponent = () => {
         {
             title: 'Compare careers',
             dataIndex: 'compare',
-            className: 'table-col-3',
+            className: filteredOccupationsList.length <= 1 && isMobile() ? 'table-col-3-one-or-zero-result': 'table-col-3',
             render: (text, record: OccupationModel) => {
                 if (filteredOccupationsList && filteredOccupationsList.length > 1) {
                     return (<div>
