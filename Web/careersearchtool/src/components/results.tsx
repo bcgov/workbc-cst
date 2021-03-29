@@ -106,10 +106,15 @@ const results: FunctionComponent = () => {
                                )}
                                { !!isMobile() && !isFetchingOccupationList && filteredOccupationsList.length === 1 && (
                                    <span>
-                                       Displaying {listSize} of {filteredOccupationsList?.length} result.
+                                       Displaying {listSize} result.
                                    </span>
                                )}
-                               { !!isMobile() && !isFetchingOccupationList && filteredOccupationsList.length !== 1 && (
+                                { !!isMobile() && !isFetchingOccupationList && filteredOccupationsList.length === 0 && (
+                                   <span>
+                                       Displaying {listSize} results.
+                                   </span>
+                               )}
+                               { !!isMobile() && !isFetchingOccupationList && filteredOccupationsList.length > 1 && (
                                    <span>
                                        Displaying {listSize} of {filteredOccupationsList?.length} results.
                                    </span>
