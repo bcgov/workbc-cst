@@ -99,6 +99,17 @@ const CareerPreview: FunctionComponent = () => {
       });
     }
 
+    function jobProfileClickAnalytic(url, noc) {
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+            "click_type": "job_profile",
+            "source": "preview",
+            "text": noc,
+            "url": url+noc
+            }
+      });
+    }
+
     function youtubeAnalytics(noc, videoid) {
         window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
             "data": {
@@ -178,7 +189,7 @@ const CareerPreview: FunctionComponent = () => {
                 <div className="result-detail__footer">                            
                     <div className="result-detail__footer__button-box">
                        <div style={{marginRight: '10px'}}>
-                            <a href={careerProfileUrl+careerObj.noc} target="_blank" rel="noreferrer"> 
+                            <a href={careerProfileUrl+careerObj.noc}  onClick={() => jobProfileClickAnalytic(careerProfileUrl, careerObj.noc)} target="_blank" rel="noreferrer"> 
                                 <Button type="primary" className="result-detail__footer__button-box__career" block>
                                     View Career Profile
                                 </Button>
