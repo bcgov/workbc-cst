@@ -72,6 +72,54 @@ const CareerPreview: FunctionComponent = () => {
 
     function _onReady(event) {
         event.target.pauseVideo();
+        var player_info = {
+            status: 'Ready', 
+            video_id: event.target.getVideoData().video_id,
+            video_src: event.target.getVideoUrl(),
+            title: event.target.getVideoData().title,
+            author: event.target.getVideoData().author
+        };
+        track_youtube_player(player_info);
+    }
+    
+    function _onStateChange(event) {
+        var player_info = {
+            status: '', 
+            video_id: event.target.getVideoData().video_id,
+            video_src: event.target.getVideoUrl(),
+            title: event.target.getVideoData().title,
+            author: event.target.getVideoData().author
+        };
+          
+        switch(event.data) {
+        case YT.PlayerState.PLAYING:
+            player_info.status = 'Playing';
+            track_youtube_player(player_info);
+            break;
+        case YT.PlayerState.PAUSED:
+            player_info.status = 'Paused';
+            track_youtube_player(player_info);
+            break;
+        case YT.PlayerState.ENDED:
+            player_info.status = 'Ended';
+            track_youtube_player(player_info);
+            break;
+        default:
+            return;
+        }
+    }
+
+    function track_youtube_player(player_info){
+        window.snowplow('trackSelfDescribingEvent', {
+            schema: "iglu:ca.bc.gov.youtube/youtube_playerstate/jsonschema/3-0-0",
+            data: {
+                status: player_info.status,
+                video_src: player_info.video_src,
+                video_id: player_info.video_id,
+                title: player_info.title,
+                author: player_info.author
+            }
+        });
     }
 
     function handlePrintEvent() {
@@ -169,7 +217,7 @@ const CareerPreview: FunctionComponent = () => {
                 </div>
                 <div  className="result-detail__thumbnail__preview">
                     {(careerObj.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.noc)} alt='career profile pic'/>)
-                : (<YouTube videoId={careerObj.careertrekvideoids[0]} onPlay={() => youtubeAnalytics(careerObj.noc, careerObj.careertrekvideoids[0])} onReady={_onReady} opts={{playerVars: {rel: 0}}}/>)}
+                : (<YouTube className="youtube-player" videoId={careerObj.careertrekvideoids[0]}  onStateChange={_onStateChange} onPlay={() => youtubeAnalytics(careerObj.noc, careerObj.careertrekvideoids[0])} onReady={_onReady} opts={{playerVars: {rel: 0}}}/>)}
                 </div>
                 <div className="result-detail__body result-body">
                     <div className="result-body__row">
