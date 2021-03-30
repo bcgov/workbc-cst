@@ -391,7 +391,7 @@ function applyFilters() {
                                         onTreeExpand = {handleExpandNode}
                                         onFocus = {handleFocus}
                                         value={userSelection?.industry?.id}
-                                        style={{width: '100%'}}
+                                        style={{width: '100%', display: 'block'}}
                                         tabIndex={4} />
                             </div>
                         </Col>
@@ -466,7 +466,7 @@ function applyFilters() {
                                 </label>
                                 <Input placeholder="Enter job title, keyword(s) or NOC"
                                     value= {userSelection?.keyword}
-                                    style={{ width: '100%' }}
+                                    style={{ width: '100%', display: 'block' }}
                                     onChange={handleChangeKeyWord}
                                     tabIndex={8} />
                             </div>
