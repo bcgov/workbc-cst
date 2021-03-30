@@ -16,6 +16,34 @@ window.snowplow('newTracker','rt',collector, {
     }
 });
 
+if( document.readyState !== 'loading' ) {
+  onLoadAnalytics();
+} else {
+  document.addEventListener('DOMContentLoaded', function () {
+    onLoadAnalytics();
+  });
+}
+
+function onLoadAnalytics(){
+  window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/find_career/jsonschema/1-0-0",
+    "data": {
+    "action": "load",
+    "count": 500,
+    "filters": {
+        "region": "British Columbia",
+        "education": "All",
+        "occupational_interest": "All",
+        "industry": "All",
+        "occupational_category": "All",
+        "job_type": "All",
+        "annual_salary": "All",
+        "keyword": null
+    }
+    }
+  });//end of snowplow
+}
+
+
 window.snowplow('enableActivityTracking', 30, 30); // Ping every 30 seconds after 30 seconds
 window.snowplow('enableLinkClickTracking');
 window.snowplow('trackPageView');
@@ -99,6 +127,7 @@ function track_youtube_player(player_info) {
     }
   });
 }
+
 
 
 

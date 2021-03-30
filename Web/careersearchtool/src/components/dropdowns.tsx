@@ -39,24 +39,7 @@ const Dropdowns: FunctionComponent = () => {
 
 
     useEffect(()=> {
-        if (onload){
-            window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/find_career/jsonschema/1-0-0",
-                "data": {
-                "action": "load",
-                "count": 500,
-                "filters": {
-                    "region": "British Columbia",
-                    "education": "All",
-                    "occupational_interest": "All",
-                    "industry": "All",
-                    "occupational_category": "All",
-                    "job_type": "All",
-                    "annual_salary": "All",
-                    "keyword": null
-                }
-                }
-            });//end of snowplow
-        }else if(isFilterApplied){
+        if(isFilterApplied){
             window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/find_career/jsonschema/1-0-0",
                 "data": {
                     "action": "apply",

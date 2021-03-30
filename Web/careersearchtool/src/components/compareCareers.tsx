@@ -87,7 +87,7 @@ const CompareCareers: FunctionComponent = () => {
         window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
             "data": {
             "click_type": "job_profile",
-            "source": "preview",
+            "source": "compare",
             "text": noc,
             "url": url+noc
             }
