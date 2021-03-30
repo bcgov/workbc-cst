@@ -35,6 +35,12 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: './src/images/workbc-icon.png', // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-react-helmet`,
