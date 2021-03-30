@@ -76,6 +76,12 @@ const CareerPreview: FunctionComponent = () => {
 
     function handlePrintEvent() {
         print();
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+            "data": {
+                "click_type": "print",
+                "source": "preview"
+            }
+        });
     }
 
     function _getCareer() {
@@ -86,6 +92,12 @@ const CareerPreview: FunctionComponent = () => {
         let link_to_sao = 'Access your previewed career:  ' +  window.location.href + emailParams + '\n\nWorkBC’s Career Search Tool helps you learn about career options in B.C.'
         let link = `mailto:?subject=${encodeURIComponent('WorkBC’s Career Search Tool – Career Preview')}&body=${encodeURIComponent(link_to_sao)}`
         window.location.href = link;
+        window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
+        "data": {
+            "click_type": "email",
+            "source": "preview"
+        }
+    });
     }
 
     function findJobsClickAnalytic(url, noc) {
