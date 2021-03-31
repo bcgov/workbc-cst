@@ -33,7 +33,8 @@ export interface FilterContextProps extends FilterState {
     setReturnToResults: (value: boolean) => void,
     setFetchingOccupationList: (value: boolean) => void,
     setShowCareerPreview: (value: boolean) => void,
-    setWindowScroll: (value: number) => void
+    setWindowScroll: (value: number) => void,
+    setReset: (value: boolean) => void
 }
 
 const FilterContext = createContext<FilterContextProps>({
@@ -43,7 +44,7 @@ const FilterContext = createContext<FilterContextProps>({
     listSize: 0,
     selectedNoc: undefined,
     view: 'results',
-    isFilterApplied: true,
+    isFilterApplied: false,
     isReset: true,
     checkedNocs: [],
     isSorted: false,
@@ -65,7 +66,8 @@ const FilterContext = createContext<FilterContextProps>({
     setReturnToResults: () => {},
     setFetchingOccupationList: () => {},
     setShowCareerPreview: () => {},
-    setWindowScroll: () => {}
+    setWindowScroll: () => {},
+    setReset: () =>{}
 })
 
 FilterContext.displayName = 'FilterContext'
@@ -96,7 +98,7 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
             sortOption === 'Z-A'? occupationList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title > b.title ? -1 : 1 }): occupationList  
             /* selectedNoc will be updated to first item is 'High to Low' sorted list of filtered Occupational List on intial load 
              and on every 'apply' action and selcted Noc will be retained on sorting */
-             _setSelectedNoc(!!isFilterApplied? occupationList[0]?.noc : (!!selectedNoc? selectedNoc : occupationList[0]?.noc))
+             _setSelectedNoc(!!isFilterApplied || !!isReset? occupationList[0]?.noc : (!!selectedNoc? selectedNoc : occupationList[0]?.noc))
             
             dispatch({ type: 'set-filtered-occupation-list', payload: occupationList})
         } catch (error) {
@@ -119,20 +121,21 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
 
     function setSelectedNoc(nocId: string) {
             _setIsFilterApplied(false)
-            _setReset(false)
             _setSelectedNoc(nocId)
      }
 
      function setView(value: string) {
-        _setReset(false)
         _setView(value)
      }
 
     function setSortOption(value: string) {
         _setIsFilterApplied(false)
-        _setReset(false)
         _setSortOption(value)
         _setIsSorted(true)
+    }
+
+    function setReset(value: boolean) {
+        _setReset(value)
     }
 
     function filterApplied() {
@@ -145,7 +148,7 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
 
     function resetOptions() {
         _setFilterOption(defaultFilterOption)
-        _setReset(!isReset)
+        _setReset(true)
         _setIsFilterApplied(false)
         _setSortOption('High to Low')
         _setIsSorted(true)
@@ -210,7 +213,8 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
                 setReturnToResults, 
                 setFetchingOccupationList,
                 setShowCareerPreview,
-                setWindowScroll}}> 
+                setWindowScroll,
+                setReset}}> 
             {children}
         </FilterContext.Provider>
     )

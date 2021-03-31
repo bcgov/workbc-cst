@@ -19,7 +19,7 @@ const Dropdowns: FunctionComponent = () => {
     const [openNodes, setOpenNodes] = useState([])
 
     const {filterOption, returnToResults, isFilterApplied, filteredOccupationsList, showCareerPreview, windowScroll,
-         setFilterOption, filterApplied, resetOptions} = useFilterContext()
+         setFilterOption, filterApplied, resetOptions, setReset} = useFilterContext()
 
     const [userSelection, setUserSelection] = useState<FilterOptionModel>(defaultFilterOption)
 
@@ -230,6 +230,7 @@ const Dropdowns: FunctionComponent = () => {
     });
     try {
         resetOptions()
+        setReset(true)
         setUserSelection(defaultFilterOption)
         document.getElementById('reset-filters').blur()
     } catch (error) {

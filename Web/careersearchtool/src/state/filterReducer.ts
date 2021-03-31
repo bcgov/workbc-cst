@@ -23,41 +23,15 @@ export const defaultFilterParams = {
 }
 
 export interface FilterState {
-    filterOption?: FilterOptionModel,
-    filteredOccupationsList? : OccupationModel[],
-    listSize: number,
-    selectedNoc: string,
-    isFilterApplied: boolean,
-    checkedNocs: string[],
-    isSorted: boolean,
-    sortOption: string,
-    isFetchingOccupationList: boolean
+    filteredOccupationsList? : OccupationModel[]
 }
 
 export const defaultFilterState: FilterState = Object.freeze({
-    filterOption: defaultFilterOption,
-    filteredOccupationsList: [],
-    listSize: 0,
-    selectedNoc: undefined,
-    isFilterApplied: false,
-    checkedNocs: [],
-    isSorted: false,
-    sortOption: 'High to Low',
-    isFetchingOccupationList: true
+    filteredOccupationsList: []
 })
 
 export type FilterAction = 
-{type: 'set-filtered-occupation-list', payload: OccupationModel[] | undefined } |
-{type: 'set-scroll-position', payload: number} |
-{type: 'set-list-size', payload: number} |
-{type: 'set-selected-noc', payload: string} |
-{type: 'set-filter-options', payload: FilterOptionModel} |
-{type: 'set-selected-boxes', payload: number} |
-{type: 'set-checked-nocs', payload: string[]} |
-{type: 'set-sort-option', payload: string} |
-{type: 'set-is-fetching-results', payload: boolean} |
-{type: 'apply-filter'} |
-{type: 'reset'}
+{type: 'set-filtered-occupation-list', payload: OccupationModel[] | undefined }
 
 export function reducer(state: FilterState = defaultFilterState , action: FilterAction): FilterState {
     switch(action.type) {        
