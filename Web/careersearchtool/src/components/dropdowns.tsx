@@ -13,14 +13,13 @@ import Header from './header'
 import Footer from './footer'
 
 const Dropdowns: FunctionComponent = () => {
-    var onload = false;
     const { data: industryData, isValidating, isSettled } = useGetIndustryData(FilterType.industry)
     const [industryDataTree, setIndustryDataTree] = useState<IndustryData[]>()
     
     const [openNodes, setOpenNodes] = useState([])
 
     const {filterOption, returnToResults, isFilterApplied, filteredOccupationsList, showCareerPreview, windowScroll,
-         setFilterOption, filterApplied, resetOptions, isFetchingOccupationList} = useFilterContext()
+         setFilterOption, filterApplied, resetOptions} = useFilterContext()
 
     const [userSelection, setUserSelection] = useState<FilterOptionModel>(defaultFilterOption)
 
@@ -231,6 +230,7 @@ const Dropdowns: FunctionComponent = () => {
     });
     try {
         resetOptions()
+        setUserSelection(defaultFilterOption)
         document.getElementById('reset-filters').blur()
     } catch (error) {
         console.log(error)
@@ -391,7 +391,7 @@ function applyFilters() {
                                         onTreeExpand = {handleExpandNode}
                                         onFocus = {handleFocus}
                                         value={userSelection?.industry?.id}
-                                        style={{width: '100%', display: 'block'}}
+                                        style={{width: '100%'}}
                                         tabIndex={4} />
                             </div>
                         </Col>
@@ -466,7 +466,7 @@ function applyFilters() {
                                 </label>
                                 <Input placeholder="Enter job title, keyword(s) or NOC"
                                     value= {userSelection?.keyword}
-                                    style={{ width: '100%', display: 'block' }}
+                                    style={{ width: '100%'}}
                                     onChange={handleChangeKeyWord}
                                     tabIndex={8} />
                             </div>

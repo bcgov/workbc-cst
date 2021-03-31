@@ -144,6 +144,7 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
     }
 
     function resetOptions() {
+        _setFilterOption(defaultFilterOption)
         _setReset(!isReset)
         _setIsFilterApplied(false)
         _setSortOption('High to Low')
@@ -154,7 +155,6 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
         _setScrollPosition(0)
         _SetWindowScroll(0)
         _setIsFetchingOccupationList(true)
-        _setFilterOption(defaultFilterOption)
     }
 
     function setCheckedNocs(value: string[]) {
