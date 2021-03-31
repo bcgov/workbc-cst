@@ -229,6 +229,7 @@
         margin: 1rem 0 0 0;
         max-width: none;
         page-break-inside: avoid;
+        display: block;
         
         &__printtitle{
             margin-top: 3rem;
@@ -246,6 +247,7 @@
         &__thumbnail, 
         &__footer{
             padding: 0;
+            display: block;
         }
         &__header{
             background-color: white;
@@ -253,6 +255,7 @@
             font-family: @font-family;
             height: auto;
             padding: 1rem 0 0;
+            min-height: auto;
             b {
                 font-family: @font-family-bold;
             }
@@ -362,6 +365,7 @@
 
     
     .compare-careers{
+        display: block;
         .ant-col{
             max-width: 100%;
             .flex(0 0 100%);
