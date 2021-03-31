@@ -279,7 +279,7 @@ const CareerPreview: FunctionComponent = () => {
             { !!isMobile() && (<div className="back-to-home" >
                 <div className="back-to-home-link">
                     <span><LeftOutlined/></span>
-                    <a onClick={() => {setView('results'); setReturnToResults(true);}}> Back to previous page </a>
+                    <a onClick={() => {setView('results'); setReturnToResults(true)}}> Back to previous page </a>
                 </div>
             </div>)} 
             { !!isMobile() && (

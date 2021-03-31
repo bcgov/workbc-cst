@@ -12,7 +12,7 @@ import { format } from '../client/filtersData'
 const ResultsTable: FunctionComponent = () => {
     const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc, windowScroll,
         listSize, isFetchingOccupationList, scrollPosition, setSortOption, setSelectedNoc, setWindowScroll,
-        setFilteredOccupationsList, setCheckedNocs, setView, setListSize, setFetchingOccupationList } = useFilterContext()
+        setFilteredOccupationsList, setCheckedNocs, setView, setListSize, setFetchingOccupationList, setReset } = useFilterContext()
 
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const [nameSortVisible, setNameSortVisible] = useState<boolean>(false)
@@ -68,11 +68,13 @@ const ResultsTable: FunctionComponent = () => {
         switch(sortOption) {
             case 'A-Z':
                 setSortOption('A-Z')
+                setReset(false)
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title < b.title ? -1 : 1 }))               
                 break
 
             case 'Z-A':
                 setSortOption('Z-A')
+                setReset(false)
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title > b.title ? -1 : 1 }))               
                 break
 
@@ -83,6 +85,7 @@ const ResultsTable: FunctionComponent = () => {
 
             case 'Low to High':
                 setSortOption('Low to High')
+                setReset(false)
                 setFilteredOccupationsList(tempList.sort((a: OccupationModel, b: OccupationModel ) => {return a.jobOpenings < b.jobOpenings ? -1 : 1 }))
                 break
         }
@@ -267,6 +270,7 @@ const ResultsTable: FunctionComponent = () => {
             }
         });
         setSelectedNoc(record.noc)
+        setReset(false)
         if(isMobile()) {
             setView('careerPreview')
             setWindowScroll(window.scrollY)

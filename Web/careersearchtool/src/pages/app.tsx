@@ -10,7 +10,7 @@ import '../theme/index.less'
 import { navigate } from "gatsby";
 
 const SAOTool:FunctionComponent = () => {
-  const { view, setView, setFilterOption, setCheckedNocs, setSelectedNoc} = useFilterContext()
+  const { view, setView, setFilterOption, setCheckedNocs, setSelectedNoc, setReset} = useFilterContext()
 
   const [currentView, setCurrentView] = useState<string>('results')
 
@@ -27,6 +27,7 @@ const SAOTool:FunctionComponent = () => {
         if(!!queryParams && !!view) {
           const context = parseURL(queryParams, view)
           setView(view)
+          setReset(false)
           if (view === 'results') {
             setFilterOption(context?.filterOptions)
             setSelectedNoc(context?.selectedNoc)
