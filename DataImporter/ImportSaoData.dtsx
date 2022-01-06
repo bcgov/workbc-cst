@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="1/12/2021 12:02:28 PM"
+  DTS:CreationDate="1/12/2022 12:02:28 PM"
   DTS:CreationName="Microsoft.Package"
-  DTS:CreatorComputerName="THEODEN"
-  DTS:CreatorName="IDIR\wieinze"
+  DTS:CreatorComputerName="CA-L9H9PTT2"
+  DTS:CreatorName="IDIR\KKHABIBU"
   DTS:Description="SSIS Package to Import Data into WorkBC SAO"
   DTS:DTSID="{CD65F675-A625-454E-A0F5-61E126D2BB98}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="123"
-  DTS:VersionGUID="{520AF1E8-8BD9-4C0E-8158-36F10D1C535E}">
+  DTS:VersionBuild="132"
+  DTS:VersionGUID="{314DC72F-7EBD-46BF-B513-C4093DBB4918}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -176,7 +176,7 @@
               DTS:ColumnDelimiter="_x002C_"
               DTS:DataType="4"
               DTS:TextQualified="True"
-              DTS:ObjectName="Job Openings 2019-2029"
+              DTS:ObjectName="Job Openings 2021-2031"
               DTS:DTSID="{71DE1305-54A9-47C7-B0B1-8A93346B6937}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
@@ -323,7 +323,9 @@
       DTS:ObjectName="SearchAllOccupationsTool Database">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=theoden;Initial Catalog=SearchAllOccupationsTool;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CA-L9H9PTT2\SQL2017;Initial Catalog=SearchAllOccupationsTool;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -333,7 +335,9 @@
       DTS:ObjectName="WorkBC Enterprise Database">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=theoden;Initial Catalog=LMO20192029_WorkBCEnterprise;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CA-L9H9PTT2\SQL2017;Initial Catalog=LMO20192029_WorkBCEnterprise;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -3326,6 +3330,10 @@ ORDER BY NOC.NOCCode, CPCTV.CareerTrekVideoPosition</property>
                       dataType="str"
                       length="255"
                       name="Value" />
+                    <externalMetadataColumn
+                      refId="Package\Insert Dependencies\Industry Destination.Inputs[OLE DB Destination Input].ExternalColumns[SortOrder]"
+                      dataType="i4"
+                      name="SortOrder" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3441,9 +3449,9 @@ ORDER BY NOC.NOCCode, CPCTV.CareerTrekVideoPosition</property>
                       length="50"
                       name="Geographic Area" />
                     <externalMetadataColumn
-                      refId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].ExternalColumns[Job Openings 2019-2029]"
+                      refId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].ExternalColumns[Job Openings 2021-2031]"
                       dataType="r4"
-                      name="Job Openings 2019-2029" />
+                      name="Job Openings 2021-2031" />
                     <externalMetadataColumn
                       refId="Package\Insert Dependencies\Industry Source.Outputs[Flat File Source Output].ExternalColumns[Education]"
                       codePage="1252"
@@ -4931,13 +4939,13 @@ ORDER BY NOC.NOCCode, CPCTV.CareerTrekVideoPosition</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[Job Openings 2019-2029]"
+                      refId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[Job Openings 2021-2031]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Job Openings 2019-2029]"
-                      lineageId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[Job Openings 2019-2029]"
-                      name="Job Openings 2019-2029"
+                      externalMetadataColumnId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Job Openings 2021-2031]"
+                      lineageId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[Job Openings 2021-2031]"
+                      name="Job Openings 2021-2031"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -5070,9 +5078,9 @@ ORDER BY NOC.NOCCode, CPCTV.CareerTrekVideoPosition</property>
                       length="50"
                       name="Geographic Area" />
                     <externalMetadataColumn
-                      refId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Job Openings 2019-2029]"
+                      refId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Job Openings 2021-2031]"
                       dataType="r4"
-                      name="Job Openings 2019-2029" />
+                      name="Job Openings 2021-2031" />
                     <externalMetadataColumn
                       refId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Education]"
                       codePage="1252"
@@ -5727,11 +5735,11 @@ where [refTable].[NOCCode] = ?</property>
                       externalMetadataColumnId="Package\Insert NOC Job Openings\NOC Destination.Inputs[OLE DB Destination Input].ExternalColumns[IndustryId]"
                       lineageId="Package\Insert NOC Job Openings\Industry Lookup.Outputs[Lookup Match Output].Columns[IndustryId]" />
                     <inputColumn
-                      refId="Package\Insert NOC Job Openings\NOC Destination.Inputs[OLE DB Destination Input].Columns[Job Openings 2019-2029]"
+                      refId="Package\Insert NOC Job Openings\NOC Destination.Inputs[OLE DB Destination Input].Columns[Job Openings 2021-2031]"
                       cachedDataType="r4"
-                      cachedName="Job Openings 2019-2029"
+                      cachedName="Job Openings 2021-2031"
                       externalMetadataColumnId="Package\Insert NOC Job Openings\NOC Destination.Inputs[OLE DB Destination Input].ExternalColumns[JobOpenings]"
-                      lineageId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[Job Openings 2019-2029]" />
+                      lineageId="Package\Insert NOC Job Openings\Flat File Source.Outputs[Flat File Source Output].Columns[Job Openings 2021-2031]" />
                     <inputColumn
                       refId="Package\Insert NOC Job Openings\NOC Destination.Inputs[OLE DB Destination Input].Columns[SubIndustryId]"
                       cachedDataType="i4"
@@ -8231,6 +8239,10 @@ where [refTable].[Value] = ?</property>
                       refId="Package\Insert SubDependencies\SubIndustry Destination.Inputs[OLE DB Destination Input].ExternalColumns[IndustryId]"
                       dataType="i4"
                       name="IndustryId" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SubDependencies\SubIndustry Destination.Inputs[OLE DB Destination Input].ExternalColumns[SortOrder]"
+                      dataType="i4"
+                      name="SortOrder" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -8368,9 +8380,9 @@ where [refTable].[Value] = ?</property>
                       length="50"
                       name="Geographic Area" />
                     <externalMetadataColumn
-                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].ExternalColumns[Job Openings 2019-2029]"
+                      refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].ExternalColumns[Job Openings 2021-2031]"
                       dataType="r4"
-                      name="Job Openings 2019-2029" />
+                      name="Job Openings 2021-2031" />
                     <externalMetadataColumn
                       refId="Package\Insert SubDependencies\SubIndustry Source.Outputs[Flat File Source Output].ExternalColumns[Education]"
                       codePage="1252"
@@ -8495,7 +8507,7 @@ where [refTable].[Value] = ?</property>
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
                   name="CacheType"
-                  typeConverter="CacheType">0</property>
+                  typeConverter="CacheType">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
@@ -8521,7 +8533,7 @@ where [refTable].[Value] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Insert Unique NOCs\Flat File Source.Outputs[Flat File Source Output].Columns[Education]};</property>
+                  name="ParameterMap">#{Package\Insert Unique NOCs\Get Unique NOC (sort).Outputs[Sort Output].Columns[Education]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -8766,13 +8778,13 @@ where [refTable].[Value] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Insert Unique NOCs\Flat File Source.Outputs[Flat File Source Output].Columns[Job Openings 2019-2029]"
+                      refId="Package\Insert Unique NOCs\Flat File Source.Outputs[Flat File Source Output].Columns[Job Openings 2021-2031]"
                       dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Insert Unique NOCs\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Job Openings 2019-2029]"
-                      lineageId="Package\Insert Unique NOCs\Flat File Source.Outputs[Flat File Source Output].Columns[Job Openings 2019-2029]"
-                      name="Job Openings 2019-2029"
+                      externalMetadataColumnId="Package\Insert Unique NOCs\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Job Openings 2021-2031]"
+                      lineageId="Package\Insert Unique NOCs\Flat File Source.Outputs[Flat File Source Output].Columns[Job Openings 2021-2031]"
+                      name="Job Openings 2021-2031"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -8905,9 +8917,9 @@ where [refTable].[Value] = ?</property>
                       length="50"
                       name="Geographic Area" />
                     <externalMetadataColumn
-                      refId="Package\Insert Unique NOCs\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Job Openings 2019-2029]"
+                      refId="Package\Insert Unique NOCs\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Job Openings 2021-2031]"
                       dataType="r4"
-                      name="Job Openings 2019-2029" />
+                      name="Job Openings 2021-2031" />
                     <externalMetadataColumn
                       refId="Package\Insert Unique NOCs\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Education]"
                       codePage="1252"
@@ -9199,10 +9211,10 @@ where [refTable].[Value] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Insert Unique NOCs\Get Unique NOC (sort).Inputs[Sort Input].Columns[Job Openings 2019-2029]"
+                      refId="Package\Insert Unique NOCs\Get Unique NOC (sort).Inputs[Sort Input].Columns[Job Openings 2021-2031]"
                       cachedDataType="r4"
-                      cachedName="Job Openings 2019-2029"
-                      lineageId="Package\Insert Unique NOCs\Flat File Source.Outputs[Flat File Source Output].Columns[Job Openings 2019-2029]">
+                      cachedName="Job Openings 2021-2031"
+                      lineageId="Package\Insert Unique NOCs\Flat File Source.Outputs[Flat File Source Output].Columns[Job Openings 2021-2031]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -9323,16 +9335,16 @@ where [refTable].[Value] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Insert Unique NOCs\Get Unique NOC (sort).Outputs[Sort Output].Columns[Job Openings 2019-2029]"
+                      refId="Package\Insert Unique NOCs\Get Unique NOC (sort).Outputs[Sort Output].Columns[Job Openings 2021-2031]"
                       dataType="r4"
-                      lineageId="Package\Insert Unique NOCs\Get Unique NOC (sort).Outputs[Sort Output].Columns[Job Openings 2019-2029]"
-                      name="Job Openings 2019-2029">
+                      lineageId="Package\Insert Unique NOCs\Get Unique NOC (sort).Outputs[Sort Output].Columns[Job Openings 2021-2031]"
+                      name="Job Openings 2021-2031">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Insert Unique NOCs\Flat File Source.Outputs[Flat File Source Output].Columns[Job Openings 2019-2029]}</property>
+                          name="SortColumnId">#{Package\Insert Unique NOCs\Flat File Source.Outputs[Flat File Source Output].Columns[Job Openings 2021-2031]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -9853,6 +9865,10 @@ where [refTable].[Value] = ?</property>
           Id="Package\Insert Unique NOCs"
           TopLeft="56,138" />
         <NodeLayout
+          Size="169,42"
+          Id="Package\Sort Subindustries"
+          TopLeft="115.5,676.5" />
+        <NodeLayout
           Size="211,42"
           Id="Package\Trim NOC and SubIndustry"
           TopLeft="80,473" />
@@ -9892,6 +9908,28 @@ where [refTable].[Value] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="45,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="196.5,652">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.5"
+              Start="0,0"
+              End="0,17">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10140,32 +10178,6 @@ where [refTable].[Value] = ?</property>
                     Point3="-15.5,17" />
                   <mssgle:LineSegment
                     End="-15.5,18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="169,42"
-          Id="Package\Sort Subindustries"
-          TopLeft="115.5,676.5" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="196.5,652">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,24.5"
-              Start="0,0"
-              End="0,17">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10736,7 +10748,7 @@ where [refTable].[Value] = ?</property>
     design-time-name="Package\Insert Dependencies">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
         <NodeLayout
           Size="202,42"
           Id="Package\Insert Dependencies\GeographicAreas Source"
@@ -10764,7 +10776,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -10809,7 +10823,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -10854,7 +10870,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -10919,7 +10937,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10941,7 +10961,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11032,7 +11054,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -11074,7 +11098,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11151,7 +11177,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11173,7 +11201,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -11228,7 +11258,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11250,7 +11282,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11299,19 +11333,6 @@ where [refTable].[Value] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insert Dependencies\OG Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Insert Dependencies\FullTimePartTime Destination">
     <Properties>
@@ -11379,6 +11400,19 @@ where [refTable].[Value] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Insert Dependencies\Occ Option Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert Dependencies\OG Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -11832,7 +11866,9 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -12314,36 +12350,6 @@ where [refTable].[Value] = ?</property>
           Id="Package\Insert SubDependencies\Ind Lookup"
           TopLeft="522,415" />
         <EdgeLayout
-          Id="Package\Insert SubDependencies.Paths[Sort Output]"
-          TopLeft="401,296.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-66.5,43.5"
-              Start="0,0"
-              End="-66.5,36">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-62.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-62.5,0"
-                    Point2="-66.5,0"
-                    Point3="-66.5,4" />
-                  <mssgle:LineSegment
-                    End="-66.5,36" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Insert SubDependencies.Paths[Lookup Match Output]"
           TopLeft="588.5,457">
           <EdgeLayout.Curve>
@@ -12439,6 +12445,36 @@ where [refTable].[Value] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert SubDependencies.Paths[Sort Output]"
+          TopLeft="401,296.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-66.5,43.5"
+              Start="0,0"
+              End="-66.5,36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-62.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-62.5,0"
+                    Point2="-66.5,0"
+                    Point3="-66.5,4" />
+                  <mssgle:LineSegment
+                    End="-66.5,36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -12518,9 +12554,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12590,9 +12624,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12626,9 +12658,7 @@ where [refTable].[Value] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -12735,7 +12765,7 @@ where [refTable].[Value] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -12745,7 +12775,7 @@ where [refTable].[Value] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

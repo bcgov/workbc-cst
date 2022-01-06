@@ -1,4 +1,5 @@
 NOC,Region,Occupational category
+#0011,All,High opportunity occupations
 #0012,All,High opportunity occupations
 #0013,All,High opportunity occupations
 #0014,All,High opportunity occupations
@@ -16,11 +17,12 @@ NOC,Region,Occupational category
 #0212,All,High opportunity occupations
 #0213,All,High opportunity occupations
 #0311,All,High opportunity occupations
+#0412,All,High opportunity occupations
+#0414,All,High opportunity occupations
 #0421,All,High opportunity occupations
 #0422,All,High opportunity occupations
 #0423,All,High opportunity occupations
 #0432,All,High opportunity occupations
-#0511,All,High opportunity occupations
 #0512,All,High opportunity occupations
 #0513,All,High opportunity occupations
 #0601,All,High opportunity occupations
@@ -32,39 +34,45 @@ NOC,Region,Occupational category
 #0712,All,High opportunity occupations
 #0714,All,High opportunity occupations
 #0731,All,High opportunity occupations
-#0821,All,High opportunity occupations
 #0911,All,High opportunity occupations
 #0912,All,High opportunity occupations
 #1111,All,High opportunity occupations
+#1112,All,High opportunity occupations
 #1114,All,High opportunity occupations
 #1121,All,High opportunity occupations
 #1122,All,High opportunity occupations
 #1123,All,High opportunity occupations
+#1211,All,High opportunity occupations
+#1212,All,High opportunity occupations
+#1214,All,High opportunity occupations
 #1215,All,High opportunity occupations
 #1221,All,High opportunity occupations
-#1222,All,High opportunity occupations
 #1224,All,High opportunity occupations
-#1242,All,High opportunity occupations
+#1226,All,High opportunity occupations
 #1243,All,High opportunity occupations
-#1252,All,High opportunity occupations
+#1251,All,High opportunity occupations
 #1311,All,High opportunity occupations
 #1512,All,High opportunity occupations
-#2111,All,High opportunity occupations
-#2113,All,High opportunity occupations
 #2131,All,High opportunity occupations
 #2132,All,High opportunity occupations
 #2133,All,High opportunity occupations
 #2144,All,High opportunity occupations
-#2145,All,High opportunity occupations
+#2146,All,High opportunity occupations
 #2147,All,High opportunity occupations
+#2148,All,High opportunity occupations
 #2151,All,High opportunity occupations
-#2152,All,High opportunity occupations
-#2161,All,High opportunity occupations
 #2171,All,High opportunity occupations
+#2172,All,High opportunity occupations
 #2173,All,High opportunity occupations
 #2174,All,High opportunity occupations
 #2175,All,High opportunity occupations
+#2242,All,High opportunity occupations
+#2244,All,High opportunity occupations
+#2251,All,High opportunity occupations
+#2271,All,High opportunity occupations
+#2272,All,High opportunity occupations
 #2281,All,High opportunity occupations
+#2282,All,High opportunity occupations
 #2283,All,High opportunity occupations
 #3011,All,High opportunity occupations
 #3012,All,High opportunity occupations
@@ -76,6 +84,7 @@ NOC,Region,Occupational category
 #3122,All,High opportunity occupations
 #3124,All,High opportunity occupations
 #3125,All,High opportunity occupations
+#3131,All,High opportunity occupations
 #3132,All,High opportunity occupations
 #3141,All,High opportunity occupations
 #3142,All,High opportunity occupations
@@ -83,74 +92,67 @@ NOC,Region,Occupational category
 #3144,All,High opportunity occupations
 #3211,All,High opportunity occupations
 #3212,All,High opportunity occupations
-#3213,All,High opportunity occupations
-#3214,All,High opportunity occupations
 #3215,All,High opportunity occupations
 #3216,All,High opportunity occupations
-#3222,All,High opportunity occupations
+#3219,All,High opportunity occupations
 #3232,All,High opportunity occupations
 #3233,All,High opportunity occupations
-#3234,All,High opportunity occupations
 #3236,All,High opportunity occupations
-#3411,All,High opportunity occupations
 #3413,All,High opportunity occupations
-#3414,All,High opportunity occupations
-#4011,All,High opportunity occupations
 #4021,All,High opportunity occupations
-#4031,All,High opportunity occupations
-#4032,All,High opportunity occupations
-#4033,All,High opportunity occupations
 #4112,All,High opportunity occupations
 #4151,All,High opportunity occupations
 #4152,All,High opportunity occupations
 #4153,All,High opportunity occupations
+#4154,All,High opportunity occupations
 #4161,All,High opportunity occupations
 #4163,All,High opportunity occupations
-#4165,All,High opportunity occupations
-#4211,All,High opportunity occupations
+#4166,All,High opportunity occupations
 #4212,All,High opportunity occupations
 #4216,All,High opportunity occupations
 #4311,All,High opportunity occupations
 #4312,All,High opportunity occupations
-#4412,All,High opportunity occupations
-#5131,All,High opportunity occupations
+#5121,All,High opportunity occupations
 #5133,All,High opportunity occupations
-#5221,All,High opportunity occupations
-#5242,All,High opportunity occupations
+#5241,All,High opportunity occupations
 #6211,All,High opportunity occupations
 #6221,All,High opportunity occupations
 #6222,All,High opportunity occupations
-#6231,All,High opportunity occupations
-#6311,All,High opportunity occupations
-#6513,All,High opportunity occupations
+#6232,All,High opportunity occupations
+#6315,All,High opportunity occupations
 #6533,All,High opportunity occupations
-#6733,All,High opportunity occupations
+#7301,All,High opportunity occupations
+#7302,All,High opportunity occupations
+#7314,All,High opportunity occupations
+#7315,All,High opportunity occupations
 #7321,All,High opportunity occupations
+#7361,All,High opportunity occupations
 #7451,All,High opportunity occupations
-#7512,All,High opportunity occupations
-#7513,All,High opportunity occupations
-#0011,Cariboo,High opportunity occupations
-#0012,Cariboo,High opportunity occupations
-#0013,Cariboo,High opportunity occupations
+#8255,All,High opportunity occupations
 #0014,Cariboo,High opportunity occupations
 #0015,Cariboo,High opportunity occupations
 #0016,Cariboo,High opportunity occupations
 #0111,Cariboo,High opportunity occupations
+#0112,Cariboo,High opportunity occupations
 #0113,Cariboo,High opportunity occupations
 #0114,Cariboo,High opportunity occupations
 #0121,Cariboo,High opportunity occupations
 #0122,Cariboo,High opportunity occupations
+#0124,Cariboo,High opportunity occupations
 #0125,Cariboo,High opportunity occupations
 #0211,Cariboo,High opportunity occupations
+#0213,Cariboo,High opportunity occupations
 #0311,Cariboo,High opportunity occupations
-#0422,Cariboo,High opportunity occupations
+#0421,Cariboo,High opportunity occupations
 #0423,Cariboo,High opportunity occupations
-#0512,Cariboo,High opportunity occupations
+#0513,Cariboo,High opportunity occupations
 #0601,Cariboo,High opportunity occupations
 #0621,Cariboo,High opportunity occupations
 #0631,Cariboo,High opportunity occupations
 #0632,Cariboo,High opportunity occupations
+#0651,Cariboo,High opportunity occupations
 #0711,Cariboo,High opportunity occupations
+#0712,Cariboo,High opportunity occupations
 #0714,Cariboo,High opportunity occupations
 #0731,Cariboo,High opportunity occupations
 #0821,Cariboo,High opportunity occupations
@@ -161,110 +163,92 @@ NOC,Region,Occupational category
 #1121,Cariboo,High opportunity occupations
 #1122,Cariboo,High opportunity occupations
 #1123,Cariboo,High opportunity occupations
-#1215,Cariboo,High opportunity occupations
 #1221,Cariboo,High opportunity occupations
-#1243,Cariboo,High opportunity occupations
+#1223,Cariboo,High opportunity occupations
+#1224,Cariboo,High opportunity occupations
+#1226,Cariboo,High opportunity occupations
 #1311,Cariboo,High opportunity occupations
-#1312,Cariboo,High opportunity occupations
-#1414,Cariboo,High opportunity occupations
-#1415,Cariboo,High opportunity occupations
-#1451,Cariboo,High opportunity occupations
-#1454,Cariboo,High opportunity occupations
+#1525,Cariboo,High opportunity occupations
 #2131,Cariboo,High opportunity occupations
+#2132,Cariboo,High opportunity occupations
 #2171,Cariboo,High opportunity occupations
+#2173,Cariboo,High opportunity occupations
 #2174,Cariboo,High opportunity occupations
 #2175,Cariboo,High opportunity occupations
-#2211,Cariboo,High opportunity occupations
 #2231,Cariboo,High opportunity occupations
-#2232,Cariboo,High opportunity occupations
+#2241,Cariboo,High opportunity occupations
 #2242,Cariboo,High opportunity occupations
 #2253,Cariboo,High opportunity occupations
 #2255,Cariboo,High opportunity occupations
+#2264,Cariboo,High opportunity occupations
+#2281,Cariboo,High opportunity occupations
 #2282,Cariboo,High opportunity occupations
 #3011,Cariboo,High opportunity occupations
 #3012,Cariboo,High opportunity occupations
 #3111,Cariboo,High opportunity occupations
 #3112,Cariboo,High opportunity occupations
-#3113,Cariboo,High opportunity occupations
 #3124,Cariboo,High opportunity occupations
-#3131,Cariboo,High opportunity occupations
-#3132,Cariboo,High opportunity occupations
 #3142,Cariboo,High opportunity occupations
-#3143,Cariboo,High opportunity occupations
-#3211,Cariboo,High opportunity occupations
-#3212,Cariboo,High opportunity occupations
-#3215,Cariboo,High opportunity occupations
-#3222,Cariboo,High opportunity occupations
-#3223,Cariboo,High opportunity occupations
-#3232,Cariboo,High opportunity occupations
 #3233,Cariboo,High opportunity occupations
-#3234,Cariboo,High opportunity occupations
-#3236,Cariboo,High opportunity occupations
-#3411,Cariboo,High opportunity occupations
 #3413,Cariboo,High opportunity occupations
-#3414,Cariboo,High opportunity occupations
-#4031,Cariboo,High opportunity occupations
-#4032,Cariboo,High opportunity occupations
-#4112,Cariboo,High opportunity occupations
+#4011,Cariboo,High opportunity occupations
+#4012,Cariboo,High opportunity occupations
+#4021,Cariboo,High opportunity occupations
+#4033,Cariboo,High opportunity occupations
 #4152,Cariboo,High opportunity occupations
 #4153,Cariboo,High opportunity occupations
-#4155,Cariboo,High opportunity occupations
-#4156,Cariboo,High opportunity occupations
+#4154,Cariboo,High opportunity occupations
 #4161,Cariboo,High opportunity occupations
 #4164,Cariboo,High opportunity occupations
-#4165,Cariboo,High opportunity occupations
 #4212,Cariboo,High opportunity occupations
 #4214,Cariboo,High opportunity occupations
+#4216,Cariboo,High opportunity occupations
 #4311,Cariboo,High opportunity occupations
-#4312,Cariboo,High opportunity occupations
-#4412,Cariboo,High opportunity occupations
 #4422,Cariboo,High opportunity occupations
-#5123,Cariboo,High opportunity occupations
-#5241,Cariboo,High opportunity occupations
-#5242,Cariboo,High opportunity occupations
-#5244,Cariboo,High opportunity occupations
+#5254,Cariboo,High opportunity occupations
 #6211,Cariboo,High opportunity occupations
 #6221,Cariboo,High opportunity occupations
-#6222,Cariboo,High opportunity occupations
 #6231,Cariboo,High opportunity occupations
-#6235,Cariboo,High opportunity occupations
-#6322,Cariboo,High opportunity occupations
-#6421,Cariboo,High opportunity occupations
-#6711,Cariboo,High opportunity occupations
+#6232,Cariboo,High opportunity occupations
+#6341,Cariboo,High opportunity occupations
+#6411,Cariboo,High opportunity occupations
+#7301,Cariboo,High opportunity occupations
+#7302,Cariboo,High opportunity occupations
+#7312,Cariboo,High opportunity occupations
 #7314,Cariboo,High opportunity occupations
 #7321,Cariboo,High opportunity occupations
 #7361,Cariboo,High opportunity occupations
 #7362,Cariboo,High opportunity occupations
-#7381,Cariboo,High opportunity occupations
-#8221,Cariboo,High opportunity occupations
+#7512,Cariboo,High opportunity occupations
 #8231,Cariboo,High opportunity occupations
-#9211,Cariboo,High opportunity occupations
-#9231,Cariboo,High opportunity occupations
+#9212,Cariboo,High opportunity occupations
 #9232,Cariboo,High opportunity occupations
-#9411,Cariboo,High opportunity occupations
+#9241,Cariboo,High opportunity occupations
+#0011,Kootenay,High opportunity occupations
 #0012,Kootenay,High opportunity occupations
 #0013,Kootenay,High opportunity occupations
 #0014,Kootenay,High opportunity occupations
 #0015,Kootenay,High opportunity occupations
 #0016,Kootenay,High opportunity occupations
 #0111,Kootenay,High opportunity occupations
+#0112,Kootenay,High opportunity occupations
 #0114,Kootenay,High opportunity occupations
 #0121,Kootenay,High opportunity occupations
 #0122,Kootenay,High opportunity occupations
 #0124,Kootenay,High opportunity occupations
 #0125,Kootenay,High opportunity occupations
-#0211,Kootenay,High opportunity occupations
 #0213,Kootenay,High opportunity occupations
 #0311,Kootenay,High opportunity occupations
+#0421,Kootenay,High opportunity occupations
 #0422,Kootenay,High opportunity occupations
 #0423,Kootenay,High opportunity occupations
 #0432,Kootenay,High opportunity occupations
 #0512,Kootenay,High opportunity occupations
 #0513,Kootenay,High opportunity occupations
-#0601,Kootenay,High opportunity occupations
 #0621,Kootenay,High opportunity occupations
 #0631,Kootenay,High opportunity occupations
 #0632,Kootenay,High opportunity occupations
+#0651,Kootenay,High opportunity occupations
 #0711,Kootenay,High opportunity occupations
 #0712,Kootenay,High opportunity occupations
 #0714,Kootenay,High opportunity occupations
@@ -272,7 +256,6 @@ NOC,Region,Occupational category
 #0811,Kootenay,High opportunity occupations
 #0821,Kootenay,High opportunity occupations
 #0911,Kootenay,High opportunity occupations
-#0912,Kootenay,High opportunity occupations
 #1111,Kootenay,High opportunity occupations
 #1114,Kootenay,High opportunity occupations
 #1121,Kootenay,High opportunity occupations
@@ -281,24 +264,27 @@ NOC,Region,Occupational category
 #1215,Kootenay,High opportunity occupations
 #1221,Kootenay,High opportunity occupations
 #1224,Kootenay,High opportunity occupations
+#1225,Kootenay,High opportunity occupations
 #1243,Kootenay,High opportunity occupations
 #1251,Kootenay,High opportunity occupations
 #1311,Kootenay,High opportunity occupations
-#1312,Kootenay,High opportunity occupations
-#1414,Kootenay,High opportunity occupations
 #1432,Kootenay,High opportunity occupations
-#1451,Kootenay,High opportunity occupations
+#1511,Kootenay,High opportunity occupations
+#1512,Kootenay,High opportunity occupations
+#1513,Kootenay,High opportunity occupations
+#1522,Kootenay,High opportunity occupations
 #2121,Kootenay,High opportunity occupations
+#2131,Kootenay,High opportunity occupations
+#2132,Kootenay,High opportunity occupations
 #2133,Kootenay,High opportunity occupations
 #2147,Kootenay,High opportunity occupations
 #2171,Kootenay,High opportunity occupations
-#2172,Kootenay,High opportunity occupations
 #2173,Kootenay,High opportunity occupations
 #2174,Kootenay,High opportunity occupations
 #2175,Kootenay,High opportunity occupations
-#2232,Kootenay,High opportunity occupations
+#2231,Kootenay,High opportunity occupations
 #2242,Kootenay,High opportunity occupations
-#2271,Kootenay,High opportunity occupations
+#2253,Kootenay,High opportunity occupations
 #2281,Kootenay,High opportunity occupations
 #2282,Kootenay,High opportunity occupations
 #3011,Kootenay,High opportunity occupations
@@ -306,54 +292,59 @@ NOC,Region,Occupational category
 #3111,Kootenay,High opportunity occupations
 #3112,Kootenay,High opportunity occupations
 #3113,Kootenay,High opportunity occupations
-#3114,Kootenay,High opportunity occupations
-#3121,Kootenay,High opportunity occupations
 #3122,Kootenay,High opportunity occupations
 #3124,Kootenay,High opportunity occupations
 #3131,Kootenay,High opportunity occupations
 #3132,Kootenay,High opportunity occupations
 #3142,Kootenay,High opportunity occupations
-#3144,Kootenay,High opportunity occupations
 #3211,Kootenay,High opportunity occupations
 #3212,Kootenay,High opportunity occupations
-#3215,Kootenay,High opportunity occupations
 #3216,Kootenay,High opportunity occupations
-#3222,Kootenay,High opportunity occupations
+#3219,Kootenay,High opportunity occupations
 #3232,Kootenay,High opportunity occupations
 #3233,Kootenay,High opportunity occupations
 #3234,Kootenay,High opportunity occupations
 #3236,Kootenay,High opportunity occupations
-#3411,Kootenay,High opportunity occupations
+#3237,Kootenay,High opportunity occupations
 #3413,Kootenay,High opportunity occupations
 #3414,Kootenay,High opportunity occupations
+#4011,Kootenay,High opportunity occupations
+#4012,Kootenay,High opportunity occupations
 #4021,Kootenay,High opportunity occupations
-#4031,Kootenay,High opportunity occupations
-#4032,Kootenay,High opportunity occupations
-#4033,Kootenay,High opportunity occupations
-#4151,Kootenay,High opportunity occupations
+#4112,Kootenay,High opportunity occupations
 #4152,Kootenay,High opportunity occupations
 #4153,Kootenay,High opportunity occupations
+#4154,Kootenay,High opportunity occupations
+#4156,Kootenay,High opportunity occupations
 #4161,Kootenay,High opportunity occupations
+#4163,Kootenay,High opportunity occupations
 #4164,Kootenay,High opportunity occupations
-#4165,Kootenay,High opportunity occupations
 #4212,Kootenay,High opportunity occupations
+#4216,Kootenay,High opportunity occupations
 #4311,Kootenay,High opportunity occupations
 #4312,Kootenay,High opportunity occupations
+#5121,Kootenay,High opportunity occupations
 #5122,Kootenay,High opportunity occupations
+#5123,Kootenay,High opportunity occupations
+#5133,Kootenay,High opportunity occupations
+#5136,Kootenay,High opportunity occupations
+#5241,Kootenay,High opportunity occupations
 #5244,Kootenay,High opportunity occupations
+#6211,Kootenay,High opportunity occupations
 #6221,Kootenay,High opportunity occupations
+#6222,Kootenay,High opportunity occupations
 #6231,Kootenay,High opportunity occupations
 #6232,Kootenay,High opportunity occupations
+#6235,Kootenay,High opportunity occupations
+#6341,Kootenay,High opportunity occupations
 #6411,Kootenay,High opportunity occupations
-#6421,Kootenay,High opportunity occupations
-#6731,Kootenay,High opportunity occupations
-#6733,Kootenay,High opportunity occupations
-#7312,Kootenay,High opportunity occupations
-#7315,Kootenay,High opportunity occupations
+#7246,Kootenay,High opportunity occupations
+#7301,Kootenay,High opportunity occupations
 #7321,Kootenay,High opportunity occupations
-#7361,Kootenay,High opportunity occupations
-#7362,Kootenay,High opportunity occupations
-#8255,Kootenay,High opportunity occupations
+#9211,Kootenay,High opportunity occupations
+#9212,Kootenay,High opportunity occupations
+#9231,Kootenay,High opportunity occupations
+#0011,Mainland / Southwest,High opportunity occupations
 #0012,Mainland / Southwest,High opportunity occupations
 #0013,Mainland / Southwest,High opportunity occupations
 #0014,Mainland / Southwest,High opportunity occupations
@@ -368,15 +359,11 @@ NOC,Region,Occupational category
 #0124,Mainland / Southwest,High opportunity occupations
 #0125,Mainland / Southwest,High opportunity occupations
 #0211,Mainland / Southwest,High opportunity occupations
-#0212,Mainland / Southwest,High opportunity occupations
 #0213,Mainland / Southwest,High opportunity occupations
 #0311,Mainland / Southwest,High opportunity occupations
-#0414,Mainland / Southwest,High opportunity occupations
-#0421,Mainland / Southwest,High opportunity occupations
 #0422,Mainland / Southwest,High opportunity occupations
 #0423,Mainland / Southwest,High opportunity occupations
 #0432,Mainland / Southwest,High opportunity occupations
-#0511,Mainland / Southwest,High opportunity occupations
 #0512,Mainland / Southwest,High opportunity occupations
 #0513,Mainland / Southwest,High opportunity occupations
 #0601,Mainland / Southwest,High opportunity occupations
@@ -391,37 +378,42 @@ NOC,Region,Occupational category
 #0911,Mainland / Southwest,High opportunity occupations
 #0912,Mainland / Southwest,High opportunity occupations
 #1111,Mainland / Southwest,High opportunity occupations
+#1112,Mainland / Southwest,High opportunity occupations
+#1113,Mainland / Southwest,High opportunity occupations
 #1114,Mainland / Southwest,High opportunity occupations
 #1121,Mainland / Southwest,High opportunity occupations
 #1122,Mainland / Southwest,High opportunity occupations
 #1123,Mainland / Southwest,High opportunity occupations
+#1212,Mainland / Southwest,High opportunity occupations
 #1215,Mainland / Southwest,High opportunity occupations
 #1221,Mainland / Southwest,High opportunity occupations
-#1222,Mainland / Southwest,High opportunity occupations
-#1223,Mainland / Southwest,High opportunity occupations
-#1242,Mainland / Southwest,High opportunity occupations
+#1224,Mainland / Southwest,High opportunity occupations
 #1243,Mainland / Southwest,High opportunity occupations
-#1252,Mainland / Southwest,High opportunity occupations
+#1251,Mainland / Southwest,High opportunity occupations
 #1311,Mainland / Southwest,High opportunity occupations
-#2111,Mainland / Southwest,High opportunity occupations
-#2113,Mainland / Southwest,High opportunity occupations
-#2115,Mainland / Southwest,High opportunity occupations
+#1312,Mainland / Southwest,High opportunity occupations
+#1314,Mainland / Southwest,High opportunity occupations
+#1315,Mainland / Southwest,High opportunity occupations
 #2131,Mainland / Southwest,High opportunity occupations
 #2132,Mainland / Southwest,High opportunity occupations
 #2133,Mainland / Southwest,High opportunity occupations
-#2134,Mainland / Southwest,High opportunity occupations
-#2143,Mainland / Southwest,High opportunity occupations
+#2141,Mainland / Southwest,High opportunity occupations
 #2144,Mainland / Southwest,High opportunity occupations
-#2145,Mainland / Southwest,High opportunity occupations
+#2146,Mainland / Southwest,High opportunity occupations
 #2147,Mainland / Southwest,High opportunity occupations
+#2148,Mainland / Southwest,High opportunity occupations
 #2151,Mainland / Southwest,High opportunity occupations
-#2152,Mainland / Southwest,High opportunity occupations
-#2161,Mainland / Southwest,High opportunity occupations
 #2171,Mainland / Southwest,High opportunity occupations
+#2172,Mainland / Southwest,High opportunity occupations
 #2173,Mainland / Southwest,High opportunity occupations
 #2174,Mainland / Southwest,High opportunity occupations
 #2175,Mainland / Southwest,High opportunity occupations
+#2242,Mainland / Southwest,High opportunity occupations
+#2244,Mainland / Southwest,High opportunity occupations
+#2271,Mainland / Southwest,High opportunity occupations
+#2272,Mainland / Southwest,High opportunity occupations
 #2281,Mainland / Southwest,High opportunity occupations
+#2282,Mainland / Southwest,High opportunity occupations
 #2283,Mainland / Southwest,High opportunity occupations
 #3011,Mainland / Southwest,High opportunity occupations
 #3012,Mainland / Southwest,High opportunity occupations
@@ -433,6 +425,7 @@ NOC,Region,Occupational category
 #3122,Mainland / Southwest,High opportunity occupations
 #3124,Mainland / Southwest,High opportunity occupations
 #3125,Mainland / Southwest,High opportunity occupations
+#3131,Mainland / Southwest,High opportunity occupations
 #3132,Mainland / Southwest,High opportunity occupations
 #3141,Mainland / Southwest,High opportunity occupations
 #3142,Mainland / Southwest,High opportunity occupations
@@ -440,137 +433,135 @@ NOC,Region,Occupational category
 #3144,Mainland / Southwest,High opportunity occupations
 #3211,Mainland / Southwest,High opportunity occupations
 #3212,Mainland / Southwest,High opportunity occupations
-#3213,Mainland / Southwest,High opportunity occupations
-#3214,Mainland / Southwest,High opportunity occupations
 #3215,Mainland / Southwest,High opportunity occupations
 #3216,Mainland / Southwest,High opportunity occupations
-#3222,Mainland / Southwest,High opportunity occupations
+#3219,Mainland / Southwest,High opportunity occupations
 #3232,Mainland / Southwest,High opportunity occupations
 #3233,Mainland / Southwest,High opportunity occupations
-#3234,Mainland / Southwest,High opportunity occupations
 #3236,Mainland / Southwest,High opportunity occupations
-#3411,Mainland / Southwest,High opportunity occupations
 #3413,Mainland / Southwest,High opportunity occupations
-#3414,Mainland / Southwest,High opportunity occupations
-#4011,Mainland / Southwest,High opportunity occupations
-#4021,Mainland / Southwest,High opportunity occupations
 #4031,Mainland / Southwest,High opportunity occupations
 #4032,Mainland / Southwest,High opportunity occupations
-#4033,Mainland / Southwest,High opportunity occupations
 #4112,Mainland / Southwest,High opportunity occupations
 #4151,Mainland / Southwest,High opportunity occupations
 #4152,Mainland / Southwest,High opportunity occupations
 #4153,Mainland / Southwest,High opportunity occupations
+#4154,Mainland / Southwest,High opportunity occupations
 #4163,Mainland / Southwest,High opportunity occupations
-#4165,Mainland / Southwest,High opportunity occupations
-#4211,Mainland / Southwest,High opportunity occupations
+#4166,Mainland / Southwest,High opportunity occupations
 #4212,Mainland / Southwest,High opportunity occupations
 #4216,Mainland / Southwest,High opportunity occupations
 #4311,Mainland / Southwest,High opportunity occupations
 #4312,Mainland / Southwest,High opportunity occupations
-#4412,Mainland / Southwest,High opportunity occupations
-#5131,Mainland / Southwest,High opportunity occupations
+#5121,Mainland / Southwest,High opportunity occupations
 #5133,Mainland / Southwest,High opportunity occupations
-#5221,Mainland / Southwest,High opportunity occupations
-#5226,Mainland / Southwest,High opportunity occupations
-#5242,Mainland / Southwest,High opportunity occupations
+#5225,Mainland / Southwest,High opportunity occupations
+#5241,Mainland / Southwest,High opportunity occupations
 #6211,Mainland / Southwest,High opportunity occupations
 #6221,Mainland / Southwest,High opportunity occupations
+#6222,Mainland / Southwest,High opportunity occupations
 #6231,Mainland / Southwest,High opportunity occupations
-#6533,Mainland / Southwest,High opportunity occupations
+#6232,Mainland / Southwest,High opportunity occupations
+#6522,Mainland / Southwest,High opportunity occupations
+#7301,Mainland / Southwest,High opportunity occupations
+#7302,Mainland / Southwest,High opportunity occupations
+#7312,Mainland / Southwest,High opportunity occupations
+#7315,Mainland / Southwest,High opportunity occupations
 #7321,Mainland / Southwest,High opportunity occupations
+#7361,Mainland / Southwest,High opportunity occupations
+#0011,North Coast & Nechako,High opportunity occupations
+#0012,North Coast & Nechako,High opportunity occupations
 #0014,North Coast & Nechako,High opportunity occupations
 #0016,North Coast & Nechako,High opportunity occupations
 #0111,North Coast & Nechako,High opportunity occupations
+#0113,North Coast & Nechako,High opportunity occupations
 #0114,North Coast & Nechako,High opportunity occupations
 #0122,North Coast & Nechako,High opportunity occupations
 #0125,North Coast & Nechako,High opportunity occupations
 #0213,North Coast & Nechako,High opportunity occupations
 #0422,North Coast & Nechako,High opportunity occupations
 #0423,North Coast & Nechako,High opportunity occupations
+#0513,North Coast & Nechako,High opportunity occupations
 #0621,North Coast & Nechako,High opportunity occupations
 #0631,North Coast & Nechako,High opportunity occupations
 #0632,North Coast & Nechako,High opportunity occupations
+#0651,North Coast & Nechako,High opportunity occupations
 #0711,North Coast & Nechako,High opportunity occupations
 #0712,North Coast & Nechako,High opportunity occupations
 #0714,North Coast & Nechako,High opportunity occupations
 #0731,North Coast & Nechako,High opportunity occupations
 #0821,North Coast & Nechako,High opportunity occupations
+#0911,North Coast & Nechako,High opportunity occupations
 #1111,North Coast & Nechako,High opportunity occupations
 #1114,North Coast & Nechako,High opportunity occupations
 #1214,North Coast & Nechako,High opportunity occupations
 #1215,North Coast & Nechako,High opportunity occupations
 #1221,North Coast & Nechako,High opportunity occupations
 #1224,North Coast & Nechako,High opportunity occupations
-#1243,North Coast & Nechako,High opportunity occupations
+#1225,North Coast & Nechako,High opportunity occupations
+#1241,North Coast & Nechako,High opportunity occupations
 #1311,North Coast & Nechako,High opportunity occupations
 #1411,North Coast & Nechako,High opportunity occupations
-#1414,North Coast & Nechako,High opportunity occupations
-#1511,North Coast & Nechako,High opportunity occupations
-#1512,North Coast & Nechako,High opportunity occupations
-#1513,North Coast & Nechako,High opportunity occupations
+#1431,North Coast & Nechako,High opportunity occupations
 #1522,North Coast & Nechako,High opportunity occupations
 #1523,North Coast & Nechako,High opportunity occupations
+#1525,North Coast & Nechako,High opportunity occupations
 #2131,North Coast & Nechako,High opportunity occupations
+#2171,North Coast & Nechako,High opportunity occupations
 #2231,North Coast & Nechako,High opportunity occupations
 #2241,North Coast & Nechako,High opportunity occupations
+#2242,North Coast & Nechako,High opportunity occupations
 #2255,North Coast & Nechako,High opportunity occupations
-#2263,North Coast & Nechako,High opportunity occupations
 #2271,North Coast & Nechako,High opportunity occupations
 #2273,North Coast & Nechako,High opportunity occupations
 #2281,North Coast & Nechako,High opportunity occupations
+#2282,North Coast & Nechako,High opportunity occupations
 #3011,North Coast & Nechako,High opportunity occupations
 #3012,North Coast & Nechako,High opportunity occupations
 #3111,North Coast & Nechako,High opportunity occupations
 #3112,North Coast & Nechako,High opportunity occupations
-#3211,North Coast & Nechako,High opportunity occupations
-#3222,North Coast & Nechako,High opportunity occupations
 #3233,North Coast & Nechako,High opportunity occupations
 #3234,North Coast & Nechako,High opportunity occupations
-#3236,North Coast & Nechako,High opportunity occupations
-#3411,North Coast & Nechako,High opportunity occupations
 #3413,North Coast & Nechako,High opportunity occupations
 #3414,North Coast & Nechako,High opportunity occupations
 #4021,North Coast & Nechako,High opportunity occupations
-#4031,North Coast & Nechako,High opportunity occupations
-#4032,North Coast & Nechako,High opportunity occupations
 #4112,North Coast & Nechako,High opportunity occupations
 #4152,North Coast & Nechako,High opportunity occupations
 #4153,North Coast & Nechako,High opportunity occupations
 #4154,North Coast & Nechako,High opportunity occupations
+#4161,North Coast & Nechako,High opportunity occupations
 #4165,North Coast & Nechako,High opportunity occupations
 #4212,North Coast & Nechako,High opportunity occupations
 #4311,North Coast & Nechako,High opportunity occupations
-#4412,North Coast & Nechako,High opportunity occupations
-#5131,North Coast & Nechako,High opportunity occupations
 #5133,North Coast & Nechako,High opportunity occupations
-#6232,North Coast & Nechako,High opportunity occupations
-#6235,North Coast & Nechako,High opportunity occupations
-#6341,North Coast & Nechako,High opportunity occupations
-#6523,North Coast & Nechako,High opportunity occupations
-#7246,North Coast & Nechako,High opportunity occupations
+#5254,North Coast & Nechako,High opportunity occupations
+#6211,North Coast & Nechako,High opportunity occupations
+#6221,North Coast & Nechako,High opportunity occupations
+#6222,North Coast & Nechako,High opportunity occupations
+#7205,North Coast & Nechako,High opportunity occupations
+#7301,North Coast & Nechako,High opportunity occupations
 #7302,North Coast & Nechako,High opportunity occupations
+#7305,North Coast & Nechako,High opportunity occupations
 #7311,North Coast & Nechako,High opportunity occupations
 #7312,North Coast & Nechako,High opportunity occupations
+#7314,North Coast & Nechako,High opportunity occupations
 #7315,North Coast & Nechako,High opportunity occupations
 #7321,North Coast & Nechako,High opportunity occupations
 #7361,North Coast & Nechako,High opportunity occupations
 #7362,North Coast & Nechako,High opportunity occupations
-#7451,North Coast & Nechako,High opportunity occupations
+#7371,North Coast & Nechako,High opportunity occupations
 #7511,North Coast & Nechako,High opportunity occupations
-#7512,North Coast & Nechako,High opportunity occupations
-#7513,North Coast & Nechako,High opportunity occupations
 #7531,North Coast & Nechako,High opportunity occupations
-#7532,North Coast & Nechako,High opportunity occupations
+#9212,North Coast & Nechako,High opportunity occupations
+#9241,North Coast & Nechako,High opportunity occupations
 #0016,Northeast,High opportunity occupations
 #0111,Northeast,High opportunity occupations
 #0112,Northeast,High opportunity occupations
 #0122,Northeast,High opportunity occupations
-#0125,Northeast,High opportunity occupations
 #0211,Northeast,High opportunity occupations
-#0311,Northeast,High opportunity occupations
 #0422,Northeast,High opportunity occupations
-#0601,Northeast,High opportunity occupations
+#0423,Northeast,High opportunity occupations
+#0512,Northeast,High opportunity occupations
 #0621,Northeast,High opportunity occupations
 #0631,Northeast,High opportunity occupations
 #0632,Northeast,High opportunity occupations
@@ -581,66 +572,59 @@ NOC,Region,Occupational category
 #0731,Northeast,High opportunity occupations
 #0811,Northeast,High opportunity occupations
 #0821,Northeast,High opportunity occupations
-#0911,Northeast,High opportunity occupations
 #0912,Northeast,High opportunity occupations
 #1111,Northeast,High opportunity occupations
 #1114,Northeast,High opportunity occupations
 #1121,Northeast,High opportunity occupations
 #1215,Northeast,High opportunity occupations
 #1221,Northeast,High opportunity occupations
-#1222,Northeast,High opportunity occupations
 #1223,Northeast,High opportunity occupations
+#1224,Northeast,High opportunity occupations
 #1225,Northeast,High opportunity occupations
 #1241,Northeast,High opportunity occupations
 #1311,Northeast,High opportunity occupations
-#1411,Northeast,High opportunity occupations
-#1414,Northeast,High opportunity occupations
+#1431,Northeast,High opportunity occupations
 #2131,Northeast,High opportunity occupations
 #2154,Northeast,High opportunity occupations
 #2171,Northeast,High opportunity occupations
-#2234,Northeast,High opportunity occupations
+#2241,Northeast,High opportunity occupations
+#2242,Northeast,High opportunity occupations
+#2243,Northeast,High opportunity occupations
 #2255,Northeast,High opportunity occupations
-#2262,Northeast,High opportunity occupations
 #2263,Northeast,High opportunity occupations
-#2281,Northeast,High opportunity occupations
+#2264,Northeast,High opportunity occupations
 #3012,Northeast,High opportunity occupations
-#3112,Northeast,High opportunity occupations
-#3113,Northeast,High opportunity occupations
-#3131,Northeast,High opportunity occupations
-#3211,Northeast,High opportunity occupations
 #3219,Northeast,High opportunity occupations
-#3222,Northeast,High opportunity occupations
 #3233,Northeast,High opportunity occupations
-#3234,Northeast,High opportunity occupations
-#3236,Northeast,High opportunity occupations
-#3411,Northeast,High opportunity occupations
 #3413,Northeast,High opportunity occupations
 #3414,Northeast,High opportunity occupations
 #4021,Northeast,High opportunity occupations
-#4152,Northeast,High opportunity occupations
+#4033,Northeast,High opportunity occupations
+#4153,Northeast,High opportunity occupations
 #4154,Northeast,High opportunity occupations
 #4161,Northeast,High opportunity occupations
+#4166,Northeast,High opportunity occupations
+#4169,Northeast,High opportunity occupations
+#4216,Northeast,High opportunity occupations
+#4311,Northeast,High opportunity occupations
 #6211,Northeast,High opportunity occupations
 #6221,Northeast,High opportunity occupations
-#6231,Northeast,High opportunity occupations
 #6232,Northeast,High opportunity occupations
-#6235,Northeast,High opportunity occupations
-#6341,Northeast,High opportunity occupations
-#6421,Northeast,High opportunity occupations
+#6411,Northeast,High opportunity occupations
+#7202,Northeast,High opportunity occupations
 #7301,Northeast,High opportunity occupations
 #7302,Northeast,High opportunity occupations
-#7304,Northeast,High opportunity occupations
 #7305,Northeast,High opportunity occupations
 #7311,Northeast,High opportunity occupations
 #7312,Northeast,High opportunity occupations
-#7313,Northeast,High opportunity occupations
 #7321,Northeast,High opportunity occupations
-#7362,Northeast,High opportunity occupations
 #7371,Northeast,High opportunity occupations
+#7442,Northeast,High opportunity occupations
 #7511,Northeast,High opportunity occupations
 #9212,Northeast,High opportunity occupations
 #9232,Northeast,High opportunity occupations
 #9241,Northeast,High opportunity occupations
+#9243,Northeast,High opportunity occupations
 #0011,Thompson-Okanagan,High opportunity occupations
 #0012,Thompson-Okanagan,High opportunity occupations
 #0013,Thompson-Okanagan,High opportunity occupations
@@ -650,7 +634,6 @@ NOC,Region,Occupational category
 #0111,Thompson-Okanagan,High opportunity occupations
 #0112,Thompson-Okanagan,High opportunity occupations
 #0114,Thompson-Okanagan,High opportunity occupations
-#0121,Thompson-Okanagan,High opportunity occupations
 #0122,Thompson-Okanagan,High opportunity occupations
 #0124,Thompson-Okanagan,High opportunity occupations
 #0125,Thompson-Okanagan,High opportunity occupations
@@ -664,7 +647,6 @@ NOC,Region,Occupational category
 #0422,Thompson-Okanagan,High opportunity occupations
 #0423,Thompson-Okanagan,High opportunity occupations
 #0432,Thompson-Okanagan,High opportunity occupations
-#0433,Thompson-Okanagan,High opportunity occupations
 #0511,Thompson-Okanagan,High opportunity occupations
 #0512,Thompson-Okanagan,High opportunity occupations
 #0513,Thompson-Okanagan,High opportunity occupations
@@ -677,37 +659,37 @@ NOC,Region,Occupational category
 #0712,Thompson-Okanagan,High opportunity occupations
 #0714,Thompson-Okanagan,High opportunity occupations
 #0731,Thompson-Okanagan,High opportunity occupations
+#0811,Thompson-Okanagan,High opportunity occupations
 #0821,Thompson-Okanagan,High opportunity occupations
 #0911,Thompson-Okanagan,High opportunity occupations
 #0912,Thompson-Okanagan,High opportunity occupations
 #1111,Thompson-Okanagan,High opportunity occupations
 #1112,Thompson-Okanagan,High opportunity occupations
-#1113,Thompson-Okanagan,High opportunity occupations
 #1114,Thompson-Okanagan,High opportunity occupations
 #1121,Thompson-Okanagan,High opportunity occupations
 #1122,Thompson-Okanagan,High opportunity occupations
 #1123,Thompson-Okanagan,High opportunity occupations
+#1211,Thompson-Okanagan,High opportunity occupations
+#1212,Thompson-Okanagan,High opportunity occupations
 #1221,Thompson-Okanagan,High opportunity occupations
-#1224,Thompson-Okanagan,High opportunity occupations
-#1242,Thompson-Okanagan,High opportunity occupations
+#1226,Thompson-Okanagan,High opportunity occupations
 #1243,Thompson-Okanagan,High opportunity occupations
 #1251,Thompson-Okanagan,High opportunity occupations
 #1311,Thompson-Okanagan,High opportunity occupations
-#1312,Thompson-Okanagan,High opportunity occupations
-#2113,Thompson-Okanagan,High opportunity occupations
-#2121,Thompson-Okanagan,High opportunity occupations
+#1513,Thompson-Okanagan,High opportunity occupations
 #2131,Thompson-Okanagan,High opportunity occupations
 #2132,Thompson-Okanagan,High opportunity occupations
 #2133,Thompson-Okanagan,High opportunity occupations
-#2134,Thompson-Okanagan,High opportunity occupations
-#2144,Thompson-Okanagan,High opportunity occupations
-#2151,Thompson-Okanagan,High opportunity occupations
-#2154,Thompson-Okanagan,High opportunity occupations
+#2147,Thompson-Okanagan,High opportunity occupations
 #2171,Thompson-Okanagan,High opportunity occupations
+#2172,Thompson-Okanagan,High opportunity occupations
+#2173,Thompson-Okanagan,High opportunity occupations
 #2174,Thompson-Okanagan,High opportunity occupations
-#2252,Thompson-Okanagan,High opportunity occupations
-#2271,Thompson-Okanagan,High opportunity occupations
-#2272,Thompson-Okanagan,High opportunity occupations
+#2175,Thompson-Okanagan,High opportunity occupations
+#2242,Thompson-Okanagan,High opportunity occupations
+#2281,Thompson-Okanagan,High opportunity occupations
+#2282,Thompson-Okanagan,High opportunity occupations
+#2283,Thompson-Okanagan,High opportunity occupations
 #3011,Thompson-Okanagan,High opportunity occupations
 #3012,Thompson-Okanagan,High opportunity occupations
 #3111,Thompson-Okanagan,High opportunity occupations
@@ -726,46 +708,48 @@ NOC,Region,Occupational category
 #3144,Thompson-Okanagan,High opportunity occupations
 #3211,Thompson-Okanagan,High opportunity occupations
 #3212,Thompson-Okanagan,High opportunity occupations
-#3213,Thompson-Okanagan,High opportunity occupations
-#3214,Thompson-Okanagan,High opportunity occupations
 #3215,Thompson-Okanagan,High opportunity occupations
-#3216,Thompson-Okanagan,High opportunity occupations
 #3219,Thompson-Okanagan,High opportunity occupations
-#3222,Thompson-Okanagan,High opportunity occupations
-#3223,Thompson-Okanagan,High opportunity occupations
 #3231,Thompson-Okanagan,High opportunity occupations
 #3232,Thompson-Okanagan,High opportunity occupations
 #3233,Thompson-Okanagan,High opportunity occupations
-#3234,Thompson-Okanagan,High opportunity occupations
 #3236,Thompson-Okanagan,High opportunity occupations
-#3411,Thompson-Okanagan,High opportunity occupations
 #3413,Thompson-Okanagan,High opportunity occupations
 #3414,Thompson-Okanagan,High opportunity occupations
 #4011,Thompson-Okanagan,High opportunity occupations
+#4012,Thompson-Okanagan,High opportunity occupations
 #4021,Thompson-Okanagan,High opportunity occupations
-#4031,Thompson-Okanagan,High opportunity occupations
-#4032,Thompson-Okanagan,High opportunity occupations
 #4033,Thompson-Okanagan,High opportunity occupations
 #4112,Thompson-Okanagan,High opportunity occupations
-#4151,Thompson-Okanagan,High opportunity occupations
 #4152,Thompson-Okanagan,High opportunity occupations
 #4153,Thompson-Okanagan,High opportunity occupations
+#4154,Thompson-Okanagan,High opportunity occupations
 #4161,Thompson-Okanagan,High opportunity occupations
-#4162,Thompson-Okanagan,High opportunity occupations
+#4163,Thompson-Okanagan,High opportunity occupations
 #4165,Thompson-Okanagan,High opportunity occupations
-#4211,Thompson-Okanagan,High opportunity occupations
-#4311,Thompson-Okanagan,High opportunity occupations
-#5221,Thompson-Okanagan,High opportunity occupations
+#4166,Thompson-Okanagan,High opportunity occupations
+#4212,Thompson-Okanagan,High opportunity occupations
+#4216,Thompson-Okanagan,High opportunity occupations
+#4312,Thompson-Okanagan,High opportunity occupations
+#5121,Thompson-Okanagan,High opportunity occupations
+#5131,Thompson-Okanagan,High opportunity occupations
+#5133,Thompson-Okanagan,High opportunity occupations
+#5136,Thompson-Okanagan,High opportunity occupations
+#5241,Thompson-Okanagan,High opportunity occupations
 #6211,Thompson-Okanagan,High opportunity occupations
 #6221,Thompson-Okanagan,High opportunity occupations
 #6222,Thompson-Okanagan,High opportunity occupations
-#6231,Thompson-Okanagan,High opportunity occupations
 #6232,Thompson-Okanagan,High opportunity occupations
-#6235,Thompson-Okanagan,High opportunity occupations
-#6533,Thompson-Okanagan,High opportunity occupations
-#7315,Thompson-Okanagan,High opportunity occupations
-#7321,Thompson-Okanagan,High opportunity occupations
-#7512,Thompson-Okanagan,High opportunity occupations
+#7301,Thompson-Okanagan,High opportunity occupations
+#7302,Thompson-Okanagan,High opportunity occupations
+#7304,Thompson-Okanagan,High opportunity occupations
+#7305,Thompson-Okanagan,High opportunity occupations
+#7312,Thompson-Okanagan,High opportunity occupations
+#7314,Thompson-Okanagan,High opportunity occupations
+#7335,Thompson-Okanagan,High opportunity occupations
+#7361,Thompson-Okanagan,High opportunity occupations
+#7362,Thompson-Okanagan,High opportunity occupations
+#8255,Thompson-Okanagan,High opportunity occupations
 #0011,Vancouver Island / Coast,High opportunity occupations
 #0012,Vancouver Island / Coast,High opportunity occupations
 #0013,Vancouver Island / Coast,High opportunity occupations
@@ -792,45 +776,51 @@ NOC,Region,Occupational category
 #0432,Vancouver Island / Coast,High opportunity occupations
 #0433,Vancouver Island / Coast,High opportunity occupations
 #0511,Vancouver Island / Coast,High opportunity occupations
-#0512,Vancouver Island / Coast,High opportunity occupations
 #0513,Vancouver Island / Coast,High opportunity occupations
 #0601,Vancouver Island / Coast,High opportunity occupations
 #0621,Vancouver Island / Coast,High opportunity occupations
 #0631,Vancouver Island / Coast,High opportunity occupations
 #0632,Vancouver Island / Coast,High opportunity occupations
 #0651,Vancouver Island / Coast,High opportunity occupations
+#0711,Vancouver Island / Coast,High opportunity occupations
 #0714,Vancouver Island / Coast,High opportunity occupations
 #0731,Vancouver Island / Coast,High opportunity occupations
 #0811,Vancouver Island / Coast,High opportunity occupations
 #0821,Vancouver Island / Coast,High opportunity occupations
-#0911,Vancouver Island / Coast,High opportunity occupations
 #0912,Vancouver Island / Coast,High opportunity occupations
 #1111,Vancouver Island / Coast,High opportunity occupations
 #1112,Vancouver Island / Coast,High opportunity occupations
+#1113,Vancouver Island / Coast,High opportunity occupations
 #1114,Vancouver Island / Coast,High opportunity occupations
 #1121,Vancouver Island / Coast,High opportunity occupations
 #1122,Vancouver Island / Coast,High opportunity occupations
 #1123,Vancouver Island / Coast,High opportunity occupations
 #1214,Vancouver Island / Coast,High opportunity occupations
 #1221,Vancouver Island / Coast,High opportunity occupations
-#1222,Vancouver Island / Coast,High opportunity occupations
-#1224,Vancouver Island / Coast,High opportunity occupations
 #1243,Vancouver Island / Coast,High opportunity occupations
-#1311,Vancouver Island / Coast,High opportunity occupations
-#1314,Vancouver Island / Coast,High opportunity occupations
+#1251,Vancouver Island / Coast,High opportunity occupations
 #1512,Vancouver Island / Coast,High opportunity occupations
 #2113,Vancouver Island / Coast,High opportunity occupations
+#2121,Vancouver Island / Coast,High opportunity occupations
 #2131,Vancouver Island / Coast,High opportunity occupations
+#2132,Vancouver Island / Coast,High opportunity occupations
+#2133,Vancouver Island / Coast,High opportunity occupations
+#2143,Vancouver Island / Coast,High opportunity occupations
+#2144,Vancouver Island / Coast,High opportunity occupations
 #2145,Vancouver Island / Coast,High opportunity occupations
 #2147,Vancouver Island / Coast,High opportunity occupations
+#2151,Vancouver Island / Coast,High opportunity occupations
 #2171,Vancouver Island / Coast,High opportunity occupations
 #2172,Vancouver Island / Coast,High opportunity occupations
 #2173,Vancouver Island / Coast,High opportunity occupations
 #2174,Vancouver Island / Coast,High opportunity occupations
 #2175,Vancouver Island / Coast,High opportunity occupations
 #2242,Vancouver Island / Coast,High opportunity occupations
+#2251,Vancouver Island / Coast,High opportunity occupations
+#2264,Vancouver Island / Coast,High opportunity occupations
 #2271,Vancouver Island / Coast,High opportunity occupations
-#2272,Vancouver Island / Coast,High opportunity occupations
+#2273,Vancouver Island / Coast,High opportunity occupations
+#2274,Vancouver Island / Coast,High opportunity occupations
 #2281,Vancouver Island / Coast,High opportunity occupations
 #2282,Vancouver Island / Coast,High opportunity occupations
 #2283,Vancouver Island / Coast,High opportunity occupations
@@ -852,45 +842,39 @@ NOC,Region,Occupational category
 #3144,Vancouver Island / Coast,High opportunity occupations
 #3211,Vancouver Island / Coast,High opportunity occupations
 #3212,Vancouver Island / Coast,High opportunity occupations
-#3214,Vancouver Island / Coast,High opportunity occupations
 #3215,Vancouver Island / Coast,High opportunity occupations
 #3216,Vancouver Island / Coast,High opportunity occupations
+#3219,Vancouver Island / Coast,High opportunity occupations
 #3222,Vancouver Island / Coast,High opportunity occupations
 #3232,Vancouver Island / Coast,High opportunity occupations
 #3233,Vancouver Island / Coast,High opportunity occupations
 #3234,Vancouver Island / Coast,High opportunity occupations
 #3236,Vancouver Island / Coast,High opportunity occupations
-#3411,Vancouver Island / Coast,High opportunity occupations
 #3413,Vancouver Island / Coast,High opportunity occupations
 #3414,Vancouver Island / Coast,High opportunity occupations
 #4011,Vancouver Island / Coast,High opportunity occupations
-#4031,Vancouver Island / Coast,High opportunity occupations
-#4032,Vancouver Island / Coast,High opportunity occupations
-#4033,Vancouver Island / Coast,High opportunity occupations
-#4112,Vancouver Island / Coast,High opportunity occupations
+#4021,Vancouver Island / Coast,High opportunity occupations
 #4151,Vancouver Island / Coast,High opportunity occupations
 #4152,Vancouver Island / Coast,High opportunity occupations
 #4153,Vancouver Island / Coast,High opportunity occupations
 #4154,Vancouver Island / Coast,High opportunity occupations
+#4156,Vancouver Island / Coast,High opportunity occupations
 #4161,Vancouver Island / Coast,High opportunity occupations
 #4163,Vancouver Island / Coast,High opportunity occupations
-#4165,Vancouver Island / Coast,High opportunity occupations
-#4212,Vancouver Island / Coast,High opportunity occupations
+#4166,Vancouver Island / Coast,High opportunity occupations
+#4216,Vancouver Island / Coast,High opportunity occupations
 #4311,Vancouver Island / Coast,High opportunity occupations
 #4312,Vancouver Island / Coast,High opportunity occupations
 #5121,Vancouver Island / Coast,High opportunity occupations
+#5133,Vancouver Island / Coast,High opportunity occupations
 #6211,Vancouver Island / Coast,High opportunity occupations
 #6221,Vancouver Island / Coast,High opportunity occupations
 #6222,Vancouver Island / Coast,High opportunity occupations
+#6231,Vancouver Island / Coast,High opportunity occupations
 #6232,Vancouver Island / Coast,High opportunity occupations
-#6341,Vancouver Island / Coast,High opportunity occupations
+#6235,Vancouver Island / Coast,High opportunity occupations
 #7305,Vancouver Island / Coast,High opportunity occupations
-#7321,Vancouver Island / Coast,High opportunity occupations
-#7322,Vancouver Island / Coast,High opportunity occupations
-#7451,Vancouver Island / Coast,High opportunity occupations
-#7512,Vancouver Island / Coast,High opportunity occupations
-#7513,Vancouver Island / Coast,High opportunity occupations
-#8255,Vancouver Island / Coast,High opportunity occupations
+#7311,Vancouver Island / Coast,High opportunity occupations
 #0131,All,STEM occupations
 #0211,All,STEM occupations
 #0212,All,STEM occupations
