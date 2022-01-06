@@ -208,7 +208,7 @@ const CompareCareers: FunctionComponent = () => {
                         <div className="result-body__row-right"><b>{careerObj.careerDetail?.education.value}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
-                        <div className="result-body__row-left">Job openings <span>(2019-2029)</span></div>
+                        <div className="result-body__row-left">Job openings <span>(2021-2031)</span></div>
                         <div className="result-body__row-right"><b>{format(careerObj.careerDetail?.jobOpenings)}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
