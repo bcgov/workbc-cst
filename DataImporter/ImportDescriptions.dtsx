@@ -8,13 +8,13 @@
   DTS:Description="SSIS Package to Import CareerTrek Video into WorkBC SAO"
   DTS:DTSID="{762A01DA-08FA-41D7-BF54-03ED21A055B5}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
   DTS:LocaleID="1033"
   DTS:ObjectName="ImportDescriptions"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="119"
-  DTS:VersionGUID="{1979A944-CE20-4672-BE70-A25267842E97}">
+  DTS:VersionBuild="122"
+  DTS:VersionGUID="{F7E0BD9B-634C-42BE-A6F2-089AF0FF79D3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -43,7 +43,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="2016 NOC"
-              DTS:DTSID="{9C144E6B-B39F-4AE3-8573-653B915EA978}"
+              DTS:DTSID="{8AA58FFF-D46E-495B-8EDB-0D5AC4B708E9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -52,7 +52,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Occupation Title"
-              DTS:DTSID="{DDAE7100-C8A7-468D-9E6B-9125D10FF5AB}"
+              DTS:DTSID="{7F6E9563-278D-4836-A4E1-D0D50E529B27}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -61,7 +61,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Copy for View Profile on SAO Career Quiz tools"
-              DTS:DTSID="{C1058E5C-4B41-45FF-A0B0-3524DCA3DDFB}"
+              DTS:DTSID="{205E91B8-C1CA-45D1-BCF4-757B56E1ACC5}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -74,7 +74,9 @@
       DTS:ObjectName="SearchAllOccupationsTool Database">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=theoden;Initial Catalog=SearchAllOccupationsTool;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CA-L9H9PTT2\SQL2017;Initial Catalog=SearchAllOccupationsTool;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -84,7 +86,9 @@
       DTS:ObjectName="WorkBC Enterprise Database">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=theoden;Initial Catalog=LMO20192029_WorkBCEnterprise;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CA-L9H9PTT2\SQL2017;Initial Catalog=LMO20192029_WorkBCEnterprise;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -565,51 +569,17 @@ where [refTable].[NOCCode] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="156,42"
-          Id="Package\Import External Data\Flat File Source"
-          TopLeft="137,64" />
-        <NodeLayout
           Size="115,42"
           Id="Package\Import External Data\Lookup"
           TopLeft="196,175" />
-        <EdgeLayout
-          Id="Package\Import External Data.Paths[Flat File Source Output]"
-          TopLeft="215,106">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="38.5,69"
-              Start="0,0"
-              End="38.5,61.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.5"
-                    Point2="0,34.5"
-                    Point3="4,34.5" />
-                  <mssgle:LineSegment
-                    End="34.5,34.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="34.5,34.5"
-                    Point2="38.5,34.5"
-                    Point3="38.5,38.5" />
-                  <mssgle:LineSegment
-                    End="38.5,61.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="173,42"
           Id="Package\Import External Data\OLE DB Command"
           TopLeft="101,307" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Import External Data\Flat File Source"
+          TopLeft="137,64" />
         <EdgeLayout
           Id="Package\Import External Data.Paths[Lookup Match Output]"
           TopLeft="253.5,217">
@@ -646,6 +616,40 @@ where [refTable].[NOCCode] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import External Data.Paths[Flat File Source Output]"
+          TopLeft="215,106">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.5,69"
+              Start="0,0"
+              End="38.5,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5"
+                    Point2="0,34.5"
+                    Point3="4,34.5" />
+                  <mssgle:LineSegment
+                    End="34.5,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.5,34.5"
+                    Point2="38.5,34.5"
+                    Point3="38.5,38.5" />
+                  <mssgle:LineSegment
+                    End="38.5,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -655,7 +659,7 @@ where [refTable].[NOCCode] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -665,7 +669,7 @@ where [refTable].[NOCCode] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

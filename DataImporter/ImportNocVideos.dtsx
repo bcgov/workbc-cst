@@ -8,13 +8,13 @@
   DTS:Description="SSIS Package to Import CareerTrek Video into WorkBC SAO"
   DTS:DTSID="{DF004190-8EA3-443D-B43B-F1C0D9997C6A}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
   DTS:LocaleID="1033"
   DTS:ObjectName="ImportNocVideos"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="114"
-  DTS:VersionGUID="{6E207A31-4CF2-44AE-B1E5-C88C052A32C6}">
+  DTS:VersionBuild="115"
+  DTS:VersionGUID="{BAEC3876-EBA8-4CD8-A1F0-41514FD5C125}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,9 @@
       DTS:ObjectName="SearchAllOccupationsTool Database">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=theoden;Initial Catalog=SearchAllOccupationsTool;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CA-L9H9PTT2\SQL2017;Initial Catalog=SearchAllOccupationsTool;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -35,7 +37,9 @@
       DTS:ObjectName="WorkBC Enterprise Database">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=theoden;Initial Catalog=LMO20192029_WorkBCEnterprise;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CA-L9H9PTT2\SQL2017;Initial Catalog=LMO20192029_WorkBCEnterprise;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -811,14 +815,6 @@ ORDER BY NOC.NOCCode, CPCTV.CareerTrekVideoPosition</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Import External Data\Video Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Import External Data\Write NOC Videos">
     <Properties>
       <Property>
@@ -828,6 +824,14 @@ ORDER BY NOC.NOCCode, CPCTV.CareerTrekVideoPosition</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import External Data\Video Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
