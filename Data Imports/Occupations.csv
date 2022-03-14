@@ -1,0 +1,498 @@
+Id,NOC,Title,EducationId,WorkExperienceId,Income
+1,0011,Legislators,4,4,59545
+2,0012,Senior government managers and officials,4,4,108727
+3,0013,"Senior managers - financial, communications and other business services",4,4,119882
+4,0014,"Senior managers - health, education, social and community services and membership organizations",4,4,96077
+5,0015,"Senior managers - trade, broadcasting and other services, n.e.c.",4,4,82384
+6,0016,"Senior managers - construction, transportation, production and utilities",4,4,109694
+7,0111,Financial managers,4,4,83096
+8,0112,Human resources managers,4,4,87210
+9,0113,Purchasing managers,4,4,87401
+10,0114,Other administrative services managers,4,4,70928
+11,0121,"Insurance, real estate and financial brokerage managers",4,4,84634
+12,0122,"Banking, credit and other investment managers",4,4,76997
+13,0124,"Advertising, marketing and public relations managers",4,4,70693
+14,0125,Other business services managers,4,4,59114
+15,0131,Telecommunication carriers managers,4,4,87959
+16,0132,Postal and courier services managers,3,4,57643
+17,0211,Engineering managers,4,4,117243
+18,0212,Architecture and science managers,4,4,92217
+19,0213,Computer and information systems managers,4,4,99664
+20,0311,Managers in health care,4,3,86343
+21,0411,Government managers - health and social policy development and program administration,4,4,91385
+22,0412,"Government managers - economic analysis, policy development and program administration",4,4,95970
+23,0413,Government managers - education policy development and program administration,4,4,93187
+24,0414,Other managers in public administration,4,4,88883
+25,0421,Administrators - post-secondary education and vocational training,4,3,77591
+26,0422,School principals and administrators of elementary and secondary education,4,4,101448
+27,0423,"Managers in social, community and correctional services",4,3,61024
+28,0431,Commissioned police officers,3,4,118976
+29,0432,Fire chiefs and senior firefighting officers,3,4,122445
+30,0511,"Library, archive, museum and art gallery managers",4,4,64837
+31,0512,"Managers - publishing, motion pictures, broadcasting and performing arts",4,4,57151
+32,0513,"Recreation, sports and fitness program and service directors",4,4,53753
+33,0601,Corporate sales managers,4,4,93270
+34,0621,Retail and wholesale trade managers,3,4,52000
+35,0631,Restaurant and food service managers,2,3,35826
+36,0632,Accommodation service managers,4,3,47069
+37,0651,"Managers in customer and personal services, n.e.c.",3,4,35382
+38,0711,Construction managers,3,4,76911
+39,0712,Home building and renovation managers,3,4,40105
+40,0714,Facility operation and maintenance managers,3,4,67464
+41,0731,Managers in transportation,3,4,77296
+42,0811,Managers in natural resources production and fishing,4,3,111568
+43,0821,Managers in agriculture,3,3,23964
+44,0822,Managers in horticulture,3,3,34150
+45,0823,Managers in aquaculture,2,3,64304
+46,0911,Manufacturing managers,3,4,73981
+47,0912,Utilities managers,4,4,110230
+48,1111,Financial auditors and accountants,4,3,64540
+49,1112,Financial and investment analysts,4,3,83056
+50,1113,"Securities agents, investment dealers and brokers",4,3,58065
+51,1114,Other financial officers,4,3,66354
+52,1121,Human resources professionals,4,3,69033
+53,1122,Professional occupations in business management consulting,4,4,72455
+54,1123,"Professional occupations in advertising, marketing and public relations",4,3,55933
+55,1211,"Supervisors, general office and administrative support workers",3,3,54428
+56,1212,"Supervisors, finance and insurance office workers",4,4,59445
+57,1213,"Supervisors, library, correspondence and related information workers",4,3,58552
+58,1214,"Supervisors, mail and message distribution occupations",3,4,64745
+59,1215,"Supervisors, supply chain, tracking and scheduling co-ordination occupations",3,3,52628
+60,1221,Administrative officers,3,3,50321
+61,1222,Executive assistants,4,3,57474
+62,1223,Human resources and recruitment officers,4,3,55731
+63,1224,Property administrators,3,3,48818
+64,1225,Purchasing agents and officers,4,3,60166
+65,1226,Conference and event planners,4,3,48309
+66,1227,Court officers and justices of the peace,3,3,61317
+67,1228,"Employment insurance, immigration, border services and revenue officers",4,3,64107
+68,1241,Administrative assistants,3,3,45037
+69,1242,Legal administrative assistants,3,3,48746
+70,1243,Medical administrative assistants,3,3,42863
+71,1251,"Court reporters, medical transcriptionists and related occupations",3,3,40417
+72,1252,Health information management occupations,3,2,64107
+73,1253,Records management technicians,3,3,51005
+74,1254,Statistical officers and related research support occupations,4,3,59194
+75,1311,Accounting technicians and bookkeepers,3,3,42503
+76,1312,Insurance adjusters and claims examiners,3,3,66646
+77,1313,Insurance underwriters,4,3,65400
+78,1314,"Assessors, valuators and appraisers",4,3,68547
+79,1315,"Customs, ship and other brokers",3,3,50774
+80,1411,General office support workers,3,3,44101
+81,1414,Receptionists,3,2,37362
+82,1415,Personnel clerks,4,2,49302
+83,1416,Court clerks,3,3,48641
+84,1422,Data entry clerks,3,3,42118
+85,1423,Desktop publishing operators and related occupations,3,3,56212
+86,1431,Accounting and related clerks,3,3,45798
+87,1432,Payroll administrators,3,3,53924
+88,1434,"Banking, insurance and other financial clerks",4,3,47873
+89,1435,Collectors,3,3,50043
+90,1451,Library assistants and clerks,4,2,44813
+91,1452,"Correspondence, publication and regulatory clerks",4,3,52404
+92,1454,Survey interviewers and statistical clerks,3,3,49596
+93,1511,"Mail, postal and related workers",2,1,53955
+94,1512,Letter carriers,2,1,58916
+95,1513,"Couriers, messengers and door-to-door distributors",2,2,39581
+96,1521,Shippers and receivers,2,2,39841
+97,1522,Storekeepers and partspersons,3,2,51351
+98,1523,Production logistics co-ordinators,3,3,51146
+99,1524,Purchasing and inventory control workers,3,2,43966
+100,1525,Dispatchers,3,2,55871
+101,1526,Transportation route and crew schedulers,3,2,59958
+102,2111,Physicists and astronomers,4,3,108725
+103,2112,Chemists,4,3,70921
+104,2113,Geoscientists and oceanographers,4,3,95615
+105,2114,Meteorologists and climatologists,4,3,97778
+106,2115,Other professional occupations in physical sciences,4,3,89512
+107,2121,Biologists and related scientists,4,3,74968
+108,2122,Forestry professionals,4,3,81404
+109,2123,"Agricultural representatives, consultants and specialists",4,3,65248
+110,2131,Civil engineers,4,3,93401
+111,2132,Mechanical engineers,4,3,82997
+112,2133,Electrical and electronics engineers,4,3,93922
+113,2134,Chemical engineers,4,3,104537
+114,2141,Industrial and manufacturing engineers,4,3,85770
+115,2142,Metallurgical and materials engineers,4,3,104578
+116,2143,Mining engineers,4,3,128314
+117,2144,Geological engineers,4,4,101350
+118,2145,Petroleum engineers,4,3,110107
+119,2146,Aerospace engineers,4,3,85111
+120,2147,Computer engineers (except software engineers and designers),4,3,93162
+121,2148,"Other professional engineers, n.e.c.",4,3,86075
+122,2151,Architects,4,3,75669
+123,2152,Landscape architects,4,3,67713
+124,2153,Urban and land use planners,4,3,81019
+125,2154,Land surveyors,3,3,71468
+126,2161,"Mathematicians, statisticians and actuaries",4,3,81964
+127,2171,Information systems analysts and consultants,4,3,78505
+128,2172,Database analysts and data administrators,4,3,78061
+129,2173,Software engineers and designers,4,4,92166
+130,2174,Computer programmers and interactive media developers,4,4,79185
+131,2175,Web designers and developers,4,3,51725
+132,2211,Chemical technologists and technicians,4,3,55001
+133,2212,Geological and mineral technologists and technicians,3,3,72027
+134,2221,Biological technologists and technicians,4,3,53499
+135,2222,Agricultural and fish products inspectors,4,3,77777
+136,2223,Forestry technologists and technicians,3,3,65106
+137,2224,Conservation and fishery officers,3,3,72864
+138,2225,Landscape and horticulture technicians and specialists,3,3,52692
+139,2231,Civil engineering technologists and technicians,3,4,74441
+140,2232,Mechanical engineering technologists and technicians,3,3,71609
+141,2233,Industrial engineering and manufacturing technologists and technicians,3,3,61650
+142,2234,Construction estimators,3,4,75231
+143,2241,Electrical and electronics engineering technologists and technicians,3,3,70182
+144,2242,Electronic service technicians (household and business equipment),3,3,53659
+145,2243,Industrial instrument technicians and mechanics,3,3,101743
+146,2244,"Aircraft instrument, electrical and avionics mechanics, technicians and inspectors",3,3,78561
+147,2251,Architectural technologists and technicians,3,3,59587
+148,2252,Industrial designers,4,4,64349
+149,2253,Drafting technologists and technicians,3,3,59948
+150,2254,Land survey technologists and technicians,3,3,63879
+151,2255,Technical occupations in geomatics and meteorology,4,3,66386
+152,2261,Non-destructive testers and inspection technicians,3,3,79934
+153,2262,Engineering inspectors and regulatory officers,3,3,88539
+154,2263,Inspectors in public and environmental health and occupational health and safety,4,3,72994
+155,2264,Construction inspectors,3,4,72330
+156,2271,"Air pilots, flight engineers and flying instructors",3,3,108069
+157,2272,Air traffic controllers and related occupations,3,3,105633
+158,2273,"Deck officers, water transport",3,3,92829
+159,2274,"Engineer officers, water transport",3,3,96451
+160,2275,Railway traffic controllers and marine traffic regulators,3,2,99707
+161,2281,Computer network technicians,3,4,65087
+162,2282,User support technicians,3,3,58810
+163,2283,Information systems testing technicians,4,3,67140
+164,3011,Nursing co-ordinators and supervisors,4,3,88595
+165,3012,Registered nurses and registered psychiatric nurses,4,3,82014
+166,3111,Specialist physicians,4,4,126078
+167,3112,General practitioners and family physicians,4,4,90281
+168,3113,Dentists,4,3,104161
+169,3114,Veterinarians,4,3,84853
+170,3121,Optometrists,4,3,75064
+171,3122,Chiropractors,4,3,50943
+172,3124,Allied primary health practitioners,4,3,97284
+173,3125,Other professional occupations in health diagnosing and treating,4,3,53164
+174,3131,Pharmacists,4,3,98569
+175,3132,Dietitians and nutritionists,4,3,60048
+176,3141,Audiologists and speech-language pathologists,4,3,75790
+177,3142,Physiotherapists,4,3,73190
+178,3143,Occupational therapists,4,3,75628
+179,3144,Other professional occupations in therapy and assessment,4,3,42927
+180,3211,Medical laboratory technologists,3,2,70918
+181,3212,Medical laboratory technicians and pathologists' assistants,3,2,47339
+182,3213,Animal health technologists and veterinary technicians,3,2,35353
+183,3214,"Respiratory therapists, clinical perfusionists and cardiopulmonary technologists",3,3,75199
+184,3215,Medical radiation technologists,3,3,71396
+185,3216,Medical sonographers,4,3,75687
+186,3217,"Cardiology technologists and electrophysiological diagnostic technologists, n.e.c.",3,3,59791
+187,3219,Other medical technologists and technicians (except dental health),3,3,42868
+188,3221,Denturists,3,3,52935
+189,3222,Dental hygienists and dental therapists,3,2,68742
+190,3223,"Dental technologists, technicians and laboratory assistants",3,3,49488
+191,3231,Opticians,3,3,44171
+192,3232,Practitioners of natural healing,3,3,24884
+193,3233,Licensed practical nurses,3,2,55105
+194,3234,Paramedical occupations,3,2,64135
+195,3236,Massage therapists,3,2,47601
+196,3237,Other technical occupations in therapy and assessment,3,2,44172
+197,3411,Dental assistants,3,2,43801
+198,3413,"Nurse aides, orderlies and patient service associates",3,2,42661
+199,3414,Other assisting occupations in support of health services,3,2,41783
+200,4011,University professors and lecturers,4,3,101887
+201,4012,Post-secondary teaching and research assistants,4,3,35815
+202,4021,College and other vocational instructors,4,3,83033
+203,4031,Secondary school teachers,4,3,78997
+204,4032,Elementary school and kindergarten teachers,4,3,70849
+205,4033,Educational counsellors,4,3,59829
+206,4111,Judges,4,4,260015
+207,4112,Lawyers and Quebec notaries,4,3,114252
+208,4151,Psychologists,4,3,71687
+209,4152,Social workers,4,3,67114
+210,4153,"Family, marriage and other related counsellors",4,3,55240
+211,4154,Professional occupations in religion,4,3,54412
+212,4155,Probation and parole officers and related occupations,4,3,71121
+213,4156,Employment counsellors,4,3,50008
+214,4161,"Natural and applied science policy researchers, consultants and program officers",4,3,77397
+215,4162,Economists and economic policy researchers and analysts,4,3,80564
+216,4163,Business development officers and marketing researchers and consultants,4,3,62861
+217,4164,"Social policy researchers, consultants and program officers",4,3,61189
+218,4165,"Health policy researchers, consultants and program officers",4,3,68000
+219,4166,"Education policy researchers, consultants and program officers",4,3,59320
+220,4167,"Recreation, sports and fitness policy researchers, consultants and program officers",4,3,54869
+221,4168,Program officers unique to government,4,3,70837
+222,4169,"Other professional occupations in social science, n.e.c.",4,3,65456
+223,4211,Paralegal and related occupations,3,3,59119
+224,4212,Social and community service workers,3,3,43026
+225,4214,Early childhood educators and assistants,3,3,32031
+226,4215,Instructors of persons with disabilities,3,2,39362
+227,4216,Other instructors,4,3,40754
+228,4311,Police officers (except commissioned),3,3,102722
+229,4312,Firefighters,3,3,106899
+230,4411,Home child care providers,3,3,21207
+231,4412,"Home support workers, housekeepers and related occupations",3,3,34887
+232,4413,Elementary and secondary school teacher assistants,3,2,35230
+233,4421,Sheriffs and bailiffs,3,3,63714
+234,4422,Correctional service officers,3,2,71308
+235,4423,"By-law enforcement and other regulatory officers, n.e.c.",3,2,64339
+236,5111,Librarians,4,3,72635
+237,5112,Conservators and curators,4,3,60323
+238,5113,Archivists,4,3,76844
+239,5121,Authors and writers,4,3,44440
+240,5122,Editors,4,3,53392
+241,5123,Journalists,4,3,55539
+242,5125,"Translators, terminologists and interpreters",4,3,46882
+243,5131,"Producers, directors, choreographers and related occupations",4,4,54429
+244,5132,"Conductors, composers and arrangers",4,4,32297
+245,5133,Musicians and singers,4,3,19515
+246,5134,Dancers,4,3,23653
+247,5135,Actors and comedians,4,3,24275
+248,5136,"Painters, sculptors and other visual artists",4,3,24304
+249,5211,Library and public archive technicians,4,3,48731
+250,5212,Technical occupations related to museums and art galleries,4,2,36213
+251,5221,Photographers,3,3,26876
+252,5222,Film and video camera operators,3,3,51384
+253,5223,Graphic arts technicians,3,3,69524
+254,5224,Broadcast technicians,3,3,58554
+255,5225,Audio and video recording technicians,3,3,59130
+256,5226,"Other technical and co-ordinating occupations in motion pictures, broadcasting and the performing arts",3,2,58413
+257,5227,"Support occupations in motion pictures, broadcasting, photography and the performing arts",3,3,45130
+258,5231,Announcers and other broadcasters,3,3,49058
+259,5232,"Other performers, n.e.c.",3,1,34704
+260,5241,Graphic designers and illustrators,3,3,49895
+261,5242,Interior designers and interior decorators,3,3,47001
+262,5243,"Theatre, fashion, exhibit and other creative designers",3,4,45722
+263,5244,Artisans and craftspersons,3,3,23014
+264,5245,"Patternmakers - textile, leather and fur products",3,3,62571
+265,5251,Athletes,2,4,16462
+266,5252,Coaches,4,3,44956
+267,5253,Sports officials and referees,4,3,0
+268,5254,"Program leaders and instructors in recreation, sport and fitness",3,3,33383
+269,6211,Retail sales supervisors,2,3,40680
+270,6221,Technical sales specialists - wholesale trade,4,3,77442
+271,6222,Retail and wholesale buyers,3,3,47749
+272,6231,Insurance agents and brokers,3,3,49306
+273,6232,Real estate agents and salespersons,3,3,49242
+274,6235,Financial sales representatives,4,3,54272
+275,6311,Food service supervisors,2,2,27400
+276,6312,Executive housekeepers,2,3,42928
+277,6313,"Accommodation, travel, tourism and related services supervisors",2,3,45797
+278,6314,Customer and information services supervisors,3,3,55866
+279,6315,Cleaning supervisors,2,2,43594
+280,6316,Other services supervisors,3,2,45603
+281,6321,Chefs,3,3,36056
+282,6322,Cooks,3,2,28521
+283,6331,"Butchers, meat cutters and fishmongers - retail and wholesale",3,2,43375
+284,6332,Bakers,3,2,32414
+285,6341,Hairstylists and barbers,3,3,24650
+286,6342,"Tailors, dressmakers, furriers and milliners",3,3,28670
+287,6343,Shoe repairers and shoemakers,2,2,27319
+288,6344,"Jewellers, jewellery and watch repairers and related occupations",3,3,26547
+289,6345,Upholsterers,2,3,40442
+290,6346,Funeral directors and embalmers,3,3,53165
+291,6411,Sales and account representatives - wholesale trade (non-technical),3,3,61224
+292,6421,Retail salespersons,2,1,35722
+293,6511,Maîtres d'hôtel and hosts/hostesses,2,2,19286
+294,6512,Bartenders,2,2,21721
+295,6513,Food and beverage servers,2,2,20148
+296,6521,Travel counsellors,3,3,39355
+297,6522,Pursers and flight attendants,3,3,57305
+298,6523,Airline ticket and service agents,3,3,47631
+299,6524,"Ground and water transport ticket agents, cargo service representatives and related clerks",2,3,49836
+300,6525,Hotel front desk clerks,3,3,33918
+301,6531,Tour and travel guides,4,2,27183
+302,6532,Outdoor sport and recreational guides,3,2,37608
+303,6533,Casino occupations,2,2,39019
+304,6541,Security guards and related security service occupations,3,1,36133
+305,6551,Customer services representatives - financial institutions,3,1,40225
+306,6552,Other customer and information services representatives,3,3,45347
+307,6561,"Image, social and other personal consultants",3,2,25318
+308,6562,"Estheticians, electrologists and related occupations",3,2,24710
+309,6563,Pet groomers and animal care workers,3,2,22199
+310,6564,Other personal service occupations,2,2,20990
+311,6611,Cashiers,2,1,26084
+312,6621,Service station attendants,2,3,26326
+313,6622,"Store shelf stockers, clerks and order fillers",2,1,31346
+314,6623,Other sales related occupations,3,1,36907
+315,6711,"Food counter attendants, kitchen helpers and related support occupations",2,1,25132
+316,6721,"Support occupations in accommodation, travel and facilities set-up services",3,1,43406
+317,6722,"Operators and attendants in amusement, recreation and sport",3,1,42615
+318,6731,Light duty cleaners,2,1,30820
+319,6732,Specialized cleaners,2,2,30670
+320,6733,"Janitors, caretakers and building superintendents",2,1,43238
+321,6741,"Dry cleaning, laundry and related occupations",2,2,33120
+322,6742,"Other service support occupations, n.e.c.",3,1,32791
+323,7201,"Contractors and supervisors, machining, metal forming, shaping and erecting trades and related occupations",3,3,81714
+324,7202,"Contractors and supervisors, electrical trades and telecommunications occupations",3,3,83403
+325,7203,"Contractors and supervisors, pipefitting trades",3,4,75785
+326,7204,"Contractors and supervisors, carpentry trades",3,3,53789
+327,7205,"Contractors and supervisors, other construction trades, installers, repairers and servicers",3,3,56270
+328,7231,Machinists and machining and tooling inspectors,3,3,67397
+329,7232,Tool and die makers,3,3,59983
+330,7233,Sheet metal workers,3,3,64374
+331,7234,Boilermakers,3,3,75083
+332,7235,Structural metal and platework fabricators and fitters,3,3,66466
+333,7236,Ironworkers,3,3,57236
+334,7237,Welders and related machine operators,3,2,62465
+335,7241,Electricians (except industrial and power system),3,4,61992
+336,7242,Industrial electricians,3,4,94478
+337,7243,Power system electricians,3,3,104769
+338,7244,Electrical power line and cable workers,3,4,140074
+339,7245,Telecommunications line and cable workers,3,3,81659
+340,7246,Telecommunications installation and repair workers,3,3,75123
+341,7247,Cable television service and maintenance technicians,3,3,83867
+342,7251,Plumbers,3,2,54993
+343,7252,"Steamfitters, pipefitters and sprinkler system installers",3,2,74188
+344,7253,Gas fitters,3,2,64103
+345,7271,Carpenters,3,3,46823
+346,7272,Cabinetmakers,3,3,46053
+347,7281,Bricklayers,3,3,47063
+348,7282,Concrete finishers,2,2,54972
+349,7283,Tilesetters,3,3,34431
+350,7284,"Plasterers, drywall installers and finishers and lathers",3,3,39685
+351,7291,Roofers and shinglers,2,3,44976
+352,7292,Glaziers,3,3,53284
+353,7293,Insulators,3,2,54841
+354,7294,Painters and decorators (except interior decorators),2,2,38855
+355,7295,Floor covering installers,2,2,38356
+356,7301,"Contractors and supervisors, mechanic trades",3,3,83140
+357,7302,"Contractors and supervisors, heavy equipment operator crews",3,3,78733
+358,7303,"Supervisors, printing and related occupations",3,3,54734
+359,7304,"Supervisors, railway transport operations",2,3,88909
+360,7305,"Supervisors, motor transport and other ground transit operators",3,3,70435
+361,7311,Construction millwrights and industrial mechanics,3,2,87198
+362,7312,Heavy-duty equipment mechanics,3,3,81639
+363,7313,"Heating, refrigeration and air conditioning mechanics",3,3,73501
+364,7314,Railway carmen/women,3,3,76922
+365,7315,Aircraft mechanics and aircraft inspectors,3,3,75562
+366,7316,Machine fitters,3,3,65579
+367,7318,Elevator constructors and mechanics,3,3,103759
+368,7321,"Automotive service technicians, truck and bus mechanics and mechanical repairers",3,3,59276
+369,7322,Motor vehicle body repairers,3,3,55307
+370,7331,Oil and solid fuel heating mechanics,3,3,50216
+371,7332,Appliance servicers and repairers,3,3,46932
+372,7333,Electrical mechanics,3,3,80162
+373,7334,"Motorcycle, all-terrain vehicle and other related mechanics",3,3,54541
+374,7335,Other small engine and small equipment repairers,3,3,51167
+375,7361,Railway and yard locomotive engineers,3,3,103222
+376,7362,Railway conductors and brakemen/women,3,3,80437
+377,7371,Crane operators,3,3,76716
+378,7372,"Drillers and blasters - surface mining, quarrying and construction",3,3,77861
+379,7373,Water well drillers,3,2,62886
+380,7381,Printing press operators,2,2,53048
+381,7384,"Other trades and related occupations, n.e.c.",3,3,61745
+382,7441,Residential and commercial installers and servicers,2,3,42857
+383,7442,Waterworks and gas maintenance workers,3,2,65802
+384,7444,Pest controllers and fumigators,3,1,50152
+385,7445,Other repairers and servicers,3,3,43210
+386,7451,Longshore workers,2,3,110113
+387,7452,Material handlers,2,1,45940
+388,7511,Transport truck drivers,2,3,57468
+389,7512,"Bus drivers, subway operators and other transit operators",3,1,61703
+390,7513,Taxi and limousine drivers and chauffeurs,2,1,22148
+391,7514,Delivery and courier service drivers,2,2,37810
+392,7521,Heavy equipment operators (except crane),3,3,72673
+393,7522,Public works maintenance equipment operators and related workers,2,3,62439
+394,7531,Railway yard and track maintenance workers,2,3,77402
+395,7532,Water transport deck and engine room crew,3,3,62593
+396,7533,Boat and cable ferry operators and related occupations,3,3,56190
+397,7534,Air transport ramp attendants,2,2,43250
+398,7535,Other automotive mechanical installers and servicers,2,3,41825
+399,7611,Construction trades helpers and labourers,2,1,40956
+400,7612,Other trades helpers and labourers,3,1,46570
+401,7621,Public works and maintenance labourers,2,2,60991
+402,7622,Railway and motor transport labourers,2,1,58575
+403,8211,"Supervisors, logging and forestry",3,3,92068
+404,8221,"Supervisors, mining and quarrying",3,4,132789
+405,8222,"Contractors and supervisors, oil and gas drilling and services",3,4,107738
+406,8231,Underground production and development miners,3,3,102543
+407,8232,"Oil and gas well drillers, servicers, testers and related workers",2,2,81278
+408,8241,Logging machinery operators,2,2,78008
+409,8252,"Agricultural service contractors, farm supervisors and specialized livestock workers",3,3,35909
+410,8255,"Contractors and supervisors, landscaping, grounds maintenance and horticulture services",2,3,43877
+411,8261,Fishing masters and officers,3,3,60051
+412,8262,Fishermen/women,2,3,24356
+413,8411,Underground mine service and support workers,3,1,91735
+414,8412,Oil and gas well drilling and related workers and services operators,3,2,104164
+415,8421,Chain saw and skidder operators,2,2,62647
+416,8422,Silviculture and forestry workers,3,3,67672
+417,8431,General farm workers,2,2,33001
+418,8432,Nursery and greenhouse workers,2,2,25954
+419,8441,Fishing vessel deckhands,2,3,56326
+420,8442,Trappers and hunters,1,3,0
+421,8611,Harvesting labourers,1,2,19274
+422,8612,Landscaping and grounds maintenance labourers,2,2,37664
+423,8613,Aquaculture and marine harvest labourers,2,2,37326
+424,8614,Mine labourers,2,1,81393
+425,8615,"Oil and gas drilling, servicing and related labourers",2,1,61453
+426,8616,Logging and forestry labourers,2,3,62805
+427,9211,"Supervisors, mineral and metal processing",3,4,83025
+428,9212,"Supervisors, petroleum, gas and chemical processing and utilities",3,4,86434
+429,9213,"Supervisors, food and beverage processing",3,4,59178
+430,9214,"Supervisors, plastic and rubber products manufacturing",2,4,53343
+431,9215,"Supervisors, forest products processing",2,4,94550
+432,9217,"Supervisors, textile, fabric, fur and leather products processing and manufacturing",2,4,59276
+433,9221,"Supervisors, motor vehicle assembling",2,4,69356
+434,9222,"Supervisors, electronics manufacturing",3,4,68985
+435,9223,"Supervisors, electrical products manufacturing",3,4,81937
+436,9224,"Supervisors, furniture and fixtures manufacturing",2,4,55911
+437,9226,"Supervisors, other mechanical and metal products manufacturing",3,4,72604
+438,9227,"Supervisors, other products manufacturing and assembly",3,4,59850
+439,9231,"Central control and process operators, mineral and metal processing",3,2,93706
+440,9232,"Central control and process operators, petroleum, gas and chemical processing",3,3,122664
+441,9235,"Pulping, papermaking and coating control operators",3,4,88368
+442,9241,Power engineers and power systems operators,3,3,91401
+443,9243,Water and waste treatment plant operators,3,3,69660
+444,9411,"Machine operators, mineral and metal processing",3,2,83693
+445,9412,Foundry workers,3,2,71839
+446,9413,Glass forming and finishing machine operators and glass cutters,2,2,36515
+447,9414,"Concrete, clay and stone forming operators",2,3,44182
+448,9415,"Inspectors and testers, mineral and metal processing",3,2,57180
+449,9416,Metalworking and forging machine operators,2,2,54578
+450,9417,Machining tool operators,3,2,54789
+451,9418,Other metal products machine operators,2,2,52852
+452,9421,Chemical plant machine operators,2,2,39211
+453,9422,Plastics processing machine operators,2,2,43224
+454,9423,Rubber processing machine operators and related workers,2,2,53148
+455,9431,Sawmill machine operators,2,2,66912
+456,9432,Pulp mill machine operators,3,2,92605
+457,9433,Papermaking and finishing machine operators,3,2,79603
+458,9434,Other wood processing machine operators,2,2,66611
+459,9435,Paper converting machine operators,2,2,52686
+460,9436,Lumber graders and other wood processing inspectors and graders,2,2,66910
+461,9437,Woodworking machine operators,2,2,44588
+462,9441,"Textile fibre and yarn, hide and pelt processing machine operators and workers",2,2,31082
+463,9442,"Weavers, knitters and other fabric making occupations",2,2,27684
+464,9445,"Fabric, fur and leather cutters",2,1,38408
+465,9446,Industrial sewing machine operators,2,2,30889
+466,9447,"Inspectors and graders, textile, fabric, fur and leather products manufacturing",3,2,32118
+467,9461,"Process control and machine operators, food and beverage processing",2,2,44788
+468,9462,"Industrial butchers and meat cutters, poultry preparers and related workers",2,2,44689
+469,9463,Fish and seafood plant workers,2,2,31928
+470,9465,"Testers and graders, food and beverage processing",4,2,46257
+471,9471,Plateless printing equipment operators,3,2,42722
+472,9472,"Camera, platemaking and other prepress occupations",3,3,45665
+473,9473,Binding and finishing machine operators,2,3,38058
+474,9474,Photographic and film processors,3,2,38582
+475,9521,Aircraft assemblers and aircraft assembly inspectors,3,3,65937
+476,9522,"Motor vehicle assemblers, inspectors and testers",2,3,43855
+477,9523,"Electronics assemblers, fabricators, inspectors and testers",3,2,40232
+478,9524,"Assemblers and inspectors, electrical appliance, apparatus and equipment manufacturing",3,3,41568
+479,9525,"Assemblers, fabricators and inspectors, industrial electrical motors and transformers",3,3,45284
+480,9526,Mechanical assemblers and inspectors,2,3,53173
+481,9527,"Machine operators and inspectors, electrical apparatus manufacturing",3,3,43411
+482,9531,Boat assemblers and inspectors,3,2,51054
+483,9532,Furniture and fixture assemblers and inspectors,2,2,36721
+484,9533,Other wood products assemblers and inspectors,2,2,46266
+485,9534,Furniture finishers and refinishers,2,3,37535
+486,9535,"Plastic products assemblers, finishers and inspectors",2,2,40520
+487,9536,"Industrial painters, coaters and metal finishing process operators",2,3,51271
+488,9537,"Other products assemblers, finishers and inspectors",2,2,39010
+489,9611,Labourers in mineral and metal processing,2,2,54160
+490,9612,Labourers in metal fabrication,2,2,48666
+491,9613,Labourers in chemical products processing and utilities,2,2,42270
+492,9614,"Labourers in wood, pulp and paper processing",2,2,65053
+493,9615,Labourers in rubber and plastic products manufacturing,2,2,40299
+494,9616,Labourers in textile processing,2,2,36321
+495,9617,Labourers in food and beverage processing,2,1,36773
+496,9618,Labourers in fish and seafood processing,1,2,29288
+497,9619,"Other labourers in processing, manufacturing and utilities",2,2,35438
