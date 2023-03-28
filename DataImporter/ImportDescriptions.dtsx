@@ -34,7 +34,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Projects\WorkBC SAO\DataImporter\DataFiles\ImportNocDescriptions.txt">
+          DTS:ConnectionString="E:\Releases\DataImporter\DataFiles\ImportNocDescriptions.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -76,7 +76,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=CA-L9H9PTT2\SQL2017;Initial Catalog=SearchAllOccupationsTool;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+          DTS:ConnectionString="Data Source=STUART\SQL2017;Initial Catalog=WorkBC_SAO_DEV;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -88,13 +88,13 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=CA-L9H9PTT2\SQL2017;Initial Catalog=LMO20192029_WorkBCEnterprise;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+          DTS:ConnectionString="Data Source=STUART\SQL2017;Initial Catalog=WorkBC_Enterprise_DEV;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Configurations>
     <DTS:Configuration
-      DTS:ConfigurationString="C:\Projects\WorkBC SAO\DataImporter\PackageExecution\DataImporter.dtsConfig"
+      DTS:ConfigurationString="E:\Releases\DataImporter\PackageExecution\DataImporter.dtsConfig"
       DTS:ConfigurationType="1"
       DTS:CreationName=""
       DTS:DTSID="{9D0830F6-B366-4498-AD99-ACD05AC712C9}"
@@ -108,7 +108,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="WorkingDirectory">
       <DTS:VariableValue
-        DTS:DataType="8">C:\Projects\WorkBC SAO\DataImporter\</DTS:VariableValue>
+        DTS:DataType="8">E:\Releases\DataImporter\</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
