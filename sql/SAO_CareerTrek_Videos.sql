@@ -14,9 +14,9 @@ INSERT INTO [dbo].[NOCVideos]
 		   ,((select ID from NOC where NOCCode = 7315), 'KfGd0MlS71E', 0) -- 169
 		   ,((select ID from NOC where NOCCode = 3132), 'zhCAWGHIZSM', 0) -- 170
 		   ,((select ID from NOC where NOCCode = 0423), 'lZU3XmxNgAc', 0) -- 171
-		   ,((select ID from NOC where NOCCode = 2152), 'GAPtyedPQAE', 0) -- 172
+		   ,((select ID from NOC where NOCCode = 2152), 'VgEZ7jSAah0', 0) -- 172
 		   ,((select ID from NOC where NOCCode = 9243), '7ZXRvtCZvZI', 0) -- 173
-		   ,((select ID from NOC where NOCCode = 3114), 'VM90uPJS1x4', 0) -- 174
+		   ,((select ID from NOC where NOCCode = 3114), 'mI2Swv-T610', 0) -- 174
 
 select count (*)
 from NOCVideos
