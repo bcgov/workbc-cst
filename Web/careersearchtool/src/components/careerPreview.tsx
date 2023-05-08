@@ -1,14 +1,15 @@
 import React, {FunctionComponent, useState, useEffect} from 'react'
 import {Button, Tooltip, Popover} from 'antd'
 import { LeftOutlined } from '@ant-design/icons'
+import YouTube from 'react-youtube';
+
 import { useFilterContext } from '../state/filterContext'
 import { OccupationSummary } from '../client/dataTypes'
 import { useGetOccupationSummary, useGetSystemConfigurations } from '../client/apiService'
-import YouTube from 'react-youtube';
 import useWindowSize from '../client/useWindowSize'
-import { format, getHeaderTitle, titleLength, removeTags} from '../client/filtersData'
-import MediaLinks from './mediaLinks'
+import { format, removeTags} from '../client/filtersData'
 import { MailIcon, PrinterIcon } from './customIcons'
+import MediaLinks from './mediaLinks'
 
 const WorkBCLogo = require('../images/workbc-header-logo.svg')
 
@@ -189,31 +190,23 @@ const CareerPreview: FunctionComponent = () => {
                     Career Preview
                 </div>
                 <div className="result-detail__header">
-                    {!isMobile() && getHeaderTitle(careerObj).length > titleLength &&  (
-                        <div>
-                            <Tooltip trigger={'hover'} 
-                                overlayClassName="result-detail__header-tooltip" 
-                                title={(<div>{careerObj.title} (NOC {careerObj.noc})</div>)} 
-                                placement="bottom">
-                                <div className="result-detail__header-details result-detail__header-details-ellipsis">
-                                    <b>{getHeaderTitle(careerObj)?.title}</b> {getHeaderTitle(careerObj)?.code}
-                                </div>
-                            </Tooltip>
-                            <div className="result-detail__header-details-print">
+                    <div>
+                        {isMobile() ? 
+                        (
+                            <div className="result-detail__header__details">
                                 <b>{careerObj.title}</b>  (NOC {careerObj.noc})
                             </div>
-                        </div>
-                    )}
-                    {!isMobile() && getHeaderTitle(careerObj)?.length <= titleLength  && (
-                        <div className="result-detail__header-details">
-                            <b>{getHeaderTitle(careerObj)?.title}</b> {getHeaderTitle(careerObj)?.code}
-                        </div>
-                    )}
-                    {isMobile() && (
-                        <div className="result-detail__header-details">
-                            <b>{careerObj.title}</b>  (NOC {careerObj.noc})
-                        </div>
-                    )}
+                        ) : (
+                            <Tooltip trigger={'hover'} 
+                                overlayClassName="result-detail__header__tooltip" 
+                                title={(<div>{careerObj.title} (NOC {careerObj.noc})</div>)} 
+                                placement="bottom">
+                                <div className="result-detail__header__details result-detail__header__details__ellipsis">
+                                    <b>{careerObj.title}</b> (NOC {careerObj.noc})
+                                </div>
+                            </Tooltip>
+                        )}
+                    </div>
                 </div>
                 <div  className="result-detail__thumbnail__preview">
                     {(careerObj.careertrekvideoids.length === 0) ? (<img src={profileImagesPath+getProfileImageName(careerObj.noc)} alt='career profile pic'/>)
@@ -229,7 +222,7 @@ const CareerPreview: FunctionComponent = () => {
                         <div className="result-body__row-right"><b>{careerObj.education.value}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
-                        <div className="result-body__row-left">Job openings <span>(2021-2031)</span></div>
+                        <div className="result-body__row-left">Job openings <span>(2022-2032)</span></div>
                         <div className="result-body__row-right"><b>{format(careerObj.jobOpenings)}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">

@@ -26,7 +26,16 @@ export const filtersPopOverVisible = {
 }
 
 export function format(value: number): string {
-    return value != undefined ? value.toLocaleString("en-ca") : '';
+    if (value != undefined) {
+        if (value < 0) {
+            value = 0;
+        }
+        return value.toLocaleString("en-ca");
+    }
+    else
+    {
+        return '';
+    }
 }
 
 export function getHeaderTitle(careerObj: OccupationSummary) {

@@ -313,7 +313,7 @@
         &--noc{
             font-family: @font-family;
         }
-        &-tooltip {
+        &__tooltip {
             font-size: 0.7rem;
             max-width: 20rem;
             .ant-tooltip-inner{
@@ -326,10 +326,18 @@
             .ant-tooltip-content {
                 border: 1px inset;
             }
-        }
-        &-details {
-            &-print {
+
+            &__hide {
                 display: none;
+            }
+        }
+        &__details {
+            &__ellipsis {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
             }
         }
     }
