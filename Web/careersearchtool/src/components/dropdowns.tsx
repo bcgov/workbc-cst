@@ -81,7 +81,7 @@ const Dropdowns: FunctionComponent = () => {
     },[]) 
 
     function getHoverContent(filtername: string) {
-        let link =""; 
+        let link ="";
         switch (filtername)  {
             case 'OccupationalInterest':
                 link = 'https://www.workbc.ca/plan-career/skills-future-workforce/characteristics#sideNavAnchorId_1';
