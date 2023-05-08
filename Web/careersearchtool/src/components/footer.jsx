@@ -39,7 +39,7 @@ function Footer() {
 		<>
 		<div className="tools-resources">
 			<div className="container">
-				<h1 className="tools-resources__header">Tools & Resources</h1>
+				<h1 className="tools-resources__header">Tools and Resources</h1>
 				<Row>
                 	<Col xs={24} xl={6}>
 						<div className="tools-resources-card">
@@ -47,10 +47,10 @@ function Footer() {
 								<i className="tools-resources-card__icon--compass">{compass}</i>
 							</div>
 							<a className="tools-resources-card__link" href="https://www.workbc.ca/careercompass" target="_blank" rel="noreferrer">
-								<h3 className="tools-resources-card__header compass">Career Compass</h3>
+								<h3 className="tools-resources-card__header compass">Career Discovery Quizzes</h3>
 							</a>
 							<div className="tools-resources-card__body">
-								Explore careers that fit you by taking one or more of three quizzes.
+							Take up to six career and personality quizzes to learn more about yourself and help find the careers that fit you best.
 							</div>
 						</div>
 					</Col>
@@ -89,7 +89,7 @@ function Footer() {
 								<h3 className="tools-resources-card__header">High Opportunity Occupations</h3>
 							</a>
 							<div className="tools-resources-card__body">
-								Discover occupations in B.C. that are expected to offer the best opportunities.
+								Discover occupations in B.C. that are expected to offer the best opportunities over the next 10 years.
 							</div>
 						</div>
 					</Col>
