@@ -84,8 +84,8 @@ const Dropdowns: FunctionComponent = () => {
         let link ="";
         switch (filtername)  {
             case 'OccupationalInterest':
-                link = 'https://www.workbc.ca/Labour-Market-Industry/Skills-for-the-Future-Workforce.aspx#characteristic';
-                return (<div>Careers based on <a onClick={() =>popoverClickAnalytics(link, 'Occupational Interest')} href="https://www.workbc.ca/Labour-Market-Industry/Skills-for-the-Future-Workforce.aspx#characteristics" className="filter-popover-link" target="_blank" rel="noreferrer">six interest types</a>.</div>)
+                link = 'https://www.workbc.ca/plan-career/skills-future-workforce/characteristics#sideNavAnchorId_1';
+                return (<div>Careers based on <a onClick={() =>popoverClickAnalytics(link, 'Occupational Interest')} href="https://www.workbc.ca/plan-career/skills-future-workforce/characteristics#sideNavAnchorId_1" className="filter-popover-link" target="_blank" rel="noreferrer">six interest types</a>.</div>)
             case 'OccupationalCategory': 
                 return (<div>Quick links to popular career groupings.</div>)
             case 'Keywords':
