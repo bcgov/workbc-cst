@@ -98,7 +98,8 @@ const FilterContextProvider: FunctionComponent = ({children}) => {
             sortOption === 'Z-A'? occupationList.sort((a: OccupationModel, b: OccupationModel ) => {return a.title > b.title ? -1 : 1 }): occupationList  
             /* selectedNoc will be updated to first item is 'High to Low' sorted list of filtered Occupational List on intial load 
              and on every 'apply' action and selcted Noc will be retained on sorting */
-             _setSelectedNoc(!!isFilterApplied || !!isReset? occupationList[0]?.noc : (!!selectedNoc? selectedNoc : occupationList[0]?.noc))
+             //_setSelectedNoc(!!isFilterApplied || !!isReset? occupationList[0]?.noc : (!!selectedNoc? selectedNoc : occupationList[0]?.noc))
+             _setSelectedNoc(occupationList[0]?.noc)
             
             dispatch({ type: 'set-filtered-occupation-list', payload: occupationList})
         } catch (error) {
