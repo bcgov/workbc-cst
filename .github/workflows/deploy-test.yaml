@@ -12,7 +12,7 @@ on:
 jobs:
   cd:
     name: cd
-    runs-on: ctt-cd-test
+    runs-on: cst-cd-test
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
@@ -24,7 +24,7 @@ jobs:
     - name: Download artifacts - frontend
       uses: dawidd6/action-download-artifact@v2
       with:
-        workflow: build.yml
+        workflow: build.yaml
         workflow_conclusion: success
         branch: master
         name: web
@@ -32,7 +32,7 @@ jobs:
     - name: Download artifacts - backend
       uses: dawidd6/action-download-artifact@v2
       with:
-        workflow: build.yml
+        workflow: build.yaml
         workflow_conclusion: success
         branch: master
         name: api

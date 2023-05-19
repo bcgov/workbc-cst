@@ -12,8 +12,8 @@ $content = Get-Content $pathToJson | ConvertFrom-Json
 $content.ConnectionStrings.Database = "Server=$dbServer;Database=$database;User Id=$dbUser;Password=$dbPwd"
 
 $content.ImageCarouselNOCConfigLocalPath = $filePath + "\BusinessConfiguration\ImageCarouselNOCs.txt"
-$content.SharedImagesProfilesLocalPath= $filePath + "\ProfileImages"
-$content.SharedImagesBackgroundsLocalPath= $filePath + "\BackgroundImages"
+#$content.SharedImagesProfilesLocalPath= $filePath + "\ProfileImages"
+#$content.SharedImagesBackgroundsLocalPath= $filePath + "\BackgroundImages"
 $content.SharedImagesProfilesBaseURL= $siteUrl + "/careersearchtool/profileimages/"
 $content.SharedImagesBackgroundsBaseURL= $siteUrl + "/careersearchtool/backgroundimages/"
 $content | ConvertTo-Json -depth 32| set-content $pathToJson

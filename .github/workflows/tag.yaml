@@ -7,7 +7,7 @@ on:
 jobs:
   main:
     name: main
-    runs-on: ctt-cd-test
+    runs-on: cst-cd-test
 
     steps:
     - name: check out repo
