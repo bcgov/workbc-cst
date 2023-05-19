@@ -1,0 +1,51 @@
+name: Deploy Prod
+
+on:
+  workflow_run:
+    workflows:
+      - Tag
+    branches:
+      - "v[0-9]+.[0-9]+-prod*"
+    types:
+      - completed
+
+jobs:
+  cd:
+    name: cd
+    strategy:
+      matrix:
+        os: [ctt-cd-prod1, ctt-cd-prod2]
+    runs-on: ${{ matrix.os }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.workflow_run.head_branch }}
+        
+    - name: Download artifacts - frontend
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        workflow: build.yml
+        workflow_conclusion: success
+        branch: master
+        name: web
+        path: downloads/web
+    - name: Download artifacts - backend
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        workflow: build.yml
+        workflow_conclusion: success
+        branch: master
+        name: api
+        path: downloads/api
+    - name: Display structure of downloaded files
+      run: ls -R
+#    - name: Script
+#      run: |
+#        powershell/StopAppPools.ps1 ${{ secrets.API_POOL_NAME }} ${{ secrets.WEB_POOL_NAME }}
+#        powershell/ClearPath.ps1 ${{secrets.APP_PATH}}
+#        powershell/DeployApp.ps1 ${{secrets.APP_PATH}}
+#        powershell/SetEnv.ps1 ${{secrets.APP_PATH}} ${{secrets.SHARED_RES_PATH}} ${{secrets.SITE_URL_PROD}} ${{secrets.DB_HOST_NAME_PROD}} ${{secrets.DB_NAME_PROD}} ${{secrets.DB_USER_PROD}} ${{secrets.DB_PWD_PROD}}
+#        powershell/StartAppPools.ps1 ${{ secrets.API_POOL_NAME }} ${{ secrets.WEB_POOL_NAME }}

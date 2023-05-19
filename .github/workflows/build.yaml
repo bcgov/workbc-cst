@@ -1,0 +1,52 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: CI
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: cst-ci
+
+    steps:
+    - uses: actions/checkout@v3
+#    - name: Setup .NET
+#      uses: actions/setup-dotnet@v3
+#      with:
+#        dotnet-version: 6.0.x
+    - name: Restore dependencies .NET
+      run: |
+        dotnet restore "${{github.workspace}}\API\API.csproj"
+        dotnet restore "${{github.workspace}}\UnitTests\UnitTests.csproj"
+    - name: Build .NET
+      run: |
+        dotnet build --no-restore "${{github.workspace}}\UnitTests\UnitTests.csproj"
+        dotnet build --no-restore "${{github.workspace}}\API\API.csproj"
+#    - name: Test .NET
+#      run: dotnet test --no-build --verbosity normal
+    - name: Publish .NET
+      run: dotnet publish "API\API.csproj" -o ./Publish -c Release --no-self-contained
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '12.16.1'
+    - run: npm install
+      working-directory: "Web/careersearchtool"
+    - run: powershell/CreateEnv.ps1 ${{github.workspace}}
+    - run: npm run build
+      working-directory: "Web/careersearchtool"
+#    - run: npm test
+    - name: Upload artifacts - frontend
+      uses: actions/upload-artifact@v3
+      with:
+        name: web
+        path: Web/careersearchtool/public/
+    - name: Upload artifacts - backend
+      uses: actions/upload-artifact@v3
+      with:
+        name: api
+        path: Publish/        

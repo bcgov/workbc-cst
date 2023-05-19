@@ -1,0 +1,48 @@
+name: Deploy Test
+
+on:
+  workflow_run:
+    workflows:
+      - Tag
+    branches:
+      - "v[0-9]+.[0-9]+-uat*"
+    types:
+      - completed
+
+jobs:
+  cd:
+    name: cd
+    runs-on: ctt-cd-test
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.workflow_run.head_branch }}
+        
+    - name: Download artifacts - frontend
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        workflow: build.yml
+        workflow_conclusion: success
+        branch: master
+        name: web
+        path: downloads/web
+    - name: Download artifacts - backend
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        workflow: build.yml
+        workflow_conclusion: success
+        branch: master
+        name: api
+        path: downloads/api
+    - name: Display structure of downloaded files
+      run: ls -R
+    - name: Script
+      run: |
+        powershell/StopAppPools.ps1 ${{ secrets.API_POOL_NAME }} ${{ secrets.WEB_POOL_NAME }}
+        powershell/ClearPath.ps1 ${{secrets.APP_PATH}}
+        powershell/DeployApp.ps1 ${{secrets.APP_PATH}}
+        powershell/SetEnv.ps1 ${{secrets.APP_PATH}} ${{secrets.SHARED_RES_PATH}} ${{secrets.SITE_URL_TEST}} ${{secrets.DB_HOST_NAME_DEV}} ${{secrets.DB_NAME_TEST}} ${{secrets.DB_USER_DEV}} ${{secrets.DB_PWD_DEV}}
+        powershell/StartAppPools.ps1 ${{ secrets.API_POOL_NAME }} ${{ secrets.WEB_POOL_NAME }}

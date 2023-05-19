@@ -1,0 +1,49 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: Deploy DEV
+
+on:
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
+
+jobs:
+  cd:
+    name: cd
+    runs-on: cst-cd-dev
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+    - name: check out repo
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.workflow_run.head_branch }}
+
+    - name: Download artifacts - frontend
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        workflow: build.yml
+        workflow_conclusion: success
+        branch: master
+        name: web
+        path: downloads/web
+    - name: Download artifacts - backend
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        workflow: build.yml
+        workflow_conclusion: success
+        branch: master
+        name: api
+        path: downloads/api
+    - name: Display structure of downloaded files
+      run: ls -R
+    - name: Script
+      run: |
+        powershell/StopAppPools.ps1 ${{ secrets.API_POOL_NAME }} ${{ secrets.WEB_POOL_NAME }}
+        powershell/ClearPath.ps1 ${{secrets.APP_PATH}}
+        powershell/DeployApp.ps1 ${{secrets.APP_PATH}}
+        powershell/SetEnv.ps1 ${{secrets.APP_PATH}} ${{secrets.SHARED_RES_PATH}} ${{secrets.SITE_URL_DEV}} ${{secrets.DB_HOST_NAME_DEV}} ${{secrets.DB_NAME_DEV}} ${{secrets.DB_USER_DEV}} ${{secrets.DB_PWD_DEV}}
+        powershell/StartAppPools.ps1 ${{ secrets.API_POOL_NAME }} ${{ secrets.WEB_POOL_NAME }}
