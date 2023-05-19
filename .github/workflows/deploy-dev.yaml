@@ -25,7 +25,7 @@ jobs:
     - name: Download artifacts - frontend
       uses: dawidd6/action-download-artifact@v2
       with:
-        workflow: build.yml
+        workflow: build.yaml
         workflow_conclusion: success
         branch: master
         name: web
@@ -33,7 +33,7 @@ jobs:
     - name: Download artifacts - backend
       uses: dawidd6/action-download-artifact@v2
       with:
-        workflow: build.yml
+        workflow: build.yaml
         workflow_conclusion: success
         branch: master
         name: api
