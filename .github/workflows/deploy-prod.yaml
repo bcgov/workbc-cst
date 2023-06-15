@@ -42,10 +42,10 @@ jobs:
         path: downloads/api
     - name: Display structure of downloaded files
       run: ls -R
-#    - name: Script
-#      run: |
-#        powershell/StopAppPools.ps1 ${{ secrets.API_POOL_NAME }} ${{ secrets.WEB_POOL_NAME }}
-#        powershell/ClearPath.ps1 ${{secrets.APP_PATH}}
-#        powershell/DeployApp.ps1 ${{secrets.APP_PATH}}
-#        powershell/SetEnv.ps1 ${{secrets.APP_PATH}} ${{secrets.SHARED_RES_PATH}} ${{secrets.SITE_URL_PROD}} ${{secrets.DB_HOST_NAME_PROD}} ${{secrets.DB_NAME_PROD}} ${{secrets.DB_USER_PROD}} ${{secrets.DB_PWD_PROD}}
-#        powershell/StartAppPools.ps1 ${{ secrets.API_POOL_NAME }} ${{ secrets.WEB_POOL_NAME }}
+    - name: Script
+      run: |
+        powershell/StopAppPools.ps1 ${{ secrets.API_POOL_NAME }} ${{ secrets.WEB_POOL_NAME }}
+        powershell/ClearPath.ps1 ${{secrets.APP_PATH}}
+        powershell/DeployApp.ps1 ${{secrets.APP_PATH}}
+        powershell/SetEnv.ps1 ${{secrets.APP_PATH}} ${{secrets.SHARED_RES_PATH}} ${{secrets.SITE_URL_PROD}} ${{secrets.DB_HOST_NAME_PROD}} ${{secrets.DB_NAME_PROD}} ${{secrets.DB_USER_PROD}} ${{secrets.DB_PWD_PROD}}
+        powershell/StartAppPools.ps1 ${{ secrets.API_POOL_NAME }} ${{ secrets.WEB_POOL_NAME }}
