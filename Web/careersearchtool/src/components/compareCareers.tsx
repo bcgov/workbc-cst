@@ -178,9 +178,6 @@ const CompareCareers: FunctionComponent = () => {
                                         <b>{getHeaderTitle(careerObj.careerDetail)?.title}</b> {getHeaderTitle(careerObj.careerDetail)?.code}
                                     </div>
                                 </Tooltip>
-                                <div className="result-detail__header-details-print">
-                                    <b>{careerObj.careerDetail?.title}</b>  (NOC {careerObj.careerDetail?.noc})
-                                </div>
                             </div>
                         )}
                     {getHeaderTitle(careerObj.careerDetail)?.length <= titleLength && !isMobile() && (
