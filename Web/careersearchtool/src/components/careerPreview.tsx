@@ -194,15 +194,15 @@ const CareerPreview: FunctionComponent = () => {
                         {isMobile() ? 
                         (
                             <div className="result-detail__header__details">
-                                <b>{careerObj.title}</b>  (NOC {careerObj.noc})
+                                <b>{careerObj.title}</b> X (NOC {careerObj.noc})
                             </div>
                         ) : (
                             <Tooltip trigger={'hover'} 
                                 overlayClassName="result-detail__header__tooltip" 
-                                title={(<div>{careerObj.title} (NOC {careerObj.noc})</div>)} 
+                                title={(<div>{careerObj.title} Y (NOC {careerObj.noc})</div>)} 
                                 placement="bottom">
                                 <div className="result-detail__header__details result-detail__header__details__ellipsis">
-                                    <b>{careerObj.title}</b> (NOC {careerObj.noc})
+                                    <b>{careerObj.title}</b> Z (NOC {careerObj.noc})
                                 </div>
                             </Tooltip>
                         )}
