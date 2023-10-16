@@ -96,22 +96,22 @@ const results: FunctionComponent = () => {
                             <div className="results-header__text">
                                { !isMobile() && !isFetchingOccupationList && filteredOccupationsList?.length !== 1 && (
                                    <span>
-                                       aDisplaying {filteredOccupationsList?.length} results.
+                                       Displaying {filteredOccupationsList?.length} results.
                                    </span>
                                )}
                                { !isMobile() && !isFetchingOccupationList && filteredOccupationsList?.length === 1 && (
                                    <span>
-                                       bDisplaying {filteredOccupationsList?.length} result.
+                                       Displaying {filteredOccupationsList?.length} result.
                                    </span>
                                )}
                                { !!isMobile() && !isFetchingOccupationList && filteredOccupationsList.length === 1 && (
                                    <span>
-                                       cDisplaying {listSize} result.
+                                       Displaying {listSize} result.
                                    </span>
                                )}
                                 { !!isMobile() && !isFetchingOccupationList && filteredOccupationsList.length === 0 && (
                                    <span>
-                                       dDisplaying {listSize} results.
+                                       Displaying {listSize} results.
                                    </span>
                                )}
                                { !!isMobile() && !isFetchingOccupationList && filteredOccupationsList.length > 1 && (
