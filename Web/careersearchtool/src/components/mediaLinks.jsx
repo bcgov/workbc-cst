@@ -69,7 +69,7 @@ function MediaLinks() {
                                 </a>
                             </div>					
                             <div>
-                                <span className="footer-copyright-year">Copyright 2021</span>
+                                <span className="footer-copyright-year">Copyright © 2023</span>
                                 <a href="https://www2.gov.bc.ca/gov/content/home/copyright" style={{textDecoration: 'underline'}} target="_blank" rel="noreferrer">Province of British Columbia. All rights reserved.</a>
                             </div>
                         </div>
