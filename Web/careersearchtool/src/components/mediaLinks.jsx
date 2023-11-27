@@ -12,10 +12,10 @@ function FooterIcons() {
 			</a>
 			{/* Facebook */}
 			<a href="https://www.facebook.com/WorkBC" target="_blank" rel="noreferrer">
-				<svg viewBox="0 0 36 36" focusable="false" className="footer-icon">
-					<path fill="#4D67A4" d="M36 18c0 9.94-8.06 18-18 18S0 27.94 0 18 8.06 0 18 0s18 8.06 18 18" />
+                <svg viewBox="0 0 40 40" focusable="false" className="footerIcon">
+                    <path fill="#0062E0" d="M16.7,39.8C7.2,38.1,0,29.9,0,20C0,9,9,0,20,0s20,9,20,20c0,9.9-7.2,18.1-16.7,19.8l-1.1-0.9h-4.4L16.7,39.8z" />
                     <path fill="#FFF" d="M27.8,25.6l0.9-5.6h-5.3v-3.9c0-1.6,0.6-2.8,3-2.8h2.6V8.2c-1.4-0.2-3-0.4-4.4-0.4c-4.6,0-7.8,2.8-7.8,7.8V20h-5v5.6h5v14.1c1.1,0.2,2.2,0.3,3.3,0.3c1.1,0,2.2-0.1,3.3-0.3V25.6H27.8z" />
-				</svg>
+                </svg>
 			</a>
 			{/* Youtube */}
 			<a href="https://www.youtube.com/user/WorkBC" target="_blank" rel="noreferrer">
