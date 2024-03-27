@@ -35,6 +35,7 @@ function FooterIcons() {
 
 function MediaLinks() {
     const handleFontResize = (size) => document?.getElementsByTagName('html')[0].setAttribute('data-font-size', size);
+    const year = new Date().getFullYear();
     return (
         <div>
             <footer className="footer">
@@ -65,9 +66,9 @@ function MediaLinks() {
                                 <a href="https://www2.gov.bc.ca" target="_blank" rel="noreferrer">
                                     <img className="footer__logo--img" src={BCLogo} alt="Work BC" />
                                 </a>
-                            </div>					
+                            </div>
                             <div>
-                                <span className="footer-copyright-year">Copyright &copy; 2023</span>
+                                <span className="footer-copyright-year">Copyright &copy; {year}</span>
                                 <a href="https://www2.gov.bc.ca/gov/content/home/copyright" style={{textDecoration: 'underline'}} target="_blank" rel="noreferrer">Province of British Columbia. All rights reserved.</a>
                             </div>
                         </div>
@@ -76,7 +77,7 @@ function MediaLinks() {
                 <div className="footer-content-print container">
                     WorkBC Career Search Tool <strong>www.workbc.ca/careersearchtool/</strong>
                 </div>
-            </footer>	
+            </footer>
         </div>
     )
 }
