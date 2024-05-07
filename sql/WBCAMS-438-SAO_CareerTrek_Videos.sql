@@ -1,5 +1,19 @@
 BEGIN TRANSACTION
 
+delete from NocVideos
+where CareerTrekVideoId in (
+     'k8klzO8Jaco' -- 175
+    ,'8oj2YxsdmQM' -- 176
+    ,'P_qh9m4lkcY' -- 177
+    ,'SmOXVn0NRjk' -- 178
+    ,'D6QlqkQu5mU' -- 179
+    ,'vtgOv5ap5IA' -- 180
+    ,'8OoS_PLEMm0' -- 181
+    ,'GYV76mxDL4Q' -- 182
+    ,'Itg5PS29BKU' -- 183
+    ,'Iphb6H8B9W4' -- 184
+    )
+
 select count (*)
 from NOCVideos
 
