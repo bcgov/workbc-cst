@@ -1,0 +1,10 @@
+SELECT * FROM [dbo].[NOC]
+SELECT * FROM [dbo].[NOCOccupationGroup]
+SELECT * FROM [dbo].[NOCOccupationInterest]
+SELECT * FROM [dbo].[NOCVideos]
+
+SELECT * FROM [dbo].[CommonJobTitle]
+SELECT * FROM [dbo].[EducationLevel]
+SELECT * FROM [dbo].[GeographicArea]
+SELECT * FROM [dbo].[Industry]
+SELECT * FROM [dbo].[JobOpening]
