@@ -16,7 +16,6 @@ WITH
 --Resetting NOC table's id column
 DBCC CHECKIDENT ('dbo.NOC', RESEED, 0);
 
-Select * from #TempNocs
 --Update NOC table from temp table
 INSERT INTO NOC(NOCCode, Description, JobOverviewSummary, EducationLevelId, JobBoardNOCCode) 
 Select noc_2021, label_en, definition_en, teer_level, noc_2021 from #TempNocs
