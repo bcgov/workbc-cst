@@ -1,7 +1,7 @@
 --Load file contents into a temp table
 Declare @JSON varchar(max)
 SELECT @JSON=BulkColumn
-FROM OPENROWSET (BULK 'C:\JB\workbc-cst\SSOT\ssot_nocs.json', SINGLE_CLOB) import
+FROM OPENROWSET (BULK 'C:\src_cst\SSOT\ssot_nocs.json', SINGLE_CLOB) import
 SELECT * Into #TempNocs
 FROM OPENJSON (@JSON)
 WITH 
