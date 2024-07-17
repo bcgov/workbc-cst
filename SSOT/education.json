@@ -1,0 +1,2563 @@
+{
+"select * from education": [
+	{
+		"noc" : "00010",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "00018",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "10010",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "10011",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "10012",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "10019",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "10020",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "10021",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "10022",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "10029",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "10030",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "11100",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "11101",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "11102",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "11103",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "11109",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "11200",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "11201",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "11202",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "12010",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "12011",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "12012",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "12013",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "12100",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "12101",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "12102",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "12103",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "12104",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "12110",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "12111",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "14112",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "12112",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "12113",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "12200",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "12201",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "12202",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "12203",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "13100",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "13101",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "13102",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "13110",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "13111",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "13112",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "13200",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "13201",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "14100",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "14101",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "14102",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "14103",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "14110",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "14111",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "40019",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "40020",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "14200",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "14201",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "14202",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "14300",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "14301",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "14400",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "14401",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "14402",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "14403",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "14404",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "14405",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "20010",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "20011",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "20012",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "21100",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21101",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21102",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21103",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21109",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21110",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21111",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21112",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21120",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21200",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21201",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21202",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21203",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21210",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21211",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21220",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21221",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21222",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21223",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21230",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21231",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "40021",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "21232",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21233",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21234",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21300",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21301",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21310",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21311",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21320",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21321",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21322",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21330",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21331",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21332",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21390",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "21399",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "22100",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22101",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22110",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22111",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22112",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22113",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22114",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22210",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22211",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "40030",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "40040",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "40041",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "22212",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22213",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22214",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22220",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22221",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22222",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22230",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22231",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22232",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22233",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22300",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22301",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22302",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22303",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22310",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22311",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "22312",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "40042",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "41100",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "22313",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "30010",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "31100",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31101",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31102",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31103",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31110",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31111",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31112",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31120",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31121",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31200",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31201",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31202",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31203",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31204",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31209",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31300",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31301",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31302",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "31303",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "32100",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32101",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32102",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32103",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32104",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32109",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32110",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32111",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32112",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32120",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32121",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32122",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32123",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32124",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32129",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32200",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32201",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "32209",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "33100",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "33101",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "33102",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "33103",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "33109",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "40010",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "40011",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "40012",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "41101",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41200",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41201",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41210",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41220",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41221",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41300",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41301",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41302",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41310",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41311",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41320",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41321",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41400",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41401",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41402",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41403",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41404",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41405",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41406",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41407",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "41409",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "42100",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "42101",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "42102",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "42200",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "42201",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "51121",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "42202",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "42203",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "42204",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "43100",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "43109",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "43200",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "43201",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "43202",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "43203",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "43204",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "44100",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "44101",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "44200",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "45100",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "50010",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "50011",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "50012",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "51100",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "51101",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "51102",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "51110",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "51111",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "51112",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "51113",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "51114",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "51120",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "95107",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "51122",
+		"teer" : 1,
+		"teer_description" : "Completion of a university degree (bachelor's, master's, or doctorate); or\nPrevious experience and expertise in subject matter knowledge from a related occupation found in TEER category 2 (when applicable)."
+	},
+	{
+		"noc" : "52100",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "52110",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "52111",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "52112",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "52113",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "52114",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "52119",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "52120",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "52121",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "53100",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "53110",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "53111",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "53120",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "53121",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "53122",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "53123",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "64321",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "95109",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "53124",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "53125",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "53200",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "53201",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "53202",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "54100",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "55109",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "60010",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "60020",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "60030",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "60031",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "60040",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "62010",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "62020",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "62021",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "62022",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "62023",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "62024",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "62029",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "62100",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "62101",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "62200",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "62201",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "62202",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "63100",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "63101",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "63102",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "63200",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "63201",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "63202",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "63210",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "63211",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "63220",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "63221",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "64100",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "64101",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "64200",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "64201",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "64300",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "64301",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "64310",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "64311",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "64312",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "64313",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "64314",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "64320",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "64322",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "64400",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "64401",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "64409",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "64410",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "65100",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "65101",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "65102",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "65109",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "65200",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "65201",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "65202",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "65210",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "65211",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "65220",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "65229",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "65310",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "65311",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "65312",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "65320",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "65329",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "70010",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "70011",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "70012",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "70020",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "70021",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "72010",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72011",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72012",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72013",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72014",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72020",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72021",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72022",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72023",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72024",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "94105",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "72025",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72100",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72101",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72102",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72103",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72104",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72105",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72106",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72200",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72201",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72202",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72203",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72204",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72205",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72300",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72301",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72302",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "94106",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "72310",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72311",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72320",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72321",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72400",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72401",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72402",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72403",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72404",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72405",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72406",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72410",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72411",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72420",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72421",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72422",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72423",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "94107",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "72429",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72500",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72501",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72600",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72601",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72602",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72603",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72604",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "72999",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "73100",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "73101",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "73102",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "73110",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "73111",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "73112",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "73113",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "73200",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "95105",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "95106",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "73201",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "73202",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "73209",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "73300",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "73301",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "73310",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "73311",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "73400",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "73401",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "73402",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "74100",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "74101",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "74102",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "74200",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "74201",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "74202",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "74203",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "74204",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "74205",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "75100",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "75101",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "75110",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "75119",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "75200",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "75201",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "75210",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "75211",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "75212",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "80010",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "80020",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "80021",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "80022",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "82010",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "82020",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "82021",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "82030",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "82031",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "83100",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "83101",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "83110",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "83120",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "83121",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "84100",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "84101",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "84110",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "84111",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "84120",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "84121",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "85100",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "85101",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "85102",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "85103",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "85104",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "85110",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "85111",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "85120",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "85121",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "90010",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "90011",
+		"teer" : 0,
+		"teer_description" : "Management responsibilities"
+	},
+	{
+		"noc" : "92010",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "92011",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "92012",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "92013",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "92014",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "92015",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "92020",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "92021",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "92022",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "92023",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "92024",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "92100",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "92101",
+		"teer" : 2,
+		"teer_description" : "Completion of a post-secondary education program of two to three years at community college, institute of technology, or CÉGEP; or\nCompletion of an apprenticeship training program of two to five years; or\nOccupations with supervisory or significant safety (e.g. police officers and firefighters) responsibilities; or\nSeveral years of experience in a related occupation from TEER category 3 (when applicable)."
+	},
+	{
+		"noc" : "93100",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "93101",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "93102",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "93200",
+		"teer" : 3,
+		"teer_description" : "Completion of a post-secondary education program of less than two years at community college, institute of technology or CÉGEP; or\nCompletion of an apprenticeship training program of less than two years; or\nMore than six months of on-the-job training, training courses or specific work experience with some secondary school education; or \nSeveral years of experience in a related occupation from TEER category 4 (when applicable)."
+	},
+	{
+		"noc" : "94100",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94101",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94102",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94103",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94104",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94110",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94111",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94112",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94120",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94121",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94122",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94123",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94124",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94129",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94130",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94131",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94132",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94133",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94140",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94141",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94142",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94143",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94150",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94151",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94152",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94153",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94200",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94201",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94202",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94203",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94204",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94205",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94210",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94211",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94212",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94213",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "94219",
+		"teer" : 4,
+		"teer_description" : "Completion of secondary school; or\nSeveral weeks of on-the-job training with some secondary school education; or\nExperience in a related occupation from TEER category 5 (when applicable)."
+	},
+	{
+		"noc" : "95100",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "95101",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "95102",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "95103",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	},
+	{
+		"noc" : "95104",
+		"teer" : 5,
+		"teer_description" : "Short work demonstration and no formal educational requirements"
+	}
+]}
