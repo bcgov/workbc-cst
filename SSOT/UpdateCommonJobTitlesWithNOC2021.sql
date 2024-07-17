@@ -7,7 +7,7 @@ FROM OPENJSON (@JSON)
 WITH 
 (
     [noctitle] varchar(10), 
-	[commonjobtitle] varchar(500)
+    [commonjobtitle] varchar(500)
 )
 
 --Resetting the id column of CommonJobTitles table
