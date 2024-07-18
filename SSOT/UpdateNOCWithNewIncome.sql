@@ -16,8 +16,8 @@ ALTER TABLE #TempSalary ADD part_full_time_id int
 
 Update #TempSalary
   Set part_full_time_id = case
-                  when #TempSalary.part_full_time = 'Higher chance of part-time' then 1
-				  when #TempSalary.part_full_time = 'Higher chance of full-time' then 2
+                  when #TempSalary.part_full_time = 'Higher chance of part-time' then 11
+				  when #TempSalary.part_full_time = 'Higher chance of full-time' then 12
 				  else null
   End
 
@@ -26,18 +26,8 @@ Update #TempSalary SET calculated_median_annual_salary = CAST((ROUND(CAST (calcu
 From #TempSalary
 
 --Update new income and FullOrPartTimeId in NOC table from temp table
-DECLARE @Counter INT , @MaxId INT
-SELECT @Counter = min(Id) , @MaxId = max(Id) 
-FROM NOC
-
-WHILE(@Counter IS NOT NULL
-      AND @Counter <= @MaxId)
-BEGIN
-   Update NOC SET MedianSalary = #TempSalary.calculated_median_annual_salary, FullOrPartTimeId =#TempSalary.part_full_time_id
-   FROM #TempSalary WHERE NOC.NOCCode = #TempSalary.noc_2021 
-
-   SET @Counter  = @Counter  + 1        
-END
+Update NOC SET MedianSalary = #TempSalary.calculated_median_annual_salary, FullOrPartTimeId =#TempSalary.part_full_time_id
+FROM #TempSalary WHERE NOC.NOCCode = #TempSalary.noc_2021 
 
 --Drop temp table
 Drop table #TempSalary
