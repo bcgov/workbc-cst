@@ -10,13 +10,13 @@ WITH
     [commonjobtitle] varchar(500)
 )
 
---Resetting the id column of CommonJobTitles table
-DBCC CHECKIDENT ('dbo.CommonJobTitle', RESEED, 0);
-
 --Insert data into CommonJobTitles table from temp table.
-Insert into CommonJobTitle (NOCId, JobTitle)
-Select noctitle, commonjobtitle
-From #TempTitles
+Update CommonJobTitle
+Set JobTitle = t.commonjobtitle
+From #TempTitles t JOIN NOC n
+ON t.noctitle = n.NOCCode
+JOIN CommonJobTitle c
+ON c.NOCId = n.Id
 
 --Delete temp table
 Drop table #TempTitles
