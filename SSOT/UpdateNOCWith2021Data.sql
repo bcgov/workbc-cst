@@ -6,20 +6,25 @@ SELECT * Into #TempNocs
 FROM OPENJSON (@JSON)
 WITH 
 (
-    [noc_2021] varchar(10), 
+    [noc_2021] varchar(255), 
     [label_en] varchar(max),
 	[definition_en] varchar(max),
 	[teer_level] int,
-	[noc_level] int
+	[noc_level] int,
+	[noc_2016] varchar(255)
 )
 
---Resetting NOC table's id column
-DBCC CHECKIDENT ('dbo.NOC', RESEED, 0);
 
---Update NOC table from temp table
-INSERT INTO NOC(NOCCode, Description, JobOverviewSummary, EducationLevelId, JobBoardNOCCode) 
-Select noc_2021, label_en, definition_en, teer_level, noc_2021 from #TempNocs
-where noc_level = 5;
+--Update NOC table with NOCCode2021 values from temp table
+Update NOC Set JobBoardNOCCode = noc_2021 
+From #TempNocs t
+where t.noc_2016 LIKE CONCAT('%', NOC.NOCCode , '%')
+
+--Update NOC table with Description,JobOverviewSummary, EducationLevelId from temp table
+Update NOC
+Set NOCCode = noc_2021 , Description = label_en, JobOverviewSummary = definition_en, EducationLevelId = teer_level
+from #TempNocs
+where JobBoardNOCCode = noc_2021
 
 --Drop temp table
 Drop table #TempNocs
