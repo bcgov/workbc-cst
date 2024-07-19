@@ -8,9 +8,9 @@ WITH
 (
     [noc_2021] varchar(10), 
     [job_openings] varchar(255),
-	[region] varchar(255),
-	[industry_agg] varchar(255),
-	[industry_sub] varchar(255)
+    [region] varchar(255),
+    [industry_agg] varchar(255),
+    [industry_sub] varchar(255)
 )
 
 Alter table #TempGroups
