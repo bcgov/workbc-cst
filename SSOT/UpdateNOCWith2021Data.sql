@@ -8,10 +8,10 @@ WITH
 (
     [noc_2021] varchar(255), 
     [label_en] varchar(max),
-	[definition_en] varchar(max),
-	[teer_level] int,
-	[noc_level] int,
-	[noc_2016] varchar(255)
+    [definition_en] varchar(max),
+    [teer_level] int,
+    [noc_level] int,
+    [noc_2016] varchar(255)
 )
 
 
