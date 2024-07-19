@@ -21,6 +21,11 @@ Alter table #TempGroups
 Add OccRegId int; 
 
 Update #TempGroups
+Set NOCCodeId = n.Id
+From #TempGroups t JOIN NOC n
+ON t.noc = n.NOCCode
+
+Update #TempGroups
 Set OccGroupId = g.Id
 From #TempGroups t JOIN OccupationGroup g
 ON t.occupational_category = g.Value
