@@ -10,7 +10,7 @@ WITH
     [commonjobtitle] varchar(500)
 )
 
---Insert data into CommonJobTitles table from temp table.
+--Update data in CommonJobTitles table from temp table.
 Update CommonJobTitle
 Set JobTitle = t.commonjobtitle
 From #TempTitles t JOIN NOC n
