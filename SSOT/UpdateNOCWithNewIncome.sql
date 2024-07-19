@@ -16,9 +16,9 @@ ALTER TABLE #TempSalary ADD part_full_time_id int
 
 Update #TempSalary
   Set part_full_time_id = case
-                  when #TempSalary.part_full_time = 'Higher chance of part-time' then 11
-				  when #TempSalary.part_full_time = 'Higher chance of full-time' then 12
-				  else null
+  when #TempSalary.part_full_time = 'Higher chance of part-time' then 11
+  when #TempSalary.part_full_time = 'Higher chance of full-time' then 12
+  else null
   End
 
 ---Update #TempSalary with income as int
