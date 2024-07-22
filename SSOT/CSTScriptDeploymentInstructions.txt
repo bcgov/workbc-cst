@@ -1,0 +1,35 @@
+1. Take a backup of WorkBC_CareerSearchTool database.
+2. Download all the files from https://github.com/bcgov/workbc-cst/tree/master/SSOT.
+3. Copy all the above files into the following folder path (create the folder structure if not present): C:\src_cst\SSOT
+4. Connect to WorkBC_CareerSearchTool database.
+5. Run the SQL scripts in the sequence provided below:
+	1)DeleteFKNOC.sql
+	2)UpdateEducationLevel.sql
+	3)UpdateNOC2021.sql
+	4)UpdateNOCWithNewIncome.sql
+	5)UpdateIndustries.sql
+	6)UpdateGeographicalArea.sql
+	7)UpdateCommonJobTitle.sql
+	8)UpdateOccupationGroup.sql
+	9)UpdateNOCOccupationGroup.sql
+	10)UpdateJobOpening.sql	
+	11)UpdateOccupationalInterest.sql
+	12)UpdateNOCOccupationalInterest.sql
+	13)UpdateNOCVideos.sql
+	14)AddFKNOC.sql	
+
+6. Share results by running the following queries:
+	1)SELECT * FROM [dbo].[NOC]
+	2)SELECT * FROM [dbo].[NOCOccupationGroup]
+	3)SELECT * FROM [dbo].[NOCOccupationInterest]
+	4)SELECT * FROM [dbo].[NOCVideos]
+	5)SELECT * FROM [dbo].[CommonJobTitle]
+	6)SELECT * FROM [dbo].[EducationLevel]
+	7)SELECT * FROM [dbo].[FullOrPartTime]
+	8)SELECT * FROM [dbo].[GeographicArea]
+	9)SELECT * FROM [dbo].[Industry]
+	10)SELECT * FROM [dbo].[SubIndustry]
+	11)SELECT * FROM [dbo].[JobOpening]
+	12)SELECT * FROM [dbo].[OccupationalInterest]
+	13)SELECT * FROM [dbo].[OccupationInterestOption]
+	14)SELECT * FROM [dbo].[OccupationGroup]
