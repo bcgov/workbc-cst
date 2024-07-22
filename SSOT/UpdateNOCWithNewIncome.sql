@@ -8,7 +8,7 @@ WITH
 (
     [noc_2021] varchar(10), 
     [calculated_median_annual_salary] varchar(255),
-	[part_full_time] varchar(255)
+    [part_full_time] varchar(255)
 )
 
 --Add a column to parse the FullOrPartTimeId int value from the varchar data.
