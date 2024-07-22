@@ -8,7 +8,7 @@ WITH
 (
     [noc] varchar(10), 
     [options] varchar(255),
-	[occupational_interest] varchar(255)
+    [occupational_interest] varchar(255)
 )
 
 Alter table #TempGroups
