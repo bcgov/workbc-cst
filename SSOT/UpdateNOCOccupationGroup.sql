@@ -8,7 +8,7 @@ WITH
 (
     [noc] varchar(10), 
     [occupational_category] varchar(255),
-	[region] varchar(255)
+    [region] varchar(255)
 )
 
 Alter table #TempGroups
