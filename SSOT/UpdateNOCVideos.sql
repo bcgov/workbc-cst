@@ -1,28 +1,38 @@
+--Load file contents into a temp table
+Declare @JSON varchar(max)
+SELECT @JSON=BulkColumn
+FROM OPENROWSET (BULK 'C:\src_cst\SSOT\ssot_career_trek_videos.json', SINGLE_CLOB) import
+SELECT * Into #TempVideos
+FROM OPENJSON (@JSON)
+WITH 
+(
+    [noc_2021] varchar(10), 
+    [youtube_link] varchar(max)
+)
 
--- Add the FK back to the tables
-ALTER TABLE [dbo].[NOC] WITH CHECK ADD CONSTRAINT [PK_NOC] PRIMARY KEY CLUSTERED ([Id])
-GO
+Alter table #TempVideos
+Add NOCCodeId varchar(10);
 
-ALTER TABLE [dbo].[JobOpening]  WITH CHECK ADD CONSTRAINT [FK_JobOpening_NOC] FOREIGN KEY([NOCId])
-REFERENCES [dbo].[NOC] ([Id])
-GO
+Alter table #TempVideos
+Add VideoId varchar(max); 
 
-ALTER TABLE [dbo].[CommonJobTitle]  WITH CHECK ADD CONSTRAINT [FK_CommonJobTitle_NOC] FOREIGN KEY([NOCId])
-REFERENCES [dbo].[NOC] ([Id])
-GO
+Update #TempVideos
+Set NOCCodeId = n.Id
+From #TempVideos t JOIN NOC n
+ON t.noc_2021 = n.NOCCode
 
-ALTER TABLE [dbo].[NOC]  WITH CHECK ADD CONSTRAINT [FK_NOC_EducationLevel] FOREIGN KEY([EducationLevelId])
-REFERENCES [dbo].[EducationLevel] ([Id])
-GO
+--Select characters after / including /
+Update #TempVideos
+Set VideoId = RIGHT(youtube_link,charindex('/',reverse(youtube_link),1)-1)
+From #TempVideos
 
-ALTER TABLE [dbo].[NOCOccupationInterest]  WITH CHECK ADD CONSTRAINT [FK_NOCOccupationInterest_NOC] FOREIGN KEY([NOCId])
-REFERENCES [dbo].[NOC] ([Id])
-GO
+--Update NOCId in NOCVideos table based on VideoId.
+Update NOCVideos
+Set NOCId =  NOCCodeId from #TempVideos
+where CareerTrekVideoID = VideoId
 
-ALTER TABLE [dbo].[NOCOccupationGroup]  WITH CHECK ADD CONSTRAINT [FK_NOCOccupationGroup_NOC] FOREIGN KEY([NOCId])
-REFERENCES [dbo].[NOC] ([Id])
-GO
+--Delete temp table
+Drop table #TempVideos
 
-ALTER TABLE [dbo].[NOCVideos]  WITH CHECK ADD  CONSTRAINT [FK_NOCVideos_NOC] FOREIGN KEY([NOCId])
-REFERENCES [dbo].[NOC] ([Id])
-GO
+--Check results
+Select * from NOCVideos
