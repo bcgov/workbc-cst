@@ -28,7 +28,7 @@ From #TempVideos
 
 --Update NOCId in NOCVideos table based on VideoId.
 Update NOCVideos
-Set NOCId =  noc_2021 from #TempVideos
+Set NOCId =  NOCCodeId from #TempVideos
 where CareerTrekVideoID = VideoId
 
 --Delete temp table
