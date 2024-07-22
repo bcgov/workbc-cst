@@ -8,9 +8,9 @@ WITH
 (
     [noc_2021] varchar(255), 
     [label_en] varchar(max),
-	[definition_en] varchar(max),
-	[teer_level] int,
-	[noc_level] int
+    [definition_en] varchar(max),
+    [teer_level] int,
+    [noc_level] int
 )
 
 --Resetting NOC table's id column
