@@ -1,0 +1,3392 @@
+[
+  {
+    "noc": "00010",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "10010",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "10011",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "10012",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "10019",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "10020",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "10021",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "10022",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "10029",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "10030",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "11100",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "11100",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "11101",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "11101",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "11101",
+    "options": "Tertiary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "11102",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "11102",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "11103",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "11109",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "11109",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "11200",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "11200",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "11201",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "11201",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "11202",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "12010",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "12010",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "12011",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "12011",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "12012",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "12012",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "12013",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "12100",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "12101",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "12102",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "12102",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "12103",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "12104",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "12104",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "12110",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "12111",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "12112",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "12113",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "12200",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "12201",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "12202",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "12203",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "12203",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "13100",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "13100",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "13101",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "13102",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "13110",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "13111",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "13112",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "13200",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "13201",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "13201",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14100",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14101",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14102",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14103",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14103",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "14110",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14111",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14112",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "14112",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14112",
+    "options": "Tertiary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "14200",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14201",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14202",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14202",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "14300",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14301",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14400",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14401",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14402",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14403",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14404",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "14405",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "20010",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "20011",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "20011",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "20012",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "21100",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21101",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21102",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21103",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21109",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21109",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "21110",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21111",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "21111",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21112",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "21112",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21112",
+    "options": "Tertiary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "21120",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "21120",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21200",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "21201",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "21201",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21202",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21203",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "21203",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "21203",
+    "options": "Tertiary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21210",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21211",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21211",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "21220",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21220",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "21221",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21221",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "21222",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21222",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "21223",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21223",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "21230",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21231",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21232",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21233",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21233",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "21234",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21234",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "21234",
+    "options": "Tertiary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "21300",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21300",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "21301",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21301",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "21310",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21310",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "21311",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "21311",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21320",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21320",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "21321",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21321",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "21322",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21322",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "21330",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21330",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "21331",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21331",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "21332",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21390",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21399",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "21399",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22100",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22100",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "22101",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22101",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "22101",
+    "options": "Tertiary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "22110",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22110",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "22111",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22112",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22113",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22114",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22210",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22210",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "22211",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "22212",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22213",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "22214",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "22214",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22214",
+    "options": "Tertiary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "22220",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "22220",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "22220",
+    "options": "Tertiary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22221",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22221",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "22221",
+    "options": "Tertiary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "22222",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "22222",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "22230",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22231",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "22232",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "22232",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "22232",
+    "options": "Tertiary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "22233",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "22300",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22300",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "22301",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22302",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22302",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "22302",
+    "options": "Tertiary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "22303",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "22303",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "22310",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22311",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22312",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "22312",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "22313",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "30010",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "31100",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "31101",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "31102",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "31102",
+    "options": "Secondary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "31103",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "31110",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "31110",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "31111",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "31111",
+    "options": "Secondary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "31111",
+    "options": "Tertiary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "31112",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "31112",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "31120",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "31121",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "31121",
+    "options": "Secondary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "31200",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "31201",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "31201",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "31201",
+    "options": "Tertiary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "31202",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "31203",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "31204",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "31209",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "31209",
+    "options": "Secondary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "31300",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "31301",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "31302",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "31302",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "31303",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "31303",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "32100",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "32100",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "32101",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "32101",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "32102",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "32103",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "32103",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "32104",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "32109",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "32109",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "32109",
+    "options": "Tertiary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "32110",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "32111",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "32111",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "32112",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "32120",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "32120",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "32121",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "32122",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "32122",
+    "options": "Secondary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "32122",
+    "options": "Tertiary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "32123",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "32123",
+    "options": "Secondary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "32123",
+    "options": "Tertiary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "32124",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "32124",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "32129",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "32129",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "32200",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "32201",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "32201",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "32209",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "33100",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "33100",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "33101",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "33101",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "33101",
+    "options": "Tertiary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "33102",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "33102",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "33103",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "33103",
+    "options": "Secondary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "33103",
+    "options": "Tertiary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "33109",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "33109",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "33109",
+    "options": "Tertiary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "40010",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "40011",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "40012",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "40019",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "40020",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "40021",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "40030",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "40030",
+    "options": "Secondary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "40040",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "40041",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "40041",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "40042",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "41100",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "41101",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "41200",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "41201",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "41201",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "41210",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "41220",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "41221",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "41300",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "41301",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "41302",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "41310",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "41310",
+    "options": "Secondary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "41311",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "41320",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "41321",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "41400",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "41400",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "41400",
+    "options": "Tertiary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "41401",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "41402",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "41402",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "41403",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "41404",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "41404",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "41405",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "41406",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "41407",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "41409",
+    "options": "Primary",
+    "occupational_interest": "Investigative"
+  },
+  {
+    "noc": "42100",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "42100",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "42100",
+    "options": "Tertiary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "42101",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "42200",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "42200",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "42201",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "42201",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "42202",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "42203",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "42204",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "42204",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "43100",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "43109",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "43109",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "43200",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "43200",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "43200",
+    "options": "Tertiary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "43201",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "43201",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "43202",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "43203",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "43203",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "44100",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "44101",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "45100",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "45100",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "45100",
+    "options": "Tertiary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "50010",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "50011",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "50012",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "51100",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "51101",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "51101",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "51101",
+    "options": "Tertiary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "51102",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "51110",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "51110",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "51111",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "51112",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "51113",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "51114",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "51114",
+    "options": "Secondary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "51120",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "51120",
+    "options": "Secondary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "51121",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "51122",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "52100",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "52110",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "52110",
+    "options": "Secondary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "52111",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "52111",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "52112",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "52113",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "52114",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "52119",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "52119",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "52120",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "52121",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "53100",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "53100",
+    "options": "Secondary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "53100",
+    "options": "Tertiary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "53110",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "53111",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "53111",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "53120",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "53121",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "53122",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "53123",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "53124",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "53125",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "53125",
+    "options": "Secondary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "53200",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "53201",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "53201",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "53201",
+    "options": "Tertiary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "53202",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "53202",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "54100",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "55109",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "55109",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "60010",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "60020",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "60030",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "60031",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "60040",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "62010",
+    "options": "Primary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "62010",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "62020",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "62020",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "62021",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "62022",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "62023",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "62023",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "62024",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "62029",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "62100",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "62101",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "62101",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "62200",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "62201",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "62202",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "63100",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "63101",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "63102",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "63200",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "63201",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "63202",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "63210",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "63210",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "63210",
+    "options": "Tertiary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "63211",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "63211",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "63211",
+    "options": "Tertiary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "63220",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "63221",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "64100",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "64100",
+    "options": "Secondary",
+    "occupational_interest": "Artistic"
+  },
+  {
+    "noc": "64100",
+    "options": "Tertiary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "64101",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "64101",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "64200",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "64201",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "64201",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "64300",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "64301",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "64301",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "64310",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "64311",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "64312",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "64313",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "64314",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "64314",
+    "options": "Secondary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "64314",
+    "options": "Tertiary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "64320",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "64320",
+    "options": "Secondary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "64321",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "64322",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "64322",
+    "options": "Secondary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "64400",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "64401",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "64409",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "64410",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "64410",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "64410",
+    "options": "Tertiary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "65100",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "65101",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "65102",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "65109",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "65200",
+    "options": "Primary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "65201",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "65202",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "65210",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "65211",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "65220",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "65310",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "65310",
+    "options": "Secondary",
+    "occupational_interest": "Social"
+  },
+  {
+    "noc": "65311",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "65312",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "65320",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "65329",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "65329",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "65329",
+    "options": "Tertiary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "70010",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "70011",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "70012",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "70020",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "70021",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "72010",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "72011",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "72012",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "72013",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "72014",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "72020",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "72021",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "72022",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "72023",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "72024",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "72024",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "72025",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "72025",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "72100",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72101",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72102",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72103",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72104",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72105",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72106",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72200",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72201",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72202",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72203",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72204",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72205",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72300",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72301",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72302",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72310",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72311",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72320",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72321",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72400",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72401",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72402",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72403",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72404",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72405",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72406",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72410",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72411",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72420",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72421",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72422",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72423",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72429",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72500",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72501",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72600",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72601",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "72601",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "72602",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72602",
+    "options": "Secondary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "72603",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "72604",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "72999",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73100",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73101",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73102",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73110",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73111",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73112",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73113",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73200",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73201",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73202",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73209",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73300",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73301",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73310",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73311",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73400",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73401",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "73402",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "74100",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "74101",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "74101",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "74102",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "74200",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "74201",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "74202",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "74203",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "74204",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "74205",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "75100",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "75101",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "75110",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "75119",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "75200",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "75201",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "75210",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "75211",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "75212",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "80010",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "80020",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "80021",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "80021",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "80022",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "80022",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "82010",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "82010",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "82020",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "82021",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "82030",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "82031",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "83100",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "83101",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "83110",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "83120",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "83121",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "84100",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "84101",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "84110",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "84111",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "84120",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "84121",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "85100",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "85101",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "85102",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "85103",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "85104",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "85110",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "85111",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "85121",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "90010",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "90010",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "90011",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "92010",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "92011",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "92012",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "92013",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "92014",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "92015",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "92020",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "92021",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "92022",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "92023",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "92024",
+    "options": "Primary",
+    "occupational_interest": "Enterprising"
+  },
+  {
+    "noc": "92100",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "92101",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "93100",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "93101",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "93102",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "93200",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94100",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94101",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94102",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94103",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94104",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "94104",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94105",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94106",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94107",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94110",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94111",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94112",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94120",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94121",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94122",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94123",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94123",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "94124",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94129",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94130",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94131",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94132",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94133",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "94133",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94140",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94141",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94142",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94143",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94143",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "94150",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94151",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "94151",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94152",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94153",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "94200",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94201",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94202",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94203",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94204",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94205",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94210",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94211",
+    "options": "Primary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "94211",
+    "options": "Secondary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94212",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94212",
+    "options": "Secondary",
+    "occupational_interest": "Conventional"
+  },
+  {
+    "noc": "94213",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "94219",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "95100",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "95101",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "95102",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "95103",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "95104",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "95105",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "95106",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "95107",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  },
+  {
+    "noc": "95109",
+    "options": "Primary",
+    "occupational_interest": "Realistic"
+  }
+]
