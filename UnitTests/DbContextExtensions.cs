@@ -1,4 +1,4 @@
-﻿using SearchAllOccupationsToolAPI.DbContexts;
+using SearchAllOccupationsToolAPI.DbContexts;
 using SearchAllOccupationsToolAPI.Models;
 
 namespace SearchAllOccupationsToolAPITests
@@ -11,21 +11,29 @@ namespace SearchAllOccupationsToolAPITests
             dbContext.EducationLevels.AddRange(new EducationLevel
             {
                 Id = 1,
-                Value = "Less than High School"
+                Value = "University Degree"
             }, new EducationLevel
             {
                 Id = 2,
-                Value = "High School"
+                Value = "College Diploma or Apprenticeship, 2 or more years"
             }, new EducationLevel
             {
                 Id = 3,
-                Value = "Diploma/Certificate"
+                Value = "College Diploma or Apprenticeship, less than 2 years"
             }, new EducationLevel
             {
                 Id = 4,
-                Value = "Degree"
+                Value = "High School Diploma"
+            }, new EducationLevel
+            {
+                Id = 5,
+                Value = "No Formal Education"
+            },new EducationLevel
+            {
+                Id = 6,
+                Value = "Management"
             });
-
+            
             dbContext.SaveChanges();
         }
 
@@ -35,9 +43,9 @@ namespace SearchAllOccupationsToolAPITests
             dbContext.Occupations.AddRange(new Occupation[] {
                  new Occupation() {
                     Id = 1,
-                    NOC = "0011",
+                    NOC = "00010",
                     Title = "Legislators",
-                    Income = "59,545",
+                    Income = "76000",
                 }
             });
 
