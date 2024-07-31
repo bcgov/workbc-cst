@@ -10,10 +10,6 @@ namespace SearchAllOccupationsToolAPITests
             // Add entities for DbContext instance
             dbContext.EducationLevels.AddRange(new EducationLevel
             {
-                Id = 0,
-                Value = "Management"
-            }, new EducationLevel
-            {
                 Id = 1,
                 Value = "University Degree"
             }, new EducationLevel
@@ -32,8 +28,12 @@ namespace SearchAllOccupationsToolAPITests
             {
                 Id = 5,
                 Value = "No Formal Education"
+            },new EducationLevel
+            {
+                Id = 6,
+                Value = "Management"
             });
-
+            
             dbContext.SaveChanges();
         }
 
