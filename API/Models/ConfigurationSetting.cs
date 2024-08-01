@@ -1,4 +1,4 @@
-﻿namespace SearchAllOccupationsToolAPI.Models
+namespace SearchAllOccupationsToolAPI.Models
 {
     public enum ConfigurationSetting
     {
@@ -12,6 +12,9 @@
         
         CareerTrekVideoBaseUrl = 5,
         
-        ImageCarouselNOCs = 6
+        ImageCarouselNOCs = 6,
+
+        JobOpeningsDateRange = 7
+
     }
 }
