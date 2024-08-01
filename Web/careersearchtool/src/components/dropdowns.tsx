@@ -340,7 +340,7 @@ function applyFilters() {
                         </Col>
                         <Col xs={24} xl={5}> 
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label">Education</label>
+                                <label className="sao-filters__label">Training, Education, Experience and Responsibilities</label>
                                 <SelectFilterType  
                                     filterType={FilterType.education}
                                     showArrow={true}

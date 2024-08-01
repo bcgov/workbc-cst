@@ -4,7 +4,7 @@ import { CheckboxChangeEvent } from 'antd/lib/checkbox/Checkbox'
 import { useFilterContext } from '../state/filterContext'
 import { OccupationModel } from 'client/dataTypes'
 import { FilterOptionModel, FilterOccupationParams, IndustryTypeModel } from '../client/dataTypes'
-import { useGetOccupationsList } from '../client/apiService'
+import { useGetOccupationsList, useGetSystemConfigurations } from '../client/apiService'
 import { defaultFilterParams } from '../state/filterReducer'
 import useWindowSize from '../client/useWindowSize'
 import { format } from '../client/filtersData'
@@ -13,12 +13,13 @@ const ResultsTable: FunctionComponent = () => {
     const { filterOption, filteredOccupationsList, isReset, checkedNocs, sortOption, selectedNoc, windowScroll,
         listSize, isFetchingOccupationList, scrollPosition, setSortOption, setSelectedNoc, setWindowScroll,
         setFilteredOccupationsList, setCheckedNocs, setView, setListSize, setFetchingOccupationList, setReset } = useFilterContext()
-
+    const [viewJobOpenings, setViewJobOpenings] = useState<string>()
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const [nameSortVisible, setNameSortVisible] = useState<boolean>(false)
     const [jobsSortVisible, setJobsSortVisible] = useState<boolean>(false)
     const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
-
+    const { data: JOData, isValidating: isFetchingJO, isSettled: isJOFetched } = useGetSystemConfigurations({ name: "JobOpeningsDateRange" })
+    
     const [extraSelection, setExtraSelection] = useState<string>()
     const [width] = useWindowSize()
     
@@ -61,7 +62,13 @@ const ResultsTable: FunctionComponent = () => {
             setFetchingOccupationList(true)
         }
     }, [occupationsList, isSettled, isValidating])
-
+    
+    useEffect(() => {
+        if (!isFetchingJO && isJOFetched && JOData) {
+            setViewJobOpenings(JOData.value)
+        }
+    }, [isFetchingJO, isJOFetched, JOData])
+    
     useEffect(() => {
         let tempList = [...filteredOccupationsList]      
 
@@ -220,7 +227,7 @@ const ResultsTable: FunctionComponent = () => {
         },
         {
             title: (<div className="table-header"> 
-                <div className="table-header__title"> Job openings <span>System.Configuration.ConfigurationSettings.AppSettings["JobOpeningsDateRange"]</span> </div>
+                <div className="table-header__title"><a text={viewJobOpenings}></a></div>
                 <Popover placement="bottomRight" title={title} content={jobContent} overlayClassName="sort-options__popover-inner" 
                 className="sort-options__popover" trigger="click" visible={jobsSortVisible} onVisibleChange={handleJobsSortVisible}>
                     <span className="table-header__icon" style={{marginLeft: '15px'}}> <DownSortIcon /></span>

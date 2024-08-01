@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using Microsoft.Extensions.Configuration;
 using SearchAllOccupationsToolAPI.Extensions;
 using SearchAllOccupationsToolAPI.Models;
@@ -36,6 +36,9 @@ namespace SearchAllOccupationsToolAPI.Repositories
 
                 case ConfigurationSetting.ImageCarouselNOCs:
                     return GetImageCarouselNOCs(setting, "ImageCarouselNOCConfigLocalPath");
+
+                case ConfigurationSetting.JobOpeningsDateRange:
+                    return GetConfigurationSetting(setting, "JobOpeningsDateRange");
 
                 default:
                     return new Configuration
