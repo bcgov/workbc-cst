@@ -20,12 +20,10 @@ const CareerPreview: FunctionComponent = () => {
     const [profileImagesPath, setProfileImagesPath] = useState<string>()
     const [careerProfileUrl, setCareerProfileUrl] = useState<string>()
     const [viewJobsUrl, setViewJobsUrl] = useState<string>()
-    const [viewJobOpenings, setViewJobOpenings] = useState<string>()
 
     const { data: piPathData, isValidating: isFetchingPIPath, isSettled: isPiPathFetched } = useGetSystemConfigurations({ name: "ProfileImagesPath" })
     const { data: CPUrlData, isValidating: isFetchingCPUrl, isSettled: isCPUrlFetched } = useGetSystemConfigurations({ name: "CareerProfileBaseUrl" })
     const { data: JOUrlData, isValidating: isFetchingJOUrl, isSettled: isJOUrlFetched } = useGetSystemConfigurations({ name: "JobOpeningsBaseUrl" })
-    const { data: JOData, isValidating: isFetchingJO, isSettled: isJOFetched } = useGetSystemConfigurations({ name: "JobOpeningsDateRange" })
     const [width] = useWindowSize()
     const[emailParams, setEmailParams] = useState('')
 
@@ -68,12 +66,6 @@ const CareerPreview: FunctionComponent = () => {
             setViewJobsUrl(JOUrlData.value)
         }
     }, [isFetchingJOUrl, isJOUrlFetched, JOUrlData])
-
-    useEffect(() => {
-        if (!isFetchingJO && isJOFetched && JOData) {
-            setViewJobOpenings(JOData.value)
-        }
-    }, [isFetchingJO, isJOFetched, JOData])
 
     function getProfileImageName(noc: string): string {
         return noc + "-NOC-" + "profile.png"
@@ -230,7 +222,7 @@ const CareerPreview: FunctionComponent = () => {
                         <div className="result-body__row-right"><b>{careerObj.education.value}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
-                        <div className="result-body__row-left"><a text={viewJobOpenings}></a></div>
+                        <div className="result-body__row-left">Job openings <span>(2023-2033)</span></div>
                         <div className="result-body__row-right"><b>{format(careerObj.jobOpenings)}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
