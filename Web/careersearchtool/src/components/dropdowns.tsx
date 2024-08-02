@@ -312,18 +312,18 @@ function applyFilters() {
             <Header />
             <div className="sao-filters-header">
                 <div className="container">
-                    <Row><Col span={24}>
+                    <Row><Col span={30}>
                         <div className="sao-filters-header__content"><span>Find a career that's right for you.</span></div>
                     </Col></Row>
                 </div>
             </div>
             <div className="sao-filters">
                 <div className="container">
-                    <Row className="sao-filters__help"><Col span={24}>
+                    <Row className="sao-filters__help"><Col span={30}>
                         <h3>Use the filters below to view career options.</h3>    
                     </Col></Row>
                     <Row className="sao-filters__row">
-                        <Col xs={24} xl={6}>
+                        <Col xs={30} xl={5}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Region</label>
                                 <SelectFilterType  
@@ -338,7 +338,7 @@ function applyFilters() {
                                     tabIndex={1} />
                             </div>
                         </Col>
-                        <Col xs={24} xl={5}> 
+                        <Col xs={30} xl={12}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Training, Education, Experience and Responsibilities</label>
                                 <SelectFilterType  
@@ -353,7 +353,7 @@ function applyFilters() {
                                     tabIndex={2} />
                             </div>
                         </Col>
-                        <Col xs={24} xl={5}> 
+                        <Col xs={30} xl={5}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Occupational interest 
                                     <Popover placement="top" overlayClassName="sao-filters__popover-inner"
@@ -377,7 +377,7 @@ function applyFilters() {
                                     tabIndex={3} />
                             </div>
                         </Col>
-                        <Col xs={24} xl={8}>
+                        <Col xs={30} xl={8}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Industry</label>
                                     <TreeSelect
@@ -399,7 +399,7 @@ function applyFilters() {
                         </Col>
                     </Row>
                     <Row className="sao-filters__row">
-                        <Col xs={24} xl={6}>
+                        <Col xs={30} xl={6}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Occupational category 
                                     <Popover placement="top" overlayClassName="sao-filters__popover-inner" 
@@ -423,7 +423,7 @@ function applyFilters() {
                                     tabIndex={5} />
                             </div>
                         </Col>
-                        <Col xs={24} xl={5}> 
+                        <Col xs={30} xl={5}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Part-time/full-time</label>
 
@@ -439,7 +439,7 @@ function applyFilters() {
                                     tabIndex={6} />
                             </div>
                         </Col>
-                        <Col xs={24} xl={5}> 
+                        <Col xs={30} xl={5}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Salary</label>
                                 <SelectFilterType  
@@ -454,7 +454,7 @@ function applyFilters() {
                                     tabIndex={7} />
                             </div>
                         </Col>
-                        <Col xs={24} xl={8}>
+                        <Col xs={30} xl={8}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Keyword(s) or NOC
                                     <Popover placement="top" overlayClassName="sao-filters__popover-inner" 
@@ -475,7 +475,7 @@ function applyFilters() {
                         </Col>
                     </Row>
                     <Row className="sao-filters__filter-buttons">
-                        <Col xs={24} xl={{span:8, offset:16}}> 
+                        <Col xs={30} xl={{span:8, offset:16}}> 
                             <div className="sao-filters__button-layout">
                                 <div className="sao-filters__button sao-filters__button--apply" id='apply-filters' onClick={applyFilters} onKeyDown={handleSpacebar} tabIndex={9}>
                                     Apply Filter(s)
