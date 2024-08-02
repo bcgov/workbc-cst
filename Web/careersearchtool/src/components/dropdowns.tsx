@@ -323,7 +323,7 @@ function applyFilters() {
                         <h3>Use the filters below to view career options.</h3>    
                     </Col></Row>
                     <Row className="sao-filters__row">
-                        <Col xs={24} xl={4}>
+                        <Col xs={24} xl={6}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Region</label>
                                 <SelectFilterType  
@@ -338,7 +338,7 @@ function applyFilters() {
                                     tabIndex={1} />
                             </div>
                         </Col>
-                        <Col xs={24} xl={10}> 
+                        <Col xs={24} xl={8}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Training, Education, Experience and Responsibilities</label>
                                 <SelectFilterType  
@@ -353,7 +353,7 @@ function applyFilters() {
                                     tabIndex={2} />
                             </div>
                         </Col>
-                        <Col xs={24} xl={4}> 
+                        <Col xs={24} xl={6}> 
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Occupational interest 
                                     <Popover placement="top" overlayClassName="sao-filters__popover-inner"
@@ -377,7 +377,7 @@ function applyFilters() {
                                     tabIndex={3} />
                             </div>
                         </Col>
-                        <Col xs={24} xl={6}>
+                        <Col xs={24} xl={4}>
                             <div className="sao-filters__type">
                                 <label className="sao-filters__label">Industry</label>
                                     <TreeSelect
