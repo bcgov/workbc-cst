@@ -218,7 +218,7 @@ const CareerPreview: FunctionComponent = () => {
                         <div className="result-body__row-right"><b>{careerObj.income}</b></div>
                     </div>
                     <div className="result-body__row">
-                        <div className="result-body__row-left">Training, Education, Experience and Responsibilities level</div>
+                        <div className="result-body__row-left">Training, Education, Experience and Responsibilities</div>
                         <div className="result-body__row-right"><b>{careerObj.education.value}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
