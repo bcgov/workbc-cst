@@ -52,5 +52,5 @@ export function getHeaderTitle(careerObj: OccupationSummary) {
 }
 
 export function removeTags(str) : Text {
-   return {display_text: str.slice(0, 250), remaining_text: str.slice(250, str.length)}
+   return {display_text: str.slice(0, 400), remaining_text: str.slice(400, str.length)}
 }
