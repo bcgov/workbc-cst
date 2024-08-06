@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -115,11 +115,11 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 {
                     Id = o.Id,
                     NOC = o.NocCode,
-                    JobBoardNOC = o.JobBoardNocCode ?? o.NocCode, // Return 2006 Job Board NOC if it is set
+                    JobBoardNOC = o.JobBoardNocCode ?? o.NocCode, // Return 2021 Job Board NOC if it is set
                     Title = o.Description,
                     Education = o.EducationLevel,
                     Description = o.JobOverviewSummary,
-                    Income = o.MedianSalary.HasValue && o.MedianSalary.Value > 0 ? o.MedianSalary.Value.ToString("C0") : "Data not available",
+                    Income = o.MedianSalary.HasValue && o.MedianSalary.Value > 0 ? o.MedianSalary.Value.ToString("C0") : "Not available",
                     JobOpenings = o.JobOpenings
                         .Where(jo => jo.GeographicArea.Id == bcGeographicAreaId)
                         .Where(jo => jo.Industry.Id == allIndustriesId)
