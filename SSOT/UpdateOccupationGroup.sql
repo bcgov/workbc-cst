@@ -17,17 +17,21 @@ END
 
 Update [dbo].[OccupationGroup]           
 Set Value = 'Construction trades'
-where Value = 'Trades – construction'
+where Value = 'Trades â€“ construction'
 
 Update [dbo].[OccupationGroup]           
 Set Value = 'Non-construction trades'
-where Value = 'Trades – non-construction'
+where Value = 'Trades â€“ non-construction'
 
 Update [dbo].[OccupationGroup]           
 Set Value = 'STEM'
 where Value = 'STEM occupations'
 
+Delete from [dbo].[OccupationGroup]
+where value = 'Health occupations'
+
+Delete from [dbo].[OccupationGroup]
+where value = 'Technicians and technologists'
+
 --Check results
 Select * from OccupationGroup
-
-
