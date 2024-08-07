@@ -34,7 +34,7 @@ export function format(value: number): string {
     }
     else
     {
-        return '';
+        return 'Not available';
     }
 }
 
