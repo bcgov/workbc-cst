@@ -4,7 +4,7 @@ DBCC CHECKIDENT ('dbo.[OccupationGroup]', RESEED, 0);
 INSERT INTO [dbo].[OccupationGroup]
            ([Value])
 VALUES
-       ('All'),
+       	   ('All'),
  	   ('Care economy'),
 	   ('Construction trades'),
 	   ('High opportunity occupations'),
