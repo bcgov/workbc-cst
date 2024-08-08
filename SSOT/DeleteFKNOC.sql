@@ -28,7 +28,7 @@ delete from NOC
 delete from CommonJobTitle
 delete from EducationLevel
 delete from NOCOccupationGroup
+delete from OccupationGroup
 delete from JobOpening
 delete from OccupationalInterest
 delete from NOCOccupationInterest
-

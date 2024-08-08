@@ -11,6 +11,10 @@ WITH
     [region] varchar(255)
 )
 
+Update #TempGroups
+SET region = 'All'
+where region = 'British Columbia'
+
 Alter table #TempGroups
 Add NOCCodeId varchar(10);
 

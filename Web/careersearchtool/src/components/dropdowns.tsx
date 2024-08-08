@@ -325,17 +325,22 @@ function applyFilters() {
                     <Row className="sao-filters__row">
                         <Col xs={24} xl={6}>
                             <div className="sao-filters__type">
-                                <label className="sao-filters__label">Region</label>
-                                <SelectFilterType  
-                                    filterType={FilterType.region}
+                                <label className="sao-filters__label">Industry</label>
+                                <TreeSelect
+                                    placeholder="All"
+                                    defaultValue={'All'}
                                     showArrow={true}
-                                    style={{ width: '100%' }}
                                     className="sao-filters__select"
-                                    value = {userSelection?.region?.value}
-                                    onChange = {handleChangeRegion}
-                                    showPlaceHolderAsOption={false}
-                                    placeholder={"All"} 
-                                    tabIndex={1} />
+                                    dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+                                    treeData={isSettled ? industryDataTree : undefined}
+                                    onChange={handleChangeIndustry}
+                                    onDropdownVisibleChange={handleOpenDropdown}
+                                    treeExpandedKeys={openNodes}
+                                    onTreeExpand={handleExpandNode}
+                                    onFocus={handleFocus}
+                                    value={userSelection?.industry?.id}
+                                    style={{ width: '100%' }}
+                                    tabIndex={4} />
                             </div>
                         </Col>
                         <Col xs={24} xl={10}> 
@@ -351,6 +356,21 @@ function applyFilters() {
                                     showPlaceHolderAsOption={true}
                                     placeholder={"All"}
                                     tabIndex={2} />
+                            </div>
+                        </Col>
+                        <Col xs={24} xl={4}>
+                            <div className="sao-filters__type">
+                                <label className="sao-filters__label">Salary</label>
+                                <SelectFilterType
+                                    filterType={FilterType.annual_salary}
+                                    style={{ width: '100%' }}
+                                    showArrow={true}
+                                    className="sao-filters__select"
+                                    value={userSelection?.annual_salary?.value}
+                                    onChange={handleChangeAnnualSalary}
+                                    showPlaceHolderAsOption={true}
+                                    placeholder={"All"}
+                                    tabIndex={7} />
                             </div>
                         </Col>
                         <Col xs={24} xl={4}> 
@@ -375,26 +395,6 @@ function applyFilters() {
                                     showPlaceHolderAsOption={true}
                                     placeholder={"All"}
                                     tabIndex={3} />
-                            </div>
-                        </Col>
-                        <Col xs={24} xl={4}>
-                            <div className="sao-filters__type">
-                                <label className="sao-filters__label">Industry</label>
-                                    <TreeSelect
-                                        placeholder="All"
-                                        defaultValue={'All'}
-                                        showArrow={true}
-                                        className="sao-filters__select"
-                                        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-                                        treeData={isSettled? industryDataTree: undefined}
-                                        onChange={handleChangeIndustry}
-                                        onDropdownVisibleChange	= {handleOpenDropdown}
-                                        treeExpandedKeys={openNodes}
-                                        onTreeExpand = {handleExpandNode}
-                                        onFocus = {handleFocus}
-                                        value={userSelection?.industry?.id}
-                                        style={{width: '100%'}}
-                                        tabIndex={4} />
                             </div>
                         </Col>
                     </Row>
@@ -425,6 +425,21 @@ function applyFilters() {
                         </Col>
                         <Col xs={24} xl={5}> 
                             <div className="sao-filters__type">
+                                <label className="sao-filters__label">Region</label>
+                                <SelectFilterType
+                                    filterType={FilterType.region}
+                                    showArrow={true}
+                                    style={{ width: '100%' }}
+                                    className="sao-filters__select"
+                                    value={userSelection?.region?.value}
+                                    onChange={handleChangeRegion}
+                                    showPlaceHolderAsOption={false}
+                                    placeholder={"All"}
+                                    tabIndex={1} />
+                            </div>
+                        </Col>
+                        <Col xs={24} xl={5}> 
+                            <div className="sao-filters__type">
                                 <label className="sao-filters__label">Part-time/full-time</label>
 
                                 <SelectFilterType
@@ -437,21 +452,6 @@ function applyFilters() {
                                     showPlaceHolderAsOption={true}
                                     placeholder={"All"}
                                     tabIndex={6} />
-                            </div>
-                        </Col>
-                        <Col xs={24} xl={5}> 
-                            <div className="sao-filters__type">
-                                <label className="sao-filters__label">Salary</label>
-                                <SelectFilterType  
-                                    filterType={FilterType.annual_salary}
-                                    style={{ width: '100%' }}
-                                    showArrow={true}
-                                    className="sao-filters__select"
-                                    value = {userSelection?.annual_salary?.value}
-                                    onChange = {handleChangeAnnualSalary}
-                                    showPlaceHolderAsOption={true}
-                                    placeholder={"All"} 
-                                    tabIndex={7} />
                             </div>
                         </Col>
                         <Col xs={24} xl={8}>

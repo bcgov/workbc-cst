@@ -1,37 +1,18 @@
---Update OccupationGroup tables.
-IF NOT EXISTS (Select * from dbo.OccupationGroup where Value = 'All')
-BEGIN
-	INSERT INTO [dbo].[OccupationGroup]
+--Resetting OccupationGroup table's id column
+DBCC CHECKIDENT ('dbo.[OccupationGroup]', RESEED, 0);
+--Insert new Education Levels as per the values provided.
+INSERT INTO [dbo].[OccupationGroup]
            ([Value])
-	VALUES
-           ('All')
-END
+VALUES
+       	   ('All'),
+ 	   ('Care economy'),
+	   ('Construction trades'),
+	   ('High opportunity occupations'),
+	   ('Management occupations'),
+	   ('Non-construction trades'),
+	   ('Non-management occupations'),
+	   ('STEM')
+GO
 
-IF NOT EXISTS (Select * from dbo.OccupationGroup where Value = 'Care economy')
-BEGIN
-	INSERT INTO [dbo].[OccupationGroup]
-           ([Value])
-	VALUES
-           ('Care economy')
-END
-
-Update [dbo].[OccupationGroup]           
-Set Value = 'Construction trades'
-where Value = 'Trades – construction'
-
-Update [dbo].[OccupationGroup]           
-Set Value = 'Non-construction trades'
-where Value = 'Trades – non-construction'
-
-Update [dbo].[OccupationGroup]           
-Set Value = 'STEM'
-where Value = 'STEM occupations'
-
-Delete from [dbo].[OccupationGroup]
-where value = 'Health occupations'
-
-Delete from [dbo].[OccupationGroup]
-where value = 'Technicians and technologists'
-
---Check results
-Select * from OccupationGroup
+----Check results-----
+Select * from dbo.[OccupationGroup]
