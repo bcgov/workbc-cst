@@ -32,5 +32,4 @@
 	11)SELECT * FROM [dbo].[JobOpening]
 	12)SELECT * FROM [dbo].[OccupationalInterest]
 	13)SELECT * FROM [dbo].[OccupationInterestOption]
-	14)SELECT * FROM [dbo].[OccupationGroup]
-	15)Check the Primary Key and Foreign keys in the tables.
+	14)SELECT * FROM [dbo].[OccupationGroup]	
