@@ -26,3 +26,8 @@ GO
 ALTER TABLE [dbo].[NOCVideos]  WITH CHECK ADD  CONSTRAINT [FK_NOCVideos_NOC] FOREIGN KEY([NOCId])
 REFERENCES [dbo].[NOC] ([Id])
 GO
+
+
+ALTER TABLE [dbo].[NOCOccupationInterest]  WITH CHECK ADD CONSTRAINT [FK_NOCOccupationInterest_OccupationalInterest] FOREIGN KEY([OccupationInterestId])
+REFERENCES [dbo].[OccupationalInterest] ([Id])
+GO
