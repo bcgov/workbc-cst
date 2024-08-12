@@ -196,7 +196,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
                     continue;
                 
                 if (b > 0)
-                    nocItems.Add(b.ToString("D4"));
+                    nocItems.Add(b.ToString("D5"));
             }
 
             return nocItems
