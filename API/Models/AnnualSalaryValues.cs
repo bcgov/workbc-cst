@@ -7,16 +7,16 @@ namespace SearchAllOccupationsToolAPI.Models
         [Description("Less than $40,000")]
         LessThan40 = 1,
 
-        [Description("$40,000 – $59,999")]
+        [Description("$40,000 – $60,000")]
         Between40And60 = 2,
 
-        [Description("$60,000 – $79,999")]
+        [Description("$60,000 – $80,000")]
         Between60And80 = 3,
 
-        [Description("$80,000 – $99,999")]
+        [Description("$80,000 – $100,00")]
         Between80And100 = 4,
 
-        [Description("$100,000 – 119,999")]
+        [Description("$100,000 – $120,000")]
         Between100And120 = 5,
 
         [Description("$120,000 – $140,000")]
