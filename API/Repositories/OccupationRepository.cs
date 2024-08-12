@@ -52,7 +52,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
             if (filter.FullTimeOrPartTimeId > 0)
                 occupations = occupations.Where(o => o.Noc.FullOrPartTime.Id == filter.FullTimeOrPartTimeId);
 
-            if (filter.AnnualSalaryId > 0) 
+            if (filter.AnnualSalaryId > 0)
                 occupations = FilterAnnualSalary(filter, occupations);
 
             if (filter.GeographicAreaId > 0)
@@ -82,7 +82,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
             if (filter.OccupationalGroupId > 0)
             {
                 occupations = occupations.Where(o => o.Noc.OccupationalGroups
-                    .Any(og => og.OccupationalGroup.Id == filter.OccupationalGroupId 
+                    .Any(og => og.OccupationalGroup.Id == filter.OccupationalGroupId
                                && og.GeographicArea.Id == filter.GeographicAreaId));
             }
 
@@ -115,11 +115,11 @@ namespace SearchAllOccupationsToolAPI.Repositories
                 {
                     Id = o.Id,
                     NOC = o.NocCode,
-                    JobBoardNOC = o.JobBoardNocCode ?? o.NocCode, // Return 2021 Job Board NOC if it is set
+                    JobBoardNOC = o.JobBoardNocCode ?? o.NocCode, // Return 2006 Job Board NOC if it is set
                     Title = o.Description,
                     Education = o.EducationLevel,
                     Description = o.JobOverviewSummary,
-                    Income = o.MedianSalary.HasValue && o.MedianSalary.Value > 0 ? o.MedianSalary.Value.ToString("C0") : "Not available",
+                    Income = o.MedianSalary.HasValue && o.MedianSalary.Value > 0 ? o.MedianSalary.Value.ToString("C0") : "Data not available",
                     JobOpenings = o.JobOpenings
                         .Where(jo => jo.GeographicArea.Id == bcGeographicAreaId)
                         .Where(jo => jo.Industry.Id == allIndustriesId)
@@ -136,7 +136,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
 
             return nocList;
         }
-        
+
         private static IQueryable<JobOpening> FilterAnnualSalary(OccupationSearchFilter filter, IQueryable<JobOpening> occupations)
         {
             if (filter.AnnualSalaryId == null)
@@ -145,17 +145,14 @@ namespace SearchAllOccupationsToolAPI.Repositories
             var salaryChoice = (AnnualSalaryValues)filter.AnnualSalaryId;
             switch (salaryChoice)
             {
-                case AnnualSalaryValues.LessThan20:
-                    occupations = occupations.Where(o => o.Noc.MedianSalary < 20000);
-                    break;
-                case AnnualSalaryValues.Between20And40:
-                    occupations = occupations.Where(o => o.Noc.MedianSalary >= 20000 && o.Noc.MedianSalary < 40000);
+                case AnnualSalaryValues.LessThan40:
+                    occupations = occupations.Where(o => o.Noc.MedianSalary < 40000);
                     break;
                 case AnnualSalaryValues.Between40And60:
-                    occupations = occupations.Where(o => o.Noc.MedianSalary >= 40000 && o.Noc.MedianSalary < 60000);
+                    occupations = occupations.Where(o => o.Noc.MedianSalary >= 40000 && o.Noc.MedianSalary < 59000);
                     break;
                 case AnnualSalaryValues.Between60And80:
-                    occupations = occupations.Where(o => o.Noc.MedianSalary >= 60000 && o.Noc.MedianSalary < 80000);
+                    occupations = occupations.Where(o => o.Noc.MedianSalary >= 60000 && o.Noc.MedianSalary < 79000);
                     break;
                 case AnnualSalaryValues.Between80And100:
                     occupations = occupations.Where(o => o.Noc.MedianSalary >= 80000 && o.Noc.MedianSalary < 100000);
@@ -195,9 +192,9 @@ namespace SearchAllOccupationsToolAPI.Repositories
             // Check each NOC is a number, but put the 0 padded number back in the list
             foreach (var item in parts)
             {
-                if (!int.TryParse(item, out var b)) 
+                if (!int.TryParse(item, out var b))
                     continue;
-                
+
                 if (b > 0)
                     nocItems.Add(b.ToString("D4"));
             }
