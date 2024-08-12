@@ -146,7 +146,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
             switch (salaryChoice)
             {
                 case AnnualSalaryValues.LessThan40:
-                    occupations = occupations.Where(o => o.Noc.MedianSalary < 40000);
+                    occupations = occupations.Where(o => o.Noc.MedianSalary > 0 && o.Noc.MedianSalary < 40000);
                     break;
                 case AnnualSalaryValues.Between40And60:
                     occupations = occupations.Where(o => o.Noc.MedianSalary >= 40000 && o.Noc.MedianSalary < 59000);
