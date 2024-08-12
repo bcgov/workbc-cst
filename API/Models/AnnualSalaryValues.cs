@@ -1,31 +1,28 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 
 namespace SearchAllOccupationsToolAPI.Models
 {
     public enum AnnualSalaryValues
     {
-        [Description("Less than $20,000")]
-        LessThan20 = 1,
-
-        [Description("$20,000 – $40,000")]
-        Between20And40 = 2,
+        [Description("Less than $40,000")]
+        LessThan40 = 1,
 
         [Description("$40,000 – $60,000")]
-        Between40And60 = 3,
+        Between40And60 = 2,
 
         [Description("$60,000 – $80,000")]
-        Between60And80 = 4,
+        Between60And80 = 3,
 
-        [Description("$80,000 – $100,000")]
-        Between80And100 = 5,
+        [Description("$80,000 – $100,00")]
+        Between80And100 = 4,
 
         [Description("$100,000 – $120,000")]
-        Between100And120 = 6,
+        Between100And120 = 5,
 
         [Description("$120,000 – $140,000")]
-        Between120And140 = 7,
+        Between120And140 = 6,
 
         [Description("Over $140,000")]
-        Over140 = 8,
+        Over140 = 7,
     }
 }

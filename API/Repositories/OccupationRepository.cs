@@ -145,11 +145,8 @@ namespace SearchAllOccupationsToolAPI.Repositories
             var salaryChoice = (AnnualSalaryValues)filter.AnnualSalaryId;
             switch (salaryChoice)
             {
-                case AnnualSalaryValues.LessThan20:
-                    occupations = occupations.Where(o => o.Noc.MedianSalary < 20000);
-                    break;
-                case AnnualSalaryValues.Between20And40:
-                    occupations = occupations.Where(o => o.Noc.MedianSalary >= 20000 && o.Noc.MedianSalary < 40000);
+                case AnnualSalaryValues.LessThan40:
+                    occupations = occupations.Where(o => o.Noc.MedianSalary > 0 && o.Noc.MedianSalary < 40000);
                     break;
                 case AnnualSalaryValues.Between40And60:
                     occupations = occupations.Where(o => o.Noc.MedianSalary >= 40000 && o.Noc.MedianSalary < 60000);
@@ -199,7 +196,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
                     continue;
                 
                 if (b > 0)
-                    nocItems.Add(b.ToString("D4"));
+                    nocItems.Add(b.ToString("D5"));
             }
 
             return nocItems
