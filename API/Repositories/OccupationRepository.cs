@@ -46,7 +46,7 @@ namespace SearchAllOccupationsToolAPI.Repositories
                     || o.Noc.Description.Contains(filter.Keywords)
                     || o.Noc.CommonJobTitles.Any(jo => jo.JobTitle.Contains(filter.Keywords)));
 
-            if (filter.EducationLevelId > 0)
+            if (filter.EducationLevelId >= 0)
                 occupations = occupations.Where(o => o.Noc.EducationLevel.Id == filter.EducationLevelId);
 
             if (filter.FullTimeOrPartTimeId > 0)
