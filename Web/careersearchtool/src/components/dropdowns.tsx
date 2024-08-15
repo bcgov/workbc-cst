@@ -123,7 +123,7 @@ const Dropdowns: FunctionComponent = () => {
 
     function handleChangeEducation(value: Key, options: any) {
         try {
-            if (!!value && !!options && options.value) {
+            if ((!!value || value==0)  && !!options && options.value) {
                 setUserSelection({...userSelection, education: {id: value as number, value: options.value}})
             } 
         } catch (error) {
@@ -417,8 +417,7 @@ function applyFilters() {
                                     className="sao-filters__select"
                                     style={{ width: '100%' }}
                                     value = {userSelection?.occupational_group?.value}
-                                    onChange = {handleChangeOccupationalGroup}
-                                    showPlaceHolderAsOption={true}
+                                    onChange = {handleChangeOccupationalGroup}                                   
                                     placeholder={"All"}
                                     tabIndex={5} />
                             </div>
