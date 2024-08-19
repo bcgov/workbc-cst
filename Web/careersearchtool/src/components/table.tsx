@@ -47,6 +47,11 @@ const ResultsTable: FunctionComponent = () => {
         if (!!filterOption && !isReset) {
             const filterParams = getFilterParams(filterOption)
             setParams(filterParams)
+            const table = document.querySelector(".results-table .ant-table-body")
+            if (table !== null) {
+                table.scrollTop = 0
+            }
+            
         }
         if(isReset) {
             setParams(defaultFilterParams)
