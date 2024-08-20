@@ -14,14 +14,16 @@ WITH
 --Add a column to parse the FullOrPartTimeId int value from the varchar data.
 ALTER TABLE #TempSalary ADD part_full_time_id int
 
+--Update #TempSalary with part_full_time as per the data in the dbo. [FullOrPartTime] Id column values.
+--If this script run fails, please update the values 19 and 20 to the equivalent values in the Id column of dbo. [FullOrPartTime] table.  
 Update #TempSalary
   Set part_full_time_id = case
-  when #TempSalary.part_full_time = 'Higher chance of part-time' then 11
-  when #TempSalary.part_full_time = 'Higher chance of full-time' then 12
+  when #TempSalary.part_full_time = 'Higher chance of part-time' then 19
+  when #TempSalary.part_full_time = 'Higher chance of full-time' then 20
   else null
   End
 
----Update #TempSalary with income as int
+--Update #TempSalary with income as int
 Update #TempSalary SET calculated_median_annual_salary = CAST((ROUND(CAST (calculated_median_annual_salary AS NUMERIC(20,4)),0)) AS INT)
 From #TempSalary
 
