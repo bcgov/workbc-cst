@@ -29,7 +29,13 @@ const ResultsTable: FunctionComponent = () => {
     useEffect(() => {
         const table = document.querySelector(".results-table .ant-table-body")
         if (table !== null) {
-            table.scrollTop = scrollPosition
+            //Adding this condition to handle a known bug in Mozilla Firefox which cannot handle scrollPosition value to be zero.
+            if (scrollPosition == 0) {
+                table.scrollTop = 1
+            }
+            else {
+                table.scrollTop = scrollPosition
+            }
         }
     },[scrollPosition])
 
@@ -48,8 +54,9 @@ const ResultsTable: FunctionComponent = () => {
             const filterParams = getFilterParams(filterOption)
             setParams(filterParams)
             const table = document.querySelector(".results-table .ant-table-body")
+            //Setting the scrollTop position to 1 to handle a known bug in Mozilla Firefox which cannot handle scrollPosition value to be zero.
             if (table !== null) {
-                table.scrollTop = 0
+                table.scrollTop = 1
             }
             
         }
