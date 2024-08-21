@@ -15,11 +15,10 @@ WITH
 ALTER TABLE #TempSalary ADD part_full_time_id int
 
 --Update #TempSalary with part_full_time as per the data in the dbo. [FullOrPartTime] Id column values.
---If this script run fails, please update the values 19 and 20 to the equivalent values in the Id column of dbo. [FullOrPartTime] table.  
 Update #TempSalary
   Set part_full_time_id = case
-  when #TempSalary.part_full_time = 'Higher chance of part-time' then 19
-  when #TempSalary.part_full_time = 'Higher chance of full-time' then 20
+  when #TempSalary.part_full_time = 'Higher chance of part-time' then (Select Id from FullOrPartTime where Value = 'Higher chance of part-time')
+  when #TempSalary.part_full_time = 'Higher chance of full-time' then (Select Id from FullOrPartTime where Value = 'Higher chance of full-time')
   else null
   End
 
