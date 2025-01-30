@@ -1,0 +1,41 @@
+--Load file contents into a temp table
+Declare @JSON varchar(max)
+SELECT @JSON=BulkColumn
+FROM OPENROWSET (BULK 'C:\src_cst_new\SSOT\ssot_career_search_openings.json', SINGLE_CLOB) import
+SELECT * Into #TempSalary
+FROM OPENJSON (@JSON)
+WITH 
+(
+    [noc_2021] varchar(10), 
+    [calculated_median_annual_salary] varchar(255),
+    [part_full_time] varchar(255)
+)
+
+--Add a column to parse the FullOrPartTimeId int value from the varchar data.
+ALTER TABLE #TempSalary ADD part_full_time_id int
+
+--Update #TempSalary with part_full_time as per the data in the dbo. [FullOrPartTime] Id column values.
+Update #TempSalary
+  Set part_full_time_id = case
+  when #TempSalary.part_full_time = 'Higher chance of part-time' then (Select Id from FullOrPartTime where Value = 'Higher chance of part-time')
+  when #TempSalary.part_full_time = 'Higher chance of full-time' then (Select Id from FullOrPartTime where Value = 'Higher chance of full-time')
+  else null
+  End
+
+--Update #TempSalary with income as int
+Update #TempSalary SET calculated_median_annual_salary = CAST((ROUND(CAST (calculated_median_annual_salary AS NUMERIC(20,4)),0)) AS INT)
+From #TempSalary
+
+--Update new income and FullOrPartTimeId in NOC table from temp table
+Update NOC SET MedianSalary = #TempSalary.calculated_median_annual_salary, FullOrPartTimeId =#TempSalary.part_full_time_id
+FROM #TempSalary WHERE NOC.NOCCode = #TempSalary.noc_2021 
+
+--Update the null median salary to zero
+Update NOC SET MedianSalary = 0
+where MedianSalary is null
+
+--Drop temp table
+Drop table #TempSalary
+
+--Check results
+Select * from NOC
