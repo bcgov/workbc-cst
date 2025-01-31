@@ -38,6 +38,17 @@ Update #TempGroups
 SET region = 'All'
 where region = 'British Columbia'
 
+--Update the industry adn sub-industry to align with the code.
+Update #TempGroups
+SET industry_agg = 'All'
+where industry_agg = 'All Industries'
+
+--Update the industry adn sub-industry to align with the code.
+Update #TempGroups
+SET industry_sub = 'All'
+where industry_sub = 'All Industries'
+
+
 Update #TempGroups
 Set NOCCodeId = n.Id
 From #TempGroups t JOIN NOC n
