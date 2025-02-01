@@ -232,7 +232,7 @@ const ResultsTable: FunctionComponent = () => {
         },
         {
             title: (<div className="table-header"> 
-                <div className="table-header__title"> Job openings <span>(2023-2033)</span> </div>
+                <div className="table-header__title"> Job openings <span>(2024-2034)</span> </div>
                 <Popover placement="bottomRight" title={title} content={jobContent} overlayClassName="sort-options__popover-inner" 
                 className="sort-options__popover" trigger="click" visible={jobsSortVisible} onVisibleChange={handleJobsSortVisible}>
                     <span className="table-header__icon" style={{marginLeft: '15px'}}> <DownSortIcon /></span>
