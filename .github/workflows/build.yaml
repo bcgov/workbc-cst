@@ -41,12 +41,12 @@ jobs:
       working-directory: "Web/careersearchtool"
 #    - run: npm test
     - name: Upload artifacts - frontend
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: web
         path: Web/careersearchtool/public/
     - name: Upload artifacts - backend
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: api
-        path: Publish/        
+        path: Publish/
