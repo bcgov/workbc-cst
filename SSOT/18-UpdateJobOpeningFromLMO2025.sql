@@ -1,6 +1,6 @@
 --Drop the foreign keys and primary keys on Id column in JobOpening table.
 ALTER TABLE JobOpening
-DROP CONSTRAINT FK_JobOpening_NOC;
+DROP CONSTRAINT IF EXISTS FK_JobOpening_NOC;
 
 --Delete the existing data in Job Openings table.
 delete from JobOpening

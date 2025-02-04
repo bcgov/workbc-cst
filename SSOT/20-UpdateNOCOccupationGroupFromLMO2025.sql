@@ -1,6 +1,6 @@
 --Drop the foreign keys and primary keys on Id column in NOCOccupationGroup table.
 ALTER TABLE NOCOccupationGroup
-DROP CONSTRAINT FK_NOCOccupationGroup_NOC;
+DROP CONSTRAINT IF EXISTS FK_NOCOccupationGroup_NOC;
 
 --Delete the existing data in NOCOccupationGroup table.
 delete from NOCOccupationGroup
