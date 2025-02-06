@@ -19,17 +19,19 @@ const CompareCareers: FunctionComponent = () => {
     const [profileImagesPath, setProfileImagesPath] = useState<string>()
     const [careerProfileUrl, setCareerProfileUrl] = useState<string>()
     const [viewJobsUrl, setViewJobsUrl] = useState<string>()
+    const [viewJobsDates, setViewJobsDates] = useState<string>()
 
     const {data: piPathData, isValidating: isFetchingPIPath, isSettled: isPiPathFetched } = useGetSystemConfigurations({name: "ProfileImagesPath"})
     const {data: CPUrlData, isValidating: isFetchingCPUrl, isSettled: isCPUrlFetched } = useGetSystemConfigurations({name: "CareerProfileBaseUrl"})
     const {data: JOUrlData, isValidating: isFetchingJOUrl, isSettled: isJOUrlFetched } = useGetSystemConfigurations({name: "JobOpeningsBaseUrl"})
+    const {data: JODateRange, isValidating: isFetchingJODates, isSettled: isJODateFetched } = useGetSystemConfigurations({ name: "JobOpeningsDateRange" })
     const [width] = useWindowSize()
     const [emailParams, setEmailParams] = useState('')
 
     function isMobile() {
         return width < 1200
     }
-    
+
     useEffect(() => {
         setEmailParams(_getCareers())
         if(!!isMobile()){
@@ -54,6 +56,12 @@ const CompareCareers: FunctionComponent = () => {
             setViewJobsUrl(JOUrlData.value)
         }
     }, [isFetchingJOUrl, isJOUrlFetched])
+
+    useEffect(() => {
+        if (!isFetchingJODates && isJODateFetched && JODateRange) {
+            setViewJobsDates(JODateRange.value)
+        }
+    }, [isFetchingJODates, isJODateFetched, JODateRange])
 
     checkedNocs.forEach(noc => {
         const {data: occupationSummary, isValidating: isFetchingSummary, isSettled: isSummaryFetched} = useGetOccupationSummary(noc)
@@ -82,7 +90,7 @@ const CompareCareers: FunctionComponent = () => {
     function _onReady(event) {
         event.target.pauseVideo();
         var player_info = {
-            status: 'Ready', 
+            status: 'Ready',
             video_id: event.target.getVideoData().video_id,
             video_src: event.target.getVideoUrl(),
             title: event.target.getVideoData().title,
@@ -93,28 +101,28 @@ const CompareCareers: FunctionComponent = () => {
 
     function _onStateChange(event) {
         var player_info = {
-            status: '', 
+            status: '',
             video_id: event.target.getVideoData().video_id,
             video_src: event.target.getVideoUrl(),
             title: event.target.getVideoData().title,
             author: event.target.getVideoData().author
         };
-          
+
         switch(event.data) {
-        case YT.PlayerState.PLAYING:
-            player_info.status = 'Playing';
-            track_youtube_player(player_info);
-            break;
-        case YT.PlayerState.PAUSED:
-            player_info.status = 'Paused';
-            track_youtube_player(player_info);
-            break;
-        case YT.PlayerState.ENDED:
-            player_info.status = 'Ended';
-            track_youtube_player(player_info);
-            break;
-        default:
-            return;
+            case YT.PlayerState.PLAYING:
+                player_info.status = 'Playing';
+                track_youtube_player(player_info);
+                break;
+            case YT.PlayerState.PAUSED:
+                player_info.status = 'Paused';
+                track_youtube_player(player_info);
+                break;
+            case YT.PlayerState.ENDED:
+                player_info.status = 'Ended';
+                track_youtube_player(player_info);
+                break;
+            default:
+                return;
         }
     }
 
@@ -134,23 +142,23 @@ const CompareCareers: FunctionComponent = () => {
     function jobProfileClickAnalytic(url, noc) {
         window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
             "data": {
-            "click_type": "job_profile",
-            "source": "compare",
-            "text": noc,
+                "click_type": "job_profile",
+                "source": "compare",
+                "text": noc,
             "url": url+noc
             }
-      });
+        });
     }[]
-    
+
     function findJobsClickAnalytic(url, noc){
         window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_search_click/jsonschema/1-0-0",
             "data": {
-            "click_type": "find_jobs",
-            "source": "compare",
-            "text": noc,
+                "click_type": "find_jobs",
+                "source": "compare",
+                "text": noc,
             "url": url+noc
             }
-      });
+        });
     }
 
     function youtubeAnalytics(noc, videoid) {
@@ -169,17 +177,17 @@ const CompareCareers: FunctionComponent = () => {
             <div className="result-detail result-detail--compare">
                 <div className="result-detail__header">
                     {getHeaderTitle(careerObj.careerDetail).length > titleLength && !isMobile() && (
-                            <div>
-                                <Tooltip trigger={'hover'} 
-                                    overlayClassName="result-detail__header-tooltip" 
-                                    title={(<div>{careerObj.careerDetail.title} (NOC {careerObj.careerDetail.noc})</div>)} 
-                                    placement="bottom">
-                                    <div className="result-detail__header-details result-detail__header-details-ellipsis">
-                                        <b>{getHeaderTitle(careerObj.careerDetail)?.title}</b> {getHeaderTitle(careerObj.careerDetail)?.code}
-                                    </div>
-                                </Tooltip>
-                            </div>
-                        )}
+                        <div>
+                            <Tooltip trigger={'hover'}
+                                overlayClassName="result-detail__header-tooltip"
+                                title={(<div>{careerObj.careerDetail.title} (NOC {careerObj.careerDetail.noc})</div>)}
+                                placement="bottom">
+                                <div className="result-detail__header-details result-detail__header-details-ellipsis">
+                                    <b>{getHeaderTitle(careerObj.careerDetail)?.title}</b> {getHeaderTitle(careerObj.careerDetail)?.code}
+                                </div>
+                            </Tooltip>
+                        </div>
+                    )}
                     {getHeaderTitle(careerObj.careerDetail)?.length <= titleLength && !isMobile() && (
                         <div className="result-detail__header-details">
                             <b>{getHeaderTitle(careerObj.careerDetail)?.title}</b> {getHeaderTitle(careerObj.careerDetail)?.code}
@@ -205,11 +213,11 @@ const CompareCareers: FunctionComponent = () => {
                         <div className="result-body__row-right"><b>{careerObj.careerDetail?.education.value}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
-                        <div className="result-body__row-left">Job openings <span>(2024-2034)</span></div>
+                        <div className="result-body__row-left">Job openings <span>{viewJobsDates}</span></div>
                         <div className="result-body__row-right"><b>{format(careerObj.careerDetail?.jobOpenings)}</b></div>
                     </div>
                     <div className="result-body__row result-body__row--last">
-                       <div>
+                        <div>
                             {removeTags(careerObj.careerDetail?.description).display_text}
                             {
                                 removeTags(careerObj.careerDetail?.description).remaining_text.length > 0  && (
@@ -218,11 +226,11 @@ const CompareCareers: FunctionComponent = () => {
                             }
                             <span className="result-body__row-description">
                                 {removeTags(careerObj.careerDetail?.description).remaining_text}
-                            </span>  
-                        </div>                 
+                            </span>
+                        </div>
                     </div>
                 </div>
-                <div className="result-detail__footer">                            
+                <div className="result-detail__footer">
                     <div className="result-detail__footer__button-box">
                        <div style={{marginRight: '10px'}}>
                             <a href={careerProfileUrl+careerObj.careerDetail?.noc}  onClick={() => jobProfileClickAnalytic(careerProfileUrl, careerObj.careerDetail?.noc)} target="_blank" rel="noreferrer"> 
@@ -230,15 +238,15 @@ const CompareCareers: FunctionComponent = () => {
                                     View Career Profile
                                 </Button>
                             </a>
-                        </div>                  
+                        </div>
                         <div>
                             <a href={viewJobsUrl+careerObj.careerDetail?.jobBoardNoc} onClick={() => findJobsClickAnalytic(viewJobsUrl, careerObj.nocId)} target="_blank" rel="noreferrer">
                                 <Button  className="result-detail__footer__button-box__jobs" block>
                                     Find Jobs
                                 </Button>
-                            </a>  
+                            </a>
                         </div>
-                    </div>                           
+                    </div>
                 </div>
             </div>
         )
@@ -301,7 +309,7 @@ const CompareCareers: FunctionComponent = () => {
                                     <PrinterIcon />
                                 </span>
                             </span>
-                        </Popover>                                   
+                        </Popover>
 
                         <Popover placement="bottomRight" content={"Email"} trigger="hover" overlayClassName="popover-buttons__popover-inner">
                             <span>
@@ -309,10 +317,10 @@ const CompareCareers: FunctionComponent = () => {
                                     <MailIcon />
                                 </span>
                             </span>
-                        </Popover>                                   
+                        </Popover>
                     </div>
                 </div>
-                
+
                 {
                     !isFetchingPIPath && isPiPathFetched && piPathData &&  profileImagesPath && 
                     !isFetchingCPUrl && isCPUrlFetched && CPUrlData && careerProfileUrl &&

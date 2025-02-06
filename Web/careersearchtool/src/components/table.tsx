@@ -3,6 +3,7 @@ import { Table, Button, Popover, Checkbox, Modal } from 'antd'
 import { CheckboxChangeEvent } from 'antd/lib/checkbox/Checkbox'
 import { useFilterContext } from '../state/filterContext'
 import { OccupationModel } from 'client/dataTypes'
+import { useGetSystemConfigurations } from '../client/apiService'
 import { FilterOptionModel, FilterOccupationParams, IndustryTypeModel } from '../client/dataTypes'
 import { useGetOccupationsList } from '../client/apiService'
 import { defaultFilterParams } from '../state/filterReducer'
@@ -14,11 +15,12 @@ const ResultsTable: FunctionComponent = () => {
         listSize, isFetchingOccupationList, scrollPosition, setSortOption, setSelectedNoc, setWindowScroll,
         setFilteredOccupationsList, setCheckedNocs, setView, setListSize, setFetchingOccupationList, setReset } = useFilterContext()
 
+    var [viewJobsDates, setViewJobsDates] = useState<string>()
     const [params, setParams] = useState<FilterOccupationParams>(defaultFilterParams)
     const [nameSortVisible, setNameSortVisible] = useState<boolean>(false)
     const [jobsSortVisible, setJobsSortVisible] = useState<boolean>(false)
     const {data: occupationsList, isValidating, isSettled} = useGetOccupationsList(params)
-
+    var { data: JODateRange, isValidating: isFetchingJODates, isSettled: isJODateFetched } = useGetSystemConfigurations({ name: "JobOpeningsDateRange" })
     const [extraSelection, setExtraSelection] = useState<string>()
     const [width] = useWindowSize()
     
@@ -73,6 +75,12 @@ const ResultsTable: FunctionComponent = () => {
             setFetchingOccupationList(true)
         }
     }, [occupationsList, isSettled, isValidating])
+
+    useEffect(() => {
+        if (!isFetchingJODates && isJODateFetched && JODateRange) {
+            setViewJobsDates(JODateRange.value)
+        }
+    }, [isFetchingJODates, isJODateFetched, JODateRange])
 
     useEffect(() => {
         let tempList = [...filteredOccupationsList]      
@@ -231,8 +239,8 @@ const ResultsTable: FunctionComponent = () => {
             },
         },
         {
-            title: (<div className="table-header"> 
-                <div className="table-header__title"> Job openings <span>(2024-2034)</span> </div>
+            title: (<div className="table-header">
+                <div className="table-header__title">Job openings <span>{viewJobsDates}</span> </div>
                 <Popover placement="bottomRight" title={title} content={jobContent} overlayClassName="sort-options__popover-inner" 
                 className="sort-options__popover" trigger="click" visible={jobsSortVisible} onVisibleChange={handleJobsSortVisible}>
                     <span className="table-header__icon" style={{marginLeft: '15px'}}> <DownSortIcon /></span>
