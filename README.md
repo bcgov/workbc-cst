@@ -1,3 +1,4 @@
+![Lifecycle:Retired](https://img.shields.io/badge/Lifecycle-Retired-d45500)
 >⚠️ This repository has been archived.
 >
 >The Career Search Tool I was decommissioned on November 21, 2025.
