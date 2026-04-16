@@ -1,3 +1,8 @@
+>⚠️ This repository has been archived.
+>
+>The Career Search Tool I was decommissioned on November 21, 2025.
+>This code is no longer in use and is preserved for historical reference only. Please do not integrate or deploy this service.
+
 WorkBC Career Search Tool
 =============================
 
